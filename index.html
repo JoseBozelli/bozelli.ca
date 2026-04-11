@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="José Carlos Bozelli Jr., PhD — Scientific consulting in lipid biology, lipidomics and omics data science. Serving biotech, pharma and clinical labs in Canada, USA and Brazil.">
+  <title>José Carlos Bozelli Jr., PhD — Scientific Consultant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ============================================================
+       DESIGN TOKENS
+       ============================================================ */
+    :root {
+      --ink:        #0e0e0d;
+      --ink-soft:   #3a3a38;
+      --ink-muted:  #7a7a76;
+      --paper:      #f7f5f0;
+      --paper-warm: #ede9e0;
+      --accent:     #1a5c3a;
+      --accent-lt:  #e8f0eb;
+      --rule:       rgba(14,14,13,0.12);
+      --serif:      'Cormorant Garamond', Georgia, serif;
+      --mono:       'DM Mono', monospace;
+      --sans:       'Outfit', sans-serif;
+    }
+
+    /* ============================================================
+       RESET & BASE
+       ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+
+    /* ============================================================
+       PAGE WRAPPER
+       ============================================================ */
+    .page { max-width: 940px; margin: 0 auto; padding: 0 28px; }
+
+    /* ============================================================
+       LANGUAGE TOGGLE
+       ============================================================ */
+    .lang-bar {
+      position: fixed;
+      top: 18px;
+      right: 28px;
+      display: flex;
+      z-index: 200;
+      border: 0.5px solid var(--rule);
+      overflow: hidden;
+    }
+    .lang-btn {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      padding: 5px 10px;
+      background: var(--paper);
+      color: var(--ink-muted);
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s;
+    }
+    .lang-btn.active {
+      background: var(--ink);
+      color: var(--paper);
+    }
+    .lang-btn:hover:not(.active) { background: var(--paper-warm); }
+
+    /* ============================================================
+       NAV
+       ============================================================ */
+    nav {
+      border-bottom: 0.5px solid var(--rule);
+      padding: 22px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .nav-name {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+    }
+    .nav-name span { font-style: italic; color: var(--accent); }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 11px;
+      font-weight: 400;
+      color: var(--ink-muted);
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+
+    /* ============================================================
+       HERO
+       ============================================================ */
+    .hero {
+      padding: 80px 0 64px;
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 64px;
+      align-items: start;
+    }
+    .hero-tag {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hero-tag::before {
+      content: '';
+      display: inline-block;
+      width: 22px;
+      height: 0.5px;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: 54px;
+      font-weight: 300;
+      line-height: 1.12;
+      letter-spacing: -0.01em;
+      margin-bottom: 24px;
+    }
+    .hero h1 em { font-style: italic; color: var(--accent); }
+    .hero-sub {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--ink-soft);
+      line-height: 1.75;
+      margin-bottom: 38px;
+      max-width: 430px;
+    }
+    .hero-actions { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--ink);
+      color: var(--paper);
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      padding: 14px 24px;
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-primary:hover { background: var(--accent); }
+    .btn-ghost {
+      font-size: 11px;
+      color: var(--ink);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      border-bottom: 0.5px solid var(--ink);
+      padding-bottom: 1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .btn-ghost:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* Credentials card */
+    .cred-card {
+      background: var(--paper-warm);
+      border: 0.5px solid var(--rule);
+      padding: 28px;
+      position: relative;
+    }
+    .cred-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: var(--accent);
+    }
+    .cred-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--ink-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .cred-row {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      margin-bottom: 14px;
+      padding-bottom: 14px;
+      border-bottom: 0.5px solid var(--rule);
+    }
+    .cred-row:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+    .cred-num {
+      font-family: var(--serif);
+      font-size: 30px;
+      font-weight: 300;
+      color: var(--accent);
+      line-height: 1;
+      min-width: 56px;
+      flex-shrink: 0;
+    }
+    .cred-text { padding-top: 3px; }
+    .cred-text strong {
+      display: block;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+    .cred-text span { font-size: 12px; color: var(--ink-muted); line-height: 1.4; }
+
+    /* ============================================================
+       SECTION COMMONS
+       ============================================================ */
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      gap: 18px;
+      margin-bottom: 48px;
+    }
+    .section-head h2 {
+      font-family: var(--serif);
+      font-size: 38px;
+      font-weight: 300;
+      letter-spacing: -0.01em;
+    }
+    .section-num {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--ink-muted);
+      letter-spacing: 0.1em;
+    }
+    section { padding: 68px 0; border-top: 0.5px solid var(--rule); }
+
+    /* ============================================================
+       SERVICES
+       ============================================================ */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--rule);
+    }
+    .service-card {
+      background: var(--paper);
+      padding: 28px 24px;
+      transition: background 0.2s;
+    }
+    .service-card:hover { background: var(--accent-lt); }
+    .service-icon {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      margin-bottom: 14px;
+    }
+    .service-card h3 {
+      font-family: var(--serif);
+      font-size: 19px;
+      font-weight: 400;
+      margin-bottom: 10px;
+      line-height: 1.25;
+    }
+    .service-card p {
+      font-size: 13px;
+      color: var(--ink-soft);
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
+    /* ============================================================
+       WHO I SERVE
+       ============================================================ */
+    .clients-inner {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .clients-inner .section-head { margin-bottom: 16px; }
+    .clients-inner > div:first-child p {
+      font-size: 13px;
+      color: var(--ink-soft);
+      font-weight: 300;
+      line-height: 1.7;
+      margin-top: 12px;
+    }
+    .clients-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border: 0.5px solid var(--rule);
+    }
+    .client-item {
+      padding: 15px 18px;
+      border-bottom: 0.5px solid var(--rule);
+      border-right: 0.5px solid var(--rule);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: background 0.2s;
+    }
+    .client-item:hover { background: var(--accent-lt); }
+    .client-item:nth-child(even) { border-right: none; }
+    .client-item:nth-last-child(-n+2) { border-bottom: none; }
+    .client-dot {
+      width: 5px; height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+    .client-item span { font-size: 13px; color: var(--ink-soft); font-weight: 300; }
+
+    /* ============================================================
+       ABOUT
+       ============================================================ */
+    .about-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .about-text p {
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 14px;
+    }
+    .about-tag {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      margin-top: 8px;
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+    .stat { border-top: 2px solid var(--accent); padding-top: 16px; }
+    .stat-num {
+      font-family: var(--serif);
+      font-size: 42px;
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 11px;
+      color: var(--ink-muted);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      margin-top: 5px;
+      font-weight: 300;
+    }
+
+    /* ============================================================
+       CONTACT
+       ============================================================ */
+    .contact-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact-sub {
+      font-size: 14px;
+      color: var(--ink-soft);
+      font-weight: 300;
+      line-height: 1.75;
+      margin-bottom: 28px;
+    }
+    .contact-link {
+      display: block;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      margin-bottom: 10px;
+      transition: color 0.2s;
+    }
+    .contact-link:hover { color: var(--ink); }
+    .contact-meta {
+      font-size: 11px;
+      color: var(--ink-muted);
+      font-family: var(--mono);
+      letter-spacing: 0.04em;
+      line-height: 1.8;
+      margin-top: 22px;
+    }
+    /* Calendly embed container */
+    .calendly-wrap {
+      border: 0.5px solid var(--rule);
+      overflow: hidden;
+      min-height: 320px;
+      background: var(--paper-warm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .calendly-wrap iframe {
+      width: 100%;
+      min-height: 500px;
+      border: none;
+    }
+    .calendly-placeholder {
+      text-align: center;
+      padding: 40px;
+    }
+    .calendly-placeholder p {
+      font-size: 13px;
+      color: var(--ink-muted);
+      margin-bottom: 16px;
+    }
+
+    /* ============================================================
+       FOOTER
+       ============================================================ */
+    footer {
+      border-top: 0.5px solid var(--rule);
+      padding: 24px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .footer-name {
+      font-family: var(--serif);
+      font-size: 14px;
+      font-weight: 300;
+      color: var(--ink-muted);
+    }
+    .footer-links { display: flex; gap: 22px; }
+    .footer-links a {
+      font-size: 11px;
+      color: var(--ink-muted);
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* ============================================================
+       PAGE LOAD ANIMATION
+       ============================================================ */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-tag  { animation: fadeUp 0.6s ease both; animation-delay: 0.1s; }
+    .hero h1   { animation: fadeUp 0.6s ease both; animation-delay: 0.2s; }
+    .hero-sub  { animation: fadeUp 0.6s ease both; animation-delay: 0.32s; }
+    .hero-actions { animation: fadeUp 0.6s ease both; animation-delay: 0.44s; }
+    .cred-card { animation: fadeUp 0.6s ease both; animation-delay: 0.3s; }
+
+    /* ============================================================
+       RESPONSIVE
+       ============================================================ */
+    @media (max-width: 720px) {
+      .hero { grid-template-columns: 1fr; }
+      .cred-card { display: none; }
+      .hero h1 { font-size: 40px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .clients-inner { grid-template-columns: 1fr; }
+      .about-inner { grid-template-columns: 1fr; }
+      .contact-inner { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      footer { flex-direction: column; gap: 16px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       LANGUAGE TOGGLE
+       ============================================================ -->
+  <div class="lang-bar" role="navigation" aria-label="Language selector">
+    <button class="lang-btn active" onclick="setLang('en')" aria-label="English">EN</button>
+    <button class="lang-btn"        onclick="setLang('pt')" aria-label="Português">PT</button>
+  </div>
+
+  <div class="page">
+
+    <!-- ============================================================
+         NAV
+         ============================================================ -->
+    <nav>
+      <div class="nav-name">José Carlos Bozelli Jr<span>.</span></div>
+      <ul class="nav-links" role="list">
+        <li><a href="#services" data-en="Services"    data-pt="Serviços">Services</a></li>
+        <li><a href="#clients"  data-en="Clients"     data-pt="Clientes">Clients</a></li>
+        <li><a href="#about"    data-en="About"       data-pt="Sobre">About</a></li>
+        <li><a href="#contact"  data-en="Contact"     data-pt="Contato">Contact</a></li>
+      </ul>
+    </nav>
+
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
+    <section class="hero" style="border-top: none; padding-top: 80px;">
+      <div>
+        <div class="hero-tag"
+             data-en="Lipid Biology · Lipidomics · Omics Data Science"
+             data-pt="Biologia Lipídica · Lipidômica · Ciência de Dados Ômicos">
+          Lipid Biology · Lipidomics · Omics Data Science
+        </div>
+        <h1
+          data-en="Turning complex<br>biology into<br><em>actionable insight</em>"
+          data-pt="Transformando biologia<br>complexa em<br><em>ciência aplicada</em>">
+          Turning complex<br>biology into<br><em>actionable insight</em>
+        </h1>
+        <p class="hero-sub"
+           data-en="A scientist with deep expertise in lipid biology and omics data science, helping biotech, pharma, and clinical labs translate complex biological data into clear, actionable science."
+           data-pt="Cientista com doutorado e profunda expertise em biologia lipídica e ciência de dados ômicos, ajudando biotech, farmacêuticas e laboratórios clínicos a transformar dados biológicos complexos em ciência clara e aplicável.">
+          A scientist with deep expertise in lipid biology and omics data science, helping biotech, pharma, and clinical labs translate complex biological data into clear, actionable science.
+        </p>
+        <div class="hero-actions">
+          <a href="https://calendly.com/jbozellijr/15-min-intro-call" target="_blank" rel="noopener" class="btn-primary"
+             data-en="Book a discovery call →"
+             data-pt="Agendar uma conversa →">
+            Book a discovery call →
+          </a>
+          <a href="#services" class="btn-ghost"
+             data-en="View services"
+             data-pt="Ver serviços">
+            View services
+          </a>
+        </div>
+      </div>
+
+      <!-- Credentials card -->
+      <div class="cred-card" aria-label="Credentials summary">
+        <div class="cred-label"
+             data-en="Track record"
+             data-pt="Histórico">Track record</div>
+
+        <div class="cred-row">
+          <div class="cred-num">40+</div>
+          <div class="cred-text">
+            <strong data-en="Peer-reviewed publications"
+                    data-pt="Publicações revisadas por pares">Peer-reviewed publications</strong>
+            <span data-en="In the field of lipid biology &amp; analytical science"
+                  data-pt="Na área de biologia lipídica e ciência analítica">In the field of lipid biology &amp; analytical science</span>
+          </div>
+        </div>
+
+        <div class="cred-row">
+          <div class="cred-num">$450K</div>
+          <div class="cred-text">
+            <strong data-en="In awarded research funding"
+                    data-pt="Em financiamento de pesquisa aprovado">In awarded research funding</strong>
+            <span data-en="Contributed to successful grant applications (CAD)"
+                  data-pt="Contribuição para projetos aprovados (CAD)">Contributed to successful grant applications (CAD)</span>
+          </div>
+        </div>
+
+        <div class="cred-row">
+          <div class="cred-num">5K+</div>
+          <div class="cred-text">
+            <strong data-en="Samples analyzed"
+                    data-pt="Amostras analisadas">Samples analyzed</strong>
+            <span data-en="Population-based LC-MS lipidomics across 26 analytical batches"
+                  data-pt="Lipidômica LC-MS de base populacional em 26 lotes analíticos">Population-based LC-MS lipidomics across 26 analytical batches</span>
+          </div>
+        </div>
+
+        <div class="cred-row">
+          <div class="cred-num">4</div>
+          <div class="cred-text">
+            <strong data-en="Journal cover selections"
+                    data-pt="Capas de periódicos científicos">Journal cover selections</strong>
+            <span data-en="Editor of a published scientific volume on lipid biology"
+                  data-pt="Editor de volume científico publicado sobre biologia lipídica">Editor of a published scientific volume on lipid biology</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SERVICES
+         ============================================================ -->
+    <section id="services">
+      <div class="section-head">
+        <span class="section-num">01</span>
+        <h2 data-en="What I do" data-pt="O que faço">What I do</h2>
+      </div>
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="service-icon">// 01</div>
+          <h3 data-en="Lipidomics workflow consulting"
+              data-pt="Consultoria em fluxos de trabalho de lipidômica">Lipidomics workflow consulting</h3>
+          <p data-en="End-to-end LC-MS workflow design, validation, and optimization — from sample preparation through biological interpretation."
+             data-pt="Desenvolvimento, validação e otimização de fluxos de trabalho LC-MS — da preparação de amostras à interpretação biológica.">End-to-end LC-MS workflow design, validation, and optimization — from sample preparation through biological interpretation.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">// 02</div>
+          <h3 data-en="Omics data science &amp; analysis"
+              data-pt="Ciência de dados ômicos e análise">Omics data science &amp; analysis</h3>
+          <p data-en="QC pipelines, batch correction, normalization, statistical analysis, and ML-assisted multi-omics integration."
+             data-pt="Pipelines de controle de qualidade, correção de lote, normalização, análise estatística e integração multi-ômicos com aprendizado de máquina.">QC pipelines, batch correction, normalization, statistical analysis, and ML-assisted multi-omics integration.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">// 03</div>
+          <h3 data-en="Scientific strategy &amp; writing"
+              data-pt="Estratégia científica e redação">Scientific strategy &amp; writing</h3>
+          <p data-en="Grant applications, manuscripts, and investor-facing scientific summaries — backed by a track record of $450K+ in funded research."
+             data-pt="Projetos de financiamento, manuscritos e resumos científicos para investidores — com histórico de mais de $450K em pesquisa financiada.">Grant applications, manuscripts, and investor-facing scientific summaries — backed by a track record of $450K+ in funded research.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">// 04</div>
+          <h3 data-en="Biomarker discovery support"
+              data-pt="Suporte à descoberta de biomarcadores">Biomarker discovery support</h3>
+          <p data-en="Study design, lipid panel selection, and translational interpretation for clinical and precision medicine applications."
+             data-pt="Desenho de estudos, seleção de painéis lipídicos e interpretação translacional para aplicações clínicas e de medicina de precisão.">Study design, lipid panel selection, and translational interpretation for clinical and precision medicine applications.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">// 05</div>
+          <h3 data-en="Training &amp; education"
+              data-pt="Treinamento e educação">Training &amp; education</h3>
+          <p data-en="Tailored workshops for research teams, CRO staff, and clinical scientists — delivered online or in-person, in English or Portuguese."
+             data-pt="Workshops personalizados para equipes de pesquisa, CROs e cientistas clínicos — presenciais ou online, em inglês ou português.">Tailored workshops for research teams, CRO staff, and clinical scientists — delivered online or in-person, in English or Portuguese.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">// 06</div>
+          <h3 data-en="Fractional scientific advisory"
+              data-pt="Assessoria científica fracionada">Fractional scientific advisory</h3>
+          <p data-en="Ongoing strategic partnership for teams that need senior lipidomics judgment without a full-time hire."
+             data-pt="Parceria estratégica contínua para equipes que precisam de expertise sênior em lipidômica sem uma contratação em tempo integral.">Ongoing strategic partnership for teams that need senior lipidomics judgment without a full-time hire.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         WHO I SERVE
+         ============================================================ -->
+    <section id="clients">
+      <div class="clients-inner">
+        <div>
+          <div class="section-head">
+            <span class="section-num">02</span>
+            <h2 data-en="Who I work with" data-pt="Com quem trabalho">Who I work with</h2>
+          </div>
+          <p data-en="Companies and research teams building or scaling omics capabilities — across Canada, the United States, and Brazil."
+             data-pt="Empresas e equipes de pesquisa construindo ou expandindo capacidades ômicas — no Canadá, Estados Unidos e Brasil.">
+            Biotech, pharma, and clinical teams building or scaling omics capabilities — in Canada, the United States, and Brazil.
+          </p>
+        </div>
+        <div class="clients-grid">
+          <div class="client-item"><div class="client-dot"></div><span data-en="Biotech &amp; life science startups" data-pt="Startups de biotech e ciências da vida">Biotech &amp; life science startups</span></div>
+          <div class="client-item"><div class="client-dot"></div><span data-en="Precision medicine companies" data-pt="Empresas de medicina de precisão">Precision medicine companies</span></div>
+          <div class="client-item"><div class="client-dot"></div><span data-en="Contract research organizations" data-pt="Organizações de pesquisa contratada">Contract research organizations</span></div>
+          <div class="client-item"><div class="client-dot"></div><span data-en="Digital health &amp; biomarker platforms" data-pt="Plataformas de saúde digital e biomarcadores">Digital health &amp; biomarker platforms</span></div>
+          <div class="client-item"><div class="client-dot"></div><span data-en="Clinical diagnostic labs" data-pt="Laboratórios de diagnóstico clínico">Clinical diagnostic labs</span></div>
+          <div class="client-item"><div class="client-dot"></div><span data-en="Pharmaceutical companies" data-pt="Empresas farmacêuticas">Pharmaceutical companies</span></div>
+          <div class="client-item"><div class="client-dot"></div><span data-en="Translational research groups" data-pt="Grupos de pesquisa translacional">Translational research groups</span></div>
+          <div class="client-item"><div class="client-dot"></div><span data-en="Nutraceutical &amp; functional food" data-pt="Nutracêuticos e alimentos funcionais">Nutraceutical &amp; functional food</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         ABOUT
+         ============================================================ -->
+    <section id="about">
+      <div class="about-inner">
+        <div class="about-text">
+          <div class="section-head">
+            <span class="section-num">03</span>
+            <h2 data-en="About" data-pt="Sobre">About</h2>
+          </div>
+          <p data-en="I am a PhD scientist with deep expertise in lipid biology, lipidomics, and omics data science. My background spans lipid biochemistry, membrane biophysics, LC-MS analytical methods, and the statistical frameworks needed to turn large-scale biological datasets into publishable, actionable science."
+             data-pt="Sou um cientista com doutorado e profunda expertise em biologia lipídica, lipidômica e ciência de dados ômicos. Minha formação abrange bioquímica lipídica, biofísica de membranas, métodos analíticos LC-MS e as abordagens estatísticas necessárias para transformar grandes conjuntos de dados biológicos em ciência publicável e aplicável.">
+            I am a PhD scientist with deep expertise in lipid biology, lipidomics, and omics data science. My background spans lipid biochemistry, membrane biophysics, LC-MS analytical methods, and the statistical frameworks needed to turn large-scale biological datasets into publishable, actionable science.
+          </p>
+          <p data-en="Based in Hamilton, Ontario, I work with clients across Canada, the United States, and Brazil — serving as a scientific partner who brings both analytical rigor and biological depth to every engagement."
+             data-pt="Com base em Hamilton, Ontário, trabalho com clientes no Canadá, Estados Unidos e Brasil — atuando como parceiro científico que combina rigor analítico e profundidade biológica em cada projeto.">
+            Based in Hamilton, Ontario, I work with clients across Canada, the United States, and Brazil — serving as a scientific partner who brings both analytical rigor and biological depth to every engagement.
+          </p>
+          <p class="about-tag"
+             data-en="English and Portuguese"
+             data-pt="Inglês e Português">
+            Bilingual — English &amp; Portuguese
+          </p>
+        </div>
+        <div class="stats-grid">
+          <div class="stat">
+            <div class="stat-num">40+</div>
+            <div class="stat-label" data-en="Publications" data-pt="Publicações">Publications</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">$450K</div>
+            <div class="stat-label" data-en="Research funding" data-pt="Financiamento">Research funding</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">5K+</div>
+            <div class="stat-label" data-en="Samples analyzed" data-pt="Amostras analisadas">Samples analyzed</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">4</div>
+            <div class="stat-label" data-en="Journal covers" data-pt="Capas de periódicos">Journal covers</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACT
+         ============================================================ -->
+    <section id="contact">
+      <div class="contact-inner">
+        <div>
+          <div class="section-head">
+            <span class="section-num">04</span>
+            <h2 data-en="Start a conversation" data-pt="Vamos conversar">Start a conversation</h2>
+          </div>
+          <p class="contact-sub"
+             data-en="If you're building omics capabilities, navigating complex data, or need a scientific partner — let's talk. Intro calls are 15 minutes and free."
+             data-pt="Se você está desenvolvendo capacidades ômicas, analisando dados complexos ou precisa de um parceiro científico — vamos conversar. As chamadas introdutórias são gratuitas e duram 15 min.">
+            If you're building omics capabilities, navigating complex data, or need a scientific partner — let's talk. Discovery calls are 30 minutes and free.
+          </p>
+          <a href="/cdn-cgi/l/email-protection#5c36332f391c3e332639303035723f3d" class="contact-link">→ <span class="__cf_email__" data-cfemail="2d47425e486d4f425748414144034e4c">[email&#160;protected]</span></a>
+          <a href="https://linkedin.com/in/jose-carlos-bozelli-jr" target="_blank" rel="noopener" class="contact-link">→ LinkedIn</a>
+          <p class="contact-meta">
+            Hamilton, Ontario · Canada<br>
+            <span data-en="Serving CA · US · BR" data-pt="Atendendo CA · US · BR">Serving CA · US · BR</span>
+          </p>
+        </div>
+
+        <!-- Calendly inline embed — replace jbozellijr/15min -->
+        <div class="calendly-wrap">
+          <div class="calendly-placeholder" id="calendly-placeholder">
+            <p data-en="Calendar booking coming soon." data-pt="Agendamento em breve.">Calendar booking coming soon.</p>
+            <a href="#" class="btn-primary"
+               data-en="Book a call →" data-pt="Agendar →">Book a call →</a>
+          </div>
+          <!--
+            TO ACTIVATE CALENDLY:
+            1. Replace jbozellijr/15min below with your real Calendly URL
+            2. Delete the calendly-placeholder div above
+            3. Uncomment the script tag below
+          -->
+          <!-- <iframe src="https://calendly.com/jbozellijr/15min?embed_type=Inline&hide_landing_page_details=1&hide_gdpr_banner=1" frameborder="0"></iframe> -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FOOTER
+         ============================================================ -->
+    <footer>
+      <div class="footer-name">José Carlos Bozelli Jr., PhD · bozelli.ca</div>
+      <div class="footer-links">
+        <a href="https://linkedin.com/in/jose-carlos-bozelli-jr" target="_blank" rel="noopener"
+           data-en="LinkedIn" data-pt="LinkedIn">LinkedIn</a>
+        <a href="https://substack.com/YOUR_SUBSTACK" target="_blank" rel="noopener"
+           data-en="Newsletter" data-pt="Newsletter">Newsletter</a>
+      </div>
+    </footer>
+
+  </div><!-- /.page -->
+
+  <!-- ============================================================
+       LANGUAGE SWITCH SCRIPT
+       ============================================================ -->
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    function setLang(lang) {
+      // Update button states
+      document.querySelectorAll('.lang-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent.trim().toLowerCase() === lang);
+      });
+      // Update html lang attribute
+      document.documentElement.lang = lang === 'pt' ? 'pt-BR' : 'en';
+      // Swap all data-en / data-pt elements
+      document.querySelectorAll('[data-en]').forEach(el => {
+        const text = el.getAttribute('data-' + lang);
+        if (!text) return;
+        // Use innerHTML to support <br> and <em> tags
+        el.innerHTML = text;
+      });
+      // Persist preference
+      localStorage.setItem('lang', lang);
+    }
+
+    // On load, apply saved language or browser preference
+    (function() {
+    

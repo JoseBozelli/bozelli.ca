@@ -1,0 +1,14 @@
+# Private operational notes — never push
+NOTES.md
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+*.swp
+*.swo
+
+# Empty folder placeholders
+assets/**/.gitkeep
