@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About José Carlos Bozelli Jr., PhD — lipid biologist, lipidomics consultant, and omics data scientist based in Hamilton, Ontario.">
+  <title>About — José Carlos Bozelli Jr., PhD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    .about-hero {
+      background: var(--paper-warm);
+      padding: 120px 0 80px;
+      border-bottom: 0.5px solid var(--rule);
+    }
+    .about-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 80px;
+      align-items: end;
+    }
+    .about-hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 300;
+      line-height: 1.12;
+      letter-spacing: -0.01em;
+      margin-bottom: 20px;
+    }
+    .about-hero h1 em { font-style: italic; color: var(--accent); }
+    .about-hero-sub {
+      font-size: 15px;
+      color: var(--ink-soft);
+      font-weight: 300;
+      line-height: 1.8;
+      max-width: 500px;
+    }
+    .about-photo-hero {
+      aspect-ratio: 3/4;
+      background: var(--paper-mid);
+      border: 0.5px solid var(--rule-mid);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .about-photo-hero img { width: 100%; height: 100%; object-fit: cover; }
+    .photo-placeholder {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--ink-muted);
+      letter-spacing: 0.08em;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* Bio section */
+    .bio-section { padding: 80px 0; }
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+    .bio-col p {
+      font-size: 15px;
+      color: var(--ink-soft);
+      line-height: 1.85;
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+    .bio-col p:last-child { margin-bottom: 0; }
+
+    /* Credentials */
+    .cred-section { background: var(--paper-warm); padding: 80px 0; }
+    .cred-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--rule-mid);
+      margin-top: 48px;
+    }
+    .cred-block {
+      background: var(--paper-warm);
+      padding: 36px 28px;
+      transition: background 0.2s;
+    }
+    .cred-block:hover { background: var(--white); }
+    .cred-block-num {
+      font-family: var(--serif);
+      font-size: 52px;
+      font-weight: 300;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 10px;
+    }
+    .cred-block-title {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 6px;
+    }
+    .cred-block-desc {
+      font-size: 12px;
+      color: var(--ink-muted);
+      font-weight: 300;
+      line-height: 1.55;
+    }
+
+    /* Background timeline */
+    .background-section { padding: 80px 0; }
+    .timeline { margin-top: 48px; }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 40px;
+      padding: 32px 0;
+      border-bottom: 0.5px solid var(--rule);
+      align-items: start;
+    }
+    .timeline-item:last-child { border-bottom: none; }
+    .timeline-period {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--ink-muted);
+      letter-spacing: 0.08em;
+      padding-top: 3px;
+    }
+    .timeline-content h4 {
+      font-family: var(--serif);
+      font-size: 20px;
+      font-weight: 400;
+      margin-bottom: 6px;
+    }
+    .timeline-content p {
+      font-size: 13px;
+      color: var(--ink-soft);
+      font-weight: 300;
+      line-height: 1.65;
+    }
+
+    @media (max-width: 768px) {
+      .about-hero-grid { grid-template-columns: 1fr; }
+      .about-photo-hero { display: none; }
+      .bio-grid { grid-template-columns: 1fr; gap: 0; }
+      .cred-grid { grid-template-columns: 1fr 1fr; }
+      .timeline-item { grid-template-columns: 1fr; gap: 8px; }
+      .about-hero { padding: 100px 0 60px; }
+    }
+    @media (max-width: 500px) {
+      .cred-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body data-page="about">
+
+  <div class="lang-bar">
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" data-lang="pt" onclick="setLang('pt')">PT</button>
+  </div>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">José Carlos Bozelli Jr<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html" data-page="home" data-en="Home" data-pt="Início">Home</a></li>
+        <li><a href="services.html" data-page="services" data-en="Services" data-pt="Serviços">Services</a></li>
+        <li><a href="about.html" data-page="about" data-en="About" data-pt="Sobre">About</a></li>
+        <li><a href="contact.html" data-page="contact" class="nav-cta" data-en="Book a call" data-pt="Agendar">Book a call</a></li>
+      </ul>
+      <div class="nav-mobile-toggle"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <div class="about-hero page-top">
+    <div class="container">
+      <div class="about-hero-grid">
+        <div>
+          <div class="section-label reveal" data-en="About" data-pt="Sobre">About</div>
+          <h1 class="reveal reveal-delay-1"
+              data-en="Lipid scientist.<br><em>Scientific partner.</em>"
+              data-pt="Cientista lipidista.<br><em>Parceiro científico.</em>">
+            Lipid scientist.<br><em>Scientific partner.</em>
+          </h1>
+          <p class="about-hero-sub reveal reveal-delay-2"
+             data-en="PhD scientist with deep expertise in lipid biology, lipidomics, and omics data science. Based in Hamilton, Ontario. Working with clients in Canada, the United States, and Brazil."
+             data-pt="Cientista com doutorado e profunda expertise em biologia lipídica, lipidômica e ciência de dados ômicos. Com base em Hamilton, Ontário. Atendendo clientes no Canadá, Estados Unidos e Brasil.">
+            PhD scientist with deep expertise in lipid biology, lipidomics, and omics data science. Based in Hamilton, Ontario. Working with clients in Canada, the United States, and Brazil.
+          </p>
+        </div>
+        <div class="about-photo-hero reveal reveal-delay-3">
+          <div class="photo-placeholder">
+            <p data-en="Photo coming soon" data-pt="Foto em breve">Photo coming soon</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BIO -->
+  <section class="bio-section">
+    <div class="container">
+      <div class="bio-grid">
+        <div class="bio-col reveal">
+          <p data-en="My scientific background begins in the fundamental biology of lipids — their physical chemistry, membrane interactions, and roles in cellular signaling. I spent years investigating how lipids behave at the molecular level, how they mediate biological processes, and how disruptions in lipid biology connect to disease."
+             data-pt="Minha formação científica começa na biologia fundamental dos lipídeos — sua físico-química, interações com membranas e papéis na sinalização celular. Passei anos investigando como os lipídeos se comportam no nível molecular e como perturbações na biologia lipídica se conectam a doenças.">
+            My scientific background begins in the fundamental biology of lipids — their physical chemistry, membrane interactions, and roles in cellular signaling. I spent years investigating how lipids behave at the molecular level, how they mediate biological processes, and how disruptions in lipid biology connect to disease.
+          </p>
+          <p data-en="That foundation shapes how I approach lipidomics data. Most lipidomics consultants come from the analytical chemistry or data science side and learned the biology later. I come from the biology — and developed the analytical and computational expertise to work with large-scale LC-MS datasets, build QC frameworks, and integrate omics data layers."
+             data-pt="Essa base molda minha abordagem aos dados de lipidômica. A maioria dos consultores vem do lado da química analítica e aprendeu a biologia depois. Eu venho da biologia — e desenvolvi a expertise analítica e computacional para trabalhar com grandes conjuntos de dados LC-MS.">
+            That foundation shapes how I approach lipidomics data. Most lipidomics consultants come from the analytical chemistry or data science side and learned the biology later. I come from the biology — and developed the analytical and computational expertise to work with large-scale LC-MS datasets, build QC frameworks, and integrate omics data layers.
+          </p>
+        </div>
+        <div class="bio-col reveal reveal-delay-2">
+          <p data-en="My most recent work as a Research Associate at McMaster University involved large-scale LC-MS lipidomics on the ENANI-2019 cohort — a nationally representative pediatric study spanning over 5,000 samples and 26 analytical batches. That project required designing and validating QC pipelines capable of handling population-scale biological complexity."
+             data-pt="Meu trabalho mais recente como Pesquisador Associado na Universidade McMaster envolveu lipidômica LC-MS em larga escala no coorte ENANI-2019 — um estudo pediátrico de base populacional com mais de 5.000 amostras e 26 lotes analíticos.">
+            My most recent work as a Research Associate at McMaster University involved large-scale LC-MS lipidomics on the ENANI-2019 cohort — a nationally representative pediatric study spanning over 5,000 samples and 26 analytical batches. That project required designing and validating QC pipelines capable of handling population-scale biological complexity.
+          </p>
+          <p data-en="I am also bilingual — working fluently in English and Portuguese — which allows me to serve clients and communicate science across the Canadian, American, and Brazilian markets with equal depth and cultural fluency."
+             data-pt="Sou bilíngue — trabalhando fluentemente em inglês e português — o que me permite atender clientes nos mercados canadense, americano e brasileiro com igual profundidade e fluência cultural.">
+            I am also bilingual — working fluently in English and Portuguese — which allows me to serve clients and communicate science across the Canadian, American, and Brazilian markets with equal depth and cultural fluency.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDENTIALS -->
+  <section class="cred-section">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label" data-en="Track record" data-pt="Histórico">Track record</div>
+        <h2 class="section-h2"
+            data-en="Built on <em>real scientific work</em>"
+            data-pt="Construído sobre <em>trabalho científico real</em>">
+          Built on <em>real scientific work</em>
+        </h2>
+      </div>
+      <div class="cred-grid">
+        <div class="cred-block reveal reveal-delay-1">
+          <div class="cred-block-num" data-count="40" data-suffix="+">40+</div>
+          <div class="cred-block-title" data-en="Peer-reviewed publications" data-pt="Publicações científicas">Peer-reviewed publications</div>
+          <div class="cred-block-desc" data-en="Across lipid biology, biochemistry, and analytical science" data-pt="Em biologia lipídica, bioquímica e ciência analítica">Across lipid biology, biochemistry, and analytical science</div>
+        </div>
+        <div class="cred-block reveal reveal-delay-2">
+          <div class="cred-block-num">$450K</div>
+          <div class="cred-block-title" data-en="In awarded research funding" data-pt="Em financiamento aprovado">In awarded research funding</div>
+          <div class="cred-block-desc" data-en="Contributed to successful grant applications (CAD)" data-pt="Contribuição para projetos aprovados (CAD)">Contributed to successful grant applications (CAD)</div>
+        </div>
+        <div class="cred-block reveal reveal-delay-3">
+          <div class="cred-block-num" data-count="5" data-suffix="K+">5K+</div>
+          <div class="cred-block-title" data-en="Samples analyzed" data-pt="Amostras analisadas">Samples analyzed</div>
+          <div class="cred-block-desc" data-en="Population-based LC-MS lipidomics, 26 analytical batches" data-pt="Lipidômica LC-MS de base populacional, 26 lotes analíticos">Population-based LC-MS lipidomics, 26 analytical batches</div>
+        </div>
+        <div class="cred-block reveal reveal-delay-4">
+          <div class="cred-block-num" data-count="4">4</div>
+          <div class="cred-block-title" data-en="Journal cover selections" data-pt="Capas de periódicos">Journal cover selections</div>
+          <div class="cred-block-desc" data-en="Editor of a published scientific volume on lipid biology" data-pt="Editor de volume científico sobre biologia lipídica">Editor of a published scientific volume on lipid biology</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BACKGROUND -->
+  <section class="background-section">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label" data-en="Background" data-pt="Formação">Background</div>
+        <h2 class="section-h2"
+            data-en="Academic foundation,<br><em>industry focus</em>"
+            data-pt="Base acadêmica,<br><em>foco na indústria</em>">
+          Academic foundation,<br><em>industry focus</em>
+        </h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item reveal">
+          <div class="timeline-period">2023 — 2025</div>
+          <div class="timeline-content">
+            <h4 data-en="Research Associate — McMaster University" data-pt="Pesquisador Associado — Universidade McMaster">Research Associate — McMaster University</h4>
+            <p data-en="Large-scale LC-MS lipidomics on the ENANI-2019 pediatric cohort. Designed and validated QC pipelines for 5,000+ samples across 26 analytical batches. Department of Chemistry and Chemical Biology, Hamilton, Ontario."
+               data-pt="Lipidômica LC-MS em larga escala no coorte pediátrico ENANI-2019. Design e validação de pipelines de QC para mais de 5.000 amostras. Departamento de Química e Biologia Química, Hamilton, Ontário.">
+              Large-scale LC-MS lipidomics on the ENANI-2019 pediatric cohort. Designed and validated QC pipelines for 5,000+ samples across 26 analytical batches. Department of Chemistry and Chemical Biology, Hamilton, Ontario.
+            </p>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-period" data-en="Prior academic career" data-pt="Carreira acadêmica anterior">Prior academic career</div>
+          <div class="timeline-content">
+            <h4 data-en="Lipid biology, biochemistry &amp; biophysics research" data-pt="Pesquisa em biologia lipídica, bioquímica e biofísica">Lipid biology, biochemistry &amp; biophysics research</h4>
+            <p data-en="Extensive research at the intersection of lipids, membranes, and biological function — contributing to 40+ peer-reviewed publications and 4 journal cover selections across leading analytical and biochemistry journals."
+               data-pt="Pesquisa extensiva na interseção de lipídeos, membranas e função biológica — contribuindo para mais de 40 publicações científicas e 4 capas de periódicos.">
+              Extensive research at the intersection of lipids, membranes, and biological function — contributing to 40+ peer-reviewed publications and 4 journal cover selections across leading analytical and biochemistry journals.
+            </p>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-period">2024</div>
+          <div class="timeline-content">
+            <h4 data-en="Editor — Published scientific volume on lipid biology" data-pt="Editor — Volume científico sobre biologia lipídica">Editor — Published scientific volume on lipid biology</h4>
+            <p data-en="A multi-year editorial project at the intersection of lipids, membranes, and biological function — completed and published in 2024."
+               data-pt="Projeto editorial de vários anos na interseção de lipídeos, membranas e função biológica — concluído e publicado em 2024.">
+              A multi-year editorial project at the intersection of lipids, membranes, and biological function — completed and published in 2024.
+            </p>
+          </div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-period">2025 —</div>
+          <div class="timeline-content">
+            <h4 data-en="Independent scientific consultant" data-pt="Consultor científico independente">Independent scientific consultant</h4>
+            <p data-en="Building a location-independent consulting practice in lipidomics and omics data science — serving biotech, pharma, and clinical labs across Canada, the United States, and Brazil."
+               data-pt="Desenvolvendo uma prática de consultoria independente em lipidômica e ciência de dados ômicos — atendendo biotech, farmacêuticas e laboratórios clínicos no Canadá, Estados Unidos e Brasil.">
+              Building a location-independent consulting practice in lipidomics and omics data science — serving biotech, pharma, and clinical labs across Canada, the United States, and Brazil.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background: var(--accent); padding: 80px 0; text-align: center;">
+    <div class="container">
+      <h2 class="reveal" style="font-family: var(--serif); font-size: clamp(28px,4vw,44px); font-weight: 300; color: var(--white); margin-bottom: 20px;"
+          data-en="Ready to work together?"
+          data-pt="Pronto para trabalharmos juntos?">
+        Ready to work together?
+      </h2>
+      <p class="reveal reveal-delay-1" style="font-size: 15px; color: rgba(255,255,255,0.75); font-weight: 300; margin-bottom: 36px; line-height: 1.75;"
+         data-en="Book a 15-minute call and let's see if there's a fit."
+         data-pt="Agende 15 minutos e veja se há compatibilidade.">
+        Book a 15-minute call and let's see if there's a fit.
+      </p>
+      <a href="contact.html" class="btn reveal reveal-delay-2" style="background: var(--white); color: var(--accent);"
+         data-en="Book a call →" data-pt="Agendar →">Book a call →</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-name">José Carlos Bozelli Jr., PhD · bozelli.ca</div>
+      <div class="footer-links">
+        <a href="https://linkedin.com/in/jose-carlos-bozelli-jr" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="services.html" data-en="Services" data-pt="Serviços">Services</a>
+        <a href="contact.html" data-en="Contact" data-pt="Contato">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

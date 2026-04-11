@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Book a discovery call with José Carlos Bozelli Jr., PhD — scientific consultant in lipidomics and omics data science.">
+  <title>Contact — José Carlos Bozelli Jr., PhD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+  <style>
+    .contact-hero {
+      background: var(--paper-warm);
+      padding: 120px 0 80px;
+      border-bottom: 0.5px solid var(--rule);
+    }
+    .contact-hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(36px, 5vw, 60px);
+      font-weight: 300;
+      line-height: 1.12;
+      letter-spacing: -0.01em;
+      margin-bottom: 20px;
+    }
+    .contact-hero h1 em { font-style: italic; color: var(--accent); }
+    .contact-hero p {
+      font-size: 15px;
+      color: var(--ink-soft);
+      font-weight: 300;
+      line-height: 1.8;
+      max-width: 520px;
+    }
+    .contact-body { padding: 80px 0; }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .contact-sidebar h3 {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+    .contact-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+    .contact-detail a {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      transition: opacity 0.2s;
+    }
+    .contact-detail a:hover { opacity: 0.7; }
+    .contact-meta {
+      font-size: 12px;
+      color: var(--ink-muted);
+      font-family: var(--mono);
+      letter-spacing: 0.05em;
+      line-height: 1.9;
+      padding-top: 24px;
+      border-top: 0.5px solid var(--rule);
+    }
+    .calendly-wrap {
+      border: 0.5px solid var(--rule-mid);
+      overflow: hidden;
+      min-height: 650px;
+    }
+    .calendly-inline-widget {
+      min-width: 320px;
+      height: 700px;
+    }
+    @media (max-width: 768px) {
+      .contact-grid { grid-template-columns: 1fr; }
+      .contact-hero { padding: 100px 0 60px; }
+    }
+  </style>
+</head>
+<body data-page="contact">
+
+  <div class="lang-bar">
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" data-lang="pt" onclick="setLang('pt')">PT</button>
+  </div>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">José Carlos Bozelli Jr<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html" data-page="home" data-en="Home" data-pt="Início">Home</a></li>
+        <li><a href="services.html" data-page="services" data-en="Services" data-pt="Serviços">Services</a></li>
+        <li><a href="about.html" data-page="about" data-en="About" data-pt="Sobre">About</a></li>
+        <li><a href="contact.html" data-page="contact" class="nav-cta" data-en="Book a call" data-pt="Agendar">Book a call</a></li>
+      </ul>
+      <div class="nav-mobile-toggle"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <div class="contact-hero page-top">
+    <div class="container">
+      <div class="section-label reveal" data-en="Contact" data-pt="Contato">Contact</div>
+      <h1 class="reveal reveal-delay-1"
+          data-en="Let's start a<br><em>conversation</em>"
+          data-pt="Vamos iniciar<br>uma <em>conversa</em>">
+        Let's start a<br><em>conversation</em>
+      </h1>
+      <p class="reveal reveal-delay-2"
+         data-en="Discovery calls are 15 minutes and free. If there's a fit, we'll know quickly. If not, I'll tell you honestly."
+         data-pt="As conversas iniciais têm 15 minutos e são gratuitas. Se houver compatibilidade, descobriremos rapidamente. Se não, serei honesto.">
+        Discovery calls are 15 minutes and free. If there's a fit, we'll know quickly. If not, I'll tell you honestly.
+      </p>
+    </div>
+  </div>
+
+  <section class="contact-body">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-sidebar reveal">
+          <h3 data-en="Get in touch" data-pt="Entre em contato">Get in touch</h3>
+          <div class="contact-detail">
+            <a href="mailto:jose@bozelli.ca">→ jose@bozelli.ca</a>
+            <a href="https://linkedin.com/in/jose-carlos-bozelli-jr" target="_blank" rel="noopener">→ LinkedIn</a>
+          </div>
+          <div class="contact-meta">
+            Hamilton, Ontario<br>
+            Canada<br><br>
+            <span data-en="Serving CA · US · BR" data-pt="Atendendo CA · US · BR">Serving CA · US · BR</span><br><br>
+            <span data-en="English and Portuguese" data-pt="Inglês e Português">English and Portuguese</span>
+          </div>
+        </div>
+        <div class="calendly-wrap reveal reveal-delay-2">
+          <div class="calendly-inline-widget"
+               data-url="https://calendly.com/jbozellijr/15-min-intro-call?hide_landing_page_details=1&hide_gdpr_banner=1&primary_color=1a5c3a"
+               style="min-width:320px;height:700px;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-name">José Carlos Bozelli Jr., PhD · bozelli.ca</div>
+      <div class="footer-links">
+        <a href="https://linkedin.com/in/jose-carlos-bozelli-jr" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="services.html" data-en="Services" data-pt="Serviços">Services</a>
+        <a href="index.html" data-en="Home" data-pt="Início">Home</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</body>
+</html>
