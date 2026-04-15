@@ -8,7 +8,7 @@ Personal consulting website for **José Carlos Bozelli Jr., PhD** — scientific
 
 ## About
 
-Single-page bilingual website (English / Portuguese) built with semantic HTML, CSS, and vanilla JavaScript. No frameworks, no dependencies, no build step — designed to be fast, maintainable, and easy to update without tooling.
+Four-page bilingual website (English / Portuguese) built with semantic HTML, CSS, and vanilla JavaScript. No frameworks, no dependencies, no build step — designed to be fast, maintainable, and easy to update without tooling.
 
 ---
 
@@ -18,10 +18,23 @@ Single-page bilingual website (English / Portuguese) built with semantic HTML, C
 |---|---|
 | Markup | HTML5 |
 | Styling | CSS3 with custom properties |
-| Behaviour | Vanilla JS (language toggle, localStorage) |
+| Behaviour | Vanilla JS — language toggle, scroll animations, counter animation |
 | Hosting | GitHub Pages |
+| DNS | Cloudflare |
 | Fonts | Google Fonts (Cormorant Garamond, DM Mono, Outfit) |
 | Booking | Calendly inline embed |
+| Analytics | Google Analytics |
+
+---
+
+## Pages
+
+| File | Content |
+|---|---|
+| `index.html` | Home — hero, services preview, stats strip, about strip, CTA |
+| `services.html` | Full service descriptions, who I work with, engagement models |
+| `about.html` | Bio, credentials, approach statements |
+| `contact.html` | Calendly booking embed, contact details |
 
 ---
 
@@ -29,15 +42,19 @@ Single-page bilingual website (English / Portuguese) built with semantic HTML, C
 
 ```
 bozelli.ca/
-├── index.html        # Complete site — content, styles, and scripts
+├── index.html
+├── services.html
+├── about.html
+├── contact.html
 ├── assets/
-│   ├── img/          # Images
-│   ├── css/          # Future CSS extraction
-│   └── js/           # Future JS extraction
+│   ├── img/
+│   │   └── profile.jpg
+│   ├── css/
+│   │   └── style.css
+│   └── js/
+│       └── main.js
 └── README.md
 ```
-
-All content is currently colocated in `index.html`. This is intentional for a single-page site at this stage — straightforward to deploy, edit, and maintain without a build pipeline.
 
 ---
 
@@ -49,13 +66,15 @@ Every content element carries both language versions as data attributes:
 <p data-en="English text" data-pt="Portuguese text">English text</p>
 ```
 
-A small vanilla JS function swaps all `data-en` / `data-pt` values on language toggle and persists the user's preference via `localStorage`. No external i18n library required.
+The `setLang()` function in `main.js` swaps all `data-en` / `data-pt` values on language toggle and persists preference via `localStorage`. Browser language is detected on first load.
 
 ---
 
 ## Updating content
 
-Edit the `data-en` and `data-pt` attribute values in `index.html` directly. Save and push — GitHub Pages reflects changes within ~60 seconds.
+Find the English phrase using Ctrl+F / Cmd+F in the HTML file. Edit the text inside the quotes for both `data-en` and `data-pt`, and update the visible default text (between `>` and `</tag>`) to match `data-en`.
+
+**Rule:** visible default text must always match `data-en` exactly.
 
 ---
 
