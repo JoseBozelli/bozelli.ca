@@ -100,11 +100,29 @@ function initCounters() {
 }
 
 /* ============================================================
+   CONTACT EMAIL (built at runtime, not present in page source)
+   ============================================================ */
+function initContactEmail() {
+  const slot = document.getElementById('contact-email-slot');
+  if (!slot) return;
+  const user = 'jose';
+  const domain = 'bozelli' + '.' + 'ca';
+  const at = String.fromCharCode(64); // '@'
+  const address = user + at + domain;
+  const link = document.createElement('a');
+  link.href = 'mailto:' + address;
+  link.className = 'contact-link';
+  link.textContent = '→ ' + address;
+  slot.replaceWith(link);
+}
+
+/* ============================================================
    INIT
    ============================================================ */
 document.addEventListener('DOMContentLoaded', () => {
   initLang();
   initNav();
   initReveal();
+  initContactEmail();
   initCounters();
 });
