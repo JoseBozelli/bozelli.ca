@@ -12,3 +12,5 @@ Thumbs.db
 
 # Empty folder placeholders
 assets/**/.gitkeep
+
+node_modules/

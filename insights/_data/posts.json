@@ -1,0 +1,48 @@
+{
+  "posts": [
+    {
+      "slug": "youre-spending-real-money-on-health",
+      "title": "You’re spending real money on health data. Here’s how to actually use it.",
+      "dek": "Part Four of a series on omics-based biomarkers",
+      "section": "Lipids, Data & Life",
+      "pubDate": "2026-06-09T13:30:31.000Z",
+      "substackUrl": "https://bozelli.substack.com/p/youre-spending-real-money-on-health",
+      "readTime": 12,
+      "contentHash": "c4883dda44b632d25e984aa90c0bdf35f745955e1be9b1e1d375750ab87e41d6",
+      "partNumber": 4
+    },
+    {
+      "slug": "what-omics-gets-right-and-how-it",
+      "title": "What omics gets right — and how it gets there",
+      "dek": "Part Three of a series on omics-based biomarkers",
+      "section": "Lipids, Data & Life",
+      "pubDate": "2026-05-26T13:02:22.000Z",
+      "substackUrl": "https://bozelli.substack.com/p/what-omics-gets-right-and-how-it",
+      "readTime": 12,
+      "contentHash": "949a871e46619ae5c2d8f54abb43a9746220107e557295d2b154bcd0efec902e",
+      "partNumber": 3
+    },
+    {
+      "slug": "your-biomarker-report",
+      "title": "Your Biomarker Report Is Answering a Question You Didn’t Ask",
+      "dek": "What your omics panel is actually measuring — and what it isn’t",
+      "section": "Lipids, Data & Life",
+      "pubDate": "2026-05-12T13:30:56.000Z",
+      "substackUrl": "https://bozelli.substack.com/p/your-biomarker-report",
+      "readTime": 10,
+      "contentHash": "178f0235cd4368e080ca52b65c32aaecc33e05abf93e94b6c8d4d6ed2df1a5c6",
+      "partNumber": 2
+    },
+    {
+      "slug": "the-biomarker-gold-rush",
+      "title": "The Biomarker Gold Rush Has a Counterfeiting Problem",
+      "dek": "The omics pipeline rewards discovery. It rarely rewards validation. Here is why that gap is predictable, measurable, and systematically mispriced in most due diligence frameworks.",
+      "section": "Lipids, Data & Life",
+      "pubDate": "2026-05-05T13:30:57.000Z",
+      "substackUrl": "https://bozelli.substack.com/p/the-biomarker-gold-rush",
+      "readTime": 10,
+      "contentHash": "862b48e86a95a3a36fa7886df607901303ae463cc2f4e37a5e13cc7f7cf571c1",
+      "partNumber": 1
+    }
+  ]
+}

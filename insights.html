@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Writing on lipid biology, omics data science, and biomarker validation — José Carlos Bozelli Jr., PhD.">
+  <title>Insights — José Carlos Bozelli Jr., PhD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- ============================================================
+       PREVIEW-ONLY FALLBACK TOKENS
+       This block exists so the mockup renders correctly here, where
+       your real assets/css/style.css isn't reachable. It must stay
+       BEFORE the two stylesheet links below: once you drop this file
+       into the real repo, your real style.css loads after this block
+       and its :root values win the cascade, so your actual brand
+       colors take over automatically. You can leave this block in
+       permanently — it's harmless once the real file is present.
+       ============================================================ -->
+  <style>
+    :root {
+      --paper:#F6F2EA; --paper-warm:#F0E8D8; --white:#FFFFFF;
+      --accent:#234A3A; --ink:#1B1B18; --ink-soft:#4A4742; --ink-muted:#8A8479;
+      --rule:rgba(0,0,0,.08); --rule-mid:rgba(0,0,0,.14);
+      --serif:'Cormorant Garamond',serif; --mono:'DM Mono',monospace; --sans:'Outfit',sans-serif;
+      --ease:cubic-bezier(.16,1,.3,1);
+    }
+    .reveal { opacity: 1 !important; } /* keep content visible without main.js present in this preview */
+  </style>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/insights-addon.css">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SJ8ZNZZJT9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-SJ8ZNZZJT9");
+  </script>
+</head>
+<body data-page="insights">
+
+  <div class="lang-bar">
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" data-lang="pt" onclick="setLang('pt')">PT</button>
+  </div>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">José Carlos Bozelli Jr<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="index.html" data-page="home" data-en="Home" data-pt="Início">Home</a></li>
+        <li><a href="services.html" data-page="services" data-en="Services" data-pt="Serviços">Services</a></li>
+        <li><a href="insights.html" data-page="insights" data-en="Insights" data-pt="Reflexões">Insights</a></li>
+        <li><a href="about.html" data-page="about" data-en="About" data-pt="Sobre">About</a></li>
+        <li><a href="contact.html" data-page="contact" class="nav-cta" data-en="Book a call" data-pt="Agendar">Book a call</a></li>
+      </ul>
+      <div class="nav-mobile-toggle"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="insights-hero">
+    <div class="container">
+      <div class="section-label reveal" data-en="Insights" data-pt="Reflexões">Insights</div>
+      <h1 class="reveal reveal-delay-1"
+          data-en="Where lipids<br>meet <em>data</em>"
+          data-pt="Onde lipídeos<br>encontram os <em>dados</em>">
+        Where lipids<br>meet <em>data</em>
+      </h1>
+      <p class="reveal reveal-delay-2"
+         data-en="Lipid biology, omics, and the statistical and computational methods — AI included — used to turn biological data into insight. Organized as ongoing series, each going deep on one thread."
+         data-pt="Biologia lipídica, ômica, e os métodos estatísticos e computacionais — incluindo IA — usados para transformar dados biológicos em ciência aplicável. Organizado em séries contínuas, cada uma aprofundando um tema.">
+        Lipid biology, omics, and the statistical and computational methods — AI included — used to turn biological data into insight. Organized as ongoing series, each going deep on one thread.
+      </p>
+      <div class="insights-hero-actions reveal reveal-delay-3">
+        <a href="#latest" class="btn btn-dark" data-en="Browse the series ↓" data-pt="Ver a série ↓">Browse the series ↓</a>
+        <a href="https://bozelli.substack.com" target="_blank" rel="noopener" class="btn btn-outline"
+           data-en="Subscribe on Substack →" data-pt="Assinar na Substack →">Subscribe on Substack →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- GRID -->
+  <section class="section" id="latest">
+    <div class="container">
+      <div class="section-label reveal" data-en="Biomarker Validity Series" data-pt="Série Validade de Biomarcadores">Biomarker Validity Series</div>
+      <h2 class="section-h2 reveal reveal-delay-1"
+          data-en="Five pieces on what a<br>biomarker has to earn"
+          data-pt="Cinco textos sobre o que um<br>biomarcador precisa conquistar">
+        Five pieces on what a<br>biomarker has to earn
+      </h2>
+
+      <div class="insights-grid">
+        <!-- INSIGHTS_GRID:START -->
+        <div class="insight-card reveal">
+          <div class="insight-eyebrow">Part IV <span class="dot"></span> Lipids, Data &amp; Life</div>
+          <h3>You’re spending real money on health data. Here’s how to actually use it.</h3>
+          <p class="teaser">Part Four of a series on omics-based biomarkers</p>
+          <div class="insight-meta">12 MIN READ · PUBLISHED</div>
+          <a href="insights/youre-spending-real-money-on-health.html" class="insight-link">Read the full piece →</a>
+        </div>
+        <div class="insight-card reveal">
+          <div class="insight-eyebrow">Part III <span class="dot"></span> Lipids, Data &amp; Life</div>
+          <h3>What omics gets right — and how it gets there</h3>
+          <p class="teaser">Part Three of a series on omics-based biomarkers</p>
+          <div class="insight-meta">12 MIN READ · PUBLISHED</div>
+          <a href="insights/what-omics-gets-right-and-how-it.html" class="insight-link">Read the full piece →</a>
+        </div>
+        <div class="insight-card reveal">
+          <div class="insight-eyebrow">Part II <span class="dot"></span> Lipids, Data &amp; Life</div>
+          <h3>Your Biomarker Report Is Answering a Question You Didn’t Ask</h3>
+          <p class="teaser">What your omics panel is actually measuring — and what it isn’t</p>
+          <div class="insight-meta">10 MIN READ · PUBLISHED</div>
+          <a href="insights/your-biomarker-report.html" class="insight-link">Read the full piece →</a>
+        </div>
+        <div class="insight-card reveal">
+          <div class="insight-eyebrow">Part I <span class="dot"></span> Lipids, Data &amp; Life</div>
+          <h3>The Biomarker Gold Rush Has a Counterfeiting Problem</h3>
+          <p class="teaser">The omics pipeline rewards discovery. It rarely rewards validation. Here is why that gap is predictable, measurable, and systematically mispriced in most due diligence frameworks.</p>
+          <div class="insight-meta">10 MIN READ · PUBLISHED</div>
+          <a href="insights/the-biomarker-gold-rush.html" class="insight-link">Read the full piece →</a>
+        </div>
+        <!-- INSIGHTS_GRID:END -->
+      </div>
+    </div>
+  </section>
+
+  <!-- SUBSCRIBE -->
+  <section class="section" style="background: var(--paper-warm);">
+    <div class="container">
+      <div class="subscribe-panel reveal">
+        <div class="subscribe-panel-label" data-en="Stay current" data-pt="Receba as próximas">Stay current</div>
+        <h4 data-en="Get new pieces by email" data-pt="Receba novos textos por e-mail">Get new pieces by email</h4>
+        <p data-en="New pieces land here first and in your inbox at the same time — biweekly, free, no spam." data-pt="Novos textos chegam aqui e na sua caixa de entrada ao mesmo tempo — quinzenalmente, gratuito, sem spam.">New pieces land here first and in your inbox at the same time — biweekly, free, no spam.</p>
+        <div class="subscribe-embed">
+          <!-- Substack's official embed widget — replace the URL with your real publication once live -->
+          <iframe src="https://bozelli.substack.com/embed" frameborder="0" scrolling="no" title="Subscribe to Lipids, Data &amp; Life"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-name">José Carlos Bozelli Jr., PhD · bozelli.ca</div>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/jose-carlos-bozelli-jr-9b2a4181/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://bozelli.substack.com" target="_blank" rel="noopener">Substack</a>
+        <a href="services.html" data-en="Services" data-pt="Serviços">Services</a>
+        <a href="contact.html" data-en="Contact" data-pt="Contato">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

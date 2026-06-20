@@ -1,0 +1,15 @@
+{
+  "series": [
+    {
+      "slug": "biomarker-validity",
+      "title": "Biomarker Validity",
+      "blurb": "Five pieces on what a biomarker has to earn before it means what it claims.",
+      "posts": [
+        "the-biomarker-gold-rush",
+        "your-biomarker-report",
+        "what-omics-gets-right-and-how-it",
+        "youre-spending-real-money-on-health"
+      ]
+    }
+  ]
+}
