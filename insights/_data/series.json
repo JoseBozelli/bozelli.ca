@@ -11,6 +11,17 @@
         "youre-spending-real-money-on-health",
         "the-biomarker-market-has-a-story"
       ]
+    },
+    
+    {
+      "slug": "one-molecule-at-a-time",
+      "title": "One Molecule at a Time",
+      "blurb": "Each piece follows one molecule through its biology, its measurement, and what the evidence actually supports.",
+      "posts": [
+        "one-molecule-at-a-time",
+        "the-lipid-beneath-the-lipid-panel",
+        "when-your-metabolism-cant-switch"
+      ]
     }
   ]
 }
