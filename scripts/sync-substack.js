@@ -2,297 +2,319 @@
 /**
  * scripts/sync-substack.js
  *
- * Pulls the public RSS feed at bozelli.substack.com/feed and turns each
- * post into a styled page at insights/<slug>.html, using your own design
- * tokens and the template in insights/_template/article-template.html.
- * Also rebuilds the card grid in insights.html between the
- * INSIGHTS_GRID:START / INSIGHTS_GRID:END markers.
+ * Pulls bozelli.substack.com/feed and:
+ *   1. Builds/updates individual article pages (insights/<slug>.html)
+ *   2. Builds/updates series pages    (insights/series/<series-slug>.html)
+ *   3. Rebuilds the hub               (insights.html)
  *
- * No paid services, no API keys — just the free RSS feed every Substack
- * publication already has. Re-running this is always safe: unchanged
- * posts are skipped (tracked via a content hash in insights/_data/posts.json),
- * and edited posts are quietly rebuilt with the new text.
+ * Series vs. orphan distinction:
+ *   - Any slug listed in a series.posts array → series article
+ *   - Any slug NOT listed anywhere            → orphan article
  *
- * Usage:
- *   node scripts/sync-substack.js
- * or click "Run workflow" on the "Sync Substack to Website" GitHub Action.
+ * series.json optional field per series:
+ *   "hasIntro": true  → index 0 labeled "Intro", rest Part I, II…
+ *                        Default: false (all labeled Part I, II…)
  */
 
-const fs = require("fs");
-const path = require("path");
+const fs     = require("fs");
+const path   = require("path");
 const crypto = require("crypto");
 const Parser = require("rss-parser");
 const cheerio = require("cheerio");
 
-const FEED_URL = "https://bozelli.substack.com/feed";
-const SITE_URL = "https://bozelli.ca";
+const FEED_URL        = "https://bozelli.substack.com/feed";
+const SITE_URL        = "https://bozelli.ca";
 const DEFAULT_SECTION = "Lipids, Data & Life";
 
-const ROOT = path.join(__dirname, "..");
-const MANIFEST_PATH = path.join(ROOT, "insights/_data/posts.json");
-const TEMPLATE_PATH = path.join(ROOT, "insights/_template/article-template.html");
-const HUB_PATH = path.join(ROOT, "insights.html");
+const ROOT             = path.join(__dirname, "..");
+const MANIFEST_PATH    = path.join(ROOT, "insights/_data/posts.json");
+const ARTICLE_TPL_PATH = path.join(ROOT, "insights/_template/article-template.html");
+const SERIES_TPL_PATH  = path.join(ROOT, "insights/_template/series-template.html");
+const HUB_PATH         = path.join(ROOT, "insights.html");
 
-const ROMAN = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"];
+const ROMAN = ["I","II","III","IV","V","VI","VII","VIII","IX","X"];
 
-// ── helpers ────────────────────────────────────────────────────────────
+const SERIES_COLORS = [
+  { bg:"#f5f1ea" },
+  { bg:"#eae9e3" },
+  { bg:"#e9eee9" },
+  { bg:"#eeeae9" },
+  { bg:"#e9ecee" },
+];
+const ORPHAN_COLOR = { bg:"#f0ede6" };
+
+// helpers
 
 function loadManifest() {
-  if (!fs.existsSync(MANIFEST_PATH)) return { posts: [] };
-  try {
-    return JSON.parse(fs.readFileSync(MANIFEST_PATH, "utf8"));
-  } catch {
-    console.warn("Couldn't parse existing manifest — starting fresh.");
-    return { posts: [] };
-  }
+  if (!fs.existsSync(MANIFEST_PATH)) return { posts:[] };
+  try { return JSON.parse(fs.readFileSync(MANIFEST_PATH,"utf8")); }
+  catch { return { posts:[] }; }
 }
 
-function saveManifest(manifest) {
-  fs.mkdirSync(path.dirname(MANIFEST_PATH), { recursive: true });
-  fs.writeFileSync(MANIFEST_PATH, JSON.stringify(manifest, null, 2) + "\n");
+function saveManifest(m) {
+  fs.mkdirSync(path.dirname(MANIFEST_PATH),{recursive:true});
+  fs.writeFileSync(MANIFEST_PATH, JSON.stringify(m,null,2)+"\n");
 }
 
 function slugFromLink(link) {
-  // https://bozelli.substack.com/p/the-biomarker-gold-rush -> the-biomarker-gold-rush
   const m = link.match(/\/p\/([^/?#]+)/);
   if (m) return m[1];
-  const parts = link.split("/").filter(Boolean);
-  return parts[parts.length - 1];
+  const p = link.split("/").filter(Boolean);
+  return p[p.length-1];
 }
 
-function hashOf(str) {
-  return crypto.createHash("sha256").update(str || "").digest("hex");
+function hashOf(s) { return crypto.createHash("sha256").update(s||"").digest("hex"); }
+
+function esc(s="") {
+  return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;")
+    .replace(/>/g,"&gt;").replace(/"/g,"&quot;");
 }
 
-function escapeHtml(str = "") {
-  return String(str)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
+function readTime(t) { return Math.max(1,Math.round(t.trim().split(/\s+/).filter(Boolean).length/200)); }
+
+function fmtDate(d) {
+  try { return new Date(d).toLocaleDateString("en-CA",{year:"numeric",month:"long",day:"numeric"}); }
+  catch { return ""; }
 }
 
-function estimateReadTime(text) {
-  const words = text.trim().split(/\s+/).filter(Boolean).length;
-  return Math.max(1, Math.round(words / 200));
-}
-
-function formatDate(d) {
-  try {
-    return new Date(d).toLocaleDateString("en-CA", { year: "numeric", month: "long", day: "numeric" });
-  } catch {
-    return "";
+function extractImageUrl(item) {
+  if (item.mediaContent) {
+    const mc = Array.isArray(item.mediaContent) ? item.mediaContent[0] : item.mediaContent;
+    if (mc && mc.$)   return mc.$.url || null;
+    if (mc && mc.url) return mc.url;
   }
+  if (item.enclosure && item.enclosure.url) return item.enclosure.url;
+  const html  = item.fullContent || item.content || "";
+  const match = html.match(/<img[^>]+src=["']([^"']+)["']/);
+  return match ? match[1] : null;
 }
 
-// Strip Substack chrome that doesn't make sense duplicated inside our own
-// page (its own subscribe widgets, share-button rows, "leave a comment"
-// prompts). Class names below are best-guesses at Substack's current
-// markup — if a real sync leaves stray widgets behind, inspect the
-// fetched HTML and add the right selector here.
 function cleanContent($) {
-  $(
-    [
-      ".subscribe-widget",
-      ".subscription-widget-wrap",
-      ".subscription-widget-wrap-editor",
-      ".button-wrapper",
-      ".comments-cta",
-      ".like-button-container",
-      ".post-ufi",
-      "[data-component-name*='Subscribe']",
-    ].join(", ")
-  ).remove();
+  $([".subscribe-widget",".subscription-widget-wrap",
+     ".subscription-widget-wrap-editor",".button-wrapper",
+     ".comments-cta",".like-button-container",".post-ufi",
+     "[data-component-name*='Subscribe']"].join(",")).remove();
   return $;
 }
 
-// ── main ───────────────────────────────────────────────────────────────
+function loadSeriesConfig() {
+  const p = path.join(ROOT,"insights/_data/series.json");
+  if (!fs.existsSync(p)) return {series:[]};
+  try { return JSON.parse(fs.readFileSync(p,"utf8")); }
+  catch { return {series:[]}; }
+}
 
-async function run() {
-  if (!fs.existsSync(TEMPLATE_PATH)) {
-    throw new Error(`Missing template at ${TEMPLATE_PATH}`);
+function getPartLabel(series, index) {
+  if (series.hasIntro && index === 0) return "Intro";
+  const n = series.hasIntro ? index - 1 : index;
+  return "Part " + (ROMAN[n] || String(n+1));
+}
+
+// article page
+
+function buildArticlePage(post, template) {
+  const html = template
+    .replace(/{{TITLE}}/g,        esc(post.title))
+    .replace(/{{DEK}}/g,          esc(post.dek))
+    .replace(/{{SECTION}}/g,      esc(post.section))
+    .replace(/{{READTIME}}/g,     String(post.readTime))
+    .replace(/{{PUBDATE}}/g,      fmtDate(post.pubDate))
+    .replace(/{{SUBSTACK_URL}}/g, post.substackUrl)
+    .replace(/{{CANONICAL_URL}}/g,`${SITE_URL}/insights/${post.slug}.html`)
+    .replace("{{BODY}}",           post.bodyHtml || "");
+  fs.mkdirSync(path.join(ROOT,"insights"),{recursive:true});
+  fs.writeFileSync(path.join(ROOT,"insights",`${post.slug}.html`), html);
+}
+
+// series page
+
+function buildSeriesPage(series, posts, idx) {
+  if (!fs.existsSync(SERIES_TPL_PATH)) {
+    console.warn(`Missing series-template.html — skipping "${series.title}".`);
+    return;
   }
-  const template = fs.readFileSync(TEMPLATE_PATH, "utf8");
+  const template = fs.readFileSync(SERIES_TPL_PATH,"utf8");
+  const color    = SERIES_COLORS[idx % SERIES_COLORS.length];
 
-  const parser = new Parser({
-    customFields: { item: [["content:encoded", "fullContent"]] },
+  const articleListHtml = posts.map((p,i) => {
+    const label = getPartLabel(series,i);
+    return `    <a href="../${p.slug}.html" class="series-article-row">
+      <div class="series-article-part">${esc(label)}</div>
+      <div class="series-article-content">
+        <h3 class="series-article-title">${esc(p.title)}</h3>
+        ${p.dek ? `<p class="series-article-dek">${esc(p.dek)}</p>` : ""}
+        <span class="series-article-meta">${p.readTime} min read · ${fmtDate(p.pubDate)}</span>
+      </div>
+      <div class="series-article-arrow">→</div>
+    </a>`;
+  }).join("\n");
+
+  const imageData = posts
+    .filter(p => p.imageUrl)
+    .map((p,i) => ({
+      url:        p.imageUrl,
+      articleUrl: `../${p.slug}.html`,
+      title:      p.title,
+      label:      getPartLabel(series,i),
+    }));
+
+  const html = template
+    .replace(/{{SERIES_TITLE}}/g,    esc(series.title))
+    .replace(/{{SERIES_SLUG}}/g,     series.slug)
+    .replace(/{{SERIES_BLURB}}/g,    esc(series.blurb||""))
+    .replace(/{{ARTICLE_COUNT}}/g,   String(posts.length))
+    .replace(/{{ARTICLE_LIST}}/g,    articleListHtml)
+    .replace(/{{IMAGE_DATA_JSON}}/g, JSON.stringify(imageData))
+    .replace(/{{CANONICAL_URL}}/g,   `${SITE_URL}/insights/series/${series.slug}.html`)
+    .replace(/{{SERIES_BG}}/g,       color.bg);
+
+  fs.mkdirSync(path.join(ROOT,"insights/series"),{recursive:true});
+  fs.writeFileSync(path.join(ROOT,"insights/series",`${series.slug}.html`), html);
+  console.log(`Built insights/series/${series.slug}.html`);
+}
+
+// hub
+
+function rebuildHub(allPosts) {
+  if (!fs.existsSync(HUB_PATH)) { console.warn("No insights.html — skipping hub rebuild."); return; }
+
+  const config        = loadSeriesConfig();
+  const bySlug        = new Map(allPosts.map(p=>[p.slug,p]));
+  const assignedSlugs = new Set();
+  let   seriesHtml    = "";
+  let   orphanHtml    = "";
+
+  (config.series||[]).forEach((series,i) => {
+    const color       = SERIES_COLORS[i % SERIES_COLORS.length];
+    const seriesPosts = (series.posts||[]).map(s=>bySlug.get(s)).filter(Boolean);
+    seriesPosts.forEach(p => assignedSlugs.add(p.slug));
+    if (!seriesPosts.length) return;
+    const wm    = ROMAN[i] || String(i+1);
+    const count = seriesPosts.length;
+    seriesHtml +=
+`        <a href="insights/series/${series.slug}.html" class="hub-series-tile" style="background:${color.bg};">
+          <div class="hub-tile-watermark">${wm}</div>
+          <div class="hub-tile-eyebrow">Series · ${count} article${count!==1?"s":""}</div>
+          <h3 class="hub-tile-title">${esc(series.title)}</h3>
+          <p class="hub-tile-blurb">${esc(series.blurb||"")}</p>
+          <span class="hub-tile-link">Browse series →</span>
+        </a>\n`;
   });
 
-  console.log(`Fetching ${FEED_URL} ...`);
-  const feed = await parser.parseURL(FEED_URL);
-  console.log(`Found ${feed.items.length} item(s) in the feed.`);
+  allPosts
+    .filter(p => !assignedSlugs.has(p.slug))
+    .sort((a,b) => new Date(b.pubDate)-new Date(a.pubDate))
+    .forEach(p => {
+      orphanHtml +=
+`        <a href="insights/${p.slug}.html" class="hub-orphan-tile" style="background:${ORPHAN_COLOR.bg};">
+          <div class="hub-tile-eyebrow">${p.readTime} min read · ${fmtDate(p.pubDate)}</div>
+          <h3 class="hub-orphan-title">${esc(p.title)}</h3>
+          <p class="hub-tile-blurb">${esc(p.dek)}</p>
+          <span class="hub-tile-link">Read article →</span>
+        </a>\n`;
+    });
 
-  const manifest = loadManifest();
-  const bySlug = new Map(manifest.posts.map((p) => [p.slug, p]));
-  let changedAny = false;
-
-  for (const item of feed.items) {
-    const slug = slugFromLink(item.link);
-    const rawHtml = item.fullContent || item.content || item["content:encoded"] || "";
-    if (!rawHtml) {
-      console.warn(`Skipping "${item.title}" — no content found in feed item.`);
-      continue;
-    }
-
-    const contentHash = hashOf(item.title + "|" + rawHtml);
-    const existing = bySlug.get(slug);
-    if (existing && existing.contentHash === contentHash) {
-      continue; // unchanged since last sync — nothing to do
-    }
-
-    const $ = cheerio.load(rawHtml);
-    cleanContent($);
-    const bodyHtml = $("body").html() ?? $.root().html() ?? rawHtml;
-    const plainText = $("body").text();
-
-    const section =
-      (Array.isArray(item.categories) && item.categories[0]) ||
-      item.category ||
-      DEFAULT_SECTION;
-
-    const dek = (item.contentSnippet || item.summary || "").split("\n")[0].trim();
-
-    const post = {
-      slug,
-      title: item.title || "Untitled",
-      dek,
-      section,
-      pubDate: item.isoDate || item.pubDate || new Date().toISOString(),
-      substackUrl: item.link,
-      readTime: estimateReadTime(plainText),
-      contentHash,
-    };
-    bySlug.set(slug, post);
-    changedAny = true;
-
-    const pageHtml = template
-      .replace(/{{TITLE}}/g, escapeHtml(post.title))
-      .replace(/{{DEK}}/g, escapeHtml(post.dek))
-      .replace(/{{SECTION}}/g, escapeHtml(post.section))
-      .replace(/{{READTIME}}/g, String(post.readTime))
-      .replace(/{{PUBDATE}}/g, formatDate(post.pubDate))
-      .replace(/{{SUBSTACK_URL}}/g, post.substackUrl)
-      .replace(/{{CANONICAL_URL}}/g, `${SITE_URL}/insights/${slug}.html`)
-      .replace("{{BODY}}", bodyHtml);
-
-    const outDir = path.join(ROOT, "insights");
-    fs.mkdirSync(outDir, { recursive: true });
-    fs.writeFileSync(path.join(outDir, `${slug}.html`), pageHtml);
-    console.log(`${existing ? "Updated" : "Built"} insights/${slug}.html`);
+  let block = "";
+  if (seriesHtml) block += `      <div class="hub-series-grid">\n${seriesHtml}      </div>\n`;
+  if (orphanHtml) {
+    block += `      <div class="section-label" style="margin-top:64px;" data-en="Standalone articles" data-pt="Artigos avulsos">Standalone articles</div>\n`;
+    block += `      <div class="hub-orphan-grid">\n${orphanHtml}      </div>\n`;
   }
 
-  // Number posts "Part N" within their own section, oldest first —
-  // matches how the Lipids, Data & Life series is meant to read.
-  const allPosts = Array.from(bySlug.values());
-  manifest.posts = allPosts;
-  saveManifest(manifest);
-
-  rewriteAllArticleCrossLinks(new Set(allPosts.map((p) => p.slug)));
-
-  if (changedAny) {
-    rebuildHub(allPosts);
-    console.log("Rebuilt insights.html grid.");
-  } else {
-    console.log("No changes since last sync — nothing to rebuild.");
-  }
+  const src    = fs.readFileSync(HUB_PATH,"utf8");
+  const marker = /<!-- INSIGHTS_GRID:START -->[\s\S]*?<!-- INSIGHTS_GRID:END -->/;
+  if (!marker.test(src)) { console.warn("INSIGHTS_GRID markers missing."); return; }
+  fs.writeFileSync(HUB_PATH, src.replace(marker,`<!-- INSIGHTS_GRID:START -->\n${block}      <!-- INSIGHTS_GRID:END -->`));
+  console.log("Rebuilt insights.html hub.");
 }
 
-function loadSeriesConfig() {
-  const seriesPath = path.join(ROOT, "insights/_data/series.json");
-  if (!fs.existsSync(seriesPath)) return { series: [] };
-  try {
-    return JSON.parse(fs.readFileSync(seriesPath, "utf8"));
-  } catch {
-    console.warn("Couldn't parse series.json — treating as empty.");
-    return { series: [] };
-  }
-}
+// cross-link rewriting
 
-function renderCard(p, partLabel) {
-  return `        <div class="insight-card reveal">
-          <div class="insight-eyebrow">${partLabel ? `Part ${partLabel} <span class="dot"></span> ` : ""}${escapeHtml(p.section || "")}</div>
-          <h3>${escapeHtml(p.title)}</h3>
-          <p class="teaser">${escapeHtml(p.dek)}</p>
-          <div class="insight-meta">${p.readTime} MIN READ · PUBLISHED</div>
-          <a href="insights/${p.slug}.html" class="insight-link">Read the full piece →</a>
-        </div>`;
-}
-
-function rebuildHub(posts) {
-  if (!fs.existsSync(HUB_PATH)) {
-    console.warn(`No insights.html found at ${HUB_PATH} — skipping hub rebuild.`);
-    return;
-  }
-  const config = loadSeriesConfig();
-  const bySlug = new Map(posts.map((p) => [p.slug, p]));
-  const assignedSlugs = new Set();
-  let blocks = "";
-
-  for (const series of config.series || []) {
-    const seriesPosts = (series.posts || []).map((slug) => bySlug.get(slug)).filter(Boolean);
-    seriesPosts.forEach((p) => assignedSlugs.add(p.slug));
-    if (!seriesPosts.length) continue;
-
-    const cards = seriesPosts.map((p, i) => renderCard(p, ROMAN[i] || String(i + 1))).join("\n");
-    blocks += `      <div class="series-block">
-        <div class="section-label">${escapeHtml(series.title)}</div>
-        ${series.blurb ? `<p class="series-blurb">${escapeHtml(series.blurb)}</p>` : ""}
-        <div class="insights-grid">
-${cards}
-        </div>
-      </div>
-`;
-  }
-
-  const unassigned = posts
-    .filter((p) => !assignedSlugs.has(p.slug))
-    .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
-
-  if (unassigned.length) {
-    const cards = unassigned.map((p) => renderCard(p, null)).join("\n");
-    blocks += `      <div class="series-block">
-        <div class="section-label">Just published</div>
-        <p class="series-blurb">Not yet assigned to a series — add the slug to insights/_data/series.json.</p>
-        <div class="insights-grid">
-${cards}
-        </div>
-      </div>
-`;
-  }
-
-  const hubHtml = fs.readFileSync(HUB_PATH, "utf8");
-  const markerPattern = /<!-- INSIGHTS_GRID:START -->[\s\S]*?<!-- INSIGHTS_GRID:END -->/;
-  if (!markerPattern.test(hubHtml)) {
-    console.warn("Couldn't find INSIGHTS_GRID markers — skipping hub rebuild.");
-    return;
-  }
-  const updated = hubHtml.replace(markerPattern, `<!-- INSIGHTS_GRID:START -->\n${blocks}      <!-- INSIGHTS_GRID:END -->`);
-  fs.writeFileSync(HUB_PATH, updated);
-}
-
-function rewriteCrossLinksInHtml(html, slugSet) {
-  const pattern = /https?:\/\/bozelli\.substack\.com\/p\/([a-z0-9-]+)(\?[^"'\s)]*)?(#[^"'\s)]*)?/gi;
-  return html.replace(pattern, (match, slug) =>
-    slugSet.has(slug) ? `/insights/${slug}.html` : match
+function rewriteCrossLinks(html, slugSet) {
+  return html.replace(
+    /https?:\/\/bozelli\.substack\.com\/p\/([a-z0-9-]+)(\?[^"'\s)]*)?/gi,
+    (_,slug) => slugSet.has(slug) ? `/insights/${slug}.html` : _
   );
 }
 
-function rewriteAllArticleCrossLinks(slugSet) {
-  const dir = path.join(ROOT, "insights");
+function rewriteAllCrossLinks(slugSet) {
+  const dir = path.join(ROOT,"insights");
   if (!fs.existsSync(dir)) return;
-  const files = fs.readdirSync(dir).filter((f) => f.endsWith(".html"));
-  for (const file of files) {
-    const filePath = path.join(dir, file);
-    const original = fs.readFileSync(filePath, "utf8");
-    const updated = rewriteCrossLinksInHtml(original, slugSet);
-    if (updated !== original) {
-      fs.writeFileSync(filePath, updated);
-      console.log(`Rewrote cross-links in insights/${file}`);
-    }
-  }
+  fs.readdirSync(dir).filter(f=>f.endsWith(".html")).forEach(file => {
+    const fp  = path.join(dir,file);
+    const src = fs.readFileSync(fp,"utf8");
+    const out = rewriteCrossLinks(src,slugSet);
+    if (out!==src) { fs.writeFileSync(fp,out); console.log(`Cross-links rewritten: insights/${file}`); }
+  });
 }
 
-run().catch((err) => {
-  console.error("Sync failed:", err);
-  process.exitCode = 1;
-});
+// main
+
+async function run() {
+  if (!fs.existsSync(ARTICLE_TPL_PATH)) throw new Error(`Missing article template at ${ARTICLE_TPL_PATH}`);
+  const articleTemplate = fs.readFileSync(ARTICLE_TPL_PATH,"utf8");
+
+  const parser = new Parser({
+    customFields: { item:[
+      ["content:encoded","fullContent"],
+      ["media:content","mediaContent"],
+      ["enclosure","enclosure"],
+    ]},
+  });
+
+  console.log(`Fetching ${FEED_URL} …`);
+  const feed = await parser.parseURL(FEED_URL);
+  console.log(`Found ${feed.items.length} item(s).`);
+
+  const manifest   = loadManifest();
+  const bySlug     = new Map(manifest.posts.map(p=>[p.slug,p]));
+  let   changedAny = false;
+
+  for (const item of feed.items) {
+    const slug    = slugFromLink(item.link);
+    const rawHtml = item.fullContent || item.content || "";
+    if (!rawHtml) { console.warn(`Skipping "${item.title}" — no content.`); continue; }
+
+    const contentHash = hashOf(item.title+"|"+rawHtml);
+    const existing    = bySlug.get(slug);
+    if (existing && existing.contentHash === contentHash) continue;
+
+    const $       = cheerio.load(rawHtml);
+    cleanContent($);
+    const bodyHtml  = $("body").html() ?? $.root().html() ?? rawHtml;
+    const plainText = $("body").text();
+    const section   = (Array.isArray(item.categories) && item.categories[0]) || item.category || DEFAULT_SECTION;
+    const dek       = (item.contentSnippet||item.summary||"").split("\n")[0].trim();
+
+    const post = {
+      slug, title:item.title||"Untitled", dek, section,
+      pubDate:item.isoDate||item.pubDate||new Date().toISOString(),
+      substackUrl:item.link, readTime:readTime(plainText),
+      imageUrl:extractImageUrl(item), contentHash, bodyHtml,
+    };
+    bySlug.set(slug,post);
+    changedAny = true;
+
+    buildArticlePage(post, articleTemplate);
+    console.log(`${existing?"Updated":"Built"} insights/${slug}.html`);
+  }
+
+  const allPosts = Array.from(bySlug.values());
+  manifest.posts = allPosts.map(({bodyHtml:_,...rest})=>rest);
+  saveManifest(manifest);
+
+  // Always rebuild series pages and hub (covers series.json edits between syncs)
+  const config    = loadSeriesConfig();
+  const bySlugMap = new Map(allPosts.map(p=>[p.slug,p]));
+  (config.series||[]).forEach((series,i) => {
+    const posts = (series.posts||[]).map(s=>bySlugMap.get(s)).filter(Boolean);
+    if (posts.length) buildSeriesPage(series,posts,i);
+  });
+
+  rewriteAllCrossLinks(new Set(allPosts.map(p=>p.slug)));
+  rebuildHub(allPosts);
+
+  if (!changedAny) console.log("No content changes since last sync.");
+}
+
+run().catch(err=>{ console.error("Sync failed:",err); process.exitCode=1; });

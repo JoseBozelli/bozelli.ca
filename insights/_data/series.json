@@ -4,6 +4,7 @@
       "slug": "biomarker-validity",
       "title": "Biomarker Validity",
       "blurb": "Five pieces on what a biomarker has to earn before it means what it claims.",
+      "hasIntro": false,
       "posts": [
         "the-biomarker-gold-rush",
         "your-biomarker-report",
@@ -12,11 +13,12 @@
         "the-biomarker-market-has-a-story"
       ]
     },
-    
+
     {
       "slug": "one-molecule-at-a-time",
       "title": "One Molecule at a Time",
       "blurb": "Each piece follows one molecule through its biology, its measurement, and what the evidence actually supports.",
+      "hasIntro": true,
       "posts": [
         "one-molecule-at-a-time",
         "the-lipid-beneath-the-lipid-panel",
