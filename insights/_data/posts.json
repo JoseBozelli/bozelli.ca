@@ -1,4 +1,12 @@
 {
+  "featured": "remodeling-the-brain",
+  "featuredQuestion": "What does it actually take to get DHA into the brain?",
+  "featuredQuestionPt": "O que é realmente preciso para o DHA chegar ao cérebro?",
+  "secondary": [
+    "the-biomarker-gold-rush",
+    "what-your-gut-is-telling-your-liver",
+    "when-your-metabolism-cant-switch"
+  ],
   "posts": [
     {
       "slug": "youre-spending-real-money-on-health",
@@ -37,6 +45,7 @@
       "slug": "the-biomarker-gold-rush",
       "title": "The Biomarker Gold Rush Has a Counterfeiting Problem",
       "dek": "The omics pipeline rewards discovery. It rarely rewards validation. Here is why that gap is predictable, measurable, and systematically mispriced in most due diligence frameworks.",
+      "dekPt": "O pipeline da ômica recompensa a descoberta. Raramente recompensa a validação.",
       "section": "Lipids, Data & Life",
       "pubDate": "2026-05-05T13:30:57.000Z",
       "substackUrl": "https://bozelli.substack.com/p/the-biomarker-gold-rush",
@@ -59,6 +68,7 @@
       "slug": "when-your-metabolism-cant-switch",
       "title": "When Your Metabolism Can't Switch Gears",
       "dek": "A family of molecules reveals what happens when your cells struggle to process fat completely through the energy-producing machinery — and what that tells you about metabolic health.",
+      "dekPt": "Uma família de moléculas revela o que acontece quando suas células têm dificuldade para processar completamente a gordura na central de energia.",
       "section": "Lipids, Data & Life",
       "pubDate": "2026-07-21T13:30:18.000Z",
       "substackUrl": "https://bozelli.substack.com/p/when-your-metabolism-cant-switch",
@@ -92,6 +102,7 @@
       "slug": "what-your-gut-is-telling-your-liver",
       "title": "What Your Gut Is Telling Your Liver",
       "dek": "What does a family of molecules your microbiome makes from your breakfast reveal about the conversation happening between your gut and the rest of your body?",
+      "dekPt": "O que uma família de moléculas que seu microbioma produz a partir do seu café da manhã revela sobre a conversa entre o intestino e o resto do corpo?",
       "section": "Lipids, Data & Life",
       "pubDate": "2026-08-18T13:31:38.000Z",
       "substackUrl": "https://bozelli.substack.com/p/what-your-gut-is-telling-your-liver",
@@ -114,6 +125,7 @@
       "slug": "remodeling-the-brain",
       "title": "Remodeling the Brain",
       "dek": "Cognitive health depends on fats delivered to the brain. The standard omega-3 index tells only half of the story about how they do it.",
+      "dekPt": "A saúde cognitiva depende dos lipídeos que chegam ao cérebro. O índice de ômega-3 conta apenas metade da história de como isso acontece.",
       "section": "Lipids, Data & Life",
       "pubDate": "2026-09-10T13:03:28.000Z",
       "substackUrl": "https://bozelli.substack.com/p/remodeling-the-brain",

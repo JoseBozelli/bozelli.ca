@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="José Carlos Bozelli Jr., PhD — Scientific consulting in lipid biology, lipidomics, and omics data science. Canada, USA, Brazil.">
-  <title>José Carlos Bozelli Jr., PhD — Scientific Consultant</title>
+  <meta name="description" content="Biomarkers, omics, data science, and the harder problem of what human biology measurements actually mean — José Carlos Bozelli Jr., PhD.">
+  <title>José Carlos Bozelli Jr., PhD</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
   <style>
     /* ---- HOME-SPECIFIC STYLES ---- */
     .hero {
-      min-height: 100vh;
+      min-height: 86vh;
       display: flex;
       align-items: center;
       background: var(--paper);
@@ -34,254 +34,253 @@
       position: relative;
       z-index: 1;
       width: 100%;
-      max-width: 1200px;
+      max-width: 900px;
       margin: 0 auto;
-      padding: 120px 48px 80px;
-      display: grid;
-      grid-template-columns: 1fr 420px;
-      gap: 80px;
-      align-items: center;
-    }
-    .hero-eyebrow {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--accent);
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      margin-bottom: 28px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      opacity: 0;
-      animation: fadeUp 0.7s var(--ease) 0.1s forwards;
-    }
-    .hero-eyebrow::before {
-      content: '';
-      display: block;
-      width: 28px;
-      height: 0.5px;
-      background: var(--accent);
+      padding: 140px 48px 100px;
     }
     .hero-h1 {
       font-family: var(--serif);
-      font-size: clamp(44px, 5.5vw, 72px);
+      font-size: clamp(38px, 5vw, 60px);
       font-weight: 300;
-      line-height: 1.08;
+      line-height: 1.14;
       letter-spacing: -0.02em;
       margin-bottom: 28px;
       opacity: 0;
-      animation: fadeUp 0.7s var(--ease) 0.22s forwards;
+      animation: fadeUp 0.7s var(--ease) 0.1s forwards;
     }
-    .hero-h1 em { font-style: italic; color: var(--accent); }
     .hero-sub {
+      font-size: 17px;
+      color: var(--ink-soft);
+      line-height: 1.85;
+      font-weight: 300;
+      max-width: 620px;
+      opacity: 0;
+      animation: fadeUp 0.7s var(--ease) 0.28s forwards;
+    }
+
+    /* Problem section */
+    .problem-section {
+      background: var(--paper-warm);
+      padding: 90px 0;
+    }
+    .problem-section p {
       font-size: 16px;
       color: var(--ink-soft);
-      line-height: 1.8;
+      line-height: 1.9;
       font-weight: 300;
-      max-width: 480px;
-      margin-bottom: 40px;
-      opacity: 0;
-      animation: fadeUp 0.7s var(--ease) 0.34s forwards;
+      max-width: 760px;
     }
-    .hero-actions {
-      display: flex;
+    .problem-section p + p { margin-top: 24px; }
+
+    /* José bridge */
+    .bridge-section {
+      background: var(--paper);
+      padding: 100px 0;
+    }
+    .bridge-grid {
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 64px;
       align-items: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      opacity: 0;
-      animation: fadeUp 0.7s var(--ease) 0.46s forwards;
     }
-    /* Credential card */
-    .cred-panel {
-      background: var(--white);
-      border: 0.5px solid var(--rule-mid);
-      padding: 36px;
-      position: relative;
-      opacity: 0;
-      animation: fadeUp 0.7s var(--ease) 0.3s forwards;
-    }
-    .cred-panel::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 3px; height: 100%;
-      background: var(--accent);
-    }
-    .cred-panel-label {
-      font-family: var(--mono);
-      font-size: 10px;
-      color: var(--ink-muted);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: 24px;
-    }
-    .cred-item {
-      display: flex;
-      gap: 16px;
-      align-items: flex-start;
-      padding-bottom: 20px;
-      margin-bottom: 20px;
-      border-bottom: 0.5px solid var(--rule);
-    }
-    .cred-item:last-child { padding-bottom: 0; margin-bottom: 0; border-bottom: none; }
-    .cred-num {
+    .bridge-text p {
       font-family: var(--serif);
-      font-size: 32px;
+      font-size: clamp(22px, 2.6vw, 30px);
       font-weight: 300;
-      color: var(--accent);
-      line-height: 1;
-      min-width: 62px;
-    }
-    .cred-detail strong {
-      display: block;
-      font-size: 13px;
-      font-weight: 500;
+      line-height: 1.45;
       color: var(--ink);
-      margin-bottom: 3px;
     }
-    .cred-detail span { font-size: 12px; color: var(--ink-muted); line-height: 1.45; }
-
-    /* Services preview */
-    .services-preview { background: var(--paper-warm); }
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: var(--rule-mid);
-      margin-top: 56px;
-    }
-    .service-tile {
-      background: var(--paper-warm);
-      padding: 36px 30px;
-      transition: background 0.25s;
-      cursor: default;
-    }
-    .service-tile:hover { background: var(--white); }
-    .service-tile h3 {
-      font-family: var(--serif);
-      font-size: 20px;
-      font-weight: 400;
-      margin-bottom: 12px;
-      line-height: 1.2;
-    }
-    .service-tile p {
-      font-size: 13px;
-      color: var(--ink-soft);
-      line-height: 1.65;
-      font-weight: 300;
-    }
-    .service-tile-link {
-      display: inline-block;
-      margin-top: 16px;
-      font-size: 11px;
-      color: var(--accent);
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      border-bottom: 0.5px solid var(--accent);
-      transition: opacity 0.2s;
-    }
-    .service-tile-link:hover { opacity: 0.7; }
-
-    /* Stats strip */
-    .stats-strip {
-      background: var(--accent);
-      padding: 60px 0;
-    }
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      background: rgba(255,255,255,0.1);
-    }
-    .stat-block {
-      background: var(--accent);
-      padding: 32px 24px;
-      text-align: center;
-    }
-    .stat-num {
-      font-family: var(--serif);
-      font-size: 52px;
-      font-weight: 300;
-      color: var(--white);
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-    .stat-label {
-      font-size: 11px;
-      color: rgba(255,255,255,0.65);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
-
-    /* About strip */
-    .about-strip { background: var(--paper); }
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-    .about-photo {
-      aspect-ratio: 4/5;
-      background: var(--paper-warm);
-      border: 0.5px solid var(--rule-mid);
+    .bridge-person {
       display: flex;
-      align-items: center;
-      justify-content: center;
-      overflow: hidden;
-      position: relative;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 18px;
     }
-    .about-photo-placeholder {
+    .bridge-photo {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 0.5px solid var(--rule-mid);
+      flex-shrink: 0;
+    }
+    .bridge-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .bridge-name strong {
+      display: block;
+      font-family: var(--serif);
+      font-size: 16px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+    .bridge-name span {
+      display: block;
       font-family: var(--mono);
       font-size: 11px;
       color: var(--ink-muted);
       letter-spacing: 0.08em;
-      text-align: center;
+      text-transform: uppercase;
     }
-    .about-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .about-text p {
-      font-size: 15px;
-      color: var(--ink-soft);
-      line-height: 1.85;
-      font-weight: 300;
-      margin-bottom: 18px;
-    }
-    .about-tag {
-      font-family: var(--sans);
-      font-size: 13px;
+    .bridge-cta {
+      margin-top: 6px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
       color: var(--accent);
-      letter-spacing: 0.02em;
-      margin-top: 4px;
+      border-bottom: 0.5px solid var(--accent);
+      padding-bottom: 2px;
+      display: inline-block;
+      transition: opacity 0.2s;
+    }
+    .bridge-cta:hover { opacity: 0.7; }
+
+    /* Insights discovery module */
+    .insights-module {
+      background: var(--paper-warm);
+      padding: 100px 0;
+    }
+    .insights-kicker {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--accent);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .insights-kicker::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 0.5px;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+    .insights-question {
+      font-family: var(--serif);
+      font-size: clamp(28px, 3.4vw, 42px);
+      font-weight: 300;
+      line-height: 1.2;
+      max-width: 780px;
+    }
+    .insights-series-tag {
+      display: block;
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--ink-muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 16px;
     }
 
-    /* CTA band */
-    .cta-band {
+    .featured-story {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 48px;
+      margin-top: 64px;
+      align-items: center;
+    }
+    .featured-story-img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+    .featured-story-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .featured-story-body h3 {
+      font-family: var(--serif);
+      font-size: clamp(26px, 3vw, 36px);
+      font-weight: 300;
+      line-height: 1.16;
+      margin-bottom: 16px;
+    }
+    .featured-story-body p {
+      font-size: 14px;
+      color: var(--ink-soft);
+      line-height: 1.75;
+      margin-bottom: 22px;
+      max-width: 440px;
+    }
+    .featured-story-link {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-bottom: 0.5px solid var(--accent);
+      padding-bottom: 2px;
+    }
+
+    .secondary-stories {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-top: 72px;
+    }
+    .secondary-story-img {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      margin-bottom: 18px;
+    }
+    .secondary-story h4 {
+      font-family: var(--serif);
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+    .secondary-story p {
+      font-size: 12px;
+      color: var(--ink-soft);
+      line-height: 1.65;
+    }
+
+    .insights-module-footer {
+      text-align: center;
+      margin-top: 64px;
+    }
+
+    /* Pathways strip */
+    .pathways-strip {
       background: var(--ink);
-      padding: 80px 0;
+      padding: 64px 0;
+    }
+    .pathways-row {
+      display: flex;
+      justify-content: center;
+      gap: 64px;
+      flex-wrap: wrap;
       text-align: center;
     }
-    .cta-band h2 {
-      font-family: var(--serif);
-      font-size: clamp(28px, 4vw, 48px);
+    .pathway-item span {
+      display: block;
+      font-size: 13px;
       font-weight: 300;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 10px;
+      max-width: 220px;
+    }
+    .pathway-item a {
+      font-family: var(--mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       color: var(--paper);
-      margin-bottom: 20px;
+      border-bottom: 0.5px solid rgba(255,255,255,0.4);
+      padding-bottom: 2px;
+      transition: opacity 0.2s;
     }
-    .cta-band h2 em { font-style: italic; color: rgba(255,255,255,0.5); }
-    .cta-band p {
-      font-size: 15px;
-      color: rgba(255,255,255,0.6);
-      font-weight: 300;
-      margin-bottom: 36px;
-      max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
-      line-height: 1.75;
-    }
+    .pathway-item a:hover { opacity: 0.7; }
 
     /* Animations */
     @keyframes fadeUp {
@@ -291,19 +290,18 @@
 
     /* Responsive */
     @media (max-width: 960px) {
-      .hero-inner { grid-template-columns: 1fr; }
-      .cred-panel { display: none; }
-      .services-grid { grid-template-columns: 1fr 1fr; }
-      .stats-grid { grid-template-columns: 1fr 1fr; }
-      .about-grid { grid-template-columns: 1fr; }
-      .about-photo { display: none; }
+      .bridge-grid { grid-template-columns: 1fr; gap: 32px; }
+      .featured-story { grid-template-columns: 1fr; }
+      .secondary-stories { grid-template-columns: 1fr 1fr; }
+      .pathways-row { gap: 40px; }
     }
     @media (max-width: 600px) {
-      .hero-inner { padding: 100px 24px 60px; }
-      .services-grid { grid-template-columns: 1fr; }
-      .stats-grid { grid-template-columns: 1fr 1fr; }
+      .hero-inner { padding: 110px 24px 70px; }
+      .secondary-stories { grid-template-columns: 1fr; }
+      .pathways-row { flex-direction: column; gap: 32px; }
     }
-  </style>    <!-- Google tag (gtag.js) -->
+  </style>
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SJ8ZNZZJT9"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -326,9 +324,9 @@
       <a href="index.html" class="nav-logo">José Carlos Bozelli Jr<span>.</span></a>
       <ul class="nav-links">
         <li><a href="index.html" data-page="home" data-en="Home" data-pt="Início">Home</a></li>
-        <li><a href="services.html" data-page="services" data-en="Services" data-pt="Serviços">Services</a></li>
+        <li><a href="insights.html" data-page="insights" data-en="Insights" data-pt="Reflexões">Insights</a></li>
+        <li><a href="services.html" data-page="services" data-en="Consulting" data-pt="Consultoria">Consulting</a></li>
         <li><a href="about.html" data-page="about" data-en="About" data-pt="Sobre">About</a></li>
-        <li><a href="insights.html" data-page="insights" data-en="Insights" data-pt="Reflexões">Insights</a></li><li><a href="https://bozelli.substack.com" target="_blank" rel="noopener" data-en="Newsletter" data-pt="Newsletter">Newsletter</a></li>
         <li><a href="contact.html" data-page="contact" class="nav-cta" data-en="Book a call" data-pt="Agendar">Book a call</a></li>
       </ul>
       <div class="nav-mobile-toggle" aria-label="Menu">
@@ -337,201 +335,146 @@
     </div>
   </nav>
 
-  <!-- HERO -->
+  <!-- HERO — locked -->
   <section class="hero">
     <div class="hero-inner">
-      <div>
-        <div class="hero-eyebrow"
-             data-en="Lipid Biology · Lipidomics · Omics Data Science"
-             data-pt="Biologia Lipídica · Lipidômica · Ciência de Dados Ômicos">
-          Lipid Biology · Lipidomics · Omics Data Science
-        </div>
-        <p style="font-family:var(--mono);font-size:12px;color:var(--accent);letter-spacing:0.08em;margin-bottom:18px;"
-           data-en="Where lipid biology meets data science"
-           data-pt="Lipidômica com raízes na biologia — e olhos nos dados">
-          Where lipid biology meets data science
-        </p>
-        <h1 class="hero-h1"
-            data-en="Turning complex<br>biology into<br><em>actionable insight</em>"
-            data-pt="Transformando biologia<br>complexa em<br><em>ciência aplicada</em>">
-          Turning complex<br>biology into<br><em>actionable insight</em>
-        </h1>
-        <p class="hero-sub"
-           data-en="A scientist with deep expertise in lipid biology and omics data science, helping biotech, pharma, and clinical labs — from Canada and around the world — translate complex biological data into clear, actionable science."
-           data-pt="Cientista com profunda experiência em biologia lipídica e ciência de dados ômicos, ajudando biotech, farma e laboratórios clínicos — com base no Canadá, atuando globalmente — a transformar dados biológicos complexos em ciência aplicável.">
-          A scientist with deep expertise in lipid biology and omics data science, helping biotech, pharma, and clinical labs — from Canada and around the world — translate complex biological data into clear, actionable science.
-        </p>
-        <div class="hero-actions">
-          <a href="contact.html" class="btn btn-dark"
-             data-en="Book a discovery call →"
-             data-pt="Agendar uma conversa →">Book a discovery call →</a>
-          <a href="services.html" class="btn btn-outline"
-             data-en="View services"
-             data-pt="Ver serviços">View services</a>
-        </div>
-      </div>
-      <div class="cred-panel">
-        <div class="cred-panel-label"
-             data-en="Track record"
-             data-pt="Histórico">Track record</div>
-        <div class="cred-item">
-          <div class="cred-num">40+</div>
-          <div class="cred-detail">
-            <strong data-en="Peer-reviewed publications in the field" data-pt="Publicações científicas na área">Peer-reviewed publications in the field</strong>
-            <span data-en="Recognized across leading journals with cover selections" data-pt="Reconhecimento em capas de periódicos científicos">Recognized across leading journals with cover selections</span>
-          </div>
-        </div>
-        <div class="cred-item">
-          <div class="cred-num" data-en="$450K" data-pt="$450K">$450K</div>
-          <div class="cred-detail">
-            <strong data-en="In awarded research funding" data-pt="Em financiamento científico aprovado">In awarded research funding</strong>
-            <span data-en="Contributed to successful applications" data-pt="Contribuição para projetos científicos">Contributed to successful grant applications (CAD)</span>
-          </div>
-        </div>
-        <div class="cred-item">
-          <div class="cred-num" data-en="5K+" data-pt="5K+">5K+</div>
-          <div class="cred-detail">
-            <strong data-en="Samples analyzed" data-pt="Amostras analisadas">Samples analyzed</strong>
-            <span data-en="Population-based LC-MS lipidomics" data-pt="Lipidômica LC-MS de base populacional">Population-based LC-MS lipidomics</span>
-          </div>
-        </div>
-        <div class="cred-item">
-          <div class="cred-num" style="font-family: var(--sans);">1</div>
-          <div class="cred-detail">
-            <strong data-en="Edited scientific book" data-pt="Livro científico publicado">Edited scientific book</strong>
-            <span data-en="Membrane Shape and Biological Function, CRC Press 2025" data-pt="Membrane Shape and Biological Function, CRC Press 2025">Membrane Shape and Biological Function, CRC Press 2025</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES PREVIEW -->
-  <section class="section services-preview">
-    <div class="container">
-      <div class="reveal">
-        <div class="section-label" data-en="What I do" data-pt="O que faço">What I do</div>
-        <h2 class="section-h2"
-            data-en="Scientific expertise<br>across the full <em>omics stack</em>"
-            data-pt="Experiência científica<br>em todo o <em>espectro ômico</em>">
-          Scientific expertise<br>across the full <em>omics stack</em>
-        </h2>
-      </div>
-      <div class="services-grid">
-        <div class="service-tile reveal reveal-delay-1">
-          <h3 data-en="Lipidomics workflow consulting" data-pt="Consultoria em lipidômica">Lipidomics workflow consulting</h3>
-          <p data-en="End-to-end LC-MS workflow design, validation, and optimization — from sample preparation through biological interpretation."
-             data-pt="Desenvolvimento e otimização de fluxos de trabalho LC-MS — da preparação de amostras à interpretação biológica.">End-to-end LC-MS workflow design, validation, and optimization — from sample preparation through biological interpretation.</p>
-          <a href="services.html" class="service-tile-link" data-en="Learn more →" data-pt="Saiba mais →">Learn more →</a>
-        </div>
-        <div class="service-tile reveal reveal-delay-2">
-          <h3 data-en="Omics data science" data-pt="Ciência de dados ômicos">Omics data science</h3>
-          <p data-en="Biological judgment applied to complex omics datasets — from study design through interpretation. Your team gets scientific conclusions they can act on, not outputs that need a biologist to explain them."
-             data-pt="Interpretação biológica de dados ômicos complexos - do desenho de estudo à interpretação. Sua equipe recebe conclusões científicas concretas, não resultados que precisam de um biólogo para fazer sentido.">Biological judgment applied to complex omics datasets — from study design through interpretation. Your team gets scientific conclusions they can act on, not outputs that need a biologist to explain them.</p>
-          <a href="services.html" class="service-tile-link" data-en="Learn more →" data-pt="Saiba mais →">Learn more →</a>
-        </div>
-        <div class="service-tile reveal reveal-delay-3">
-          <h3 data-en="Scientific strategy &amp; writing" data-pt="Estratégia e redação científica">Scientific strategy &amp; writing</h3>
-          <p data-en="Grant applications, manuscripts, and investor-facing scientific summaries — backed by $450K+ in funded research."
-             data-pt="Projetos de financiamento, manuscritos e sumários científicos — com histórico de mais de CAD $450 mil em pesquisa financiada.">Grant applications, manuscripts, and investor-facing scientific summaries — backed by $450K+ in funded research.</p>
-          <a href="services.html" class="service-tile-link" data-en="Learn more →" data-pt="Saiba mais →">Learn more →</a>
-        </div>
-        <div class="service-tile reveal reveal-delay-1">
-          <h3 data-en="Biomarker discovery" data-pt="Descoberta de biomarcadores">Biomarker discovery</h3>
-          <p data-en="Study design, lipid panel selection, and translational interpretation for clinical and precision medicine applications."
-             data-pt="Planejamento de estudos, seleção de painéis lipídicos e interpretação translacional para medicina de precisão.">Study design, lipid panel selection, and translational interpretation for clinical and precision medicine applications.</p>
-          <a href="services.html" class="service-tile-link" data-en="Learn more →" data-pt="Saiba mais →">Learn more →</a>
-        </div>
-        <div class="service-tile reveal reveal-delay-2">
-          <h3 data-en="Training &amp; education" data-pt="Treinamento e educação">Training &amp; education</h3>
-          <p data-en="Tailored workshops for research teams and CRO staff — delivered online or in-person, in English or Portuguese."
-             data-pt="Workshops para equipes de pesquisa e CROs — presenciais ou online, em inglês ou português.">Tailored workshops for research teams and CRO staff — delivered online or in-person, in English or Portuguese.</p>
-          <a href="services.html" class="service-tile-link" data-en="Learn more →" data-pt="Saiba mais →">Learn more →</a>
-        </div>
-        <div class="service-tile reveal reveal-delay-3">
-          <h3 data-en="Fractional scientific advisory" data-pt="Assessoria científica sob demanda">Fractional scientific advisory</h3>
-          <p data-en="Ongoing strategic partnership for teams that need senior lipidomics judgment without a full-time hire."
-             data-pt="Parceria estratégica para equipes que precisam de conhecimento avançado em lipidômica sem contratação de funcionário integral.">Ongoing strategic partnership for teams that need senior lipidomics judgment without a full-time hire.</p>
-          <a href="services.html" class="service-tile-link" data-en="Learn more →" data-pt="Saiba mais →">Learn more →</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- STATS -->
-  <div class="stats-strip">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="stat-block">
-          <div class="stat-num" data-count="40" data-suffix="+">40+</div>
-          <div class="stat-label" data-en="Publications" data-pt="Publicações">Publications</div>
-        </div>
-        <div class="stat-block">
-          <div class="stat-num" data-en="$450K" data-pt="$450 mil" data-count="450" data-prefix="$" data-suffix="K">$450K</div>
-          <div class="stat-label" data-en="Research funding" data-pt="Financiamento científico">Research funding</div>
-        </div>
-        <div class="stat-block">
-          <div class="stat-num" data-en="5K+" data-pt="5 mil+" data-count="5" data-suffix="K+">5K+</div>
-          <div class="stat-label" data-en="Samples analyzed" data-pt="Amostras analisadas">Samples analyzed</div>
-        </div>
-        <div class="stat-block">
-          <div class="stat-num" style="font-family: var(--sans);">1</div>
-          <div class="stat-label" data-en="Edited book" data-pt="Livro editado">Edited book</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ABOUT STRIP -->
-  <section class="section about-strip">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-photo reveal">
-            <img src="assets/img/profile.jpg" alt="José Carlos Bozelli Jr., PhD"
-                 style="width:100%;height:100%;object-fit:cover;object-position:center top;">
-          </div>
-        <div class="about-text reveal reveal-delay-2">
-          <div class="section-label" data-en="About" data-pt="Sobre">About</div>
-          <h2 class="section-h2" style="margin-bottom: 24px;"
-              data-en="Lipid scientist.<br><em>Scientific partner.</em>"
-              data-pt="Cientista de lipídeos.<br><em>Parceiro científico.</em>">
-            Lipid scientist.<br><em>Scientific partner.</em>
-          </h2>
-          <p data-en="I am a lipid scientist who built the analytical workflows to study lipids at scale — and learned to write the code to make sense of the data. That breadth — from lipid metabolism to LC-MS method development to statistical pipelines — is what makes the difference between data and insight."
-             data-pt="Sou cientista de lipídeos, analista de dados e desenvolvedor de métodos analíticos — não por acaso, mas por escolha. Essa combinação — do metabolismo lipídico ao desenvolvimento de métodos LC-MS e análise de dados avançada — é o que transforma dados complexos em ciência aplicável.">
-            I am a lipid scientist who built the analytical workflows to study lipids at scale — and learned to write the code to make sense of the data. That breadth — from lipid metabolism to LC-MS method development to statistical pipelines — is what makes the difference between data and insight.
-          </p>
-          <p data-en="Based in Canada, working with clients around the world — serving as a scientific partner who brings both analytical rigor and biological depth to every engagement."
-             data-pt="Com base no Canadá, atendo clientes ao redor do mundo — atuando como parceiro científico que alia rigor analítico e profundidade biológica.">
-            Based in Canada, working with clients around the world — serving as a scientific partner who brings both analytical rigor and biological depth to every engagement.
-          </p>
-          <p class="about-tag" data-en="Working fluently in English and Portuguese" data-pt="Fluente em inglês e português">Working fluently in English and Portuguese</p>
-          <div style="margin-top: 32px;">
-            <a href="about.html" class="btn btn-outline"
-               data-en="Full profile →" data-pt="Perfil completo →">Full profile →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA BAND -->
-  <section class="cta-band">
-    <div class="container">
-      <h2 class="reveal"
-          data-en="Ready to turn your data<br>into <em>real science</em>?"
-          data-pt="Pronto para transformar seus dados<br>em <em>evidência científica</em>?">
-        Ready to turn your data<br>into <em>real science</em>?
-      </h2>
-      <p class="reveal reveal-delay-1"
-         data-en="Discovery calls are 15 minutes and free. Let's find out if there's a fit."
-         data-pt="As chamadas iniciais têm 15 minutos e são gratuitas. Vamos ver se faz sentido trabalharmos juntos.">
-        Discovery calls are 15 minutes and free. Let's find out if there's a fit.
+      <h1 class="hero-h1 reveal"
+          data-en="Biology has never been easier to measure. Understanding it is another matter."
+          data-pt="A biologia nunca foi tão fácil de medir. Compreendê-la é outra história.">
+        Biology has never been easier to measure. Understanding it is another matter.
+      </h1>
+      <p class="hero-sub reveal reveal-delay-1"
+         data-en="Biomarkers, omics, wearables, and increasingly AI can now observe the human body at a resolution earlier generations couldn't imagine. What that observation actually means — for a single cell, a single patient, a single decision — is where the real work begins."
+         data-pt="Biomarcadores, ômicas, wearables e, cada vez mais, a inteligência artificial já observam o corpo humano com uma resolução que gerações anteriores não conseguiam imaginar. O que essa observação realmente significa — para uma única célula, um único paciente, uma única decisão — é onde o trabalho de verdade começa.">
+        Biomarkers, omics, wearables, and increasingly AI can now observe the human body at a resolution earlier generations couldn't imagine. What that observation actually means — for a single cell, a single patient, a single decision — is where the real work begins.
       </p>
-      <a href="contact.html" class="btn btn-accent reveal reveal-delay-2"
-         data-en="Book a 15-min call →"
-         data-pt="Agendar 15 minutos →">Book a 15-min call →</a>
+    </div>
+  </section>
+
+  <!-- THE HARDER PROBLEM — locked -->
+  <section class="problem-section">
+    <div class="container">
+      <p class="reveal"
+         data-en="A wearable can track a heartbeat every second. A single blood draw can profile thousands of lipids, metabolites, or proteins in one run. A genome costs less to sequence than a laptop. None of that, by itself, tells you what's true, what's noise, or what to do next."
+         data-pt="Um wearable consegue registrar cada batimento cardíaco, segundo a segundo. Uma única coleta de sangue pode informar sobre o perfil de milhares de lipídeos, metabólitos ou proteínas em uma só análise. Sequenciar um genoma já custa menos que um notebook. Nada disso, por si só, diz o que é real, o que é ruído, ou o que fazer a seguir.">
+        A wearable can track a heartbeat every second. A single blood draw can profile thousands of lipids, metabolites, or proteins in one run. A genome costs less to sequence than a laptop. None of that, by itself, tells you what's true, what's noise, or what to do next.
+      </p>
+      <p class="reveal reveal-delay-1"
+         data-en="That gap — between what we can measure and what we can responsibly conclude — runs through nutrition and metabolism, brain health and aging, the gut microbiome, and the growing shelf of consumer biomarker tests promising more certainty than the evidence behind them can support. It's also where statistics, data science, and machine learning either earn their keep or quietly make the problem worse."
+         data-pt="Essa distância — entre o que conseguimos medir e o que podemos concluir com responsabilidade — atravessa a nutrição e o metabolismo, a saúde cerebral e o envelhecimento, o microbioma intestinal, e a prateleira cada vez maior de testes de biomarcadores que prometem mais certeza do que a evidência por trás deles consegue sustentar. É também onde a estatística, a ciência de dados e o machine learning ajudam, ou pioram o problema em silêncio.">
+        That gap — between what we can measure and what we can responsibly conclude — runs through nutrition and metabolism, brain health and aging, the gut microbiome, and the growing shelf of consumer biomarker tests promising more certainty than the evidence behind them can support. It's also where statistics, data science, and machine learning either earn their keep or quietly make the problem worse.
+      </p>
+    </div>
+  </section>
+
+  <!-- JOSÉ BRIDGE — locked -->
+  <section class="bridge-section">
+    <div class="container">
+      <div class="bridge-grid">
+        <div class="bridge-text reveal">
+          <p data-en="Behind these questions is a scientist fascinated by how much more of biology we can now see, measure, and model — and by the harder question of what it all means."
+             data-pt="Por trás dessas perguntas está um cientista fascinado por o quanto mais conseguimos hoje ver, medir e modelar da biologia — e pela pergunta mais difícil: o que tudo isso significa?">
+            Behind these questions is a scientist fascinated by how much more of biology we can now see, measure, and model — and by the harder question of what it all means.
+          </p>
+        </div>
+        <div class="bridge-person reveal reveal-delay-1">
+          <div class="bridge-photo">
+            <img src="assets/img/profile.jpg" alt="José Carlos Bozelli Jr., PhD">
+          </div>
+          <div class="bridge-name">
+            <strong>José Carlos Bozelli Jr., PhD</strong>
+            <span data-en="Scientist" data-pt="Cientista">Scientist</span>
+          </div>
+          <a href="about.html" class="bridge-cta" data-en="Meet José →" data-pt="Conheça José →">Meet José →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSIGHTS DISCOVERY MODULE -->
+  <!-- ============================================================
+       This block is regenerated by scripts/sync-substack.js from
+       insights/_data/posts.json ("featured", "featuredQuestion",
+       "secondary" fields). To change what Home foregrounds, edit
+       those fields and re-run the sync script — do not hand-edit
+       the markers below, your changes will be overwritten on the
+       next sync.
+       ============================================================ -->
+  <section class="insights-module">
+    <div class="container">
+      <!-- HOME_FEATURED:START -->
+      <div class="insights-kicker reveal" data-en="Currently investigating" data-pt="Investigando atualmente">Currently investigating</div>
+      <h2 class="insights-question reveal reveal-delay-1"
+          data-en="What does it actually take to get DHA into the brain?"
+          data-pt="O que é realmente preciso para o DHA chegar ao cérebro?">
+        What does it actually take to get DHA into the brain?
+      </h2>
+      <span class="insights-series-tag">Remodeling the Brain</span>
+
+      <div class="featured-story reveal reveal-delay-2">
+        <img class="featured-story-img" src="https://substackcdn.com/image/fetch/$s_!YoLJ!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fac1fb335-00b2-47c7-ae3f-3c533f82745a_1224x1285.png" alt="Remodeling the Brain">
+        <div class="featured-story-body">
+          <div class="featured-story-label" data-en="One Molecule at a Time" data-pt="Uma Molécula de Cada Vez">One Molecule at a Time</div>
+          <h3>Remodeling the Brain</h3>
+          <p data-en="Cognitive health depends on fats delivered to the brain. The standard omega-3 index tells only half of the story about how they do it."
+             data-pt="A saúde cognitiva depende dos lipídeos que chegam ao cérebro. O índice de ômega-3 conta apenas metade da história de como isso acontece.">
+            Cognitive health depends on fats delivered to the brain. The standard omega-3 index tells only half of the story about how they do it.
+          </p>
+          <a href="insights/remodeling-the-brain.html" class="featured-story-link" data-en="Read →" data-pt="Ler →">Read →</a>
+        </div>
+      </div>
+
+      <div class="secondary-stories">
+        <a href="insights/the-biomarker-gold-rush.html" class="secondary-story reveal">
+          <img class="secondary-story-img" src="https://substackcdn.com/image/fetch/$s_!dZYj!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F27413f87-8708-4dde-afb5-80de7721388f_758x1024.png" alt="The Biomarker Gold Rush Has a Counterfeiting Problem">
+          <h4>The Biomarker Gold Rush Has a Counterfeiting Problem</h4>
+          <p data-en="The omics pipeline rewards discovery. It rarely rewards validation."
+             data-pt="O pipeline da ômica recompensa a descoberta. Raramente recompensa a validação.">
+            The omics pipeline rewards discovery. It rarely rewards validation.
+          </p>
+        </a>
+        <a href="insights/what-your-gut-is-telling-your-liver.html" class="secondary-story reveal reveal-delay-1">
+          <img class="secondary-story-img" src="https://substackcdn.com/image/fetch/$s_!jbVK!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe448c69f-c6df-413e-a3d3-98ce1d1f0b7e_1182x1331.png" alt="What Your Gut Is Telling Your Liver">
+          <h4>What Your Gut Is Telling Your Liver</h4>
+          <p data-en="What does a family of molecules your microbiome makes from your breakfast reveal about the conversation between your gut and the rest of your body?"
+             data-pt="O que uma família de moléculas que seu microbioma produz a partir do seu café da manhã revela sobre a conversa entre o intestino e o resto do corpo?">
+            What does a family of molecules your microbiome makes from your breakfast reveal about the conversation between your gut and the rest of your body?
+          </p>
+        </a>
+        <a href="insights/when-your-metabolism-cant-switch.html" class="secondary-story reveal reveal-delay-2">
+          <img class="secondary-story-img" src="https://substackcdn.com/image/fetch/$s_!dmeX!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F56f58d51-299b-4086-ac54-f59bb1041da9_1536x1024.png" alt="When Your Metabolism Can't Switch Gears">
+          <h4>When Your Metabolism Can't Switch Gears</h4>
+          <p data-en="A family of molecules reveals what happens when your cells struggle to process fat completely through the energy-producing machinery."
+             data-pt="Uma família de moléculas revela o que acontece quando suas células têm dificuldade para processar completamente a gordura na central de energia.">
+            A family of molecules reveals what happens when your cells struggle to process fat completely through the energy-producing machinery.
+          </p>
+        </a>
+      </div>
+
+      <div class="insights-module-footer reveal">
+        <a href="insights.html" class="btn btn-outline" data-en="Explore all Insights →" data-pt="Ver todas as Reflexões →">Explore all Insights →</a>
+      </div>
+      <!-- HOME_FEATURED:END -->
+    </div>
+  </section>
+
+  <!-- PROFESSIONAL PATHWAYS -->
+  <section class="pathways-strip">
+    <div class="container">
+      <div class="pathways-row">
+        <div class="pathway-item reveal">
+          <span data-en="Have a problem that needs this kind of thinking applied?" data-pt="Tem um problema que pede esse tipo de raciocínio?">Have a problem that needs this kind of thinking applied?</span>
+          <a href="services.html" data-en="Consulting →" data-pt="Consultoria →">Consulting →</a>
+        </div>
+        <div class="pathway-item reveal reveal-delay-1">
+          <span data-en="Want the full scientific background?" data-pt="Quer conhecer toda a trajetória científica?">Want the full scientific background?</span>
+          <a href="about.html" data-en="About →" data-pt="Sobre →">About →</a>
+        </div>
+        <div class="pathway-item reveal reveal-delay-2">
+          <span data-en="Prefer to connect directly?" data-pt="Prefere se conectar diretamente?">Prefer to connect directly?</span>
+          <a href="contact.html" data-en="Contact →" data-pt="Contato →">Contact →</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -542,7 +485,7 @@
       <div class="footer-links">
         <a href="https://www.linkedin.com/in/jose-carlos-bozelli-jr-9b2a4181/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="https://bozelli.substack.com" target="_blank" rel="noopener" data-en="Newsletter" data-pt="Newsletter">Newsletter</a>
-        <a href="services.html" data-en="Services" data-pt="Serviços">Services</a>
+        <a href="services.html" data-en="Consulting" data-pt="Consultoria">Consulting</a>
         <a href="contact.html" data-en="Contact" data-pt="Contato">Contact</a>
       </div>
     </div>

@@ -6,6 +6,8 @@
  *   1. Builds/updates individual article pages (insights/<slug>.html)
  *   2. Builds/updates series pages    (insights/series/<series-slug>.html)
  *   3. Rebuilds the hub               (insights.html)
+ *   4. Rebuilds the Home featured module (index.html), driven by
+ *      "featured" / "featuredQuestion" / "secondary" in posts.json
  *
  * Series vs. orphan distinction:
  *   - Any slug listed in a series.posts array → series article
@@ -14,6 +16,25 @@
  * series.json optional field per series:
  *   "hasIntro": true  → index 0 labeled "Intro", rest Part I, II…
  *                        Default: false (all labeled Part I, II…)
+ *
+ * posts.json top-level fields (in addition to "posts"):
+ *   "featured"           → slug of the article to feature on Home
+ *   "featuredQuestion"   → EN "Currently investigating" question shown
+ *                          above the featured story on Home
+ *   "featuredQuestionPt" → PT translation of the above
+ *   "secondary"          → array of up to 3 slugs shown as the smaller
+ *                          cards below the featured story on Home
+ *   Per-post optional field:
+ *   "dekPt"               → PT translation of that post's dek, used
+ *                            when the post appears as featured/secondary
+ *   series.json optional field per series:
+ *   "titlePt"              → PT translation of the series title, used
+ *                            as the series label on Home when featured
+ *   To change what Home foregrounds, edit the fields above and
+ *   re-run this script — do not hand-edit the HOME_FEATURED markers
+ *   in index.html, they get overwritten on every sync. If a PT field
+ *   is missing, the script falls back to "[PT translation pending]"
+ *   (or the English text for series labels) rather than failing.
  */
 
 const fs     = require("fs");
@@ -31,6 +52,7 @@ const MANIFEST_PATH    = path.join(ROOT, "insights/_data/posts.json");
 const ARTICLE_TPL_PATH = path.join(ROOT, "insights/_template/article-template.html");
 const SERIES_TPL_PATH  = path.join(ROOT, "insights/_template/series-template.html");
 const HUB_PATH         = path.join(ROOT, "insights.html");
+const HOME_PATH        = path.join(ROOT, "index.html");
 
 const ROMAN = ["I","II","III","IV","V","VI","VII","VIII","IX","X"];
 
@@ -108,6 +130,13 @@ function getPartLabel(series, index) {
   if (series.hasIntro && index === 0) return "Intro";
   const n = series.hasIntro ? index - 1 : index;
   return "Part " + (ROMAN[n] || String(n+1));
+}
+
+function findSeriesLabelForSlug(slug, seriesConfig) {
+  for (const series of (seriesConfig.series || [])) {
+    if ((series.posts || []).includes(slug)) return series.title;
+  }
+  return null;
 }
 
 // article page
@@ -228,6 +257,82 @@ function rebuildHub(allPosts) {
   console.log("Rebuilt insights.html hub.");
 }
 
+// home featured module
+//
+// Driven entirely by posts.json's "featured" (slug), "featuredQuestion"
+// (string), and "secondary" (array of up to 3 slugs) fields. Swapping
+// what Home foregrounds — e.g. for a new EXP-### activation — is a
+// three-line JSON edit followed by a sync run. PT strings are left as
+// "[PT translation pending]" here; this script does not translate —
+// fill those in posts.json (or the generated HTML) once confirmed.
+
+function buildHomeFeaturedBlock(manifest, bySlugMap, seriesConfig) {
+  const featuredSlug = manifest.featured;
+  const featured = featuredSlug ? bySlugMap.get(featuredSlug) : null;
+  if (!featured) {
+    console.warn('posts.json has no valid "featured" slug — skipping Home featured rebuild.');
+    return null;
+  }
+
+  const secondarySlugs = (manifest.secondary || [])
+    .filter(s => s !== featuredSlug && bySlugMap.has(s))
+    .slice(0, 3);
+
+  if (!secondarySlugs.length) {
+    console.warn('posts.json has no valid "secondary" slugs — Home secondary cards will be empty.');
+  }
+
+  const seriesLabel   = findSeriesLabelForSlug(featuredSlug, seriesConfig) || featured.section || "Insights";
+  const seriesLabelPt = (seriesConfig.series || []).find(s => (s.posts||[]).includes(featuredSlug))?.titlePt || seriesLabel;
+  const question      = manifest.featuredQuestion   || featured.title;
+  const questionPt     = manifest.featuredQuestionPt || "[PT translation pending]";
+
+  const secondaryHtml = secondarySlugs.map((slug, i) => {
+    const p = bySlugMap.get(slug);
+    const delayClass = i === 0 ? "" : ` reveal-delay-${i}`;
+    return `        <a href="insights/${p.slug}.html" class="secondary-story reveal${delayClass}">
+          <img class="secondary-story-img" src="${p.imageUrl || ""}" alt="${esc(p.title)}">
+          <h4>${esc(p.title)}</h4>
+          <p data-en="${esc(p.dek)}" data-pt="${esc(p.dekPt || "[PT translation pending]")}">${esc(p.dek)}</p>
+        </a>`;
+  }).join("\n");
+
+  return `      <div class="insights-kicker reveal" data-en="Currently investigating" data-pt="Investigando atualmente">Currently investigating</div>
+      <h2 class="insights-question reveal reveal-delay-1" data-en="${esc(question)}" data-pt="${esc(questionPt)}">${esc(question)}</h2>
+      <span class="insights-series-tag" data-en="${esc(seriesLabel)}" data-pt="${esc(seriesLabelPt)}">${esc(seriesLabel)}</span>
+
+      <div class="featured-story reveal reveal-delay-2">
+        <img class="featured-story-img" src="${featured.imageUrl || ""}" alt="${esc(featured.title)}">
+        <div class="featured-story-body">
+          <div class="featured-story-label" data-en="${esc(seriesLabel)}" data-pt="${esc(seriesLabelPt)}">${esc(seriesLabel)}</div>
+          <h3>${esc(featured.title)}</h3>
+          <p data-en="${esc(featured.dek)}" data-pt="${esc(featured.dekPt || "[PT translation pending]")}">${esc(featured.dek)}</p>
+          <a href="insights/${featured.slug}.html" class="featured-story-link" data-en="Read →" data-pt="Ler →">Read →</a>
+        </div>
+      </div>
+
+      <div class="secondary-stories">
+${secondaryHtml}
+      </div>
+
+      <div class="insights-module-footer reveal">
+        <a href="insights.html" class="btn btn-outline" data-en="Explore all Insights →" data-pt="Ver todas as Reflexões →">Explore all Insights →</a>
+      </div>`;
+}
+
+function rebuildHomeFeatured(manifest, allPosts, seriesConfig) {
+  if (!fs.existsSync(HOME_PATH)) { console.warn("No index.html — skipping Home featured rebuild."); return; }
+  const bySlugMap = new Map(allPosts.map(p => [p.slug, p]));
+  const block = buildHomeFeaturedBlock(manifest, bySlugMap, seriesConfig);
+  if (!block) return;
+
+  const src    = fs.readFileSync(HOME_PATH,"utf8");
+  const marker = /<!-- HOME_FEATURED:START -->[\s\S]*?<!-- HOME_FEATURED:END -->/;
+  if (!marker.test(src)) { console.warn("HOME_FEATURED markers missing in index.html."); return; }
+  fs.writeFileSync(HOME_PATH, src.replace(marker,`<!-- HOME_FEATURED:START -->\n${block}\n      <!-- HOME_FEATURED:END -->`));
+  console.log("Rebuilt index.html featured module.");
+}
+
 // cross-link rewriting
 
 function rewriteCrossLinks(html, slugSet) {
@@ -303,7 +408,9 @@ async function run() {
   manifest.posts = allPosts.map(({bodyHtml:_,...rest})=>rest);
   saveManifest(manifest);
 
-  // Always rebuild series pages and hub (covers series.json edits between syncs)
+  // Always rebuild series pages, hub, and Home featured module
+  // (covers series.json / posts.json edits between syncs, even
+  // when no new Substack content was fetched)
   const config    = loadSeriesConfig();
   const bySlugMap = new Map(allPosts.map(p=>[p.slug,p]));
   (config.series||[]).forEach((series,i) => {
@@ -313,6 +420,7 @@ async function run() {
 
   rewriteAllCrossLinks(new Set(allPosts.map(p=>p.slug)));
   rebuildHub(allPosts);
+  rebuildHomeFeatured(manifest, allPosts, config);
 
   if (!changedAny) console.log("No content changes since last sync.");
 }
