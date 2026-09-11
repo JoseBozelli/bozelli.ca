@@ -165,5 +165,6 @@
 
     <script src="assets/js/main.js"></script>
   <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  <script> window.addEventListener('message', function(e) { if (e.origin !== 'https://calendly.com') return; if (e.data.event === 'calendly.event_scheduled') { gtag('event', 'calendly_booking', { event_category: 'conversion', event_label: 'discovery_call_booked' }); } }); </script>
 </body>
 </html>
