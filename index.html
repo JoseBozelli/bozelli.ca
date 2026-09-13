@@ -111,12 +111,21 @@
     }
     .problem-turn {
       font-family: var(--serif);
-      font-size: clamp(22px, 2.6vw, 28px);
+      font-size: clamp(19px, 2.1vw, 23px);
       font-weight: 300;
       line-height: 1.3;
       color: var(--ink);
       max-width: 640px;
       margin-bottom: 32px;
+    }
+    .problem-section p.problem-climax {
+      font-family: var(--serif);
+      font-size: clamp(31px, 3.8vw, 42px);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--ink);
+      max-width: 760px;
+      margin-bottom: 24px;
     }
     .problem-section p {
       font-size: 16px;
@@ -268,15 +277,10 @@
 
     .secondary-stories {
       display: grid;
-      grid-template-columns: 3fr 2fr;
+      grid-template-columns: repeat(3, 1fr);
       gap: 40px;
       margin-top: 72px;
       align-items: start;
-    }
-    .secondary-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
     }
     @media (max-width: 768px) {
       .secondary-stories { grid-template-columns: 1fr; }
@@ -441,7 +445,7 @@
          data-pt="Ainda assim, mais medição não significa necessariamente mais compreensão.">
         And still, more measurement doesn't necessarily mean more understanding.
       </p>
-      <p class="reveal reveal-delay-4"
+      <p class="problem-climax reveal reveal-delay-4"
          data-en="None of that, by itself, tells you what's true, what's noise, or what to do next."
          data-pt="Nada disso, por si só, diz o que é real, o que é ruído, ou o que fazer a seguir.">
         None of that, by itself, tells you what's true, what's noise, or what to do next.
@@ -459,9 +463,9 @@
     <div class="container">
       <div class="bridge-grid">
         <div class="bridge-text reveal">
-          <p data-en="Behind these questions is a scientist fascinated by how much more of biology we can now see, measure, and model — and by the harder question of what it all means."
-             data-pt="Por trás dessas perguntas está um cientista fascinado por o quanto mais conseguimos hoje ver, medir e modelar da biologia — e pela pergunta mais difícil: o que tudo isso significa?">
-            Behind these questions is a scientist fascinated by how much more of biology we can now see, measure, and model — and by the harder question of what it all means.
+          <p data-en="Behind these questions is a scientist fascinated by how much more of biology we can now <strong>see, measure, and model</strong> — and by the harder question of what it all means."
+             data-pt="Por trás dessas perguntas está um cientista fascinado por o quanto mais conseguimos hoje <strong>ver, medir e modelar</strong> da biologia — e pela pergunta mais difícil: o que tudo isso significa?">
+            Behind these questions is a scientist fascinated by how much more of biology we can now <strong>see, measure, and model</strong> — and by the harder question of what it all means.
           </p>
         </div>
         <div class="bridge-person reveal reveal-delay-1">
@@ -519,24 +523,22 @@
             The omics pipeline rewards discovery. It rarely rewards validation.
           </p>
         </a>
-        <div class="secondary-stack">
-          <a href="insights/what-your-gut-is-telling-your-liver.html" class="secondary-story reveal reveal-delay-1">
-            <img class="secondary-story-img" src="assets/img/what-your-gut-is-telling-your-liver-card.png" alt="What Your Gut Is Telling Your Liver">
-            <h4>What Your Gut Is Telling Your Liver</h4>
-            <p data-en="What does a family of molecules your microbiome makes from your breakfast reveal about the conversation between your gut and the rest of your body?"
-               data-pt="O que uma família de moléculas que seu microbioma produz a partir do seu café da manhã revela sobre a conversa entre o intestino e o resto do corpo?">
-              What does a family of molecules your microbiome makes from your breakfast reveal about the conversation between your gut and the rest of your body?
-            </p>
-          </a>
-          <a href="insights/when-your-metabolism-cant-switch.html" class="secondary-story reveal reveal-delay-2">
-            <img class="secondary-story-img" src="assets/img/when-your-metabolism-cant-switch-card.png" alt="When Your Metabolism Can't Switch Gears">
-            <h4>When Your Metabolism Can't Switch Gears</h4>
-            <p data-en="A family of molecules reveals what happens when your cells struggle to process fat completely through the energy-producing machinery."
-               data-pt="Uma família de moléculas revela o que acontece quando suas células têm dificuldade para processar completamente a gordura na central de energia.">
-              A family of molecules reveals what happens when your cells struggle to process fat completely through the energy-producing machinery.
-            </p>
-          </a>
-        </div>
+        <a href="insights/what-your-gut-is-telling-your-liver.html" class="secondary-story reveal reveal-delay-1">
+          <img class="secondary-story-img" src="assets/img/what-your-gut-is-telling-your-liver-card.png" alt="What Your Gut Is Telling Your Liver">
+          <h4>What Your Gut Is Telling Your Liver</h4>
+          <p data-en="What does a family of molecules your microbiome makes from your breakfast reveal about the conversation between your gut and the rest of your body?"
+             data-pt="O que uma família de moléculas que seu microbioma produz a partir do seu café da manhã revela sobre a conversa entre o intestino e o resto do corpo?">
+            What does a family of molecules your microbiome makes from your breakfast reveal about the conversation between your gut and the rest of your body?
+          </p>
+        </a>
+        <a href="insights/when-your-metabolism-cant-switch.html" class="secondary-story reveal reveal-delay-2">
+          <img class="secondary-story-img" src="assets/img/when-your-metabolism-cant-switch-card.png" alt="When Your Metabolism Can't Switch Gears">
+          <h4>When Your Metabolism Can't Switch Gears</h4>
+          <p data-en="A family of molecules reveals what happens when your cells struggle to process fat completely through the energy-producing machinery."
+             data-pt="Uma família de moléculas revela o que acontece quando suas células têm dificuldade para processar completamente a gordura na central de energia.">
+            A family of molecules reveals what happens when your cells struggle to process fat completely through the energy-producing machinery.
+          </p>
+        </a>
       </div>
 
       <div class="insights-module-footer reveal">
