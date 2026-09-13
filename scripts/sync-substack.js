@@ -32,7 +32,12 @@
  *                            over "imageUrl" (the Substack CDN hotlink)
  *                            when building the Home featured module —
  *                            self-hosted images avoid CDN hotlink
- *                            protection degrading resolution
+ *                            protection degrading resolution. For dense
+ *                            multi-panel diagrams, point this at a
+ *                            cropped "<slug>-card.png" detail instead of
+ *                            the full diagram — the full version reads
+ *                            fine at article width but becomes illegible
+ *                            shrunk into a Home card.
  *   series.json optional field per series:
  *   "titlePt"              → PT translation of the series title, used
  *                            as the series label on Home when featured
@@ -268,9 +273,29 @@ function rebuildHub(allPosts) {
 // Driven entirely by posts.json's "featured" (slug), "featuredQuestion"
 // (string), and "secondary" (array of up to 3 slugs) fields. Swapping
 // what Home foregrounds — e.g. for a new EXP-### activation — is a
-// three-line JSON edit followed by a sync run. PT strings are left as
-// "[PT translation pending]" here; this script does not translate —
-// fill those in posts.json (or the generated HTML) once confirmed.
+// three-line JSON edit followed by a sync run.
+//
+// Image resolution is automatic by naming convention: if
+// assets/img/<slug>-card.png exists on disk, it's used with no JSON
+// field required. A post's own "localImage" field, if set, always wins
+// over the convention (manual override). If neither exists, this falls
+// back to the raw Substack CDN hotlink (imageUrl) — which reintroduces
+// the resolution/hotlinking problem, so create the -card crop before
+// featuring a new article, don't rely on the fallback.
+//
+// PT strings are left as "[PT translation pending]" here; this script
+// does not translate — fill those in posts.json (or the generated HTML)
+// once confirmed.
+
+function resolveCardImage(post) {
+  if (post.localImage) return post.localImage;
+  const cardPath = path.join(ROOT, "assets/img", `${post.slug}-card.png`);
+  if (fs.existsSync(cardPath)) return `assets/img/${post.slug}-card.png`;
+  if (post.imageUrl) {
+    console.warn(`No assets/img/${post.slug}-card.png found for "${post.slug}" — falling back to Substack CDN image. Create a -card crop before featuring this article.`);
+  }
+  return post.imageUrl || "";
+}
 
 function buildHomeFeaturedBlock(manifest, bySlugMap, seriesConfig) {
   const featuredSlug = manifest.featured;
@@ -297,7 +322,7 @@ function buildHomeFeaturedBlock(manifest, bySlugMap, seriesConfig) {
     const p = bySlugMap.get(slug);
     const delayClass = i === 0 ? "" : ` reveal-delay-${i}`;
     return `        <a href="insights/${p.slug}.html" class="secondary-story reveal${delayClass}">
-          <img class="secondary-story-img" src="${p.localImage || p.imageUrl || ""}" alt="${esc(p.title)}">
+          <img class="secondary-story-img" src="${resolveCardImage(p)}" alt="${esc(p.title)}">
           <h4>${esc(p.title)}</h4>
           <p data-en="${esc(p.dek)}" data-pt="${esc(p.dekPt || "[PT translation pending]")}">${esc(p.dek)}</p>
         </a>`;
@@ -308,7 +333,7 @@ function buildHomeFeaturedBlock(manifest, bySlugMap, seriesConfig) {
       <span class="insights-series-tag" data-en="${esc(seriesLabel)}" data-pt="${esc(seriesLabelPt)}">${esc(seriesLabel)}</span>
 
       <div class="featured-story reveal reveal-delay-2">
-        <img class="featured-story-img" src="${featured.localImage || featured.imageUrl || ""}" alt="${esc(featured.title)}">
+        <img class="featured-story-img" src="${resolveCardImage(featured)}" alt="${esc(featured.title)}">
         <div class="featured-story-body">
           <div class="featured-story-label" data-en="${esc(seriesLabel)}" data-pt="${esc(seriesLabelPt)}">${esc(seriesLabel)}</div>
           <h3>${esc(featured.title)}</h3>

@@ -12,7 +12,7 @@
   <style>
     /* ---- HOME-SPECIFIC STYLES ---- */
     .hero {
-      min-height: 86vh;
+      min-height: 74vh;
       display: flex;
       align-items: center;
       background: var(--paper);
@@ -48,6 +48,10 @@
       margin: 0 auto;
     }
     .hero-visual svg, .hero-visual img { width: 100%; height: auto; display: block; }
+    .hero-visual-inner img {
+      mask-image: radial-gradient(ellipse 72% 78% at 50% 48%, black 52%, transparent 96%);
+      -webkit-mask-image: radial-gradient(ellipse 72% 78% at 50% 48%, black 52%, transparent 96%);
+    }
     .hero-visual-inner { will-change: transform; }
     @media (min-width: 960px) {
       .hero-inner {
@@ -58,7 +62,7 @@
         gap: 56px;
       }
       .hero-text { flex: 1 1 55%; }
-      .hero-visual { flex: 0 0 420px; max-width: 440px; margin: 0; }
+      .hero-visual { flex: 0 0 480px; max-width: 500px; margin: 0; }
     }
     .hero-h1 {
       font-family: var(--serif);
@@ -93,6 +97,15 @@
       max-width: 760px;
     }
     .problem-section p + p { margin-top: 24px; }
+    .problem-section p .pull-statement {
+      display: block;
+      font-family: var(--serif);
+      font-size: clamp(24px, 3vw, 34px);
+      font-weight: 300;
+      line-height: 1.35;
+      color: var(--ink);
+      margin-top: 28px;
+    }
 
     /* José bridge */
     .bridge-section {
@@ -119,8 +132,8 @@
       gap: 18px;
     }
     .bridge-photo {
-      width: 84px;
-      height: 84px;
+      width: 112px;
+      height: 112px;
       border-radius: 50%;
       overflow: hidden;
       border: 0.5px solid var(--rule-mid);
@@ -130,18 +143,9 @@
     .bridge-name strong {
       display: block;
       font-family: var(--serif);
-      font-size: 16px;
+      font-size: 17px;
       font-weight: 400;
       color: var(--ink);
-      margin-bottom: 2px;
-    }
-    .bridge-name span {
-      display: block;
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--ink-muted);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
     }
     .bridge-cta {
       margin-top: 6px;
@@ -209,9 +213,6 @@
       width: 100%;
       aspect-ratio: 4 / 5;
       object-fit: contain;
-      background: var(--white);
-      border: 0.5px solid var(--rule-mid);
-      padding: 16px;
     }
     .featured-story-label {
       font-family: var(--mono);
@@ -247,17 +248,23 @@
 
     .secondary-stories {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 3fr 2fr;
       gap: 40px;
       margin-top: 72px;
+      align-items: start;
+    }
+    .secondary-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    @media (max-width: 768px) {
+      .secondary-stories { grid-template-columns: 1fr; }
     }
     .secondary-story-img {
       width: 100%;
       aspect-ratio: 4 / 5;
       object-fit: contain;
-      background: var(--white);
-      border: 0.5px solid var(--rule-mid);
-      padding: 12px;
       margin-bottom: 18px;
       transition: opacity 0.25s;
       box-sizing: border-box;
@@ -395,9 +402,10 @@
   <section class="problem-section">
     <div class="container">
       <p class="reveal"
-         data-en="A wearable can track a heartbeat every second. A single blood draw can profile thousands of lipids, metabolites, or proteins in one run. A genome costs less to sequence than a laptop. None of that, by itself, tells you what's true, what's noise, or what to do next."
-         data-pt="Um wearable consegue registrar cada batimento cardíaco, segundo a segundo. Uma única coleta de sangue pode informar sobre o perfil de milhares de lipídeos, metabólitos ou proteínas em uma só análise. Sequenciar um genoma já custa menos que um notebook. Nada disso, por si só, diz o que é real, o que é ruído, ou o que fazer a seguir.">
-        A wearable can track a heartbeat every second. A single blood draw can profile thousands of lipids, metabolites, or proteins in one run. A genome costs less to sequence than a laptop. None of that, by itself, tells you what's true, what's noise, or what to do next.
+         data-en="A wearable can track a heartbeat every second. A single blood draw can profile thousands of lipids, metabolites, or proteins in one run. A genome costs less to sequence than a laptop. <span class=&quot;pull-statement&quot;>None of that, by itself, tells you what's true, what's noise, or what to do next.</span>"
+         data-pt="Um wearable consegue registrar cada batimento cardíaco, segundo a segundo. Uma única coleta de sangue pode informar sobre o perfil de milhares de lipídeos, metabólitos ou proteínas em uma só análise. Sequenciar um genoma já custa menos que um notebook. <span class=&quot;pull-statement&quot;>Nada disso, por si só, diz o que é real, o que é ruído, ou o que fazer a seguir.</span>">
+        A wearable can track a heartbeat every second. A single blood draw can profile thousands of lipids, metabolites, or proteins in one run. A genome costs less to sequence than a laptop.
+        <span class="pull-statement">None of that, by itself, tells you what's true, what's noise, or what to do next.</span>
       </p>
       <p class="reveal reveal-delay-1"
          data-en="That gap — between what we can measure and what we can responsibly conclude — runs through nutrition and metabolism, brain health and aging, the gut microbiome, and the growing shelf of consumer biomarker tests promising more certainty than the evidence behind them can support. It's also where statistics, data science, and machine learning either earn their keep or quietly make the problem worse."
@@ -423,7 +431,6 @@
           </div>
           <div class="bridge-name">
             <strong>José Carlos Bozelli Jr., PhD</strong>
-            <span data-en="Scientist" data-pt="Cientista">Scientist</span>
           </div>
           <a href="about.html" class="bridge-cta" data-en="Meet José →" data-pt="Conheça José →">Meet José →</a>
         </div>
@@ -444,50 +451,34 @@
     <div class="container">
       <!-- HOME_FEATURED:START -->
       <div class="insights-kicker reveal" data-en="Currently investigating" data-pt="Investigando atualmente">Currently investigating</div>
-      <h2 class="insights-question reveal reveal-delay-1"
-          data-en="What does it actually take to get DHA into the brain?"
-          data-pt="O que é realmente preciso para o DHA chegar ao cérebro?">
-        What does it actually take to get DHA into the brain?
-      </h2>
-      <span class="insights-series-tag">Remodeling the Brain</span>
+      <h2 class="insights-question reveal reveal-delay-1" data-en="What does it actually take to get DHA into the brain?" data-pt="O que é realmente preciso para o DHA chegar ao cérebro?">What does it actually take to get DHA into the brain?</h2>
+      <span class="insights-series-tag" data-en="One Molecule at a Time" data-pt="One Molecule at a Time">One Molecule at a Time</span>
 
       <div class="featured-story reveal reveal-delay-2">
-        <img class="featured-story-img" src="assets/img/remodeling-the-brain.png" alt="Remodeling the Brain">
+        <img class="featured-story-img" src="assets/img/remodeling-the-brain-card.png" alt="Remodeling the Brain">
         <div class="featured-story-body">
-          <div class="featured-story-label" data-en="One Molecule at a Time" data-pt="Uma Molécula de Cada Vez">One Molecule at a Time</div>
+          <div class="featured-story-label" data-en="One Molecule at a Time" data-pt="One Molecule at a Time">One Molecule at a Time</div>
           <h3>Remodeling the Brain</h3>
-          <p data-en="Cognitive health depends on fats delivered to the brain. The standard omega-3 index tells only half of the story about how they do it."
-             data-pt="A saúde cognitiva depende dos lipídeos que chegam ao cérebro. O índice de ômega-3 conta apenas metade da história de como isso acontece.">
-            Cognitive health depends on fats delivered to the brain. The standard omega-3 index tells only half of the story about how they do it.
-          </p>
+          <p data-en="Cognitive health depends on fats delivered to the brain. The standard omega-3 index tells only half of the story about how they do it." data-pt="A saúde cognitiva depende dos lipídeos que chegam ao cérebro. O índice de ômega-3 conta apenas metade da história de como isso acontece.">Cognitive health depends on fats delivered to the brain. The standard omega-3 index tells only half of the story about how they do it.</p>
           <a href="insights/remodeling-the-brain.html" class="featured-story-link" data-en="Read →" data-pt="Ler →">Read →</a>
         </div>
       </div>
 
       <div class="secondary-stories">
         <a href="insights/the-biomarker-gold-rush.html" class="secondary-story reveal">
-          <img class="secondary-story-img" src="assets/img/the-biomarker-gold-rush.png" alt="The Biomarker Gold Rush Has a Counterfeiting Problem">
+          <img class="secondary-story-img" src="assets/img/the-biomarker-gold-rush-card.png" alt="The Biomarker Gold Rush Has a Counterfeiting Problem">
           <h4>The Biomarker Gold Rush Has a Counterfeiting Problem</h4>
-          <p data-en="The omics pipeline rewards discovery. It rarely rewards validation."
-             data-pt="O pipeline da ômica recompensa a descoberta. Raramente recompensa a validação.">
-            The omics pipeline rewards discovery. It rarely rewards validation.
-          </p>
+          <p data-en="The omics pipeline rewards discovery. It rarely rewards validation. Here is why that gap is predictable, measurable, and systematically mispriced in most due diligence frameworks." data-pt="O pipeline da ômica recompensa a descoberta. Raramente recompensa a validação.">The omics pipeline rewards discovery. It rarely rewards validation. Here is why that gap is predictable, measurable, and systematically mispriced in most due diligence frameworks.</p>
         </a>
         <a href="insights/what-your-gut-is-telling-your-liver.html" class="secondary-story reveal reveal-delay-1">
-          <img class="secondary-story-img" src="assets/img/what-your-gut-is-telling-your-liver.png" alt="What Your Gut Is Telling Your Liver">
+          <img class="secondary-story-img" src="assets/img/what-your-gut-is-telling-your-liver-card.png" alt="What Your Gut Is Telling Your Liver">
           <h4>What Your Gut Is Telling Your Liver</h4>
-          <p data-en="What does a family of molecules your microbiome makes from your breakfast reveal about the conversation between your gut and the rest of your body?"
-             data-pt="O que uma família de moléculas que seu microbioma produz a partir do seu café da manhã revela sobre a conversa entre o intestino e o resto do corpo?">
-            What does a family of molecules your microbiome makes from your breakfast reveal about the conversation between your gut and the rest of your body?
-          </p>
+          <p data-en="What does a family of molecules your microbiome makes from your breakfast reveal about the conversation happening between your gut and the rest of your body?" data-pt="O que uma família de moléculas que seu microbioma produz a partir do seu café da manhã revela sobre a conversa entre o intestino e o resto do corpo?">What does a family of molecules your microbiome makes from your breakfast reveal about the conversation happening between your gut and the rest of your body?</p>
         </a>
         <a href="insights/when-your-metabolism-cant-switch.html" class="secondary-story reveal reveal-delay-2">
-          <img class="secondary-story-img" src="assets/img/when-your-metabolism-cant-switch.png" alt="When Your Metabolism Can't Switch Gears">
+          <img class="secondary-story-img" src="assets/img/when-your-metabolism-cant-switch-card.png" alt="When Your Metabolism Can't Switch Gears">
           <h4>When Your Metabolism Can't Switch Gears</h4>
-          <p data-en="A family of molecules reveals what happens when your cells struggle to process fat completely through the energy-producing machinery."
-             data-pt="Uma família de moléculas revela o que acontece quando suas células têm dificuldade para processar completamente a gordura na central de energia.">
-            A family of molecules reveals what happens when your cells struggle to process fat completely through the energy-producing machinery.
-          </p>
+          <p data-en="A family of molecules reveals what happens when your cells struggle to process fat completely through the energy-producing machinery — and what that tells you about metabolic health." data-pt="Uma família de moléculas revela o que acontece quando suas células têm dificuldade para processar completamente a gordura na central de energia.">A family of molecules reveals what happens when your cells struggle to process fat completely through the energy-producing machinery — and what that tells you about metabolic health.</p>
         </a>
       </div>
 
@@ -524,7 +515,6 @@
       <div class="footer-name">José Carlos Bozelli Jr., PhD · bozelli.ca</div>
       <div class="footer-links">
         <a href="https://www.linkedin.com/in/jose-carlos-bozelli-jr-9b2a4181/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://bozelli.substack.com" target="_blank" rel="noopener" data-en="Newsletter" data-pt="Newsletter">Newsletter</a>
         <a href="services.html" data-en="Consulting" data-pt="Consultoria">Consulting</a>
         <a href="contact.html" data-en="Contact" data-pt="Contato">Contact</a>
       </div>
