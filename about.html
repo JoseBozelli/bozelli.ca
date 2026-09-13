@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="About José Carlos Bozelli Jr., PhD — lipid biologist, lipidomics consultant, and omics data scientist based in Hamilton, Ontario.">
+  <meta name="description" content="José Carlos Bozelli Jr., PhD, explores how biomarkers, omics, data science, and AI are changing what we can measure—and understand—about human biology.">
   <title>About — José Carlos Bozelli Jr., PhD</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,58 +17,48 @@
     }
     .about-hero-grid {
       display: grid;
-      grid-template-columns: 1fr 360px;
-      gap: 80px;
-      align-items: end;
+      grid-template-columns: 1fr 300px;
+      gap: 72px;
+      align-items: center;
     }
     .about-hero h1 {
       font-family: var(--serif);
-      font-size: clamp(36px, 5vw, 60px);
+      font-size: clamp(36px, 5vw, 58px);
       font-weight: 300;
-      line-height: 1.12;
+      line-height: 1.15;
       letter-spacing: -0.01em;
-      margin-bottom: 20px;
     }
     .about-hero h1 em { font-style: italic; color: var(--accent); }
-    .about-hero-sub {
-      font-size: 15px;
-      color: var(--ink-soft);
-      font-weight: 300;
-      line-height: 1.8;
-      max-width: 500px;
-    }
     .about-photo-hero {
       aspect-ratio: 3/4;
       background: var(--paper-mid);
       border: 0.5px solid var(--rule-mid);
       overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
-    .about-photo-hero img { width: 100%; height: 100%; object-fit: cover; }
-    .photo-placeholder {
+    .about-photo-hero img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
+    .about-languages {
+      margin-top: 12px;
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: 10px;
       color: var(--ink-muted);
       letter-spacing: 0.08em;
+      text-transform: uppercase;
       text-align: center;
-      padding: 20px;
     }
 
     /* Bio section */
-    .bio-section { padding: 80px 0; }
+    .bio-section { padding: 90px 0; }
     .bio-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 80px;
     }
     .bio-col p {
-      font-size: 15px;
+      font-size: 16px;
       color: var(--ink-soft);
-      line-height: 1.85;
+      line-height: 1.9;
       font-weight: 300;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
     .bio-col p:last-child { margin-bottom: 0; }
 
@@ -108,12 +98,27 @@
       line-height: 1.55;
     }
 
-    /* Background timeline */
-    .background-section { padding: 80px 0; }
+    /* Closing statement */
+    .closing-statement {
+      padding: 100px 0;
+      text-align: center;
+    }
+    .closing-statement p {
+      font-family: var(--serif);
+      font-size: clamp(24px, 3vw, 34px);
+      font-weight: 300;
+      line-height: 1.4;
+      color: var(--ink);
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    /* How I think */
+    .thinking-section { background: var(--paper-warm); padding: 90px 0; }
     .timeline { margin-top: 48px; }
     .timeline-item {
       display: grid;
-      grid-template-columns: 180px 1fr;
+      grid-template-columns: 280px 1fr;
       gap: 40px;
       padding: 32px 0;
       border-bottom: 0.5px solid var(--rule);
@@ -121,28 +126,49 @@
     }
     .timeline-item:last-child { border-bottom: none; }
     .timeline-period {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--ink-muted);
-      letter-spacing: 0.08em;
-      padding-top: 3px;
-    }
-    .timeline-content h4 {
       font-family: var(--serif);
       font-size: 20px;
       font-weight: 400;
-      margin-bottom: 6px;
+      color: var(--accent);
     }
     .timeline-content p {
-      font-size: 13px;
+      font-size: 14px;
       color: var(--ink-soft);
       font-weight: 300;
-      line-height: 1.65;
+      line-height: 1.7;
+    }
+
+    /* CTA */
+    .about-cta { background: var(--accent); padding: 80px 0; text-align: center; }
+    .about-cta h2 {
+      font-family: var(--serif);
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 300;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .about-cta p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.75);
+      font-weight: 300;
+      margin-bottom: 32px;
+      line-height: 1.75;
+    }
+    .about-cta-secondary {
+      display: block;
+      margin-top: 22px;
+      font-size: 12px;
+      color: rgba(255,255,255,0.7);
+    }
+    .about-cta-secondary a {
+      color: var(--white);
+      border-bottom: 0.5px solid rgba(255,255,255,0.5);
+      padding-bottom: 1px;
     }
 
     @media (max-width: 768px) {
       .about-hero-grid { grid-template-columns: 1fr; }
-      .about-photo-hero { display: none; }
+      .about-photo-hero { max-width: 240px; margin: 0 auto; }
       .bio-grid { grid-template-columns: 1fr; gap: 0; }
       .cred-grid { grid-template-columns: 1fr 1fr; }
       .timeline-item { grid-template-columns: 1fr; gap: 8px; }
@@ -151,7 +177,8 @@
     @media (max-width: 500px) {
       .cred-grid { grid-template-columns: 1fr; }
     }
-  </style>    <!-- Google tag (gtag.js) -->
+  </style>
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-SJ8ZNZZJT9"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -172,9 +199,9 @@
       <a href="index.html" class="nav-logo">José Carlos Bozelli Jr<span>.</span></a>
       <ul class="nav-links">
         <li><a href="index.html" data-page="home" data-en="Home" data-pt="Início">Home</a></li>
-        <li><a href="services.html" data-page="services" data-en="Services" data-pt="Serviços">Services</a></li>
-        <li><a href="about.html" data-page="about" data-en="About" data-pt="Sobre">About</a></li>
         <li><a href="insights.html" data-page="insights" data-en="Insights" data-pt="Reflexões">Insights</a></li>
+        <li><a href="services.html" data-page="services" data-en="Consulting" data-pt="Consultoria">Consulting</a></li>
+        <li><a href="about.html" data-page="about" data-en="About" data-pt="Sobre">About</a></li>
         <li><a href="contact.html" data-page="contact" class="nav-cta" data-en="Book a call" data-pt="Agendar">Book a call</a></li>
       </ul>
       <div class="nav-mobile-toggle"><span></span><span></span><span></span></div>
@@ -187,18 +214,16 @@
         <div>
           <div class="section-label reveal" data-en="About" data-pt="Sobre">About</div>
           <h1 class="reveal reveal-delay-1"
-              data-en="Lipid scientist.<br><em>Scientific partner.</em>"
-              data-pt="Cientista de lipídeos.<br><em>Parceiro científico.</em>">
-            Lipid scientist.<br><em>Scientific partner.</em>
+              data-en="From molecules to models.<br><em>The questions got bigger. So did the toolkit.</em>"
+              data-pt="Das moléculas aos modelos.<br><em>As perguntas ficaram maiores. A caixa de ferramentas também.</em>">
+            From molecules to models.<br><em>The questions got bigger. So did the toolkit.</em>
           </h1>
-          <p class="about-hero-sub reveal reveal-delay-2"
-             data-en="PhD scientist with deep expertise in lipid biology, lipidomics, and omics data science. Based in Canada, working with clients around the world."
-             data-pt="Cientista com doutorado e profunda experiência em biologia lipídica, lipidômica e ciência de dados ômicos. Com base no Canadá, atuando globalmente.">
-            PhD scientist with deep expertise in lipid biology, lipidomics, and omics data science. Based in Hamilton, Ontario. Working with clients in Canada, the United States, and Brazil.
-          </p>
         </div>
-        <div class="about-photo-hero reveal reveal-delay-3">
-          <img src="assets/img/profile.jpg" alt="José Carlos Bozelli Jr., PhD" style="width:100%;height:100%;object-fit:cover;object-position:center top;" onerror="this.parentElement.innerHTML='<div class=\'photo-placeholder\'><p>Photo coming soon</p></div>'">
+        <div class="reveal reveal-delay-2">
+          <div class="about-photo-hero">
+            <img src="assets/img/profile.jpg" alt="José Carlos Bozelli Jr., PhD">
+          </div>
+          <div class="about-languages" data-en="Languages — English, Português" data-pt="Idiomas — Inglês, Português">Languages — English, Português</div>
         </div>
       </div>
     </div>
@@ -209,23 +234,23 @@
     <div class="container">
       <div class="bio-grid">
         <div class="bio-col reveal">
-          <p data-en="I am a lipid scientist who built the analytical workflows to study lipids at scale — and learned to write the code to make sense of the data. That breadth — from lipid metabolism to LC-MS method development to statistical pipelines — is what makes the difference between data and insight."
-             data-pt="Sou cientista de lipídeos, analista de dados e desenvolvedor de métodos analíticos — não por acaso, mas por escolha. Essa combinação — do metabolismo lipídico ao desenvolvimento de métodos LC-MS e análise de dados avançada — é o que transforma dados complexos em ciência aplicável.">
-            I am a lipid scientist who built the analytical workflows to study lipids at scale — and learned to write the code to make sense of the data. That breadth — from lipid metabolism to LC-MS method development to statistical pipelines — is what makes the difference between data and insight.
+          <p data-en="My scientific career started with a deceptively small question: how can a molecule kill a bacterium? Studying antimicrobial peptides pulled me into the physical world of biological membranes — how peptides and lipids interact, how molecular structure changes function, and how understanding mechanism can point toward new therapeutic possibilities."
+             data-pt="Minha carreira científica começou com uma pergunta enganosamente pequena: como uma molécula consegue matar uma bactéria? Estudar peptídeos antimicrobianos me levou ao mundo físico das membranas biológicas — como peptídeos e lipídeos interagem, como a estrutura molecular altera a função, e como compreender o mecanismo pode apontar para novas possibilidades terapêuticas.">
+            My scientific career started with a deceptively small question: how can a molecule kill a bacterium? Studying antimicrobial peptides pulled me into the physical world of biological membranes — how peptides and lipids interact, how molecular structure changes function, and how understanding mechanism can point toward new therapeutic possibilities.
           </p>
-          <p data-en="That foundation shapes how I approach lipidomics data. Most lipidomics consultants come from the analytical chemistry or data science side and learned the biology later. I come from the biology — and developed the analytical and computational expertise to work with large-scale LC-MS datasets, build QC frameworks, and integrate omics data layers."
-             data-pt="Essa base molda minha abordagem aos dados de lipidômica. A maioria dos consultores vem do lado da química analítica e aprendeu a biologia depois. Eu venho da biologia — e desenvolvi a expertise analítica e computacional para trabalhar com grandes conjuntos de dados LC-MS.">
-            That foundation shapes how I approach lipidomics data. Most lipidomics consultants come from the analytical chemistry or data science side and learned the biology later. I come from the biology — and developed the analytical and computational expertise to work with large-scale LC-MS datasets, build QC frameworks, and integrate omics data layers.
+          <p data-en="Those questions grew. Lipids stopped being only the membrane a peptide encountered and became biological actors in their own right — molecules involved in signaling, metabolism, and disease. My research moved across rare metabolic disorders, cancer, and neurodegeneration, while the underlying question stayed remarkably consistent: how does molecular biology become function, dysfunction, and potentially, intervention?"
+             data-pt="Essas perguntas cresceram. Os lipídeos deixaram de ser apenas a membrana que um peptídeo encontrava e passaram a ser atores biológicos por si só — moléculas envolvidas em sinalização, metabolismo e doença. Minha pesquisa passou por distúrbios metabólicos raros, câncer e neurodegeneração, enquanto a pergunta de fundo permanecia notavelmente consistente: como a biologia molecular se torna função, disfunção e, potencialmente, intervenção?">
+            Those questions grew. Lipids stopped being only the membrane a peptide encountered and became biological actors in their own right — molecules involved in signaling, metabolism, and disease. My research moved across rare metabolic disorders, cancer, and neurodegeneration, while the underlying question stayed remarkably consistent: how does molecular biology become function, dysfunction, and potentially, intervention?
           </p>
         </div>
         <div class="bio-col reveal reveal-delay-2">
-          <p data-en="My most recent academic role at McMaster University involved large-scale LC-MS lipidomics on a nationally representative cross-sectional pediatric study — over 5,000 samples across 26 analytical batches. That project required designing and validating QC pipelines capable of handling population-scale biological complexity."
-             data-pt="Em meu trabalho mais recente na Universidade McMaster, conduzi lipidômica LC-MS em larga escala em um estudo pediátrico de base populacional e representatividade nacional do Brasil — mais de 5.000 amostras em 26 lotes analíticos. Esse projeto exigiu o desenvolvimento e validação de pipelines de controle de qualidade para lidar com a complexidade biológica em escala populacional.">
-            My most recent academic role at McMaster University involved large-scale LC-MS lipidomics on a nationally representative cross-sectional pediatric study — over 5,000 samples across 26 analytical batches. That project required designing and validating QC pipelines capable of handling population-scale biological complexity.
+          <p data-en="Eventually, the lens pulled back again. At McMaster University, I moved into large-scale epidemiological lipidomics — measuring thousands of samples from a national nutritional study. The challenge was no longer understanding one molecular interaction or disease mechanism. It was making biological measurement reliable enough to reveal patterns across a population."
+             data-pt="Eventualmente, a lente se afastou novamente. Na Universidade McMaster, passei para a lipidômica epidemiológica em larga escala — medindo milhares de amostras de um estudo nutricional nacional. O desafio não era mais compreender uma única interação molecular ou mecanismo de doença. Era tornar a medição biológica confiável o suficiente para revelar padrões em uma população.">
+            Eventually, the lens pulled back again. At McMaster University, I moved into large-scale epidemiological lipidomics — measuring thousands of samples from a national nutritional study. The challenge was no longer understanding one molecular interaction or disease mechanism. It was making biological measurement reliable enough to reveal patterns across a population.
           </p>
-          <p data-en="I work fluently in English and Portuguese — which allows me to serve clients and communicate science across different markets with equal depth and cultural fluency."
-             data-pt="Tenho fluência em inglês e português — o que me permite atender clientes e comunicar ciência em diferentes mercados com igual profundidade e fluência cultural.">
-            I work fluently in English and Portuguese — which allows me to serve clients and communicate science across different markets with equal depth and cultural fluency.
+          <p data-en="That change in scale changed the tools I needed. Statistics, data science, machine learning, and AI make it possible to ask different questions of biological data — to find structure across thousands of measurements, test what generalizes, and eventually help turn evidence into decisions. I see those tools as an expansion of the same scientific practice, not a departure from it."
+             data-pt="Essa mudança de escala mudou as ferramentas de que eu precisava. Estatística, ciência de dados, aprendizado de máquina e IA tornam possível fazer perguntas diferentes aos dados biológicos — encontrar estrutura em milhares de medições, testar o que se generaliza e, eventualmente, ajudar a transformar evidência em decisão. Vejo essas ferramentas como uma expansão da mesma prática científica, não um afastamento dela.">
+            That change in scale changed the tools I needed. Statistics, data science, machine learning, and AI make it possible to ask different questions of biological data — to find structure across thousands of measurements, test what generalizes, and eventually help turn evidence into decisions. I see those tools as an expansion of the same scientific practice, not a departure from it.
           </p>
         </div>
       </div>
@@ -238,8 +263,8 @@
       <div class="reveal">
         <div class="section-label" data-en="Track record" data-pt="Histórico">Track record</div>
         <h2 class="section-h2"
-            data-en="Built on <em>10+ years of scientific work</em>"
-            data-pt="Baseado em <em>mais de 10 anos de trabalho científico</em>">
+            data-en="Built on <em>real scientific work</em>"
+            data-pt="Baseado em <em>trabalho científico real</em>">
           Built on <em>real scientific work</em>
         </h2>
       </div>
@@ -268,48 +293,53 @@
     </div>
   </section>
 
-  <!-- APPROACH -->
-  <section class="background-section">
+  <!-- CLOSING STATEMENT -->
+  <section class="closing-statement">
+    <div class="container">
+      <p class="reveal"
+         data-en="From molecules to populations to models, the scale has changed. The scientific instinct hasn't: understand what was measured, understand the biology underneath it, and don't ask the data to say more than it can."
+         data-pt="Das moléculas às populações e aos modelos, a escala mudou. O instinto científico, não: entender o que foi medido, entender a biologia por trás disso, e não pedir aos dados que digam mais do que podem.">
+        From molecules to populations to models, the scale has changed. The scientific instinct hasn't: understand what was measured, understand the biology underneath it, and don't ask the data to say more than it can.
+      </p>
+    </div>
+  </section>
+
+  <!-- HOW I THINK -->
+  <section class="thinking-section">
     <div class="container">
       <div class="reveal">
-        <div class="section-label" data-en="My approach" data-pt="Minha abordagem">My approach</div>
+        <div class="section-label" data-en="How I think" data-pt="Como penso">How I think</div>
         <h2 class="section-h2"
-            data-en="Three principles that<br>shape every <em>engagement</em>"
-            data-pt="Três princípios que<br>orientam cada <em>projeto</em>">
-          Three principles that<br>shape every <em>engagement</em>
+            data-en="Three habits that<br>shape every <em>analysis</em>"
+            data-pt="Três hábitos que<br>orientam cada <em>análise</em>">
+          Three habits that<br>shape every <em>analysis</em>
         </h2>
       </div>
-      <div class="timeline" style="margin-top:48px;">
+      <div class="timeline">
         <div class="timeline-item reveal">
-          <div class="timeline-period" style="font-family:var(--serif);font-size:18px;font-weight:400;color:var(--accent);letter-spacing:normal;"
-               data-en="Know your lipids?"
-               data-pt="Lipídeos?">Know your lipids?</div>
+          <div class="timeline-period" data-en="Start with the biology." data-pt="Comece pela biologia.">Start with the biology.</div>
           <div class="timeline-content">
-            <p data-en="I do — from lipid metabolism to clinical biomarkers. A decade of fundamental lipid biology means I read your data through a biological lens, not just a statistical one."
-               data-pt="Esse é o meu território — do metabolismo celular a biomarcadores clínicos. Mais de uma década de biologia lipídica fundamental significa que leio seus dados com uma perspectiva biológica, não apenas estatística.">
-              I do — from lipid metabolism to clinical biomarkers. A decade of fundamental lipid biology means I read your data through a biological lens, not just a statistical one.
+            <p data-en="A pattern becomes interesting when there's a plausible biological story underneath it — not simply because a model found it."
+               data-pt="Um padrão se torna interessante quando existe uma história biológica plausível por trás dele — não simplesmente porque um modelo o encontrou.">
+              A pattern becomes interesting when there's a plausible biological story underneath it — not simply because a model found it.
             </p>
           </div>
         </div>
-        <div class="timeline-item reveal">
-          <div class="timeline-period" style="font-family:var(--serif);font-size:18px;font-weight:400;color:var(--accent);letter-spacing:normal;"
-               data-en="Data without insight is noise."
-               data-pt="Dados sem interpretação são ruído.">Data without insight is noise.</div>
+        <div class="timeline-item reveal reveal-delay-1">
+          <div class="timeline-period" data-en="Respect the measurement." data-pt="Respeite a medição.">Respect the measurement.</div>
           <div class="timeline-content">
-            <p data-en="I clear the noise so you get the insight. From study design through analysis and publication — every step is connected, nothing gets lost in translation."
-               data-pt="Eu elimino o ruído para que você tenha o insight. Do desenho do estudo à análise e publicação — cada etapa está conectada, nada se perde no processo.">
-              I clear the noise so you get the insight. From study design through analysis and publication — every step is connected, nothing gets lost in translation.
+            <p data-en="Every number has a history: how it was sampled, measured, processed, and normalized determines what it can legitimately tell us."
+               data-pt="Todo número tem uma história: como foi amostrado, medido, processado e normalizado determina o que ele pode legitimamente nos dizer.">
+              Every number has a history: how it was sampled, measured, processed, and normalized determines what it can legitimately tell us.
             </p>
           </div>
         </div>
-        <div class="timeline-item reveal">
-          <div class="timeline-period" style="font-family:var(--serif);font-size:18px;font-weight:400;color:var(--accent);letter-spacing:normal;"
-               data-en="You work directly with me, and I understand your science."
-               data-pt="Você interage diretamente comigo, e eu entendo a sua ciência.">You work directly with me, and I understand your science.</div>
+        <div class="timeline-item reveal reveal-delay-2">
+          <div class="timeline-period" data-en="Use the right tool for the question." data-pt="Use a ferramenta certa para a pergunta.">Use the right tool for the question.</div>
           <div class="timeline-content">
-            <p data-en="Direct access, real expertise, end to end. I work with a small number of clients at a time — which means you always have my full attention."
-               data-pt="Acesso direto, expertise científica, do início ao fim. Trabalho com um número reduzido de clientes por vez — o que significa que você sempre tem minha atenção completa.">
-              Direct access, real expertise, end to end. I work with a small number of clients at a time — which means you always have my full attention.
+            <p data-en="Sometimes that's an experiment. Sometimes mass spectrometry. Sometimes statistics or machine learning. Sophistication isn't the goal; understanding is."
+               data-pt="Às vezes é um experimento. Às vezes, espectrometria de massa. Às vezes, estatística ou aprendizado de máquina. Sofisticação não é o objetivo; compreensão é.">
+              Sometimes that's an experiment. Sometimes mass spectrometry. Sometimes statistics or machine learning. Sophistication isn't the goal; understanding is.
             </p>
           </div>
         </div>
@@ -318,20 +348,15 @@
   </section>
 
   <!-- CTA -->
-  <section style="background: var(--accent); padding: 80px 0; text-align: center;">
+  <section class="about-cta">
     <div class="container">
-      <h2 class="reveal" style="font-family: var(--serif); font-size: clamp(28px,4vw,44px); font-weight: 300; color: var(--white); margin-bottom: 20px;"
-          data-en="Ready to work together?"
-          data-pt="Pronto para trabalharmos juntos?">
-        Ready to work together?
-      </h2>
-      <p class="reveal reveal-delay-1" style="font-size: 15px; color: rgba(255,255,255,0.75); font-weight: 300; margin-bottom: 36px; line-height: 1.75;"
-         data-en="Book a 15-minute call and let's see if there's a fit."
-         data-pt="Agende 15 minutos e veja se há compatibilidade.">
-        Book a 15-minute call and let's see if there's a fit.
-      </p>
-      <a href="contact.html" class="btn reveal reveal-delay-2" style="background: var(--white); color: var(--accent);"
-         data-en="Book a call →" data-pt="Agendar →">Book a call →</a>
+      <h2 class="reveal" data-en="Ready to work together?" data-pt="Pronto para trabalharmos juntos?">Ready to work together?</h2>
+      <p class="reveal reveal-delay-1" data-en="Book a 15-minute call and let's see if there's a fit." data-pt="Agende 15 minutos e veja se há compatibilidade.">Book a 15-minute call and let's see if there's a fit.</p>
+      <a href="contact.html" class="btn reveal reveal-delay-2" style="background: var(--white); color: var(--accent);" data-en="Book a call →" data-pt="Agendar →">Book a call →</a>
+      <span class="about-cta-secondary reveal reveal-delay-3">
+        <span data-en="Connecting professionally? " data-pt="Conectando profissionalmente? ">Connecting professionally? </span>
+        <a href="https://www.linkedin.com/in/jose-carlos-bozelli-jr-9b2a4181/" target="_blank" rel="noopener" data-en="LinkedIn →" data-pt="LinkedIn →">LinkedIn →</a>
+      </span>
     </div>
   </section>
 
@@ -340,8 +365,7 @@
       <div class="footer-name">José Carlos Bozelli Jr., PhD · bozelli.ca</div>
       <div class="footer-links">
         <a href="https://www.linkedin.com/in/jose-carlos-bozelli-jr-9b2a4181/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="https://bozelli.substack.com" target="_blank" rel="noopener" data-en="Newsletter" data-pt="Newsletter">Newsletter</a>
-        <a href="services.html" data-en="Services" data-pt="Serviços">Services</a>
+        <a href="services.html" data-en="Consulting" data-pt="Consultoria">Consulting</a>
         <a href="contact.html" data-en="Contact" data-pt="Contato">Contact</a>
       </div>
     </div>
