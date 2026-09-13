@@ -24,9 +24,15 @@
  *   "featuredQuestionPt" → PT translation of the above
  *   "secondary"          → array of up to 3 slugs shown as the smaller
  *                          cards below the featured story on Home
- *   Per-post optional field:
+ *   Per-post optional fields:
  *   "dekPt"               → PT translation of that post's dek, used
  *                            when the post appears as featured/secondary
+ *   "localImage"           → path to a self-hosted image (e.g.
+ *                            "assets/img/<slug>.png"), preferred
+ *                            over "imageUrl" (the Substack CDN hotlink)
+ *                            when building the Home featured module —
+ *                            self-hosted images avoid CDN hotlink
+ *                            protection degrading resolution
  *   series.json optional field per series:
  *   "titlePt"              → PT translation of the series title, used
  *                            as the series label on Home when featured
@@ -291,7 +297,7 @@ function buildHomeFeaturedBlock(manifest, bySlugMap, seriesConfig) {
     const p = bySlugMap.get(slug);
     const delayClass = i === 0 ? "" : ` reveal-delay-${i}`;
     return `        <a href="insights/${p.slug}.html" class="secondary-story reveal${delayClass}">
-          <img class="secondary-story-img" src="${p.imageUrl || ""}" alt="${esc(p.title)}">
+          <img class="secondary-story-img" src="${p.localImage || p.imageUrl || ""}" alt="${esc(p.title)}">
           <h4>${esc(p.title)}</h4>
           <p data-en="${esc(p.dek)}" data-pt="${esc(p.dekPt || "[PT translation pending]")}">${esc(p.dek)}</p>
         </a>`;
@@ -302,7 +308,7 @@ function buildHomeFeaturedBlock(manifest, bySlugMap, seriesConfig) {
       <span class="insights-series-tag" data-en="${esc(seriesLabel)}" data-pt="${esc(seriesLabelPt)}">${esc(seriesLabel)}</span>
 
       <div class="featured-story reveal reveal-delay-2">
-        <img class="featured-story-img" src="${featured.imageUrl || ""}" alt="${esc(featured.title)}">
+        <img class="featured-story-img" src="${featured.localImage || featured.imageUrl || ""}" alt="${esc(featured.title)}">
         <div class="featured-story-body">
           <div class="featured-story-label" data-en="${esc(seriesLabel)}" data-pt="${esc(seriesLabelPt)}">${esc(seriesLabel)}</div>
           <h3>${esc(featured.title)}</h3>

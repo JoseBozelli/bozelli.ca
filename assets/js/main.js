@@ -63,6 +63,45 @@ function initReveal() {
 }
 
 /* ============================================================
+   HERO VISUAL PARALLAX
+   Scroll-linked, not a looping animation: the hero illustration
+   drifts slightly slower than the page as you scroll past it, so
+   it feels alive without competing with the H1 for attention.
+   Respects prefers-reduced-motion. Only runs while the hero is
+   near the viewport, for performance.
+   ============================================================ */
+function initHeroParallax() {
+  const visual = document.getElementById('hero-visual');
+  if (!visual) return;
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  const heroSection = visual.closest('.hero');
+  if (!heroSection) return;
+
+  const speedFactor = 0.18; // visual moves at 18% of scroll distance
+  let ticking = false;
+
+  const update = () => {
+    const rect = heroSection.getBoundingClientRect();
+    // Only animate while the hero is at least partly on screen
+    if (rect.bottom > 0 && rect.top < window.innerHeight) {
+      const offset = rect.top * speedFactor * -1;
+      visual.style.transform = `translateY(${offset}px)`;
+    }
+    ticking = false;
+  };
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(update);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  update();
+}
+
+/* ============================================================
    HERO COUNTER ANIMATION
    ============================================================ */
 function animateCounter(el, target, duration, prefix, suffix) {
@@ -123,6 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initLang();
   initNav();
   initReveal();
+  initHeroParallax();
   initContactEmail();
   initCounters();
 });

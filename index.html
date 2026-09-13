@@ -34,9 +34,31 @@
       position: relative;
       z-index: 1;
       width: 100%;
-      max-width: 900px;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 140px 48px 100px;
+      padding: 130px 48px 70px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+    .hero-text { max-width: 620px; }
+    .hero-visual {
+      width: 100%;
+      max-width: 200px;
+      margin: 0 auto;
+    }
+    .hero-visual svg, .hero-visual img { width: 100%; height: auto; display: block; }
+    .hero-visual-inner { will-change: transform; }
+    @media (min-width: 960px) {
+      .hero-inner {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 140px 48px 100px;
+        gap: 56px;
+      }
+      .hero-text { flex: 1 1 55%; }
+      .hero-visual { flex: 0 0 420px; max-width: 440px; margin: 0; }
     }
     .hero-h1 {
       font-family: var(--serif);
@@ -104,7 +126,7 @@
       border: 0.5px solid var(--rule-mid);
       flex-shrink: 0;
     }
-    .bridge-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+    .bridge-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 35%; }
     .bridge-name strong {
       display: block;
       font-family: var(--serif);
@@ -185,8 +207,11 @@
     }
     .featured-story-img {
       width: 100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
+      aspect-ratio: 4 / 5;
+      object-fit: contain;
+      background: var(--white);
+      border: 0.5px solid var(--rule-mid);
+      padding: 16px;
     }
     .featured-story-label {
       font-family: var(--mono);
@@ -228,10 +253,18 @@
     }
     .secondary-story-img {
       width: 100%;
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
+      aspect-ratio: 4 / 5;
+      object-fit: contain;
+      background: var(--white);
+      border: 0.5px solid var(--rule-mid);
+      padding: 12px;
       margin-bottom: 18px;
+      transition: opacity 0.25s;
+      box-sizing: border-box;
     }
+    .secondary-story:hover .secondary-story-img { opacity: 0.85; }
+    .secondary-story h4 { transition: color 0.2s; }
+    .secondary-story:hover h4 { color: var(--accent); }
     .secondary-story h4 {
       font-family: var(--serif);
       font-size: 18px;
@@ -338,16 +371,23 @@
   <!-- HERO — locked -->
   <section class="hero">
     <div class="hero-inner">
-      <h1 class="hero-h1 reveal"
-          data-en="Biology has never been easier to measure. Understanding it is another matter."
-          data-pt="A biologia nunca foi tão fácil de medir. Compreendê-la é outra história.">
-        Biology has never been easier to measure. Understanding it is another matter.
-      </h1>
-      <p class="hero-sub reveal reveal-delay-1"
-         data-en="Biomarkers, omics, wearables, and increasingly AI can now observe the human body at a resolution earlier generations couldn't imagine. What that observation actually means — for a single cell, a single patient, a single decision — is where the real work begins."
-         data-pt="Biomarcadores, ômicas, wearables e, cada vez mais, a inteligência artificial já observam o corpo humano com uma resolução que gerações anteriores não conseguiam imaginar. O que essa observação realmente significa — para uma única célula, um único paciente, uma única decisão — é onde o trabalho de verdade começa.">
-        Biomarkers, omics, wearables, and increasingly AI can now observe the human body at a resolution earlier generations couldn't imagine. What that observation actually means — for a single cell, a single patient, a single decision — is where the real work begins.
-      </p>
+      <div class="hero-text">
+        <h1 class="hero-h1 reveal"
+            data-en="Biology has never been easier to measure. Understanding it is another matter."
+            data-pt="A biologia nunca foi tão fácil de medir. Compreendê-la é outra história.">
+          Biology has never been easier to measure. Understanding it is another matter.
+        </h1>
+        <p class="hero-sub reveal reveal-delay-1"
+           data-en="Biomarkers, omics, wearables, and increasingly AI can now observe the human body at a resolution earlier generations couldn't imagine. What that observation actually means — for a single cell, a single patient, a single decision — is where the real work begins."
+           data-pt="Biomarcadores, ômicas, wearables e, cada vez mais, a inteligência artificial já observam o corpo humano com uma resolução que gerações anteriores não conseguiam imaginar. O que essa observação realmente significa — para uma única célula, um único paciente, uma única decisão — é onde o trabalho de verdade começa.">
+          Biomarkers, omics, wearables, and increasingly AI can now observe the human body at a resolution earlier generations couldn't imagine. What that observation actually means — for a single cell, a single patient, a single decision — is where the real work begins.
+        </p>
+      </div>
+      <div class="hero-visual reveal reveal-delay-2">
+        <div class="hero-visual-inner" id="hero-visual">
+          <img src="assets/img/hero-visual.png" alt="" role="presentation">
+        </div>
+      </div>
     </div>
   </section>
 
@@ -412,7 +452,7 @@
       <span class="insights-series-tag">Remodeling the Brain</span>
 
       <div class="featured-story reveal reveal-delay-2">
-        <img class="featured-story-img" src="https://substackcdn.com/image/fetch/$s_!YoLJ!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fac1fb335-00b2-47c7-ae3f-3c533f82745a_1224x1285.png" alt="Remodeling the Brain">
+        <img class="featured-story-img" src="assets/img/remodeling-the-brain.png" alt="Remodeling the Brain">
         <div class="featured-story-body">
           <div class="featured-story-label" data-en="One Molecule at a Time" data-pt="Uma Molécula de Cada Vez">One Molecule at a Time</div>
           <h3>Remodeling the Brain</h3>
@@ -426,7 +466,7 @@
 
       <div class="secondary-stories">
         <a href="insights/the-biomarker-gold-rush.html" class="secondary-story reveal">
-          <img class="secondary-story-img" src="https://substackcdn.com/image/fetch/$s_!dZYj!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F27413f87-8708-4dde-afb5-80de7721388f_758x1024.png" alt="The Biomarker Gold Rush Has a Counterfeiting Problem">
+          <img class="secondary-story-img" src="assets/img/the-biomarker-gold-rush.png" alt="The Biomarker Gold Rush Has a Counterfeiting Problem">
           <h4>The Biomarker Gold Rush Has a Counterfeiting Problem</h4>
           <p data-en="The omics pipeline rewards discovery. It rarely rewards validation."
              data-pt="O pipeline da ômica recompensa a descoberta. Raramente recompensa a validação.">
@@ -434,7 +474,7 @@
           </p>
         </a>
         <a href="insights/what-your-gut-is-telling-your-liver.html" class="secondary-story reveal reveal-delay-1">
-          <img class="secondary-story-img" src="https://substackcdn.com/image/fetch/$s_!jbVK!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe448c69f-c6df-413e-a3d3-98ce1d1f0b7e_1182x1331.png" alt="What Your Gut Is Telling Your Liver">
+          <img class="secondary-story-img" src="assets/img/what-your-gut-is-telling-your-liver.png" alt="What Your Gut Is Telling Your Liver">
           <h4>What Your Gut Is Telling Your Liver</h4>
           <p data-en="What does a family of molecules your microbiome makes from your breakfast reveal about the conversation between your gut and the rest of your body?"
              data-pt="O que uma família de moléculas que seu microbioma produz a partir do seu café da manhã revela sobre a conversa entre o intestino e o resto do corpo?">
@@ -442,7 +482,7 @@
           </p>
         </a>
         <a href="insights/when-your-metabolism-cant-switch.html" class="secondary-story reveal reveal-delay-2">
-          <img class="secondary-story-img" src="https://substackcdn.com/image/fetch/$s_!dmeX!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F56f58d51-299b-4086-ac54-f59bb1041da9_1536x1024.png" alt="When Your Metabolism Can't Switch Gears">
+          <img class="secondary-story-img" src="assets/img/when-your-metabolism-cant-switch.png" alt="When Your Metabolism Can't Switch Gears">
           <h4>When Your Metabolism Can't Switch Gears</h4>
           <p data-en="A family of molecules reveals what happens when your cells struggle to process fat completely through the energy-producing machinery."
              data-pt="Uma família de moléculas revela o que acontece quando suas células têm dificuldade para processar completamente a gordura na central de energia.">
