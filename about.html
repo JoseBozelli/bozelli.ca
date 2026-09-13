@@ -12,12 +12,12 @@
   <style>
     .about-hero {
       background: var(--paper-warm);
-      padding: 120px 0 80px;
+      padding: 120px 0 70px;
       border-bottom: 0.5px solid var(--rule);
     }
     .about-hero-grid {
       display: grid;
-      grid-template-columns: 1fr 300px;
+      grid-template-columns: 1fr 280px;
       gap: 72px;
       align-items: center;
     }
@@ -27,8 +27,22 @@
       font-weight: 300;
       line-height: 1.15;
       letter-spacing: -0.01em;
+      margin-bottom: 28px;
     }
     .about-hero h1 em { font-style: italic; color: var(--accent); }
+    .trajectory-line {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .trajectory-tags {
+      font-size: 13px;
+      color: var(--ink-muted);
+      font-weight: 300;
+    }
     .about-photo-hero {
       aspect-ratio: 3/4;
       background: var(--paper-mid);
@@ -36,34 +50,9 @@
       overflow: hidden;
     }
     .about-photo-hero img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
-    .about-languages {
-      margin-top: 12px;
-      font-family: var(--mono);
-      font-size: 10px;
-      color: var(--ink-muted);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      text-align: center;
-    }
 
-    /* Bio section */
-    .bio-section { padding: 90px 0; }
-    .bio-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-    }
-    .bio-col p {
-      font-size: 16px;
-      color: var(--ink-soft);
-      line-height: 1.9;
-      font-weight: 300;
-      margin-bottom: 24px;
-    }
-    .bio-col p:last-child { margin-bottom: 0; }
-
-    /* Credentials */
-    .cred-section { background: var(--paper-warm); padding: 80px 0; }
+    /* At a glance */
+    .glance-section { padding: 80px 0; }
     .cred-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -72,106 +61,204 @@
       margin-top: 48px;
     }
     .cred-block {
-      background: var(--paper-warm);
-      padding: 36px 28px;
+      background: var(--paper);
+      padding: 32px 26px;
       transition: background 0.2s;
     }
-    .cred-block:hover { background: var(--white); }
+    .cred-block:hover { background: var(--paper-warm); }
     .cred-block-num {
       font-family: var(--serif);
-      font-size: 52px;
+      font-size: 46px;
       font-weight: 300;
       color: var(--accent);
       line-height: 1;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
     .cred-block-title {
-      font-size: 13px;
+      font-size: 12px;
       font-weight: 500;
       color: var(--ink);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
       margin-bottom: 6px;
     }
+    .cred-block-tag {
+      font-size: 13px;
+      color: var(--ink-soft);
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
     .cred-block-desc {
-      font-size: 12px;
+      font-size: 11px;
       color: var(--ink-muted);
       font-weight: 300;
-      line-height: 1.55;
+      line-height: 1.5;
     }
 
-    /* Closing statement */
-    .closing-statement {
+    /* Journey */
+    .journey-section { background: var(--paper-warm); padding: 90px 0; }
+    .journey-stage {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 32px;
+      padding: 40px 0;
+      border-bottom: 0.5px solid var(--rule);
+    }
+    .journey-stage:last-child { border-bottom: none; }
+    .journey-num {
+      font-family: var(--serif);
+      font-size: 42px;
+      font-weight: 300;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .journey-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--ink-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-top: 6px;
+    }
+    .journey-question {
+      font-family: var(--serif);
+      font-size: clamp(20px, 2.4vw, 26px);
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+    .journey-body {
+      font-size: 15px;
+      color: var(--ink-soft);
+      line-height: 1.8;
+      font-weight: 300;
+      max-width: 640px;
+      margin-bottom: 14px;
+    }
+    .journey-tags {
+      font-size: 12px;
+      color: var(--accent);
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    /* The Constant */
+    .constant-section {
       padding: 100px 0;
       text-align: center;
     }
-    .closing-statement p {
+    .constant-section h2 {
       font-family: var(--serif);
-      font-size: clamp(24px, 3vw, 34px);
+      font-size: clamp(28px, 3.6vw, 42px);
       font-weight: 300;
-      line-height: 1.4;
+      line-height: 1.3;
       color: var(--ink);
-      max-width: 780px;
+      max-width: 700px;
       margin: 0 auto;
     }
 
     /* How I think */
-    .thinking-section { background: var(--paper-warm); padding: 90px 0; }
-    .timeline { margin-top: 48px; }
-    .timeline-item {
+    .thinking-section { padding: 90px 0; }
+    .thinking-item {
       display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 40px;
-      padding: 32px 0;
+      grid-template-columns: 100px 1fr;
+      gap: 32px;
+      padding: 36px 0;
       border-bottom: 0.5px solid var(--rule);
       align-items: start;
     }
-    .timeline-item:last-child { border-bottom: none; }
-    .timeline-period {
+    .thinking-item:last-child { border-bottom: none; }
+    .thinking-item:nth-child(even) { direction: rtl; }
+    .thinking-item:nth-child(even) > * { direction: ltr; }
+    .thinking-num {
       font-family: var(--serif);
-      font-size: 20px;
-      font-weight: 400;
+      font-size: 36px;
+      font-weight: 300;
       color: var(--accent);
     }
-    .timeline-content p {
+    .thinking-lead {
+      font-family: var(--serif);
+      font-size: clamp(20px, 2.4vw, 26px);
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .thinking-body {
       font-size: 14px;
       color: var(--ink-soft);
       font-weight: 300;
-      line-height: 1.7;
+      line-height: 1.75;
+      max-width: 560px;
     }
 
-    /* CTA */
-    .about-cta { background: var(--accent); padding: 80px 0; text-align: center; }
-    .about-cta h2 {
-      font-family: var(--serif);
-      font-size: clamp(28px, 4vw, 44px);
+    /* Bridge to current work */
+    .bridge-now { background: var(--paper-warm); padding: 70px 0; }
+    .bridge-now p {
+      font-size: 17px;
+      color: var(--ink-soft);
+      line-height: 1.85;
       font-weight: 300;
-      color: var(--white);
+      max-width: 680px;
+    }
+    .bridge-now p + p { margin-top: 18px; }
+    .bridge-now p strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    /* Choose your path */
+    .paths-section { padding: 90px 0; }
+    .paths-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--rule-mid);
+      margin-top: 48px;
+    }
+    .path-card {
+      background: var(--paper);
+      padding: 36px 30px;
+      transition: background 0.2s;
+    }
+    .path-card:hover { background: var(--paper-warm); }
+    .path-card h3 {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+    .path-card p {
+      font-size: 13px;
+      color: var(--ink-soft);
+      font-weight: 300;
+      line-height: 1.65;
       margin-bottom: 20px;
     }
-    .about-cta p {
-      font-size: 15px;
-      color: rgba(255,255,255,0.75);
-      font-weight: 300;
-      margin-bottom: 32px;
-      line-height: 1.75;
+    .path-card a {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-bottom: 0.5px solid var(--accent);
+      padding-bottom: 2px;
     }
-    .about-cta-secondary {
-      display: block;
-      margin-top: 22px;
-      font-size: 12px;
-      color: rgba(255,255,255,0.7);
-    }
-    .about-cta-secondary a {
-      color: var(--white);
-      border-bottom: 0.5px solid rgba(255,255,255,0.5);
-      padding-bottom: 1px;
+
+    .footer-languages {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--ink-muted);
+      letter-spacing: 0.06em;
+      margin-top: 4px;
     }
 
     @media (max-width: 768px) {
       .about-hero-grid { grid-template-columns: 1fr; }
-      .about-photo-hero { max-width: 240px; margin: 0 auto; }
-      .bio-grid { grid-template-columns: 1fr; gap: 0; }
+      .about-photo-hero { max-width: 220px; margin: 0 auto; }
       .cred-grid { grid-template-columns: 1fr 1fr; }
-      .timeline-item { grid-template-columns: 1fr; gap: 8px; }
+      .journey-stage { grid-template-columns: 1fr; gap: 8px; }
+      .thinking-item, .thinking-item:nth-child(even) { grid-template-columns: 1fr; direction: ltr; gap: 8px; }
+      .paths-grid { grid-template-columns: 1fr; }
       .about-hero { padding: 100px 0 60px; }
     }
     @media (max-width: 500px) {
@@ -208,6 +295,7 @@
     </div>
   </nav>
 
+  <!-- HERO -->
   <div class="about-hero page-top">
     <div class="container">
       <div class="about-hero-grid">
@@ -218,89 +306,130 @@
               data-pt="Das moléculas aos modelos.<br><em>As perguntas ficaram maiores. A caixa de ferramentas também.</em>">
             From molecules to models.<br><em>The questions got bigger. So did the toolkit.</em>
           </h1>
+          <div class="trajectory-line reveal reveal-delay-2" data-en="Molecules → Membranes → Omics → Populations → Models" data-pt="Moléculas → Membranas → Ômicas → Populações → Modelos">Molecules → Membranes → Omics → Populations → Models</div>
+          <div class="trajectory-tags reveal reveal-delay-3" data-en="Biochemistry · Lipid biology · Mass spectrometry · Data science · ML/AI" data-pt="Bioquímica · Biologia lipídica · Espectrometria de massa · Ciência de dados · ML/IA">Biochemistry · Lipid biology · Mass spectrometry · Data science · ML/AI</div>
         </div>
         <div class="reveal reveal-delay-2">
           <div class="about-photo-hero">
             <img src="assets/img/profile.jpg" alt="José Carlos Bozelli Jr., PhD">
           </div>
-          <div class="about-languages" data-en="Languages — English, Português" data-pt="Idiomas — Inglês, Português">Languages — English, Português</div>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- BIO -->
-  <section class="bio-section">
-    <div class="container">
-      <div class="bio-grid">
-        <div class="bio-col reveal">
-          <p data-en="My scientific career started with a deceptively small question: how can a molecule kill a bacterium? Studying antimicrobial peptides pulled me into the physical world of biological membranes — how peptides and lipids interact, how molecular structure changes function, and how understanding mechanism can point toward new therapeutic possibilities."
-             data-pt="Minha carreira científica começou com uma pergunta enganosamente pequena: como uma molécula consegue matar uma bactéria? Estudar peptídeos antimicrobianos me levou ao mundo físico das membranas biológicas — como peptídeos e lipídeos interagem, como a estrutura molecular altera a função, e como compreender o mecanismo pode apontar para novas possibilidades terapêuticas.">
-            My scientific career started with a deceptively small question: how can a molecule kill a bacterium? Studying antimicrobial peptides pulled me into the physical world of biological membranes — how peptides and lipids interact, how molecular structure changes function, and how understanding mechanism can point toward new therapeutic possibilities.
-          </p>
-          <p data-en="Those questions grew. Lipids stopped being only the membrane a peptide encountered and became biological actors in their own right — molecules involved in signaling, metabolism, and disease. My research moved across rare metabolic disorders, cancer, and neurodegeneration, while the underlying question stayed remarkably consistent: how does molecular biology become function, dysfunction, and potentially, intervention?"
-             data-pt="Essas perguntas cresceram. Os lipídeos deixaram de ser apenas a membrana que um peptídeo encontrava e passaram a ser atores biológicos por si só — moléculas envolvidas em sinalização, metabolismo e doença. Minha pesquisa passou por distúrbios metabólicos raros, câncer e neurodegeneração, enquanto a pergunta de fundo permanecia notavelmente consistente: como a biologia molecular se torna função, disfunção e, potencialmente, intervenção?">
-            Those questions grew. Lipids stopped being only the membrane a peptide encountered and became biological actors in their own right — molecules involved in signaling, metabolism, and disease. My research moved across rare metabolic disorders, cancer, and neurodegeneration, while the underlying question stayed remarkably consistent: how does molecular biology become function, dysfunction, and potentially, intervention?
-          </p>
-        </div>
-        <div class="bio-col reveal reveal-delay-2">
-          <p data-en="Eventually, the lens pulled back again. At McMaster University, I moved into large-scale epidemiological lipidomics — measuring thousands of samples from a national nutritional study. The challenge was no longer understanding one molecular interaction or disease mechanism. It was making biological measurement reliable enough to reveal patterns across a population."
-             data-pt="Eventualmente, a lente se afastou novamente. Na Universidade McMaster, passei para a lipidômica epidemiológica em larga escala — medindo milhares de amostras de um estudo nutricional nacional. O desafio não era mais compreender uma única interação molecular ou mecanismo de doença. Era tornar a medição biológica confiável o suficiente para revelar padrões em uma população.">
-            Eventually, the lens pulled back again. At McMaster University, I moved into large-scale epidemiological lipidomics — measuring thousands of samples from a national nutritional study. The challenge was no longer understanding one molecular interaction or disease mechanism. It was making biological measurement reliable enough to reveal patterns across a population.
-          </p>
-          <p data-en="That change in scale changed the tools I needed. Statistics, data science, machine learning, and AI make it possible to ask different questions of biological data — to find structure across thousands of measurements, test what generalizes, and eventually help turn evidence into decisions. I see those tools as an expansion of the same scientific practice, not a departure from it."
-             data-pt="Essa mudança de escala mudou as ferramentas de que eu precisava. Estatística, ciência de dados, aprendizado de máquina e IA tornam possível fazer perguntas diferentes aos dados biológicos — encontrar estrutura em milhares de medições, testar o que se generaliza e, eventualmente, ajudar a transformar evidência em decisão. Vejo essas ferramentas como uma expansão da mesma prática científica, não um afastamento dela.">
-            That change in scale changed the tools I needed. Statistics, data science, machine learning, and AI make it possible to ask different questions of biological data — to find structure across thousands of measurements, test what generalizes, and eventually help turn evidence into decisions. I see those tools as an expansion of the same scientific practice, not a departure from it.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CREDENTIALS -->
-  <section class="cred-section">
+  <!-- AT A GLANCE -->
+  <section class="glance-section">
     <div class="container">
       <div class="reveal">
-        <div class="section-label" data-en="Track record" data-pt="Histórico">Track record</div>
-        <h2 class="section-h2"
-            data-en="Built on <em>real scientific work</em>"
-            data-pt="Baseado em <em>trabalho científico real</em>">
-          Built on <em>real scientific work</em>
-        </h2>
+        <div class="section-label" data-en="At a glance" data-pt="Em resumo">At a glance</div>
+        <h2 class="section-h2" data-en="Two decades, <em>across scales</em>." data-pt="Duas décadas, <em>em diferentes escalas</em>.">Two decades, <em>across scales</em>.</h2>
       </div>
       <div class="cred-grid">
         <div class="cred-block reveal reveal-delay-1">
           <div class="cred-block-num" data-count="40" data-suffix="+">40+</div>
-          <div class="cred-block-title" data-en="Peer-reviewed publications" data-pt="Publicações científicas">Peer-reviewed publications</div>
-          <div class="cred-block-desc" data-en="Across lipid biology, biochemistry, and analytical science" data-pt="Em biologia lipídica, bioquímica e ciência analítica">Across lipid biology, biochemistry, and analytical science</div>
+          <div class="cred-block-title" data-en="Publications" data-pt="Publicações">Publications</div>
+          <div class="cred-block-tag" data-en="Scientific depth" data-pt="Profundidade científica">Scientific depth</div>
+          <div class="cred-block-desc" data-en="Peer-reviewed, across lipid biology, biochemistry, and analytical science" data-pt="Revisadas por pares, em biologia lipídica, bioquímica e ciência analítica">Peer-reviewed, across lipid biology, biochemistry, and analytical science</div>
         </div>
         <div class="cred-block reveal reveal-delay-2">
           <div class="cred-block-num" data-en="$450K" data-pt="$450 mil" data-count="450" data-prefix="$" data-suffix="K">$450K</div>
-          <div class="cred-block-title" data-en="In awarded research funding" data-pt="Em financiamento científico aprovado">In awarded research funding</div>
-          <div class="cred-block-desc" data-en="Contributed to successful grant applications" data-pt="Contribuição para projetos científicos aprovados">Contributed to successful grant applications (CAD)</div>
+          <div class="cred-block-title" data-en="Research funding" data-pt="Financiamento científico">Research funding</div>
+          <div class="cred-block-tag" data-en="Ideas backed" data-pt="Ideias apoiadas">Ideas backed</div>
+          <div class="cred-block-desc" data-en="Contributed to successful grant applications (CAD)" data-pt="Contribuição para projetos científicos aprovados">Contributed to successful grant applications (CAD)</div>
         </div>
         <div class="cred-block reveal reveal-delay-3">
           <div class="cred-block-num" data-en="5K+" data-pt="5 mil+" data-count="5" data-suffix="K+">5K+</div>
-          <div class="cred-block-title" data-en="Samples analyzed" data-pt="Amostras analisadas">Samples analyzed</div>
+          <div class="cred-block-title" data-en="Samples" data-pt="Amostras">Samples</div>
+          <div class="cred-block-tag" data-en="Science at scale" data-pt="Ciência em escala">Science at scale</div>
           <div class="cred-block-desc" data-en="Population-based LC-MS lipidomics, 26 analytical batches" data-pt="Lipidômica LC-MS de base populacional, 26 lotes analíticos">Population-based LC-MS lipidomics, 26 analytical batches</div>
         </div>
         <div class="cred-block reveal reveal-delay-4">
           <div class="cred-block-num" style="font-family: var(--sans);">1</div>
-          <div class="cred-block-title" data-en="Book edited" data-pt="Livro científico editado">Book edited</div>
+          <div class="cred-block-title" data-en="Book" data-pt="Livro">Book</div>
+          <div class="cred-block-tag" data-en="Knowledge synthesized" data-pt="Conhecimento sintetizado">Knowledge synthesized</div>
           <div class="cred-block-desc" data-en="Membrane Shape and Biological Function, CRC Press 2025" data-pt="Membrane Shape and Biological Function, CRC Press 2025">Membrane Shape and Biological Function, CRC Press 2025</div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CLOSING STATEMENT -->
-  <section class="closing-statement">
+  <!-- THE JOURNEY -->
+  <section class="journey-section">
     <div class="container">
-      <p class="reveal"
-         data-en="From molecules to populations to models, the scale has changed. The scientific instinct hasn't: understand what was measured, understand the biology underneath it, and don't ask the data to say more than it can."
-         data-pt="Das moléculas às populações e aos modelos, a escala mudou. O instinto científico, não: entender o que foi medido, entender a biologia por trás disso, e não pedir aos dados que digam mais do que podem.">
-        From molecules to populations to models, the scale has changed. The scientific instinct hasn't: understand what was measured, understand the biology underneath it, and don't ask the data to say more than it can.
-      </p>
+      <div class="reveal">
+        <div class="section-label" data-en="The journey" data-pt="A trajetória">The journey</div>
+        <h2 class="section-h2" data-en="From molecules<br>to <em>models</em>" data-pt="Das moléculas<br>aos <em>modelos</em>">From molecules<br>to <em>models</em></h2>
+      </div>
+      <div style="margin-top: 40px;">
+        <div class="journey-stage reveal">
+          <div>
+            <div class="journey-num">01</div>
+            <div class="journey-label" data-en="Molecules" data-pt="Moléculas">Molecules</div>
+          </div>
+          <div>
+            <div class="journey-question" data-en="How can a molecule kill a bacterium?" data-pt="Como uma molécula consegue matar uma bactéria?">How can a molecule kill a bacterium?</div>
+            <p class="journey-body" data-en="My scientific career started with a deceptively small question. Studying antimicrobial peptides pulled me into the physical world of biological membranes — how peptides and lipids interact, how molecular structure changes function, and how understanding mechanism can point toward new therapeutic possibilities."
+               data-pt="Minha carreira científica começou com uma pergunta enganosamente pequena. Estudar peptídeos antimicrobianos me levou ao mundo físico das membranas biológicas — como peptídeos e lipídeos interagem, como a estrutura molecular altera a função, e como compreender o mecanismo pode apontar para novas possibilidades terapêuticas.">
+              My scientific career started with a deceptively small question. Studying antimicrobial peptides pulled me into the physical world of biological membranes — how peptides and lipids interact, how molecular structure changes function, and how understanding mechanism can point toward new therapeutic possibilities.
+            </p>
+            <div class="journey-tags" data-en="Biochemistry · Membrane biophysics" data-pt="Bioquímica · Biofísica de membranas">Biochemistry · Membrane biophysics</div>
+          </div>
+        </div>
+        <div class="journey-stage reveal reveal-delay-1">
+          <div>
+            <div class="journey-num">02</div>
+            <div class="journey-label" data-en="Biological systems" data-pt="Sistemas biológicos">Biological systems</div>
+          </div>
+          <div>
+            <div class="journey-question" data-en="When do lipids become biological actors?" data-pt="Quando os lipídeos se tornam atores biológicos?">When do lipids become biological actors?</div>
+            <p class="journey-body" data-en="Those questions grew. Lipids stopped being only the membrane a peptide encountered and became biological actors in their own right — molecules involved in signaling, metabolism, and disease. My research moved across rare metabolic disorders, cancer, and neurodegeneration, while the underlying question stayed remarkably consistent: how does molecular biology become function, dysfunction, and potentially, intervention?"
+               data-pt="Essas perguntas cresceram. Os lipídeos deixaram de ser apenas a membrana que um peptídeo encontrava e passaram a ser atores biológicos por si só — moléculas envolvidas em sinalização, metabolismo e doença. Minha pesquisa passou por distúrbios metabólicos raros, câncer e neurodegeneração, enquanto a pergunta de fundo permanecia notavelmente consistente: como a biologia molecular se torna função, disfunção e, potencialmente, intervenção?">
+              Those questions grew. Lipids stopped being only the membrane a peptide encountered and became biological actors in their own right — molecules involved in signaling, metabolism, and disease. My research moved across rare metabolic disorders, cancer, and neurodegeneration, while the underlying question stayed remarkably consistent: how does molecular biology become function, dysfunction, and potentially, intervention?
+            </p>
+            <div class="journey-tags" data-en="Lipid biology · Disease mechanisms" data-pt="Biologia lipídica · Mecanismos de doença">Lipid biology · Disease mechanisms</div>
+          </div>
+        </div>
+        <div class="journey-stage reveal reveal-delay-2">
+          <div>
+            <div class="journey-num">03</div>
+            <div class="journey-label" data-en="Populations" data-pt="Populações">Populations</div>
+          </div>
+          <div>
+            <div class="journey-question" data-en="What changes when one sample becomes thousands?" data-pt="O que muda quando uma amostra vira milhares?">What changes when one sample becomes thousands?</div>
+            <p class="journey-body" data-en="Eventually, the lens pulled back again. At McMaster University, I moved into large-scale epidemiological lipidomics — measuring thousands of samples from a national nutritional study. The challenge was no longer understanding one molecular interaction or disease mechanism. It was making biological measurement reliable enough to reveal patterns across a population."
+               data-pt="Eventualmente, a lente se afastou novamente. Na Universidade McMaster, passei para a lipidômica epidemiológica em larga escala — medindo milhares de amostras de um estudo nutricional nacional. O desafio não era mais compreender uma única interação molecular ou mecanismo de doença. Era tornar a medição biológica confiável o suficiente para revelar padrões em uma população.">
+              Eventually, the lens pulled back again. At McMaster University, I moved into large-scale epidemiological lipidomics — measuring thousands of samples from a national nutritional study. The challenge was no longer understanding one molecular interaction or disease mechanism. It was making biological measurement reliable enough to reveal patterns across a population.
+            </p>
+            <div class="journey-tags" data-en="LC-MS · Lipidomics · Epidemiological data" data-pt="LC-MS · Lipidômica · Dados epidemiológicos">LC-MS · Lipidomics · Epidemiological data</div>
+          </div>
+        </div>
+        <div class="journey-stage reveal reveal-delay-3">
+          <div>
+            <div class="journey-num">04</div>
+            <div class="journey-label" data-en="Models" data-pt="Modelos">Models</div>
+          </div>
+          <div>
+            <div class="journey-question" data-en="How do we find meaning at that scale?" data-pt="Como encontrar significado nessa escala?">How do we find meaning at that scale?</div>
+            <p class="journey-body" data-en="That change in scale changed the tools I needed. Statistics, data science, machine learning, and AI make it possible to ask different questions of biological data — to find structure across thousands of measurements, test what generalizes, and eventually help turn evidence into decisions. I see those tools as an expansion of the same scientific practice, not a departure from it."
+               data-pt="Essa mudança de escala mudou as ferramentas de que eu precisava. Estatística, ciência de dados, aprendizado de máquina e IA tornam possível fazer perguntas diferentes aos dados biológicos — encontrar estrutura em milhares de medições, testar o que se generaliza e, eventualmente, ajudar a transformar evidência em decisão. Vejo essas ferramentas como uma expansão da mesma prática científica, não um afastamento dela.">
+              That change in scale changed the tools I needed. Statistics, data science, machine learning, and AI make it possible to ask different questions of biological data — to find structure across thousands of measurements, test what generalizes, and eventually help turn evidence into decisions. I see those tools as an expansion of the same scientific practice, not a departure from it.
+            </p>
+            <div class="journey-tags" data-en="Data science · ML · AI" data-pt="Ciência de dados · ML · IA">Data science · ML · AI</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE CONSTANT -->
+  <section class="constant-section">
+    <div class="container">
+      <h2 class="reveal"
+          data-en="The scale changed.<br>The scientific instinct didn't."
+          data-pt="A escala mudou.<br>O instinto científico, não.">
+        The scale changed.<br>The scientific instinct didn't.
+      </h2>
     </div>
   </section>
 
@@ -309,37 +438,35 @@
     <div class="container">
       <div class="reveal">
         <div class="section-label" data-en="How I think" data-pt="Como penso">How I think</div>
-        <h2 class="section-h2"
-            data-en="Three habits that<br>shape every <em>analysis</em>"
-            data-pt="Três hábitos que<br>orientam cada <em>análise</em>">
-          Three habits that<br>shape every <em>analysis</em>
-        </h2>
       </div>
-      <div class="timeline">
-        <div class="timeline-item reveal">
-          <div class="timeline-period" data-en="Start with the biology." data-pt="Comece pela biologia.">Start with the biology.</div>
-          <div class="timeline-content">
-            <p data-en="A pattern becomes interesting when there's a plausible biological story underneath it — not simply because a model found it."
-               data-pt="Um padrão se torna interessante quando existe uma história biológica plausível por trás dele — não simplesmente porque um modelo o encontrou.">
-              A pattern becomes interesting when there's a plausible biological story underneath it — not simply because a model found it.
+      <div style="margin-top: 32px;">
+        <div class="thinking-item reveal">
+          <div class="thinking-num">01</div>
+          <div>
+            <div class="thinking-lead" data-en="Start with the biology." data-pt="Comece pela biologia.">Start with the biology.</div>
+            <p class="thinking-body" data-en="A model finding a pattern doesn't make that pattern biologically meaningful."
+               data-pt="Um modelo encontrar um padrão não torna esse padrão biologicamente significativo.">
+              A model finding a pattern doesn't make that pattern biologically meaningful.
             </p>
           </div>
         </div>
-        <div class="timeline-item reveal reveal-delay-1">
-          <div class="timeline-period" data-en="Respect the measurement." data-pt="Respeite a medição.">Respect the measurement.</div>
-          <div class="timeline-content">
-            <p data-en="Every number has a history: how it was sampled, measured, processed, and normalized determines what it can legitimately tell us."
-               data-pt="Todo número tem uma história: como foi amostrado, medido, processado e normalizado determina o que ele pode legitimamente nos dizer.">
-              Every number has a history: how it was sampled, measured, processed, and normalized determines what it can legitimately tell us.
+        <div class="thinking-item reveal reveal-delay-1">
+          <div class="thinking-num">02</div>
+          <div>
+            <div class="thinking-lead" data-en="Respect the measurement." data-pt="Respeite a medição.">Respect the measurement.</div>
+            <p class="thinking-body" data-en="Every number has a history: sampling, measurement, processing, and normalization determine what it can legitimately tell us."
+               data-pt="Todo número tem uma história: amostragem, medição, processamento e normalização determinam o que ele pode legitimamente nos dizer.">
+              Every number has a history: sampling, measurement, processing, and normalization determine what it can legitimately tell us.
             </p>
           </div>
         </div>
-        <div class="timeline-item reveal reveal-delay-2">
-          <div class="timeline-period" data-en="Use the right tool for the question." data-pt="Use a ferramenta certa para a pergunta.">Use the right tool for the question.</div>
-          <div class="timeline-content">
-            <p data-en="Sometimes that's an experiment. Sometimes mass spectrometry. Sometimes statistics or machine learning. Sophistication isn't the goal; understanding is."
-               data-pt="Às vezes é um experimento. Às vezes, espectrometria de massa. Às vezes, estatística ou aprendizado de máquina. Sofisticação não é o objetivo; compreensão é.">
-              Sometimes that's an experiment. Sometimes mass spectrometry. Sometimes statistics or machine learning. Sophistication isn't the goal; understanding is.
+        <div class="thinking-item reveal reveal-delay-2">
+          <div class="thinking-num">03</div>
+          <div>
+            <div class="thinking-lead" data-en="Use the right tool." data-pt="Use a ferramenta certa.">Use the right tool.</div>
+            <p class="thinking-body" data-en="Experiment. Mass spectrometry. Statistics. Machine learning. Sophistication isn't the goal. Understanding is."
+               data-pt="Experimento. Espectrometria de massa. Estatística. Aprendizado de máquina. Sofisticação não é o objetivo. Compreensão é.">
+              Experiment. Mass spectrometry. Statistics. Machine learning. Sophistication isn't the goal. Understanding is.
             </p>
           </div>
         </div>
@@ -347,22 +474,64 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="about-cta">
+  <!-- BRIDGE TO CURRENT WORK -->
+  <section class="bridge-now">
     <div class="container">
-      <h2 class="reveal" data-en="Ready to work together?" data-pt="Pronto para trabalharmos juntos?">Ready to work together?</h2>
-      <p class="reveal reveal-delay-1" data-en="Book a 15-minute call and let's see if there's a fit." data-pt="Agende 15 minutos e veja se há compatibilidade.">Book a 15-minute call and let's see if there's a fit.</p>
-      <a href="contact.html" class="btn reveal reveal-delay-2" style="background: var(--white); color: var(--accent);" data-en="Book a call →" data-pt="Agendar →">Book a call →</a>
-      <span class="about-cta-secondary reveal reveal-delay-3">
-        <span data-en="Connecting professionally? " data-pt="Conectando profissionalmente? ">Connecting professionally? </span>
-        <a href="https://www.linkedin.com/in/jose-carlos-bozelli-jr-9b2a4181/" target="_blank" rel="noopener" data-en="LinkedIn →" data-pt="LinkedIn →">LinkedIn →</a>
-      </span>
+      <p class="reveal"
+         data-en="Today, the <strong>questions keep expanding</strong> — across scientific consulting, writing, and data science."
+         data-pt="Hoje, as <strong>perguntas continuam se expandindo</strong> — em consultoria científica, escrita e ciência de dados.">
+        Today, the <strong>questions keep expanding</strong> — across scientific consulting, writing, and data science.
+      </p>
+      <p class="reveal reveal-delay-1"
+         data-en="The throughline remains the same: <strong>understand the measurement, understand the biology beneath it</strong>, and be precise about <strong>what the evidence allows us to conclude</strong>."
+         data-pt="O fio condutor continua o mesmo: <strong>entender a medição, entender a biologia por trás dela</strong>, e ser preciso sobre <strong>o que a evidência permite concluir</strong>.">
+        The throughline remains the same: <strong>understand the measurement, understand the biology beneath it</strong>, and be precise about <strong>what the evidence allows us to conclude</strong>.
+      </p>
+    </div>
+  </section>
+
+  <!-- CHOOSE YOUR PATH -->
+  <section class="paths-section">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label" data-en="Where next" data-pt="Para onde agora">Where next</div>
+        <h2 class="section-h2" data-en="Where should we<br>go from <em>here</em>?" data-pt="Para onde<br>ir a partir <em>daqui</em>?">Where should we<br>go from <em>here</em>?</h2>
+      </div>
+      <div class="paths-grid">
+        <div class="path-card reveal reveal-delay-1">
+          <h3 data-en="Explore the thinking" data-pt="Explore o raciocínio">Explore the thinking</h3>
+          <p data-en="Read essays on biology, biomarkers, health data, and the tools used to interpret them."
+             data-pt="Leia ensaios sobre biologia, biomarcadores, dados de saúde e as ferramentas usadas para interpretá-los.">
+            Read essays on biology, biomarkers, health data, and the tools used to interpret them.
+          </p>
+          <a href="insights.html" data-en="Insights →" data-pt="Insights →">Insights →</a>
+        </div>
+        <div class="path-card reveal reveal-delay-2">
+          <h3 data-en="Bring me a hard problem" data-pt="Traga um problema difícil">Bring me a hard problem</h3>
+          <p data-en="Scientific, analytical, and data questions where biology and measurement matter."
+             data-pt="Questões científicas, analíticas e de dados em que biologia e medição importam.">
+            Scientific, analytical, and data questions where biology and measurement matter.
+          </p>
+          <a href="services.html" data-en="Consulting →" data-pt="Consultoria →">Consulting →</a>
+        </div>
+        <div class="path-card reveal reveal-delay-3">
+          <h3 data-en="Start a conversation" data-pt="Inicie uma conversa">Start a conversation</h3>
+          <p data-en="Research, collaboration, speaking, or something unexpected."
+             data-pt="Pesquisa, colaboração, palestras, ou algo inesperado.">
+            Research, collaboration, speaking, or something unexpected.
+          </p>
+          <a href="contact.html" data-en="Contact →" data-pt="Contato →">Contact →</a>
+        </div>
+      </div>
     </div>
   </section>
 
   <footer>
     <div class="footer-inner">
-      <div class="footer-name">José Carlos Bozelli Jr., PhD · bozelli.ca</div>
+      <div>
+        <div class="footer-name">José Carlos Bozelli Jr., PhD · bozelli.ca</div>
+        <div class="footer-languages" data-en="Languages: English, Português" data-pt="Idiomas: Inglês, Português">Languages: English, Português</div>
+      </div>
       <div class="footer-links">
         <a href="https://www.linkedin.com/in/jose-carlos-bozelli-jr-9b2a4181/" target="_blank" rel="noopener">LinkedIn</a>
         <a href="services.html" data-en="Consulting" data-pt="Consultoria">Consulting</a>
