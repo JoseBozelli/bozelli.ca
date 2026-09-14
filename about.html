@@ -50,6 +50,28 @@
       overflow: hidden;
     }
     .about-photo-hero img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
+    .about-identity { margin-top: 16px; text-align: center; }
+    .about-identity-name {
+      font-family: var(--serif);
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--ink);
+    }
+    .about-identity-role {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+    .about-identity-location {
+      font-size: 12px;
+      color: var(--ink-muted);
+      font-weight: 300;
+      margin-top: 8px;
+      line-height: 1.5;
+    }
 
     /* At a glance */
     .glance-section { padding: 80px 0; }
@@ -80,19 +102,6 @@
       color: var(--ink);
       letter-spacing: 0.04em;
       text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-    .cred-block-tag {
-      font-size: 13px;
-      color: var(--ink-soft);
-      font-weight: 400;
-      margin-bottom: 8px;
-    }
-    .cred-block-desc {
-      font-size: 11px;
-      color: var(--ink-muted);
-      font-weight: 300;
-      line-height: 1.5;
     }
 
     /* Intro statement */
@@ -108,108 +117,83 @@
     .intro-statement p.lead { font-size: 19px; color: var(--ink); }
     .intro-statement p:last-child { margin-bottom: 0; }
 
-    /* Territory */
-    .territory-section { background: var(--paper-warm); padding: 90px 0; }
-    .territory-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      background: var(--rule-mid);
-      margin-top: 48px;
-    }
-    .territory-item {
-      background: var(--paper-warm);
-      padding: 28px 24px;
-      transition: background 0.2s;
-    }
-    .territory-item:hover { background: var(--white); }
-    .territory-item h4 {
+    /* The Career */
+    .career-section { background: var(--paper-warm); padding: 90px 0; position: relative; overflow: hidden; }
+    .career-motif { position: absolute; top: 20px; right: 5%; width: 130px; height: 130px; opacity: 0.16; pointer-events: none; }
+    @media (max-width: 900px) { .career-motif { display: none; } }
+    .career-section .container { max-width: 820px; }
+    .career-lead, .career-subhead {
       font-family: var(--serif);
-      font-size: 17px;
       font-weight: 400;
-      margin-bottom: 8px;
-      color: var(--accent);
-    }
-    .territory-item p {
-      font-size: 12px;
-      color: var(--ink-muted);
-      font-weight: 300;
-      line-height: 1.6;
-    }
-
-    /* The road here */
-    .road-section { padding: 80px 0; }
-    .road-list { margin-top: 40px; }
-    .road-item {
-      display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 24px;
-      padding: 20px 0;
-      border-bottom: 0.5px solid var(--rule);
-      align-items: baseline;
-    }
-    .road-item:last-child { border-bottom: none; }
-    .road-label {
-      font-family: var(--mono);
-      font-size: 11px;
-      color: var(--accent);
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-    .road-desc {
-      font-size: 14px;
-      color: var(--ink-soft);
-      font-weight: 300;
-      line-height: 1.6;
-    }
-
-    /* The Constant */
-    .constant-section {
-      padding: 100px 0;
-      text-align: center;
-    }
-    .constant-section h2 {
-      font-family: var(--serif);
-      font-size: clamp(28px, 3.6vw, 42px);
-      font-weight: 300;
-      line-height: 1.3;
       color: var(--ink);
-      max-width: 700px;
-      margin: 0 auto;
+      line-height: 1.4;
     }
-
-    /* How I think */
-    .thinking-section { padding: 90px 0; }
-    .thinking-item {
-      display: grid;
-      grid-template-columns: 100px 1fr;
-      gap: 32px;
-      padding: 36px 0;
-      border-bottom: 0.5px solid var(--rule);
-      align-items: start;
+    .career-lead {
+      font-size: clamp(22px, 2.6vw, 28px);
+      margin-bottom: 28px;
     }
-    .thinking-item:last-child { border-bottom: none; }
-    .thinking-item:nth-child(even) { direction: rtl; }
-    .thinking-item:nth-child(even) > * { direction: ltr; }
-    .thinking-num {
-      font-family: var(--serif);
-      font-size: 36px;
+    .career-subhead {
+      font-size: clamp(19px, 2.2vw, 23px);
+      margin-top: 36px;
+      margin-bottom: 20px;
+    }
+    .career-section p.career-body {
+      font-size: 16px;
+      color: var(--ink-soft);
+      line-height: 1.85;
       font-weight: 300;
-      color: var(--accent);
+      margin-bottom: 20px;
     }
-    .thinking-lead {
+    .career-section p.career-body:last-child { margin-bottom: 0; }
+
+    /* The Throughline */
+    .throughline-section { padding: 90px 0; }
+    .throughline-section .container { max-width: 780px; }
+    .throughline-head {
       font-family: var(--serif);
-      font-size: clamp(20px, 2.4vw, 26px);
+      font-size: clamp(26px, 3.2vw, 38px);
+      font-weight: 300;
+      color: var(--ink);
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .throughline-list { display: flex; flex-direction: column; }
+    .throughline-row {
+      max-width: 480px;
+      padding: 32px 0;
+      border-bottom: 0.5px solid var(--rule);
+    }
+    .throughline-row:last-child { border-bottom: none; }
+    .throughline-row.right { margin-left: auto; text-align: right; }
+    .throughline-lead {
+      font-family: var(--serif);
+      font-size: clamp(24px, 2.8vw, 32px);
       font-weight: 400;
       color: var(--ink);
       margin-bottom: 10px;
     }
-    .thinking-body {
+    .throughline-lead .verb { color: var(--accent); }
+    .throughline-body-text {
       font-size: 14px;
       color: var(--ink-soft);
       font-weight: 300;
-      line-height: 1.75;
-      max-width: 560px;
+      line-height: 1.7;
+    }
+
+    /* Knowledge statement band */
+    .knowledge-band {
+      background: var(--ink);
+      padding: 90px 0;
+      text-align: center;
+    }
+    .knowledge-band p {
+      font-family: var(--serif);
+      font-size: clamp(28px, 3.6vw, 42px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--paper);
+      max-width: 700px;
+      margin: 0 auto;
     }
 
     /* Bridge to current work */
@@ -222,6 +206,16 @@
       max-width: 680px;
     }
     .bridge-now p + p { margin-top: 18px; }
+    .today-pull {
+      font-family: var(--serif);
+      font-size: clamp(24px, 3vw, 32px);
+      font-weight: 300;
+      line-height: 1.4;
+      color: var(--ink);
+      max-width: 680px;
+      margin-top: 32px !important;
+    }
+    .today-pull strong { font-weight: 500; }
     .bridge-now p strong {
       color: var(--ink);
       font-weight: 500;
@@ -278,8 +272,7 @@
       .about-photo-hero { max-width: 220px; margin: 0 auto; }
       .cred-grid { grid-template-columns: 1fr 1fr; }
       .journey-stage { grid-template-columns: 1fr; gap: 8px; }
-      .territory-grid { grid-template-columns: 1fr 1fr; }
-      .road-item { grid-template-columns: 1fr; gap: 6px; }
+      .throughline-row.right { margin-left: 0; text-align: left; }
       .thinking-item, .thinking-item:nth-child(even) { grid-template-columns: 1fr; direction: ltr; gap: 8px; }
       .paths-grid { grid-template-columns: 1fr; }
       .about-hero { padding: 100px 0 60px; }
@@ -325,9 +318,9 @@
         <div>
           <div class="section-label reveal" data-en="About" data-pt="Sobre">About</div>
           <h1 class="reveal reveal-delay-1"
-              data-en="From molecules to models.<br><em>The questions got bigger. So did the toolkit.</em>"
-              data-pt="Das moléculas aos modelos.<br><em>As perguntas ficaram maiores. A caixa de ferramentas também.</em>">
-            From molecules to models.<br><em>The questions got bigger. So did the toolkit.</em>
+              data-en="From molecules to models.<br><em>From evidence to decisions.</em>"
+              data-pt="Das moléculas aos modelos.<br><em>Da evidência às decisões.</em>">
+            From molecules to models.<br><em>From evidence to decisions.</em>
           </h1>
           <div class="trajectory-line reveal reveal-delay-2" data-en="Molecules → Membranes → Omics → Populations → Models" data-pt="Moléculas → Membranas → Ômicas → Populações → Modelos">Molecules → Membranes → Omics → Populations → Models</div>
           <div class="trajectory-tags reveal reveal-delay-3" data-en="Biochemistry · Lipid biology · Mass spectrometry · Data science · ML/AI" data-pt="Bioquímica · Biologia lipídica · Espectrometria de massa · Ciência de dados · ML/IA">Biochemistry · Lipid biology · Mass spectrometry · Data science · ML/AI</div>
@@ -335,6 +328,11 @@
         <div class="reveal reveal-delay-2">
           <div class="about-photo-hero">
             <img src="assets/img/profile.jpg" alt="José Carlos Bozelli Jr., PhD">
+          </div>
+          <div class="about-identity">
+            <div class="about-identity-name">José Carlos Bozelli Jr., PhD</div>
+            <div class="about-identity-role" data-en="Scientist · Writer · Advisor" data-pt="Cientista · Escritor · Consultor">Scientist · Writer · Advisor</div>
+            <div class="about-identity-location" data-en="Based in Canada. Working toward problems that matter anywhere." data-pt="Baseado no Canadá. Trabalhando em problemas que importam em qualquer lugar.">Based in Canada. Working toward problems that matter anywhere.</div>
           </div>
         </div>
       </div>
@@ -373,151 +371,142 @@
         <div class="cred-block reveal reveal-delay-1">
           <div class="cred-block-num" data-count="40" data-suffix="+">40+</div>
           <div class="cred-block-title" data-en="Publications" data-pt="Publicações">Publications</div>
-          <div class="cred-block-tag" data-en="Scientific depth" data-pt="Profundidade científica">Scientific depth</div>
-          <div class="cred-block-desc" data-en="Peer-reviewed, across lipid biology, biochemistry, and analytical science" data-pt="Revisadas por pares, em biologia lipídica, bioquímica e ciência analítica">Peer-reviewed, across lipid biology, biochemistry, and analytical science</div>
         </div>
         <div class="cred-block reveal reveal-delay-2">
           <div class="cred-block-num" data-en="$450K" data-pt="$450 mil" data-count="450" data-prefix="$" data-suffix="K">$450K</div>
           <div class="cred-block-title" data-en="Research funding" data-pt="Financiamento científico">Research funding</div>
-          <div class="cred-block-tag" data-en="Ideas backed" data-pt="Ideias apoiadas">Ideas backed</div>
-          <div class="cred-block-desc" data-en="Contributed to successful grant applications (CAD)" data-pt="Contribuição para projetos científicos aprovados">Contributed to successful grant applications (CAD)</div>
         </div>
         <div class="cred-block reveal reveal-delay-3">
           <div class="cred-block-num" data-en="5K+" data-pt="5 mil+" data-count="5" data-suffix="K+">5K+</div>
           <div class="cred-block-title" data-en="Samples" data-pt="Amostras">Samples</div>
-          <div class="cred-block-tag" data-en="Science at scale" data-pt="Ciência em escala">Science at scale</div>
-          <div class="cred-block-desc" data-en="Population-based LC-MS lipidomics, 26 analytical batches" data-pt="Lipidômica LC-MS de base populacional, 26 lotes analíticos">Population-based LC-MS lipidomics, 26 analytical batches</div>
         </div>
         <div class="cred-block reveal reveal-delay-4">
           <div class="cred-block-num" style="font-family: var(--sans);">1</div>
           <div class="cred-block-title" data-en="Book" data-pt="Livro">Book</div>
-          <div class="cred-block-tag" data-en="Knowledge synthesized" data-pt="Conhecimento sintetizado">Knowledge synthesized</div>
-          <div class="cred-block-desc" data-en="Membrane Shape and Biological Function, CRC Press 2025" data-pt="Membrane Shape and Biological Function, CRC Press 2025">Membrane Shape and Biological Function, CRC Press 2025</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- THE TERRITORY -->
-  <section class="territory-section">
+  <!-- THE CAREER -->
+  <section class="career-section">
+    <svg class="career-motif" viewBox="0 0 130 130" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <line x1="15" y1="100" x2="45" y2="70" stroke="var(--accent)" stroke-width="1"/>
+      <line x1="45" y1="70" x2="40" y2="35" stroke="var(--accent)" stroke-width="1"/>
+      <line x1="45" y1="70" x2="80" y2="60" stroke="var(--accent)" stroke-width="1"/>
+      <line x1="80" y1="60" x2="105" y2="25" stroke="var(--accent)" stroke-width="1"/>
+      <line x1="80" y1="60" x2="100" y2="90" stroke="var(--accent)" stroke-width="1"/>
+      <circle cx="15" cy="100" r="4" fill="var(--accent)"/>
+      <circle cx="45" cy="70" r="5" fill="var(--accent)"/>
+      <circle cx="40" cy="35" r="3.5" fill="var(--accent)"/>
+      <circle cx="80" cy="60" r="4.5" fill="var(--accent)"/>
+      <circle cx="105" cy="25" r="3" fill="var(--accent)"/>
+      <circle cx="100" cy="90" r="3" fill="var(--accent)"/>
+    </svg>
     <div class="container">
-      <div class="reveal">
-        <div class="section-label" data-en="The territory" data-pt="O território">The territory</div>
-        <h2 class="section-h2" data-en="What I'm <em>exploring</em>" data-pt="O que estou <em>explorando</em>">What I'm <em>exploring</em></h2>
-      </div>
-      <div class="territory-grid">
-        <div class="territory-item reveal reveal-delay-1">
-          <h4 data-en="Human biology" data-pt="Biologia humana">Human biology</h4>
-          <p data-en="Metabolism · brain health · nutrition · aging · molecular mechanisms" data-pt="Metabolismo · saúde cerebral · nutrição · envelhecimento · mecanismos moleculares">Metabolism · brain health · nutrition · aging · molecular mechanisms</p>
-        </div>
-        <div class="territory-item reveal reveal-delay-2">
-          <h4 data-en="What we measure" data-pt="O que medimos">What we measure</h4>
-          <p data-en="Biomarkers · omics · blood tests · emerging health technologies" data-pt="Biomarcadores · ômicas · exames de sangue · tecnologias emergentes de saúde">Biomarkers · omics · blood tests · emerging health technologies</p>
-        </div>
-        <div class="territory-item reveal reveal-delay-3">
-          <h4 data-en="How we make sense of it" data-pt="Como damos sentido a isso">How we make sense of it</h4>
-          <p data-en="Statistics · data science · machine learning · AI" data-pt="Estatística · ciência de dados · aprendizado de máquina · IA">Statistics · data science · machine learning · AI</p>
-        </div>
-        <div class="territory-item reveal reveal-delay-4">
-          <h4 data-en="What ultimately matters" data-pt="O que realmente importa">What ultimately matters</h4>
-          <p data-en="What the evidence supports · what remains uncertain · what we can responsibly do next" data-pt="O que a evidência sustenta · o que permanece incerto · o que podemos fazer com responsabilidade">What the evidence supports · what remains uncertain · what we can responsibly do next</p>
-        </div>
-      </div>
+      <p class="career-lead reveal"
+         data-en="<strong>Behind these questions is a career built by moving between scales.</strong>"
+         data-pt="<strong>Por trás dessas perguntas está uma carreira construída movendo-se entre escalas.</strong>">
+        <strong>Behind these questions is a career built by moving between scales.</strong>
+      </p>
+      <p class="career-body reveal reveal-delay-1"
+         data-en="José began in chemistry, studying how molecular structure determines physical behaviour. That curiosity moved into biochemistry and membrane biology: how molecules organize themselves, how proteins interact with their environment, and how seemingly small physical changes can alter biological function."
+         data-pt="José começou na química, estudando como a estrutura molecular determina o comportamento físico. Essa curiosidade o levou à bioquímica e à biologia de membranas: como as moléculas se organizam, como as proteínas interagem com seu ambiente, e como mudanças físicas aparentemente pequenas podem alterar a função biológica.">
+        José began in chemistry, studying how molecular structure determines physical behaviour. That curiosity moved into biochemistry and membrane biology: how molecules organize themselves, how proteins interact with their environment, and how seemingly small physical changes can alter biological function.
+      </p>
+      <p class="career-body reveal reveal-delay-2"
+         data-en="Over time, the questions grew larger. Molecular mechanisms became disease biology. Controlled experiments expanded into human samples and population-scale omics. And increasingly, the challenge became not simply generating measurements, but deciding which signals could be trusted, how they should be interpreted, and what they actually meant."
+         data-pt="Com o tempo, as perguntas cresceram. Mecanismos moleculares se tornaram biologia de doenças. Experimentos controlados se expandiram para amostras humanas e ômicas em escala populacional. E, cada vez mais, o desafio deixou de ser simplesmente gerar medições, passando a ser decidir quais sinais podiam ser confiáveis, como deveriam ser interpretados, e o que realmente significavam.">
+        Over time, the questions grew larger. Molecular mechanisms became disease biology. Controlled experiments expanded into human samples and population-scale omics. And increasingly, the challenge became not simply generating measurements, but deciding which signals could be trusted, how they should be interpreted, and what they actually meant.
+      </p>
+      <p class="career-body reveal reveal-delay-3"
+         data-en="That evolution now extends into data science, machine learning and AI: extracting reliable meaning from complex evidence."
+         data-pt="Essa evolução agora se estende à ciência de dados, ao aprendizado de máquina e à IA: extrair significado confiável de evidência complexa.">
+        That evolution now extends into data science, machine learning and AI: extracting reliable meaning from complex evidence.
+      </p>
+      <p class="career-body reveal reveal-delay-4"
+         data-en="Alongside research, José has taught and mentored emerging scientists, developed course material, facilitated advanced scientific discussions and invested in formal training in university teaching. That same instinct — to make difficult ideas understandable without making them simplistic — now shapes his writing and public-facing work."
+         data-pt="Além da pesquisa, José lecionou e orientou cientistas em formação, desenvolveu material didático, facilitou discussões científicas avançadas e investiu em formação formal em ensino universitário. Esse mesmo instinto — tornar ideias difíceis compreensíveis sem torná-las simplistas — hoje molda sua escrita e seu trabalho voltado ao público.">
+        Alongside research, José has taught and mentored emerging scientists, developed course material, facilitated advanced scientific discussions and invested in formal training in university teaching. That same instinct — to make difficult ideas understandable without making them simplistic — now shapes his writing and public-facing work.
+      </p>
     </div>
   </section>
 
-  <!-- THE ROAD HERE -->
-  <section class="road-section">
+  <!-- THE THROUGHLINE -->
+  <section class="throughline-section">
     <div class="container">
-      <div class="reveal">
-        <div class="section-label" data-en="The road here" data-pt="O caminho até aqui">The road here</div>
-        <h2 class="section-h2" data-en="From molecules<br>to <em>models</em>" data-pt="Das moléculas<br>aos <em>modelos</em>">From molecules<br>to <em>models</em></h2>
-      </div>
-      <div class="road-list">
-        <div class="road-item reveal">
-          <div class="road-label" data-en="Molecules" data-pt="Moléculas">Molecules</div>
-          <div class="road-desc" data-en="Antimicrobial peptides and membrane biophysics — how molecular structure changes function." data-pt="Peptídeos antimicrobianos e biofísica de membranas — como a estrutura molecular altera a função.">Antimicrobial peptides and membrane biophysics — how molecular structure changes function.</div>
-        </div>
-        <div class="road-item reveal reveal-delay-1">
-          <div class="road-label" data-en="Biological systems" data-pt="Sistemas biológicos">Biological systems</div>
-          <div class="road-desc" data-en="Lipid signaling across metabolic disease, cancer, and neurodegeneration." data-pt="Sinalização lipídica em doenças metabólicas, câncer e neurodegeneração.">Lipid signaling across metabolic disease, cancer, and neurodegeneration.</div>
-        </div>
-        <div class="road-item reveal reveal-delay-2">
-          <div class="road-label" data-en="Populations" data-pt="Populações">Populations</div>
-          <div class="road-desc" data-en="Large-scale epidemiological lipidomics at McMaster University, thousands of samples." data-pt="Lipidômica epidemiológica em larga escala na Universidade McMaster, milhares de amostras.">Large-scale epidemiological lipidomics at McMaster University, thousands of samples.</div>
-        </div>
-        <div class="road-item reveal reveal-delay-3">
-          <div class="road-label" data-en="Models" data-pt="Modelos">Models</div>
-          <div class="road-desc" data-en="Statistics, data science, machine learning, and AI applied to biological data." data-pt="Estatística, ciência de dados, aprendizado de máquina e IA aplicados a dados biológicos.">Statistics, data science, machine learning, and AI applied to biological data.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- THE CONSTANT -->
-  <section class="constant-section">
-    <div class="container">
-      <h2 class="reveal"
-          data-en="The scale changed.<br>The scientific instinct didn't."
-          data-pt="A escala mudou.<br>O instinto científico, não.">
-        The scale changed.<br>The scientific instinct didn't.
+      <h2 class="throughline-head reveal"
+          data-en="<strong>Different questions. A consistent way of working.</strong>"
+          data-pt="<strong>Perguntas diferentes. Uma forma consistente de trabalhar.</strong>">
+        <strong>Different questions. A consistent way of working.</strong>
       </h2>
-    </div>
-  </section>
-
-  <!-- HOW I THINK -->
-  <section class="thinking-section">
-    <div class="container">
-      <div class="reveal">
-        <div class="section-label" data-en="How I think" data-pt="Como penso">How I think</div>
-      </div>
-      <div style="margin-top: 32px;">
-        <div class="thinking-item reveal">
-          <div class="thinking-num">01</div>
-          <div>
-            <div class="thinking-lead" data-en="Start with the biology." data-pt="Comece pela biologia.">Start with the biology.</div>
-            <p class="thinking-body" data-en="A model finding a pattern doesn't make that pattern biologically meaningful."
-               data-pt="Um modelo encontrar um padrão não torna esse padrão biologicamente significativo.">
-              A model finding a pattern doesn't make that pattern biologically meaningful.
-            </p>
-          </div>
+      <div class="throughline-list">
+        <div class="throughline-row reveal">
+          <div class="throughline-lead" data-en="<span class=&quot;verb&quot;>See</span> the system" data-pt="<span class=&quot;verb&quot;>Ver</span> o sistema"><span class="verb">See</span> the system</div>
+          <p class="throughline-body-text" data-en="Understand the biological, analytical or organizational context before optimizing a measurement."
+             data-pt="Entender o contexto biológico, analítico ou organizacional antes de otimizar uma medição.">
+            Understand the biological, analytical or organizational context before optimizing a measurement.
+          </p>
         </div>
-        <div class="thinking-item reveal reveal-delay-1">
-          <div class="thinking-num">02</div>
-          <div>
-            <div class="thinking-lead" data-en="Respect the measurement." data-pt="Respeite a medição.">Respect the measurement.</div>
-            <p class="thinking-body" data-en="Every number has a history: sampling, measurement, processing, and normalization determine what it can legitimately tell us."
-               data-pt="Todo número tem uma história: amostragem, medição, processamento e normalização determinam o que ele pode legitimamente nos dizer.">
-              Every number has a history: sampling, measurement, processing, and normalization determine what it can legitimately tell us.
-            </p>
-          </div>
+        <div class="throughline-row right reveal reveal-delay-1">
+          <div class="throughline-lead" data-en="<span class=&quot;verb&quot;>Find</span> what matters" data-pt="<span class=&quot;verb&quot;>Encontrar</span> o que importa"><span class="verb">Find</span> what matters</div>
+          <p class="throughline-body-text" data-en="Separate signal from noise, mechanism from correlation, and meaningful variation from technical artefact."
+             data-pt="Separar sinal de ruído, mecanismo de correlação, e variação significativa de artefato técnico.">
+            Separate signal from noise, mechanism from correlation, and meaningful variation from technical artefact.
+          </p>
         </div>
-        <div class="thinking-item reveal reveal-delay-2">
-          <div class="thinking-num">03</div>
-          <div>
-            <div class="thinking-lead" data-en="Use the right tool." data-pt="Use a ferramenta certa.">Use the right tool.</div>
-            <p class="thinking-body" data-en="Experiment. Mass spectrometry. Statistics. Machine learning. Sophistication isn't the goal. Understanding is."
-               data-pt="Experimento. Espectrometria de massa. Estatística. Aprendizado de máquina. Sofisticação não é o objetivo. Compreensão é.">
-              Experiment. Mass spectrometry. Statistics. Machine learning. Sophistication isn't the goal. Understanding is.
-            </p>
-          </div>
+        <div class="throughline-row reveal reveal-delay-2">
+          <div class="throughline-lead" data-en="<span class=&quot;verb&quot;>Connect</span> disciplines" data-pt="<span class=&quot;verb&quot;>Conectar</span> disciplinas"><span class="verb">Connect</span> disciplines</div>
+          <p class="throughline-body-text" data-en="Bring together experimental science, quantitative analysis, collaborators and different forms of evidence."
+             data-pt="Reunir ciência experimental, análise quantitativa, colaboradores e diferentes formas de evidência.">
+            Bring together experimental science, quantitative analysis, collaborators and different forms of evidence.
+          </p>
+        </div>
+        <div class="throughline-row right reveal reveal-delay-3">
+          <div class="throughline-lead" data-en="<span class=&quot;verb&quot;>Make</span> knowledge usable" data-pt="<span class=&quot;verb&quot;>Tornar</span> o conhecimento utilizável"><span class="verb">Make</span> knowledge usable</div>
+          <p class="throughline-body-text" data-en="Translate complexity into frameworks, explanations, tools and decisions others can act on."
+             data-pt="Traduzir complexidade em estruturas, explicações, ferramentas e decisões sobre as quais outros possam agir.">
+            Translate complexity into frameworks, explanations, tools and decisions others can act on.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- BRIDGE TO CURRENT WORK -->
-  <section class="bridge-now">
+  <!-- KNOWLEDGE STATEMENT (pulled out as its own visual beat) -->
+  <section class="knowledge-band">
     <div class="container">
       <p class="reveal"
-         data-en="Today, the <strong>questions keep expanding</strong> — across scientific consulting, writing, and data science."
-         data-pt="Hoje, as <strong>perguntas continuam se expandindo</strong> — em consultoria científica, escrita e ciência de dados.">
-        Today, the <strong>questions keep expanding</strong> — across scientific consulting, writing, and data science.
+         data-en="Knowledge only matters when it can travel."
+         data-pt="O conhecimento só importa quando consegue viajar.">
+        Knowledge only matters when it can travel.
       </p>
+    </div>
+  </section>
+
+  <!-- TODAY -->
+  <section class="bridge-now">
+    <div class="container">
+      <h2 class="throughline-head reveal" style="text-align: left; margin-bottom: 28px;"
+          data-en="<strong>The questions are getting bigger.</strong>"
+          data-pt="<strong>As perguntas estão ficando maiores.</strong>">
+        <strong>The questions are getting bigger.</strong>
+      </h2>
       <p class="reveal reveal-delay-1"
-         data-en="The throughline remains the same: <strong>understand the measurement, understand the biology beneath it</strong>, and be precise about <strong>what the evidence allows us to conclude</strong>."
-         data-pt="O fio condutor continua o mesmo: <strong>entender a medição, entender a biologia por trás dela</strong>, e ser preciso sobre <strong>o que a evidência permite concluir</strong>.">
-        The throughline remains the same: <strong>understand the measurement, understand the biology beneath it</strong>, and be precise about <strong>what the evidence allows us to conclude</strong>.
+         data-en="Today, José's work increasingly sits where biology, data and decision-making meet. His interests include biomarkers and omics, evidence quality, health data, scientific AI, and the increasingly difficult question of how people should interpret biological measurements when technology can generate them faster than ever."
+         data-pt="Hoje, o trabalho de José está cada vez mais no ponto de encontro entre biologia, dados e tomada de decisão. Seus interesses incluem biomarcadores e ômicas, qualidade de evidência, dados de saúde, IA científica, e a pergunta cada vez mais difícil de como as pessoas devem interpretar medições biológicas quando a tecnologia consegue gerá-las mais rápido do que nunca.">
+        Today, José's work increasingly sits where biology, data and decision-making meet. His interests include biomarkers and omics, evidence quality, health data, scientific AI, and the increasingly difficult question of how people should interpret biological measurements when technology can generate them faster than ever.
+      </p>
+      <p class="reveal reveal-delay-2"
+         data-en="Through research, independent projects, consulting development and writing, the aim is the same:"
+         data-pt="Por meio de pesquisa, projetos independentes, desenvolvimento de consultoria e escrita, o objetivo é o mesmo:">
+        Through research, independent projects, consulting development and writing, the aim is the same:
+      </p>
+      <p class="today-pull reveal reveal-delay-3"
+         data-en="Help turn more data into <strong>better understanding</strong> — not simply more information."
+         data-pt="Ajudar a transformar mais dados em <strong>melhor compreensão</strong> — não simplesmente mais informação.">
+        Help turn more data into <strong>better understanding</strong> — not simply more information.
       </p>
     </div>
   </section>
@@ -531,26 +520,26 @@
       </div>
       <div class="paths-grid">
         <div class="path-card reveal reveal-delay-1">
-          <h3 data-en="Explore the thinking" data-pt="Explore o raciocínio">Explore the thinking</h3>
-          <p data-en="Read essays on biology, biomarkers, health data, and the tools used to interpret them."
-             data-pt="Leia ensaios sobre biologia, biomarcadores, dados de saúde e as ferramentas usadas para interpretá-los.">
-            Read essays on biology, biomarkers, health data, and the tools used to interpret them.
+          <h3 data-en="Explore the ideas" data-pt="Explore as ideias">Explore the ideas</h3>
+          <p data-en="Biomarkers, metabolism, brain health, omics, health data and AI — without asking the evidence to say more than it can."
+             data-pt="Biomarcadores, metabolismo, saúde cerebral, ômicas, dados de saúde e IA — sem pedir à evidência que diga mais do que ela pode.">
+            Biomarkers, metabolism, brain health, omics, health data and AI — without asking the evidence to say more than it can.
           </p>
           <a href="insights.html" data-en="Insights →" data-pt="Insights →">Insights →</a>
         </div>
         <div class="path-card reveal reveal-delay-2">
-          <h3 data-en="Bring me a hard problem" data-pt="Traga um problema difícil">Bring me a hard problem</h3>
-          <p data-en="Scientific, analytical, and data questions where biology and measurement matter."
-             data-pt="Questões científicas, analíticas e de dados em que biologia e medição importam.">
-            Scientific, analytical, and data questions where biology and measurement matter.
+          <h3 data-en="Explore the work" data-pt="Explore o trabalho">Explore the work</h3>
+          <p data-en="See how this thinking translates into scientific, analytical and advisory problems."
+             data-pt="Veja como esse raciocínio se traduz em problemas científicos, analíticos e de assessoria.">
+            See how this thinking translates into scientific, analytical and advisory problems.
           </p>
           <a href="services.html" data-en="Consulting →" data-pt="Consultoria →">Consulting →</a>
         </div>
         <div class="path-card reveal reveal-delay-3">
-          <h3 data-en="Start a conversation" data-pt="Inicie uma conversa">Start a conversation</h3>
-          <p data-en="Research, collaboration, speaking, or something unexpected."
-             data-pt="Pesquisa, colaboração, palestras, ou algo inesperado.">
-            Research, collaboration, speaking, or something unexpected.
+          <h3 data-en="Connect" data-pt="Conecte-se">Connect</h3>
+          <p data-en="For collaborations, professional opportunities, speaking, or simply an interesting question."
+             data-pt="Para colaborações, oportunidades profissionais, palestras, ou simplesmente uma pergunta interessante.">
+            For collaborations, professional opportunities, speaking, or simply an interesting question.
           </p>
           <a href="contact.html" data-en="Contact →" data-pt="Contato →">Contact →</a>
         </div>
