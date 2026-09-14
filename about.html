@@ -95,51 +95,72 @@
       line-height: 1.5;
     }
 
-    /* Journey */
-    .journey-section { background: var(--paper-warm); padding: 90px 0; }
-    .journey-stage {
-      display: grid;
-      grid-template-columns: 90px 1fr;
-      gap: 32px;
-      padding: 40px 0;
-      border-bottom: 0.5px solid var(--rule);
-    }
-    .journey-stage:last-child { border-bottom: none; }
-    .journey-num {
-      font-family: var(--serif);
-      font-size: 42px;
-      font-weight: 300;
-      color: var(--accent);
-      line-height: 1;
-    }
-    .journey-label {
-      font-family: var(--mono);
-      font-size: 10px;
-      color: var(--ink-muted);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-top: 6px;
-    }
-    .journey-question {
-      font-family: var(--serif);
-      font-size: clamp(20px, 2.4vw, 26px);
-      font-weight: 400;
-      color: var(--ink);
-      margin-bottom: 14px;
-    }
-    .journey-body {
-      font-size: 15px;
+    /* Intro statement */
+    .intro-statement { padding: 70px 0; }
+    .intro-statement p {
+      font-size: 17px;
       color: var(--ink-soft);
-      line-height: 1.8;
+      line-height: 1.85;
       font-weight: 300;
-      max-width: 640px;
-      margin-bottom: 14px;
+      max-width: 700px;
+      margin-bottom: 20px;
     }
-    .journey-tags {
-      font-size: 12px;
+    .intro-statement p.lead { font-size: 19px; color: var(--ink); }
+    .intro-statement p:last-child { margin-bottom: 0; }
+
+    /* Territory */
+    .territory-section { background: var(--paper-warm); padding: 90px 0; }
+    .territory-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--rule-mid);
+      margin-top: 48px;
+    }
+    .territory-item {
+      background: var(--paper-warm);
+      padding: 28px 24px;
+      transition: background 0.2s;
+    }
+    .territory-item:hover { background: var(--white); }
+    .territory-item h4 {
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 400;
+      margin-bottom: 8px;
       color: var(--accent);
-      font-weight: 500;
-      letter-spacing: 0.02em;
+    }
+    .territory-item p {
+      font-size: 12px;
+      color: var(--ink-muted);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    /* The road here */
+    .road-section { padding: 80px 0; }
+    .road-list { margin-top: 40px; }
+    .road-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 24px;
+      padding: 20px 0;
+      border-bottom: 0.5px solid var(--rule);
+      align-items: baseline;
+    }
+    .road-item:last-child { border-bottom: none; }
+    .road-label {
+      font-family: var(--mono);
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .road-desc {
+      font-size: 14px;
+      color: var(--ink-soft);
+      font-weight: 300;
+      line-height: 1.6;
     }
 
     /* The Constant */
@@ -257,6 +278,8 @@
       .about-photo-hero { max-width: 220px; margin: 0 auto; }
       .cred-grid { grid-template-columns: 1fr 1fr; }
       .journey-stage { grid-template-columns: 1fr; gap: 8px; }
+      .territory-grid { grid-template-columns: 1fr 1fr; }
+      .road-item { grid-template-columns: 1fr; gap: 6px; }
       .thinking-item, .thinking-item:nth-child(even) { grid-template-columns: 1fr; direction: ltr; gap: 8px; }
       .paths-grid { grid-template-columns: 1fr; }
       .about-hero { padding: 100px 0 60px; }
@@ -318,6 +341,27 @@
     </div>
   </div>
 
+  <!-- INTRO STATEMENT -->
+  <section class="intro-statement">
+    <div class="container">
+      <p class="lead reveal"
+         data-en="José Bozelli is a scientist interested in a deceptively simple problem: we can measure more about the human body than ever before, but knowing what those measurements actually mean is much harder."
+         data-pt="José Bozelli é um cientista interessado em um problema enganosamente simples: podemos medir mais sobre o corpo humano do que nunca, mas saber o que essas medições realmente significam é muito mais difícil.">
+        José Bozelli is a scientist interested in a deceptively simple problem: we can measure more about the human body than ever before, but knowing what those measurements actually mean is much harder.
+      </p>
+      <p class="reveal reveal-delay-1"
+         data-en="That question has taken his work from molecules and cell membranes to biomarkers, omics, population-scale data, and increasingly data science, machine learning, and AI."
+         data-pt="Essa pergunta levou seu trabalho de moléculas e membranas celulares a biomarcadores, ômicas, dados em escala populacional e, cada vez mais, ciência de dados, aprendizado de máquina e IA.">
+        That question has taken his work from molecules and cell membranes to biomarkers, omics, population-scale data, and increasingly data science, machine learning, and AI.
+      </p>
+      <p class="reveal reveal-delay-2"
+         data-en="Different scales. Different tools. Same instinct: understand the biology, respect the measurement, and don't ask the data to say more than it can."
+         data-pt="Escalas diferentes. Ferramentas diferentes. O mesmo instinto: entender a biologia, respeitar a medição, e não pedir aos dados que digam mais do que podem.">
+        Different scales. Different tools. Same instinct: understand the biology, respect the measurement, and don't ask the data to say more than it can.
+      </p>
+    </div>
+  </section>
+
   <!-- AT A GLANCE -->
   <section class="glance-section">
     <div class="container">
@@ -354,69 +398,57 @@
     </div>
   </section>
 
-  <!-- THE JOURNEY -->
-  <section class="journey-section">
+  <!-- THE TERRITORY -->
+  <section class="territory-section">
     <div class="container">
       <div class="reveal">
-        <div class="section-label" data-en="The journey" data-pt="A trajetória">The journey</div>
+        <div class="section-label" data-en="The territory" data-pt="O território">The territory</div>
+        <h2 class="section-h2" data-en="What I'm <em>exploring</em>" data-pt="O que estou <em>explorando</em>">What I'm <em>exploring</em></h2>
+      </div>
+      <div class="territory-grid">
+        <div class="territory-item reveal reveal-delay-1">
+          <h4 data-en="Human biology" data-pt="Biologia humana">Human biology</h4>
+          <p data-en="Metabolism · brain health · nutrition · aging · molecular mechanisms" data-pt="Metabolismo · saúde cerebral · nutrição · envelhecimento · mecanismos moleculares">Metabolism · brain health · nutrition · aging · molecular mechanisms</p>
+        </div>
+        <div class="territory-item reveal reveal-delay-2">
+          <h4 data-en="What we measure" data-pt="O que medimos">What we measure</h4>
+          <p data-en="Biomarkers · omics · blood tests · emerging health technologies" data-pt="Biomarcadores · ômicas · exames de sangue · tecnologias emergentes de saúde">Biomarkers · omics · blood tests · emerging health technologies</p>
+        </div>
+        <div class="territory-item reveal reveal-delay-3">
+          <h4 data-en="How we make sense of it" data-pt="Como damos sentido a isso">How we make sense of it</h4>
+          <p data-en="Statistics · data science · machine learning · AI" data-pt="Estatística · ciência de dados · aprendizado de máquina · IA">Statistics · data science · machine learning · AI</p>
+        </div>
+        <div class="territory-item reveal reveal-delay-4">
+          <h4 data-en="What ultimately matters" data-pt="O que realmente importa">What ultimately matters</h4>
+          <p data-en="What the evidence supports · what remains uncertain · what we can responsibly do next" data-pt="O que a evidência sustenta · o que permanece incerto · o que podemos fazer com responsabilidade">What the evidence supports · what remains uncertain · what we can responsibly do next</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE ROAD HERE -->
+  <section class="road-section">
+    <div class="container">
+      <div class="reveal">
+        <div class="section-label" data-en="The road here" data-pt="O caminho até aqui">The road here</div>
         <h2 class="section-h2" data-en="From molecules<br>to <em>models</em>" data-pt="Das moléculas<br>aos <em>modelos</em>">From molecules<br>to <em>models</em></h2>
       </div>
-      <div style="margin-top: 40px;">
-        <div class="journey-stage reveal">
-          <div>
-            <div class="journey-num">01</div>
-            <div class="journey-label" data-en="Molecules" data-pt="Moléculas">Molecules</div>
-          </div>
-          <div>
-            <div class="journey-question" data-en="How can a molecule kill a bacterium?" data-pt="Como uma molécula consegue matar uma bactéria?">How can a molecule kill a bacterium?</div>
-            <p class="journey-body" data-en="My scientific career started with a deceptively small question. Studying antimicrobial peptides pulled me into the physical world of biological membranes — how peptides and lipids interact, how molecular structure changes function, and how understanding mechanism can point toward new therapeutic possibilities."
-               data-pt="Minha carreira científica começou com uma pergunta enganosamente pequena. Estudar peptídeos antimicrobianos me levou ao mundo físico das membranas biológicas — como peptídeos e lipídeos interagem, como a estrutura molecular altera a função, e como compreender o mecanismo pode apontar para novas possibilidades terapêuticas.">
-              My scientific career started with a deceptively small question. Studying antimicrobial peptides pulled me into the physical world of biological membranes — how peptides and lipids interact, how molecular structure changes function, and how understanding mechanism can point toward new therapeutic possibilities.
-            </p>
-            <div class="journey-tags" data-en="Biochemistry · Membrane biophysics" data-pt="Bioquímica · Biofísica de membranas">Biochemistry · Membrane biophysics</div>
-          </div>
+      <div class="road-list">
+        <div class="road-item reveal">
+          <div class="road-label" data-en="Molecules" data-pt="Moléculas">Molecules</div>
+          <div class="road-desc" data-en="Antimicrobial peptides and membrane biophysics — how molecular structure changes function." data-pt="Peptídeos antimicrobianos e biofísica de membranas — como a estrutura molecular altera a função.">Antimicrobial peptides and membrane biophysics — how molecular structure changes function.</div>
         </div>
-        <div class="journey-stage reveal reveal-delay-1">
-          <div>
-            <div class="journey-num">02</div>
-            <div class="journey-label" data-en="Biological systems" data-pt="Sistemas biológicos">Biological systems</div>
-          </div>
-          <div>
-            <div class="journey-question" data-en="When do lipids become biological actors?" data-pt="Quando os lipídeos se tornam atores biológicos?">When do lipids become biological actors?</div>
-            <p class="journey-body" data-en="Those questions grew. Lipids stopped being only the membrane a peptide encountered and became biological actors in their own right — molecules involved in signaling, metabolism, and disease. My research moved across rare metabolic disorders, cancer, and neurodegeneration, while the underlying question stayed remarkably consistent: how does molecular biology become function, dysfunction, and potentially, intervention?"
-               data-pt="Essas perguntas cresceram. Os lipídeos deixaram de ser apenas a membrana que um peptídeo encontrava e passaram a ser atores biológicos por si só — moléculas envolvidas em sinalização, metabolismo e doença. Minha pesquisa passou por distúrbios metabólicos raros, câncer e neurodegeneração, enquanto a pergunta de fundo permanecia notavelmente consistente: como a biologia molecular se torna função, disfunção e, potencialmente, intervenção?">
-              Those questions grew. Lipids stopped being only the membrane a peptide encountered and became biological actors in their own right — molecules involved in signaling, metabolism, and disease. My research moved across rare metabolic disorders, cancer, and neurodegeneration, while the underlying question stayed remarkably consistent: how does molecular biology become function, dysfunction, and potentially, intervention?
-            </p>
-            <div class="journey-tags" data-en="Lipid biology · Disease mechanisms" data-pt="Biologia lipídica · Mecanismos de doença">Lipid biology · Disease mechanisms</div>
-          </div>
+        <div class="road-item reveal reveal-delay-1">
+          <div class="road-label" data-en="Biological systems" data-pt="Sistemas biológicos">Biological systems</div>
+          <div class="road-desc" data-en="Lipid signaling across metabolic disease, cancer, and neurodegeneration." data-pt="Sinalização lipídica em doenças metabólicas, câncer e neurodegeneração.">Lipid signaling across metabolic disease, cancer, and neurodegeneration.</div>
         </div>
-        <div class="journey-stage reveal reveal-delay-2">
-          <div>
-            <div class="journey-num">03</div>
-            <div class="journey-label" data-en="Populations" data-pt="Populações">Populations</div>
-          </div>
-          <div>
-            <div class="journey-question" data-en="What changes when one sample becomes thousands?" data-pt="O que muda quando uma amostra vira milhares?">What changes when one sample becomes thousands?</div>
-            <p class="journey-body" data-en="Eventually, the lens pulled back again. At McMaster University, I moved into large-scale epidemiological lipidomics — measuring thousands of samples from a national nutritional study. The challenge was no longer understanding one molecular interaction or disease mechanism. It was making biological measurement reliable enough to reveal patterns across a population."
-               data-pt="Eventualmente, a lente se afastou novamente. Na Universidade McMaster, passei para a lipidômica epidemiológica em larga escala — medindo milhares de amostras de um estudo nutricional nacional. O desafio não era mais compreender uma única interação molecular ou mecanismo de doença. Era tornar a medição biológica confiável o suficiente para revelar padrões em uma população.">
-              Eventually, the lens pulled back again. At McMaster University, I moved into large-scale epidemiological lipidomics — measuring thousands of samples from a national nutritional study. The challenge was no longer understanding one molecular interaction or disease mechanism. It was making biological measurement reliable enough to reveal patterns across a population.
-            </p>
-            <div class="journey-tags" data-en="LC-MS · Lipidomics · Epidemiological data" data-pt="LC-MS · Lipidômica · Dados epidemiológicos">LC-MS · Lipidomics · Epidemiological data</div>
-          </div>
+        <div class="road-item reveal reveal-delay-2">
+          <div class="road-label" data-en="Populations" data-pt="Populações">Populations</div>
+          <div class="road-desc" data-en="Large-scale epidemiological lipidomics at McMaster University, thousands of samples." data-pt="Lipidômica epidemiológica em larga escala na Universidade McMaster, milhares de amostras.">Large-scale epidemiological lipidomics at McMaster University, thousands of samples.</div>
         </div>
-        <div class="journey-stage reveal reveal-delay-3">
-          <div>
-            <div class="journey-num">04</div>
-            <div class="journey-label" data-en="Models" data-pt="Modelos">Models</div>
-          </div>
-          <div>
-            <div class="journey-question" data-en="How do we find meaning at that scale?" data-pt="Como encontrar significado nessa escala?">How do we find meaning at that scale?</div>
-            <p class="journey-body" data-en="That change in scale changed the tools I needed. Statistics, data science, machine learning, and AI make it possible to ask different questions of biological data — to find structure across thousands of measurements, test what generalizes, and eventually help turn evidence into decisions. I see those tools as an expansion of the same scientific practice, not a departure from it."
-               data-pt="Essa mudança de escala mudou as ferramentas de que eu precisava. Estatística, ciência de dados, aprendizado de máquina e IA tornam possível fazer perguntas diferentes aos dados biológicos — encontrar estrutura em milhares de medições, testar o que se generaliza e, eventualmente, ajudar a transformar evidência em decisão. Vejo essas ferramentas como uma expansão da mesma prática científica, não um afastamento dela.">
-              That change in scale changed the tools I needed. Statistics, data science, machine learning, and AI make it possible to ask different questions of biological data — to find structure across thousands of measurements, test what generalizes, and eventually help turn evidence into decisions. I see those tools as an expansion of the same scientific practice, not a departure from it.
-            </p>
-            <div class="journey-tags" data-en="Data science · ML · AI" data-pt="Ciência de dados · ML · IA">Data science · ML · AI</div>
-          </div>
+        <div class="road-item reveal reveal-delay-3">
+          <div class="road-label" data-en="Models" data-pt="Modelos">Models</div>
+          <div class="road-desc" data-en="Statistics, data science, machine learning, and AI applied to biological data." data-pt="Estatística, ciência de dados, aprendizado de máquina e IA aplicados a dados biológicos.">Statistics, data science, machine learning, and AI applied to biological data.</div>
         </div>
       </div>
     </div>
