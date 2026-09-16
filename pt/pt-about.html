@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="José Carlos Bozelli Jr., PhD, explora como biomarcadores, ômicas, ciência de dados e IA estão mudando o que podemos medir — e entender — sobre a biologia humana." name="description"/>
+<title>Sobre José Carlos Bozelli Jr., PhD | Cientista e Estrategista de Dados</title>
+<link href="https://bozelli.ca/pt/about.html" rel="canonical"/>
+<meta content="profile" property="og:type"/>
+<meta content="Sobre José Carlos Bozelli Jr., PhD | Cientista e Estrategista de Dados" property="og:title"/>
+<meta content="José Carlos Bozelli Jr., PhD, explora como biomarcadores, ômicas, ciência de dados e IA estão mudando o que podemos medir — e entender — sobre a biologia humana." property="og:description"/>
+<meta content="https://bozelli.ca/pt/about.html" property="og:url"/>
+<meta content="https://bozelli.ca/assets/img/profile.jpg" property="og:image"/>
+<meta content="José Carlos Bozelli Jr., PhD" property="og:site_name"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Sobre José Carlos Bozelli Jr., PhD | Cientista e Estrategista de Dados" name="twitter:title"/>
+<meta content="José Carlos Bozelli Jr., PhD, explora como biomarcadores, ômicas, ciência de dados e IA estão mudando o que podemos medir — e entender — sobre a biologia humana." name="twitter:description"/>
+<meta content="https://bozelli.ca/assets/img/profile.jpg" name="twitter:image"/>
+<script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfilePage",
+    "mainEntity": {
+      "@type": "Person",
+      "name": "José Carlos Bozelli Jr.",
+      "url": "https://bozelli.ca/about.html",
+      "image": "https://bozelli.ca/assets/img/profile.jpg",
+      "jobTitle": "Scientist, Writer, Advisor",
+      "sameAs": ["https://www.linkedin.com/in/jose-carlos-bozelli-jr-9b2a4181/", "https://bozelli.substack.com"]
+    }
+  }
+  </script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&amp;family=DM+Mono:wght@300;400&amp;family=Outfit:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css" rel="stylesheet"/>
+<style>
+    .about-hero {
+      background: var(--paper-warm);
+      padding: 120px 0 70px;
+      border-bottom: 0.5px solid var(--rule);
+    }
+    .about-hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 72px;
+      align-items: center;
+    }
+    .about-hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(36px, 5vw, 58px);
+      font-weight: 300;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      margin-bottom: 28px;
+    }
+    .about-hero h1 em { font-style: italic; color: var(--accent); }
+    .trajectory-line {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--accent);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .trajectory-tags {
+      font-size: 13px;
+      color: var(--ink-muted);
+      font-weight: 300;
+    }
+    .about-photo-hero {
+      aspect-ratio: 3/4;
+      background: var(--paper-mid);
+      border: 0.5px solid var(--rule-mid);
+      overflow: hidden;
+    }
+    .about-photo-hero img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
+    .about-identity { margin-top: 16px; text-align: center; }
+    .about-identity-name {
+      font-family: var(--serif);
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--ink);
+    }
+    .about-identity-role {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+    .about-identity-location {
+      font-size: 12px;
+      color: var(--ink-muted);
+      font-weight: 300;
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+
+    /* At a glance */
+    .glance-section { padding: 80px 0; }
+    .cred-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--rule-mid);
+      margin-top: 48px;
+    }
+    .cred-block {
+      background: var(--paper);
+      padding: 32px 26px;
+      transition: background 0.2s;
+    }
+    .cred-block:hover { background: var(--paper-warm); }
+    .cred-block-num {
+      font-family: var(--serif);
+      font-size: 46px;
+      font-weight: 300;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .cred-block-title {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--ink);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    /* Intro statement */
+    .intro-statement { padding: 70px 0; }
+    .intro-statement p {
+      font-size: 17px;
+      color: var(--ink-soft);
+      line-height: 1.85;
+      font-weight: 300;
+      max-width: 700px;
+      margin-bottom: 20px;
+    }
+    .intro-statement p.lead { font-size: 19px; color: var(--ink); }
+    .intro-statement p:last-child { margin-bottom: 0; }
+
+    /* The Career */
+    .career-section { background: var(--paper-warm); padding: 90px 0; position: relative; overflow: hidden; }
+    .career-motif { position: absolute; top: 20px; right: 5%; width: 130px; height: 130px; opacity: 0.16; pointer-events: none; }
+    @media (max-width: 900px) { .career-motif { display: none; } }
+    .career-section .container { max-width: 820px; }
+    .career-lead, .career-subhead {
+      font-family: var(--serif);
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+    .career-lead {
+      font-size: clamp(22px, 2.6vw, 28px);
+      margin-bottom: 28px;
+    }
+    .career-subhead {
+      font-size: clamp(19px, 2.2vw, 23px);
+      margin-top: 36px;
+      margin-bottom: 20px;
+    }
+    .career-section p.career-body {
+      font-size: 16px;
+      color: var(--ink-soft);
+      line-height: 1.85;
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+    .career-section p.career-body:last-child { margin-bottom: 0; }
+
+    /* The Throughline */
+    .throughline-section { padding: 90px 0; }
+    .throughline-section .container { max-width: 780px; }
+    .throughline-head {
+      font-family: var(--serif);
+      font-size: clamp(26px, 3.2vw, 38px);
+      font-weight: 300;
+      color: var(--ink);
+      text-align: center;
+      margin-bottom: 64px;
+    }
+    .throughline-list { display: flex; flex-direction: column; }
+    .throughline-row {
+      max-width: 480px;
+      padding: 32px 0;
+      border-bottom: 0.5px solid var(--rule);
+    }
+    .throughline-row:last-child { border-bottom: none; }
+    .throughline-row.right { margin-left: auto; text-align: right; }
+    .throughline-lead {
+      font-family: var(--serif);
+      font-size: clamp(24px, 2.8vw, 32px);
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 10px;
+    }
+    .throughline-lead .verb { color: var(--accent); }
+    .throughline-body-text {
+      font-size: 14px;
+      color: var(--ink-soft);
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    /* Knowledge statement band */
+    .knowledge-band {
+      background: var(--ink);
+      padding: 90px 0;
+      text-align: center;
+    }
+    .knowledge-band p {
+      font-family: var(--serif);
+      font-size: clamp(28px, 3.6vw, 42px);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--paper);
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    /* Bridge to current work */
+    .bridge-now { background: var(--paper-warm); padding: 70px 0; }
+    .bridge-now p {
+      font-size: 17px;
+      color: var(--ink-soft);
+      line-height: 1.85;
+      font-weight: 300;
+      max-width: 680px;
+    }
+    .bridge-now p + p { margin-top: 18px; }
+    .today-pull {
+      font-family: var(--serif);
+      font-size: clamp(24px, 3vw, 32px);
+      font-weight: 300;
+      line-height: 1.4;
+      color: var(--ink);
+      max-width: 680px;
+      margin-top: 32px !important;
+    }
+    .today-pull strong { font-weight: 500; }
+    .bridge-now p strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+
+    /* Choose your path */
+    .paths-section { padding: 90px 0; }
+    .paths-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--rule-mid);
+      margin-top: 48px;
+    }
+    .path-card {
+      background: var(--paper);
+      padding: 36px 30px;
+      transition: background 0.2s;
+    }
+    .path-card:hover { background: var(--paper-warm); }
+    .path-card h3 {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+    .path-card p {
+      font-size: 13px;
+      color: var(--ink-soft);
+      font-weight: 300;
+      line-height: 1.65;
+      margin-bottom: 20px;
+    }
+    .path-card a {
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
+      color: var(--accent);
+      border-bottom: 0.5px solid var(--accent);
+      padding-bottom: 2px;
+    }
+
+    .footer-languages {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--ink-muted);
+      letter-spacing: 0.06em;
+      margin-top: 4px;
+    }
+
+    @media (max-width: 768px) {
+      .about-hero-grid { grid-template-columns: 1fr; }
+      .about-photo-hero { max-width: 220px; margin: 0 auto; }
+      .cred-grid { grid-template-columns: 1fr 1fr; }
+      .journey-stage { grid-template-columns: 1fr; gap: 8px; }
+      .throughline-row.right { margin-left: 0; text-align: left; }
+      .thinking-item, .thinking-item:nth-child(even) { grid-template-columns: 1fr; direction: ltr; gap: 8px; }
+      .paths-grid { grid-template-columns: 1fr; }
+      .about-hero { padding: 100px 0 60px; }
+    }
+    @media (max-width: 500px) {
+      .cred-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-SJ8ZNZZJT9"></script>
+<script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "G-SJ8ZNZZJT9");
+    </script>
+<meta content="pt_BR" property="og:locale"/><meta content="en_US" property="og:locale:alternate"/><link href="https://bozelli.ca/about.html" hreflang="en" rel="alternate"/><link href="https://bozelli.ca/pt/about.html" hreflang="pt-BR" rel="alternate"/><link href="https://bozelli.ca/about.html" hreflang="x-default" rel="alternate"/></head>
+<body data-force-lang="pt" data-page="about">
+<div class="lang-bar">
+<button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+<button class="lang-btn" data-lang="pt" onclick="setLang('pt')">PT</button>
+</div>
+<nav class="nav">
+<div class="nav-inner">
+<a class="nav-logo" href="/pt/">José Carlos Bozelli Jr<span>.</span></a>
+<ul class="nav-links">
+<li><a data-en="Home" data-page="home" data-pt="Início" href="/pt/">Início</a></li>
+<li><a data-en="Insights" data-page="insights" data-pt="Reflexões" href="/pt/insights.html">Reflexões</a></li>
+<li><a data-en="Consulting" data-page="services" data-pt="Consultoria" href="/pt/services.html">Consultoria</a></li>
+<li><a data-en="About" data-page="about" data-pt="Sobre" href="/pt/about.html">Sobre</a></li>
+<li><a class="nav-cta" data-en="Book a call" data-page="contact" data-pt="Agendar" href="/pt/contact.html">Agendar</a></li>
+</ul>
+<div class="nav-mobile-toggle"><span></span><span></span><span></span></div>
+</div>
+</nav>
+<!-- HERO -->
+<div class="about-hero page-top">
+<div class="container">
+<div class="about-hero-grid">
+<div>
+<div class="section-label reveal" data-en="About" data-pt="Sobre">Sobre</div>
+<h1 class="reveal reveal-delay-1" data-en="From molecules to models.&lt;br&gt;&lt;em&gt;From evidence to decisions.&lt;/em&gt;" data-pt="Das moléculas aos modelos.&lt;br&gt;&lt;em&gt;Da evidência às decisões.&lt;/em&gt;">Das moléculas aos modelos.<br/><em>Da evidência às decisões.</em></h1>
+<div class="trajectory-line reveal reveal-delay-2" data-en="Molecules → Membranes → Omics → Populations → Models" data-pt="Moléculas → Membranas → Ômicas → Populações → Modelos">Moléculas → Membranas → Ômicas → Populações → Modelos</div>
+<div class="trajectory-tags reveal reveal-delay-3" data-en="Biochemistry · Lipid biology · Mass spectrometry · Data science · ML/AI" data-pt="Bioquímica · Biologia lipídica · Espectrometria de massa · Ciência de dados · ML/IA">Bioquímica · Biologia lipídica · Espectrometria de massa · Ciência de dados · ML/IA</div>
+</div>
+<div class="reveal reveal-delay-2">
+<div class="about-photo-hero">
+<img alt="José Carlos Bozelli Jr., PhD" src="/assets/img/profile.jpg"/>
+</div>
+<div class="about-identity">
+<div class="about-identity-name">José Carlos Bozelli Jr., PhD</div>
+<div class="about-identity-role" data-en="Scientist · Writer · Advisor" data-pt="Cientista · Escritor · Consultor">Cientista · Escritor · Consultor</div>
+<div class="about-identity-location" data-en="Based in Canada. Working toward problems that matter anywhere." data-pt="Baseado no Canadá. Trabalhando em problemas que importam em qualquer lugar.">Baseado no Canadá. Trabalhando em problemas que importam em qualquer lugar.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- INTRO STATEMENT -->
+<section class="intro-statement">
+<div class="container">
+<p class="lead reveal" data-en="José Bozelli is a scientist interested in a deceptively simple problem: we can measure more about the human body than ever before, but knowing what those measurements actually mean is much harder." data-pt="José Bozelli é um cientista interessado em um problema enganosamente simples: podemos medir mais sobre o corpo humano do que nunca, mas saber o que essas medições realmente significam é muito mais difícil.">José Bozelli é um cientista interessado em um problema enganosamente simples: podemos medir mais sobre o corpo humano do que nunca, mas saber o que essas medições realmente significam é muito mais difícil.</p>
+<p class="reveal reveal-delay-1" data-en="That question has taken his work from molecules and cell membranes to biomarkers, omics, population-scale data, and increasingly data science, machine learning, and AI." data-pt="Essa pergunta levou seu trabalho de moléculas e membranas celulares a biomarcadores, ômicas, dados em escala populacional e, cada vez mais, ciência de dados, aprendizado de máquina e IA.">Essa pergunta levou seu trabalho de moléculas e membranas celulares a biomarcadores, ômicas, dados em escala populacional e, cada vez mais, ciência de dados, aprendizado de máquina e IA.</p>
+<p class="reveal reveal-delay-2" data-en="Different scales. Different tools. Same instinct: understand the biology, respect the measurement, and don't ask the data to say more than it can." data-pt="Escalas diferentes. Ferramentas diferentes. O mesmo instinto: entender a biologia, respeitar a medição, e não pedir aos dados que digam mais do que podem.">Escalas diferentes. Ferramentas diferentes. O mesmo instinto: entender a biologia, respeitar a medição, e não pedir aos dados que digam mais do que podem.</p>
+</div>
+</section>
+<!-- AT A GLANCE -->
+<section class="glance-section">
+<div class="container">
+<div class="reveal">
+<div class="section-label" data-en="At a glance" data-pt="Em resumo">Em resumo</div>
+<h2 class="section-h2" data-en="Two decades, &lt;em&gt;across scales&lt;/em&gt;." data-pt="Duas décadas, &lt;em&gt;em diferentes escalas&lt;/em&gt;.">Duas décadas, <em>em diferentes escalas</em>.</h2>
+</div>
+<div class="cred-grid">
+<div class="cred-block reveal reveal-delay-1">
+<div class="cred-block-num" data-count="40" data-suffix="+">40+</div>
+<div class="cred-block-title" data-en="Publications" data-pt="Publicações">Publicações</div>
+</div>
+<div class="cred-block reveal reveal-delay-2">
+<div class="cred-block-num" data-count="450" data-en="$450K" data-prefix="$" data-pt="$450 mil" data-suffix="K">$450 mil</div>
+<div class="cred-block-title" data-en="Research funding" data-pt="Financiamento científico">Financiamento científico</div>
+</div>
+<div class="cred-block reveal reveal-delay-3">
+<div class="cred-block-num" data-count="5" data-en="5K+" data-pt="5 mil+" data-suffix="K+">5 mil+</div>
+<div class="cred-block-title" data-en="Samples" data-pt="Amostras">Amostras</div>
+</div>
+<div class="cred-block reveal reveal-delay-4">
+<div class="cred-block-num" style="font-family: var(--sans);">1</div>
+<div class="cred-block-title" data-en="Book" data-pt="Livro">Livro</div>
+</div>
+</div>
+</div>
+</section>
+<!-- THE TERRITORY -->
+<!-- THE CAREER -->
+<section class="career-section">
+<svg aria-hidden="true" class="career-motif" viewbox="0 0 130 130" xmlns="http://www.w3.org/2000/svg">
+<line stroke="var(--accent)" stroke-width="1" x1="15" x2="45" y1="100" y2="70"></line>
+<line stroke="var(--accent)" stroke-width="1" x1="45" x2="40" y1="70" y2="35"></line>
+<line stroke="var(--accent)" stroke-width="1" x1="45" x2="80" y1="70" y2="60"></line>
+<line stroke="var(--accent)" stroke-width="1" x1="80" x2="105" y1="60" y2="25"></line>
+<line stroke="var(--accent)" stroke-width="1" x1="80" x2="100" y1="60" y2="90"></line>
+<circle cx="15" cy="100" fill="var(--accent)" r="4"></circle>
+<circle cx="45" cy="70" fill="var(--accent)" r="5"></circle>
+<circle cx="40" cy="35" fill="var(--accent)" r="3.5"></circle>
+<circle cx="80" cy="60" fill="var(--accent)" r="4.5"></circle>
+<circle cx="105" cy="25" fill="var(--accent)" r="3"></circle>
+<circle cx="100" cy="90" fill="var(--accent)" r="3"></circle>
+</svg>
+<div class="container">
+<p class="career-lead reveal" data-en="&lt;strong&gt;Behind these questions is a career built by moving between scales.&lt;/strong&gt;" data-pt="&lt;strong&gt;Por trás dessas perguntas está uma carreira construída movendo-se entre escalas.&lt;/strong&gt;"><strong>Por trás dessas perguntas está uma carreira construída movendo-se entre escalas.</strong></p>
+<p class="career-body reveal reveal-delay-1" data-en="José began in chemistry, studying how molecular structure determines physical behaviour. That curiosity moved into biochemistry and membrane biology: how molecules organize themselves, how proteins interact with their environment, and how seemingly small physical changes can alter biological function." data-pt="José começou na química, estudando como a estrutura molecular determina o comportamento físico. Essa curiosidade o levou à bioquímica e à biologia de membranas: como as moléculas se organizam, como as proteínas interagem com seu ambiente, e como mudanças físicas aparentemente pequenas podem alterar a função biológica.">José começou na química, estudando como a estrutura molecular determina o comportamento físico. Essa curiosidade o levou à bioquímica e à biologia de membranas: como as moléculas se organizam, como as proteínas interagem com seu ambiente, e como mudanças físicas aparentemente pequenas podem alterar a função biológica.</p>
+<p class="career-body reveal reveal-delay-2" data-en="Over time, the questions grew larger. Molecular mechanisms became disease biology. Controlled experiments expanded into human samples and population-scale omics. And increasingly, the challenge became not simply generating measurements, but deciding which signals could be trusted, how they should be interpreted, and what they actually meant." data-pt="Com o tempo, as perguntas cresceram. Mecanismos moleculares se tornaram biologia de doenças. Experimentos controlados se expandiram para amostras humanas e ômicas em escala populacional. E, cada vez mais, o desafio deixou de ser simplesmente gerar medições, passando a ser decidir quais sinais podiam ser confiáveis, como deveriam ser interpretados, e o que realmente significavam.">Com o tempo, as perguntas cresceram. Mecanismos moleculares se tornaram biologia de doenças. Experimentos controlados se expandiram para amostras humanas e ômicas em escala populacional. E, cada vez mais, o desafio deixou de ser simplesmente gerar medições, passando a ser decidir quais sinais podiam ser confiáveis, como deveriam ser interpretados, e o que realmente significavam.</p>
+<p class="career-body reveal reveal-delay-3" data-en="That evolution now extends into data science, machine learning and AI: extracting reliable meaning from complex evidence." data-pt="Essa evolução agora se estende à ciência de dados, ao aprendizado de máquina e à IA: extrair significado confiável de evidência complexa.">Essa evolução agora se estende à ciência de dados, ao aprendizado de máquina e à IA: extrair significado confiável de evidência complexa.</p>
+<p class="career-body reveal reveal-delay-4" data-en="Alongside research, José has taught and mentored emerging scientists, developed course material, facilitated advanced scientific discussions and invested in formal training in university teaching. That same instinct — to make difficult ideas understandable without making them simplistic — now shapes his writing and public-facing work." data-pt="Além da pesquisa, José lecionou e orientou cientistas em formação, desenvolveu material didático, facilitou discussões científicas avançadas e investiu em formação formal em ensino universitário. Esse mesmo instinto — tornar ideias difíceis compreensíveis sem torná-las simplistas — hoje molda sua escrita e seu trabalho voltado ao público.">Além da pesquisa, José lecionou e orientou cientistas em formação, desenvolveu material didático, facilitou discussões científicas avançadas e investiu em formação formal em ensino universitário. Esse mesmo instinto — tornar ideias difíceis compreensíveis sem torná-las simplistas — hoje molda sua escrita e seu trabalho voltado ao público.</p>
+</div>
+</section>
+<!-- THE THROUGHLINE -->
+<section class="throughline-section">
+<div class="container">
+<h2 class="throughline-head reveal" data-en="&lt;strong&gt;Different questions. A consistent way of working.&lt;/strong&gt;" data-pt="&lt;strong&gt;Perguntas diferentes. Uma forma consistente de trabalhar.&lt;/strong&gt;"><strong>Perguntas diferentes. Uma forma consistente de trabalhar.</strong></h2>
+<div class="throughline-list">
+<div class="throughline-row reveal">
+<div class="throughline-lead" data-en='&lt;span class="verb"&gt;See&lt;/span&gt; the system' data-pt='&lt;span class="verb"&gt;Ver&lt;/span&gt; o sistema'><span class="verb">Ver</span> o sistema</div>
+<p class="throughline-body-text" data-en="Understand the biological, analytical or organizational context before optimizing a measurement." data-pt="Entender o contexto biológico, analítico ou organizacional antes de otimizar uma medição.">Entender o contexto biológico, analítico ou organizacional antes de otimizar uma medição.</p>
+</div>
+<div class="throughline-row right reveal reveal-delay-1">
+<div class="throughline-lead" data-en='&lt;span class="verb"&gt;Find&lt;/span&gt; what matters' data-pt='&lt;span class="verb"&gt;Encontrar&lt;/span&gt; o que importa'><span class="verb">Encontrar</span> o que importa</div>
+<p class="throughline-body-text" data-en="Separate signal from noise, mechanism from correlation, and meaningful variation from technical artefact." data-pt="Separar sinal de ruído, mecanismo de correlação, e variação significativa de artefato técnico.">Separar sinal de ruído, mecanismo de correlação, e variação significativa de artefato técnico.</p>
+</div>
+<div class="throughline-row reveal reveal-delay-2">
+<div class="throughline-lead" data-en='&lt;span class="verb"&gt;Connect&lt;/span&gt; disciplines' data-pt='&lt;span class="verb"&gt;Conectar&lt;/span&gt; disciplinas'><span class="verb">Conectar</span> disciplinas</div>
+<p class="throughline-body-text" data-en="Bring together experimental science, quantitative analysis, collaborators and different forms of evidence." data-pt="Reunir ciência experimental, análise quantitativa, colaboradores e diferentes formas de evidência.">Reunir ciência experimental, análise quantitativa, colaboradores e diferentes formas de evidência.</p>
+</div>
+<div class="throughline-row right reveal reveal-delay-3">
+<div class="throughline-lead" data-en='&lt;span class="verb"&gt;Make&lt;/span&gt; knowledge usable' data-pt='&lt;span class="verb"&gt;Tornar&lt;/span&gt; o conhecimento utilizável'><span class="verb">Tornar</span> o conhecimento utilizável</div>
+<p class="throughline-body-text" data-en="Translate complexity into frameworks, explanations, tools and decisions others can act on." data-pt="Traduzir complexidade em estruturas, explicações, ferramentas e decisões sobre as quais outros possam agir.">Traduzir complexidade em estruturas, explicações, ferramentas e decisões sobre as quais outros possam agir.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- KNOWLEDGE STATEMENT (pulled out as its own visual beat) -->
+<section class="knowledge-band">
+<div class="container">
+<p class="reveal" data-en="Knowledge only matters when it can travel." data-pt="O conhecimento só importa quando consegue viajar.">O conhecimento só importa quando consegue viajar.</p>
+</div>
+</section>
+<!-- TODAY -->
+<section class="bridge-now">
+<div class="container">
+<h2 class="throughline-head reveal" data-en="&lt;strong&gt;The questions are getting bigger.&lt;/strong&gt;" data-pt="&lt;strong&gt;As perguntas estão ficando maiores.&lt;/strong&gt;" style="text-align: left; margin-bottom: 28px;"><strong>As perguntas estão ficando maiores.</strong></h2>
+<p class="reveal reveal-delay-1" data-en="Today, José's work increasingly sits where biology, data and decision-making meet. His interests include biomarkers and omics, evidence quality, health data, scientific AI, and the increasingly difficult question of how people should interpret biological measurements when technology can generate them faster than ever." data-pt="Hoje, o trabalho de José está cada vez mais no ponto de encontro entre biologia, dados e tomada de decisão. Seus interesses incluem biomarcadores e ômicas, qualidade de evidência, dados de saúde, IA científica, e a pergunta cada vez mais difícil de como as pessoas devem interpretar medições biológicas quando a tecnologia consegue gerá-las mais rápido do que nunca.">Hoje, o trabalho de José está cada vez mais no ponto de encontro entre biologia, dados e tomada de decisão. Seus interesses incluem biomarcadores e ômicas, qualidade de evidência, dados de saúde, IA científica, e a pergunta cada vez mais difícil de como as pessoas devem interpretar medições biológicas quando a tecnologia consegue gerá-las mais rápido do que nunca.</p>
+<p class="reveal reveal-delay-2" data-en="Through research, independent projects, consulting development and writing, the aim is the same:" data-pt="Por meio de pesquisa, projetos independentes, desenvolvimento de consultoria e escrita, o objetivo é o mesmo:">Por meio de pesquisa, projetos independentes, desenvolvimento de consultoria e escrita, o objetivo é o mesmo:</p>
+<p class="today-pull reveal reveal-delay-3" data-en="Help turn more data into &lt;strong&gt;better understanding&lt;/strong&gt; — not simply more information." data-pt="Ajudar a transformar mais dados em &lt;strong&gt;melhor compreensão&lt;/strong&gt; — não simplesmente mais informação.">Ajudar a transformar mais dados em <strong>melhor compreensão</strong> — não simplesmente mais informação.</p>
+</div>
+</section>
+<!-- CHOOSE YOUR PATH -->
+<section class="paths-section">
+<div class="container">
+<div class="reveal">
+<div class="section-label" data-en="Where next" data-pt="Para onde agora">Para onde agora</div>
+<h2 class="section-h2" data-en="Where should we&lt;br&gt;go from &lt;em&gt;here&lt;/em&gt;?" data-pt="Para onde&lt;br&gt;ir a partir &lt;em&gt;daqui&lt;/em&gt;?">Para onde<br/>ir a partir <em>daqui</em>?</h2>
+</div>
+<div class="paths-grid">
+<div class="path-card reveal reveal-delay-1">
+<h3 data-en="Explore the ideas" data-pt="Explore as ideias">Explore as ideias</h3>
+<p data-en="Biomarkers, metabolism, brain health, omics, health data and AI — without asking the evidence to say more than it can." data-pt="Biomarcadores, metabolismo, saúde cerebral, ômicas, dados de saúde e IA — sem pedir à evidência que diga mais do que ela pode.">Biomarcadores, metabolismo, saúde cerebral, ômicas, dados de saúde e IA — sem pedir à evidência que diga mais do que ela pode.</p>
+<a data-en="Insights →" data-pt="Insights →" href="/pt/insights.html">Insights →</a>
+</div>
+<div class="path-card reveal reveal-delay-2">
+<h3 data-en="Explore the work" data-pt="Explore o trabalho">Explore o trabalho</h3>
+<p data-en="See how this thinking translates into scientific, analytical and advisory problems." data-pt="Veja como esse raciocínio se traduz em problemas científicos, analíticos e de assessoria.">Veja como esse raciocínio se traduz em problemas científicos, analíticos e de assessoria.</p>
+<a data-en="Consulting →" data-pt="Consultoria →" href="/pt/services.html">Consultoria →</a>
+</div>
+<div class="path-card reveal reveal-delay-3">
+<h3 data-en="Connect" data-pt="Conecte-se">Conecte-se</h3>
+<p data-en="For collaborations, professional opportunities, speaking, or simply an interesting question." data-pt="Para colaborações, oportunidades profissionais, palestras, ou simplesmente uma pergunta interessante.">Para colaborações, oportunidades profissionais, palestras, ou simplesmente uma pergunta interessante.</p>
+<a data-en="Contact →" data-pt="Contato →" href="/pt/contact.html">Contato →</a>
+</div>
+</div>
+</div>
+</section>
+<footer>
+<div class="footer-inner">
+<div>
+<div class="footer-name">José Carlos Bozelli Jr., PhD · bozelli.ca</div>
+<div class="footer-languages" data-en="Languages: English, Português" data-pt="Idiomas: Inglês, Português">Idiomas: Inglês, Português</div>
+</div>
+<div class="footer-links">
+<a href="https://www.linkedin.com/in/jose-carlos-bozelli-jr-9b2a4181/" rel="noopener" target="_blank">LinkedIn</a>
+<a data-en="Consulting" data-pt="Consultoria" href="/pt/services.html">Consultoria</a>
+<a data-en="Contact" data-pt="Contato" href="/pt/contact.html">Contato</a>
+</div>
+</div>
+</footer>
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

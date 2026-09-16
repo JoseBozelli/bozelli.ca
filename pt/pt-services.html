@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Assessoria científica para organizações que atuam no limite entre biologia, saúde e dados — medição, interpretação e estratégia. José Carlos Bozelli Jr., PhD." name="description"/>
+<title>Consultoria em Estratégia Científica e de Dados | José Carlos Bozelli Jr., PhD</title>
+<link href="https://bozelli.ca/pt/services.html" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="Consultoria em Estratégia Científica e de Dados | José Carlos Bozelli Jr., PhD" property="og:title"/>
+<meta content="Assessoria científica para organizações que atuam no limite entre biologia, saúde e dados — medição, interpretação e estratégia. José Carlos Bozelli Jr., PhD." property="og:description"/>
+<meta content="https://bozelli.ca/pt/services.html" property="og:url"/>
+<meta content="https://bozelli.ca/assets/img/profile.jpg" property="og:image"/>
+<meta content="José Carlos Bozelli Jr., PhD" property="og:site_name"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Consultoria em Estratégia Científica e de Dados | José Carlos Bozelli Jr., PhD" name="twitter:title"/>
+<meta content="Assessoria científica para organizações que atuam no limite entre biologia, saúde e dados — medição, interpretação e estratégia. José Carlos Bozelli Jr., PhD." name="twitter:description"/>
+<meta content="https://bozelli.ca/assets/img/profile.jpg" name="twitter:image"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&amp;family=DM+Mono:wght@300;400&amp;family=Outfit:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css" rel="stylesheet"/>
+<style>
+    .services-hero {
+      background: var(--paper);
+      padding: 120px 0 80px;
+      border-bottom: 0.5px solid var(--rule);
+    }
+    .services-hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(36px, 5vw, 58px);
+      font-weight: 300;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+      margin-bottom: 20px;
+    }
+    .services-hero h1 em { font-style: italic; color: var(--accent); }
+    .services-hero p {
+      font-size: 15px;
+      color: var(--ink-soft);
+      font-weight: 300;
+      line-height: 1.85;
+      max-width: 620px;
+    }
+    .services-full { padding: 80px 0; }
+    .service-block {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 60px;
+      padding: 56px 0;
+      border-bottom: 0.5px solid var(--rule);
+      align-items: start;
+    }
+    .service-block:first-child { padding-top: 0; }
+    .service-block:last-child { border-bottom: none; }
+    .service-block-left h3 {
+      font-family: var(--serif);
+      font-size: 27px;
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .service-tag {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .service-block-right p {
+      font-size: 15px;
+      color: var(--ink-soft);
+      line-height: 1.85;
+      font-weight: 300;
+      margin-bottom: 24px;
+    }
+    .service-includes {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .service-includes-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--ink-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .include-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--ink-soft);
+      font-weight: 300;
+    }
+    .include-item::before {
+      content: '→';
+      color: var(--accent);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* Who section */
+    .who-section {
+      background: var(--paper-warm);
+      padding: 80px 0;
+    }
+    .who-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--rule-mid);
+      margin-top: 48px;
+    }
+    .who-item {
+      background: var(--paper-warm);
+      padding: 28px 24px;
+      transition: background 0.2s;
+    }
+    .who-item:hover { background: var(--white); }
+    .who-item h4 {
+      font-family: var(--serif);
+      font-size: 17px;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+    .who-item p {
+      font-size: 12px;
+      color: var(--ink-muted);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    /* Engagement models */
+    .engagement-section { padding: 80px 0; }
+    .engagement-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--rule-mid);
+      margin-top: 48px;
+    }
+    .engagement-card {
+      background: var(--paper);
+      padding: 36px 30px;
+    }
+    .engagement-card.featured { background: var(--accent); }
+    .engagement-card.featured * { color: var(--white) !important; }
+    .engagement-card.featured .engagement-tag { opacity: 0.7; }
+    .engagement-tag {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--ink-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    .engagement-card h3 {
+      font-family: var(--serif);
+      font-size: 22px;
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+    .engagement-card p {
+      font-size: 13px;
+      color: var(--ink-soft);
+      font-weight: 300;
+      line-height: 1.65;
+    }
+
+    @media (max-width: 768px) {
+      .service-block { grid-template-columns: 1fr; gap: 24px; }
+      .who-grid { grid-template-columns: 1fr 1fr; }
+      .engagement-grid { grid-template-columns: 1fr; }
+      .services-hero { padding: 100px 0 60px; }
+    }
+  </style>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-SJ8ZNZZJT9"></script>
+<script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "G-SJ8ZNZZJT9");
+    </script>
+<meta content="pt_BR" property="og:locale"/><meta content="en_US" property="og:locale:alternate"/><link href="https://bozelli.ca/services.html" hreflang="en" rel="alternate"/><link href="https://bozelli.ca/pt/services.html" hreflang="pt-BR" rel="alternate"/><link href="https://bozelli.ca/services.html" hreflang="x-default" rel="alternate"/></head>
+<body data-force-lang="pt" data-page="services">
+<div class="lang-bar">
+<button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+<button class="lang-btn" data-lang="pt" onclick="setLang('pt')">PT</button>
+</div>
+<nav class="nav">
+<div class="nav-inner">
+<a class="nav-logo" href="/pt/">José Carlos Bozelli Jr<span>.</span></a>
+<ul class="nav-links">
+<li><a data-en="Home" data-page="home" data-pt="Início" href="/pt/">Início</a></li>
+<li><a data-en="Insights" data-page="insights" data-pt="Reflexões" href="/pt/insights.html">Reflexões</a></li>
+<li><a data-en="Consulting" data-page="services" data-pt="Consultoria" href="/pt/services.html">Consultoria</a></li>
+<li><a data-en="About" data-page="about" data-pt="Sobre" href="/pt/about.html">Sobre</a></li>
+<li><a class="nav-cta" data-en="Book a call" data-page="contact" data-pt="Agendar" href="/pt/contact.html">Agendar</a></li>
+</ul>
+<div class="nav-mobile-toggle"><span></span><span></span><span></span></div>
+</div>
+</nav>
+<div class="services-hero page-top">
+<div class="container">
+<div class="section-label reveal" data-en="Consulting" data-pt="Consultoria">Consultoria</div>
+<h1 class="reveal reveal-delay-1" data-en="When biology becomes data,&lt;br&gt;&lt;em&gt;the hard part is knowing what it means&lt;/em&gt;" data-pt="Quando a biologia vira dado,&lt;br&gt;&lt;em&gt;a parte difícil é saber o que isso significa&lt;/em&gt;">Quando a biologia vira dado,<br/><em>a parte difícil é saber o que isso significa</em></h1>
+<p class="reveal reveal-delay-2" data-en="I work with organizations building, studying, or communicating products and ideas around human biology and health — helping them examine what they're measuring, what the evidence supports, and what conclusions their data can responsibly carry." data-pt="Trabalho com organizações que constroem, estudam ou comunicam produtos e ideias relacionados à biologia humana e à saúde — ajudando-as a examinar o que estão medindo, o que a evidência sustenta, e quais conclusões seus dados podem carregar com responsabilidade.">Trabalho com organizações que constroem, estudam ou comunicam produtos e ideias relacionados à biologia humana e à saúde — ajudando-as a examinar o que estão medindo, o que a evidência sustenta, e quais conclusões seus dados podem carregar com responsabilidade.</p>
+</div>
+</div>
+<section class="services-full">
+<div class="container">
+<div class="service-block reveal">
+<div class="service-block-left">
+<div class="service-tag" data-en="What are you actually measuring?" data-pt="O que você está realmente medindo?">O que você está realmente medindo?</div>
+<h3 data-en="Measurement &amp; evidence" data-pt="Medição e evidência">Medição e evidência</h3>
+</div>
+<div class="service-block-right">
+<p data-en="Biomarkers, biological measurements, and omics data are only as useful as the validity and quality behind them. I help teams establish whether a measurement is built to answer the question being asked, and how strong the evidence behind it really is." data-pt="Biomarcadores, medições biológicas e dados de ômicas só são úteis na medida da validade e qualidade por trás deles. Ajudo equipes a estabelecer se uma medição foi construída para responder à pergunta em questão, e o quão forte é de fato a evidência por trás dela.">Biomarcadores, medições biológicas e dados de ômicas só são úteis na medida da validade e qualidade por trás deles. Ajudo equipes a estabelecer se uma medição foi construída para responder à pergunta em questão, e o quão forte é de fato a evidência por trás dela.</p>
+<div class="service-includes">
+<div class="service-includes-label" data-en="Includes" data-pt="Inclui">Inclui</div>
+<div class="include-item" data-en="Measurement and analytical strategy" data-pt="Estratégia de medição e análise">Estratégia de medição e análise</div>
+<div class="include-item" data-en="Omics and biomarker workflow validation and quality" data-pt="Validação e qualidade de fluxos de trabalho em ômicas e biomarcadores">Validação e qualidade de fluxos de trabalho em ômicas e biomarcadores</div>
+<div class="include-item" data-en="Evidence-strength assessment" data-pt="Avaliação da força da evidência">Avaliação da força da evidência</div>
+</div>
+<div class="service-includes-label" data-en="Technical depth" data-pt="Profundidade técnica" style="margin-top: 20px;">Profundidade técnica</div>
+<div class="include-item" data-en="LC–MS lipidomics · ³¹P NMR · membrane biophysics · analytical QC · multivariate analysis" data-pt="Lipidômica por LC–MS · RMN de ³¹P · biofísica de membranas · QC analítico · análise multivariada" style="margin-top: 4px;">Lipidômica por LC–MS · RMN de ³¹P · biofísica de membranas · QC analítico · análise multivariada</div>
+</div>
+</div>
+<div class="service-block reveal">
+<div class="service-block-left">
+<div class="service-tag" data-en="What does it actually mean?" data-pt="O que isso realmente significa?">O que isso realmente significa?</div>
+<h3 data-en="Interpretation &amp; insight" data-pt="Interpretação e insight">Interpretação e insight</h3>
+</div>
+<div class="service-block-right">
+<p data-en="A valid measurement still has to be read correctly. I help teams connect data back to the underlying biology, separate signal from noise, evaluate what a claim actually supports, and understand where a result does or doesn't generalize." data-pt="Uma medição válida ainda precisa ser lida corretamente. Ajudo equipes a conectar os dados à biologia subjacente, separar sinal de ruído, avaliar o que uma afirmação realmente sustenta, e entender onde um resultado se generaliza ou não.">Uma medição válida ainda precisa ser lida corretamente. Ajudo equipes a conectar os dados à biologia subjacente, separar sinal de ruído, avaliar o que uma afirmação realmente sustenta, e entender onde um resultado se generaliza ou não.</p>
+<div class="service-includes">
+<div class="service-includes-label" data-en="Includes" data-pt="Inclui">Inclui</div>
+<div class="include-item" data-en="Biological interpretation of omics and biomarker data" data-pt="Interpretação biológica de dados de ômicas e biomarcadores">Interpretação biológica de dados de ômicas e biomarcadores</div>
+<div class="include-item" data-en="Multi-omics data integration" data-pt="Integração de dados multi-ômicos">Integração de dados multi-ômicos</div>
+<div class="include-item" data-en="Claim evaluation and limitations review" data-pt="Avaliação de afirmações e revisão de limitações">Avaliação de afirmações e revisão de limitações</div>
+</div>
+</div>
+</div>
+<div class="service-block reveal">
+<div class="service-block-left">
+<div class="service-tag" data-en="What can you build or claim from it?" data-pt="O que você pode construir ou afirmar a partir disso?">O que você pode construir ou afirmar a partir disso?</div>
+<h3 data-en="Strategy &amp; translation" data-pt="Estratégia e tradução">Estratégia e tradução</h3>
+</div>
+<div class="service-block-right">
+<p data-en="Turning validated evidence into a scientific or product strategy, and into narratives that hold up with the people who matter — reviewers, collaborators, funders, investors, and decision-makers." data-pt="Transformando evidência validada em estratégia científica ou de produto, e em narrativas que se sustentam diante de quem importa — revisores, colaboradores, financiadores, investidores e tomadores de decisão.">Transformando evidência validada em estratégia científica ou de produto, e em narrativas que se sustentam diante de quem importa — revisores, colaboradores, financiadores, investidores e tomadores de decisão.</p>
+<div class="service-includes">
+<div class="service-includes-label" data-en="Includes" data-pt="Inclui">Inclui</div>
+<div class="include-item" data-en="Scientific and biomarker strategy" data-pt="Estratégia científica e de biomarcadores">Estratégia científica e de biomarcadores</div>
+<div class="include-item" data-en="Evidence plans and scientific narratives for grants and proposals" data-pt="Planos de evidência e narrativas científicas para financiamento e propostas">Planos de evidência e narrativas científicas para financiamento e propostas</div>
+<div class="include-item" data-en="Investor, partner, and technical due-diligence materials" data-pt="Materiais para investidores, parceiros e due diligence técnica">Materiais para investidores, parceiros e due diligence técnica</div>
+</div>
+</div>
+</div>
+<div class="service-block reveal">
+<div class="service-block-left">
+<div class="service-tag" data-en="Need this thinking inside the team?" data-pt="Precisa desse raciocínio dentro da equipe?">Precisa desse raciocínio dentro da equipe?</div>
+<h3 data-en="Scientific advisory" data-pt="Assessoria científica">Assessoria científica</h3>
+</div>
+<div class="service-block-right">
+<p data-en="Project-based or fractional involvement that brings this perspective into an organization over time, rather than for a single deliverable — continuity across strategy, evidence, and the decisions that follow from both." data-pt="Envolvimento por projeto ou fracionado que traz essa perspectiva para dentro de uma organização ao longo do tempo, em vez de para uma única entrega — continuidade entre estratégia, evidência e as decisões que seguem de ambas.">Envolvimento por projeto ou fracionado que traz essa perspectiva para dentro de uma organização ao longo do tempo, em vez de para uma única entrega — continuidade entre estratégia, evidência e as decisões que seguem de ambas.</p>
+<div class="service-includes">
+<div class="service-includes-label" data-en="Includes" data-pt="Inclui">Inclui</div>
+<div class="include-item" data-en="Ongoing scientific and strategic review" data-pt="Revisão científica e estratégica contínua">Revisão científica e estratégica contínua</div>
+<div class="include-item" data-en="Cross-functional scientific guidance and advisory participation" data-pt="Orientação científica multifuncional e participação em conselho consultivo">Orientação científica multifuncional e participação em conselho consultivo</div>
+<div class="include-item" data-en="On-call review of consequential scientific decisions" data-pt="Revisão sob demanda de decisões científicas consequentes">Revisão sob demanda de decisões científicas consequentes</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- WHO -->
+<section class="who-section">
+<div class="container">
+<div class="reveal">
+<div class="section-label" data-en="Who I work with" data-pt="Com quem trabalho">Com quem trabalho</div>
+<h2 class="section-h2" data-en="For organizations working at the&lt;br&gt;edge of &lt;em&gt;biology, health, and data&lt;/em&gt;" data-pt="Para organizações que trabalham no&lt;br&gt;limite entre &lt;em&gt;biologia, saúde e dados&lt;/em&gt;">Para organizações que trabalham no<br/>limite entre <em>biologia, saúde e dados</em></h2>
+</div>
+<div class="who-grid">
+<div class="who-item reveal reveal-delay-1">
+<h4 data-en="Health &amp; wellness innovators" data-pt="Inovadores em saúde e bem-estar">Inovadores em saúde e bem-estar</h4>
+<p data-en="Turning biological measurements into products, services, or personalized experiences." data-pt="Transformando medições biológicas em produtos, serviços ou experiências personalizadas.">Transformando medições biológicas em produtos, serviços ou experiências personalizadas.</p>
+</div>
+<div class="who-item reveal reveal-delay-2">
+<h4 data-en="Biomarker, diagnostics &amp; health-data companies" data-pt="Empresas de biomarcadores, diagnóstico e dados de saúde">Empresas de biomarcadores, diagnóstico e dados de saúde</h4>
+<p data-en="Building products whose value depends on what a biological signal actually means." data-pt="Construindo produtos cujo valor depende do que um sinal biológico realmente significa.">Construindo produtos cujo valor depende do que um sinal biológico realmente significa.</p>
+</div>
+<div class="who-item reveal reveal-delay-3">
+<h4 data-en="Biotech &amp; life-science teams" data-pt="Equipes de biotecnologia e ciências da vida">Equipes de biotecnologia e ciências da vida</h4>
+<p data-en="Developing evidence around complex biological questions." data-pt="Desenvolvendo evidência em torno de questões biológicas complexas.">Desenvolvendo evidência em torno de questões biológicas complexas.</p>
+</div>
+<div class="who-item reveal reveal-delay-4">
+<h4 data-en="Founders, research teams &amp; scientific organizations" data-pt="Fundadores, equipes de pesquisa e organizações científicas">Fundadores, equipes de pesquisa e organizações científicas</h4>
+<p data-en="Needing rigorous outside perspective when evidence, interpretation, and strategy intersect." data-pt="Precisando de uma perspectiva externa rigorosa quando evidência, interpretação e estratégia se cruzam.">Precisando de uma perspectiva externa rigorosa quando evidência, interpretação e estratégia se cruzam.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- ENGAGEMENT MODELS -->
+<section class="engagement-section">
+<div class="container">
+<div class="reveal">
+<div class="section-label" data-en="How we work together" data-pt="Como trabalhamos juntos">Como trabalhamos juntos</div>
+<h2 class="section-h2" data-en="Flexible engagement&lt;br&gt;&lt;em&gt;models&lt;/em&gt;" data-pt="Modelos de engajamento&lt;br&gt;&lt;em&gt;flexíveis&lt;/em&gt;">Modelos de engajamento<br/><em>flexíveis</em></h2>
+</div>
+<div class="engagement-grid" style="margin-top: 48px;">
+<div class="engagement-card reveal reveal-delay-1">
+<div class="engagement-tag" data-en="One decision" data-pt="Uma decisão">Uma decisão</div>
+<h3 data-en="Focused scientific review" data-pt="Revisão científica focada">Revisão científica focada</h3>
+<p data-en="A defined engagement around a specific scientific decision, program, dataset, or evidence base. Clear scope, recommendation, and next steps." data-pt="Um engajamento definido em torno de uma decisão científica, programa, conjunto de dados ou base de evidência específicos. Escopo, recomendação e próximos passos claros.">Um engajamento definido em torno de uma decisão científica, programa, conjunto de dados ou base de evidência específicos. Escopo, recomendação e próximos passos claros.</p>
+</div>
+<div class="engagement-card featured reveal reveal-delay-2">
+<div class="engagement-tag" data-en="Most common" data-pt="Mais comum">Mais comum</div>
+<h3 data-en="Project-based advisory" data-pt="Assessoria por projeto">Assessoria por projeto</h3>
+<p data-en="Embedded scientific leadership around a defined objective — from strategy and study design to interpretation, validation, or a critical program decision." data-pt="Liderança científica incorporada em torno de um objetivo definido — de estratégia e desenho de estudo a interpretação, validação, ou uma decisão crítica do programa.">Liderança científica incorporada em torno de um objetivo definido — de estratégia e desenho de estudo a interpretação, validação, ou uma decisão crítica do programa.</p>
+</div>
+<div class="engagement-card reveal reveal-delay-3">
+<div class="engagement-tag" data-en="Ongoing leadership" data-pt="Liderança contínua">Liderança contínua</div>
+<h3 data-en="Fractional scientific leadership" data-pt="Liderança científica fracionada">Liderança científica fracionada</h3>
+<p data-en="Ongoing involvement when scientific questions recur across a program and continuity of judgment matters." data-pt="Envolvimento contínuo quando questões científicas recorrem ao longo de um programa e a continuidade de julgamento importa.">Envolvimento contínuo quando questões científicas recorrem ao longo de um programa e a continuidade de julgamento importa.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA -->
+<section style="background: var(--ink); padding: 80px 0; text-align: center;">
+<div class="container">
+<h2 class="reveal" data-en="Not sure which fits?&lt;br&gt;&lt;em&gt;Let's figure it out together.&lt;/em&gt;" data-pt="Não tem certeza do que se encaixa?&lt;br&gt;&lt;em&gt;Vamos descobrir juntos.&lt;/em&gt;" style="font-family: var(--serif); font-size: clamp(28px,4vw,48px); font-weight: 300; color: var(--paper); margin-bottom: 20px;">Não tem certeza do que se encaixa?<br/><em>Vamos descobrir juntos.</em></h2>
+<p class="reveal reveal-delay-1" data-en="Discovery calls are 15 minutes. No commitment required." data-pt="As conversas iniciais têm 15 minutos. Sem compromisso." style="font-size: 15px; color: rgba(255,255,255,0.6); font-weight: 300; margin-bottom: 36px; max-width: 440px; margin-left: auto; margin-right: auto; line-height: 1.75;">As conversas iniciais têm 15 minutos. Sem compromisso.</p>
+<a class="btn btn-accent reveal reveal-delay-2" data-en="Book a free call →" data-pt="Agendar gratuitamente →" href="/pt/contact.html">Agendar gratuitamente →</a>
+</div>
+</section>
+<footer>
+<div class="footer-inner">
+<div class="footer-name">José Carlos Bozelli Jr., PhD · bozelli.ca</div>
+<div class="footer-links">
+<a href="https://www.linkedin.com/in/jose-carlos-bozelli-jr-9b2a4181/" rel="noopener" target="_blank">LinkedIn</a>
+<a data-en="About" data-pt="Sobre" href="/pt/about.html">Sobre</a>
+<a data-en="Contact" data-pt="Contato" href="/pt/contact.html">Contato</a>
+</div>
+</div>
+</footer>
+<script src="/assets/js/main.js"></script>
+</body>
+</html>

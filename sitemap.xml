@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://bozelli.ca/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bozelli.ca/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bozelli.ca/pt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bozelli.ca/"/>
+  </url>
+  <url>
+    <loc>https://bozelli.ca/insights.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bozelli.ca/insights.html"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bozelli.ca/pt/insights.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bozelli.ca/insights.html"/>
+  </url>
+  <url>
+    <loc>https://bozelli.ca/about.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bozelli.ca/about.html"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bozelli.ca/pt/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bozelli.ca/about.html"/>
+  </url>
+  <url>
+    <loc>https://bozelli.ca/services.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bozelli.ca/services.html"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bozelli.ca/pt/services.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bozelli.ca/services.html"/>
+  </url>
+  <url>
+    <loc>https://bozelli.ca/contact.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bozelli.ca/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bozelli.ca/pt/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bozelli.ca/contact.html"/>
+  </url>
+  <url>
+    <loc>https://bozelli.ca/pt/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bozelli.ca/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bozelli.ca/pt/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bozelli.ca/"/>
+  </url>
+  <url>
+    <loc>https://bozelli.ca/pt/insights.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bozelli.ca/insights.html"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bozelli.ca/pt/insights.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bozelli.ca/insights.html"/>
+  </url>
+  <url>
+    <loc>https://bozelli.ca/pt/about.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bozelli.ca/about.html"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bozelli.ca/pt/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bozelli.ca/about.html"/>
+  </url>
+  <url>
+    <loc>https://bozelli.ca/pt/services.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bozelli.ca/services.html"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bozelli.ca/pt/services.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bozelli.ca/services.html"/>
+  </url>
+  <url>
+    <loc>https://bozelli.ca/pt/contact.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bozelli.ca/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bozelli.ca/pt/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bozelli.ca/contact.html"/>
+  </url>
+  <url>
+    <loc>https://bozelli.ca/insights/series/biomarker-validity.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bozelli.ca/insights/series/one-molecule-at-a-time.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bozelli.ca/insights/remodeling-the-brain.html</loc>
+    <lastmod>2026-09-10</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bozelli.ca/insights/what-your-gut-is-telling-your-liver.html</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bozelli.ca/insights/what-your-cells-lose-with-every-decade.html</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bozelli.ca/insights/when-your-metabolism-cant-switch.html</loc>
+    <lastmod>2026-07-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bozelli.ca/insights/the-lipid-beneath-the-lipid-panel.html</loc>
+    <lastmod>2026-07-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bozelli.ca/insights/one-molecule-at-a-time.html</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bozelli.ca/insights/the-biomarker-market-has-a-story.html</loc>
+    <lastmod>2026-06-23</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bozelli.ca/insights/youre-spending-real-money-on-health.html</loc>
+    <lastmod>2026-06-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bozelli.ca/insights/what-omics-gets-right-and-how-it.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bozelli.ca/insights/your-biomarker-report.html</loc>
+    <lastmod>2026-05-12</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://bozelli.ca/insights/the-biomarker-gold-rush.html</loc>
+    <lastmod>2026-05-05</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>

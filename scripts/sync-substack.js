@@ -64,6 +64,8 @@ const ARTICLE_TPL_PATH = path.join(ROOT, "insights/_template/article-template.ht
 const SERIES_TPL_PATH  = path.join(ROOT, "insights/_template/series-template.html");
 const HUB_PATH         = path.join(ROOT, "insights.html");
 const HOME_PATH        = path.join(ROOT, "index.html");
+const HUB_PATH_PT      = path.join(ROOT, "pt/insights.html");
+const HOME_PATH_PT     = path.join(ROOT, "pt/index.html");
 
 const ROMAN = ["I","II","III","IV","V","VI","VII","VIII","IX","X"];
 
@@ -150,9 +152,50 @@ function findSeriesLabelForSlug(slug, seriesConfig) {
   return null;
 }
 
+function jsonEscape(str="") {
+  return String(str).replace(/\\/g,"\\\\").replace(/"/g,'\\"').replace(/\n/g," ");
+}
+
+// Prefers a self-hosted full (non-card) image for OG/social sharing —
+// falls back to the Substack CDN hotlink if assets/img/<slug>.png hasn't
+// been saved locally yet.
+function resolveOgImage(post) {
+  const localPath = path.join(ROOT, "assets/img", `${post.slug}.png`);
+  if (fs.existsSync(localPath)) return `${SITE_URL}/assets/img/${post.slug}.png`;
+  if (post.imageUrl) return post.imageUrl;
+  return `${SITE_URL}/assets/img/profile.jpg`;
+}
+
+// Related articles: prefer siblings in the same series; orphan posts (or
+// series with no other members yet) fall back to the most recent other
+// posts, capped at 3.
+function computeRelatedArticles(post, bySlugMap, seriesConfig) {
+  let candidates = [];
+  const series = (seriesConfig.series || []).find(s => (s.posts || []).includes(post.slug));
+  if (series) {
+    candidates = (series.posts || [])
+      .filter(slug => slug !== post.slug)
+      .map(slug => bySlugMap.get(slug))
+      .filter(Boolean);
+  }
+  if (candidates.length < 3) {
+    const fallback = Array.from(bySlugMap.values())
+      .filter(p => p.slug !== post.slug && !candidates.includes(p))
+      .sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+    candidates = candidates.concat(fallback).slice(0, 3);
+  } else {
+    candidates = candidates.slice(0, 3);
+  }
+  return candidates.map(p => `        <a href="${p.slug}.html" class="related-card">
+          <h5>${esc(p.title)}</h5>
+          <p>${esc(p.dek)}</p>
+        </a>`).join("\n");
+}
+
 // article page
 
-function buildArticlePage(post, template) {
+function buildArticlePage(post, template, bySlugMap, seriesConfig) {
+  const ogImage = resolveOgImage(post);
   const html = template
     .replace(/{{TITLE}}/g,        esc(post.title))
     .replace(/{{DEK}}/g,          esc(post.dek))
@@ -161,6 +204,11 @@ function buildArticlePage(post, template) {
     .replace(/{{PUBDATE}}/g,      fmtDate(post.pubDate))
     .replace(/{{SUBSTACK_URL}}/g, post.substackUrl)
     .replace(/{{CANONICAL_URL}}/g,`${SITE_URL}/insights/${post.slug}.html`)
+    .replace(/{{OG_IMAGE}}/g,     ogImage)
+    .replace(/{{TITLE_JSON}}/g,   jsonEscape(post.title))
+    .replace(/{{DEK_JSON}}/g,     jsonEscape(post.dek))
+    .replace(/{{DATE_ISO}}/g,     post.pubDate)
+    .replace(/{{RELATED_ARTICLES}}/g, computeRelatedArticles(post, bySlugMap, seriesConfig))
     .replace("{{BODY}}",           post.bodyHtml || "");
   fs.mkdirSync(path.join(ROOT,"insights"),{recursive:true});
   fs.writeFileSync(path.join(ROOT,"insights",`${post.slug}.html`), html);
@@ -232,7 +280,7 @@ function rebuildHub(allPosts) {
     const wm    = ROMAN[i] || String(i+1);
     const count = seriesPosts.length;
     seriesHtml +=
-`        <a href="insights/series/${series.slug}.html" class="hub-series-tile" style="background:${color.bg};">
+`        <a href="/insights/series/${series.slug}.html" class="hub-series-tile" style="background:${color.bg};">
           <div class="hub-tile-watermark">${wm}</div>
           <div class="hub-tile-eyebrow">Series · ${count} article${count!==1?"s":""}</div>
           <h3 class="hub-tile-title">${esc(series.title)}</h3>
@@ -246,7 +294,7 @@ function rebuildHub(allPosts) {
     .sort((a,b) => new Date(b.pubDate)-new Date(a.pubDate))
     .forEach(p => {
       orphanHtml +=
-`        <a href="insights/${p.slug}.html" class="hub-orphan-tile" style="background:${ORPHAN_COLOR.bg};">
+`        <a href="/insights/${p.slug}.html" class="hub-orphan-tile" style="background:${ORPHAN_COLOR.bg};">
           <div class="hub-tile-eyebrow">${p.readTime} min read · ${fmtDate(p.pubDate)}</div>
           <h3 class="hub-orphan-title">${esc(p.title)}</h3>
           <p class="hub-tile-blurb">${esc(p.dek)}</p>
@@ -261,11 +309,18 @@ function rebuildHub(allPosts) {
     block += `      <div class="hub-orphan-grid">\n${orphanHtml}      </div>\n`;
   }
 
-  const src    = fs.readFileSync(HUB_PATH,"utf8");
   const marker = /<!-- INSIGHTS_GRID:START -->[\s\S]*?<!-- INSIGHTS_GRID:END -->/;
-  if (!marker.test(src)) { console.warn("INSIGHTS_GRID markers missing."); return; }
-  fs.writeFileSync(HUB_PATH, src.replace(marker,`<!-- INSIGHTS_GRID:START -->\n${block}      <!-- INSIGHTS_GRID:END -->`));
-  console.log("Rebuilt insights.html hub.");
+  const replacement = `<!-- INSIGHTS_GRID:START -->\n${block}      <!-- INSIGHTS_GRID:END -->`;
+
+  const src = fs.readFileSync(HUB_PATH,"utf8");
+  if (!marker.test(src)) { console.warn("INSIGHTS_GRID markers missing in insights.html."); }
+  else { fs.writeFileSync(HUB_PATH, src.replace(marker, replacement)); console.log("Rebuilt insights.html hub."); }
+
+  if (fs.existsSync(HUB_PATH_PT)) {
+    const srcPt = fs.readFileSync(HUB_PATH_PT,"utf8");
+    if (!marker.test(srcPt)) { console.warn("INSIGHTS_GRID markers missing in pt/insights.html."); }
+    else { fs.writeFileSync(HUB_PATH_PT, srcPt.replace(marker, replacement)); console.log("Rebuilt pt/insights.html hub."); }
+  }
 }
 
 // home featured module
@@ -321,7 +376,7 @@ function buildHomeFeaturedBlock(manifest, bySlugMap, seriesConfig) {
   const secondaryHtml = secondarySlugs.map((slug, i) => {
     const p = bySlugMap.get(slug);
     const delayClass = i === 0 ? "" : ` reveal-delay-${i}`;
-    return `        <a href="insights/${p.slug}.html" class="secondary-story reveal${delayClass}">
+    return `        <a href="/insights/${p.slug}.html" class="secondary-story reveal${delayClass}">
           <img class="secondary-story-img" src="${resolveCardImage(p)}" alt="${esc(p.title)}">
           <h4>${esc(p.title)}</h4>
           <p data-en="${esc(p.dek)}" data-pt="${esc(p.dekPt || "[PT translation pending]")}">${esc(p.dek)}</p>
@@ -338,7 +393,7 @@ function buildHomeFeaturedBlock(manifest, bySlugMap, seriesConfig) {
           <div class="featured-story-label" data-en="${esc(seriesLabel)}" data-pt="${esc(seriesLabelPt)}">${esc(seriesLabel)}</div>
           <h3>${esc(featured.title)}</h3>
           <p data-en="${esc(featured.dek)}" data-pt="${esc(featured.dekPt || "[PT translation pending]")}">${esc(featured.dek)}</p>
-          <a href="insights/${featured.slug}.html" class="featured-story-link" data-en="Read →" data-pt="Ler →">Read →</a>
+          <a href="/insights/${featured.slug}.html" class="featured-story-link" data-en="Read →" data-pt="Ler →">Read →</a>
         </div>
       </div>
 
@@ -347,7 +402,7 @@ ${secondaryHtml}
       </div>
 
       <div class="insights-module-footer reveal">
-        <a href="insights.html" class="btn btn-outline" data-en="Explore all Insights →" data-pt="Ver todas as Reflexões →">Explore all Insights →</a>
+        <a href="/insights.html" class="btn btn-outline" data-en="Explore all Insights →" data-pt="Ver todas as Reflexões →">Explore all Insights →</a>
       </div>`;
 }
 
@@ -357,11 +412,22 @@ function rebuildHomeFeatured(manifest, allPosts, seriesConfig) {
   const block = buildHomeFeaturedBlock(manifest, bySlugMap, seriesConfig);
   if (!block) return;
 
-  const src    = fs.readFileSync(HOME_PATH,"utf8");
   const marker = /<!-- HOME_FEATURED:START -->[\s\S]*?<!-- HOME_FEATURED:END -->/;
-  if (!marker.test(src)) { console.warn("HOME_FEATURED markers missing in index.html."); return; }
-  fs.writeFileSync(HOME_PATH, src.replace(marker,`<!-- HOME_FEATURED:START -->\n${block}\n      <!-- HOME_FEATURED:END -->`));
-  console.log("Rebuilt index.html featured module.");
+  const replacement = `<!-- HOME_FEATURED:START -->\n${block}\n      <!-- HOME_FEATURED:END -->`;
+
+  const src = fs.readFileSync(HOME_PATH,"utf8");
+  if (!marker.test(src)) { console.warn("HOME_FEATURED markers missing in index.html."); }
+  else { fs.writeFileSync(HOME_PATH, src.replace(marker, replacement)); console.log("Rebuilt index.html featured module."); }
+
+  if (fs.existsSync(HOME_PATH_PT)) {
+    // "Explore all Insights" should point to the PT hub here — everything
+    // else (individual article links) correctly stays pointed at the
+    // English articles, since no PT article translations exist.
+    const replacementPt = replacement.replace('href="/insights.html"', 'href="/pt/insights.html"');
+    const srcPt = fs.readFileSync(HOME_PATH_PT,"utf8");
+    if (!marker.test(srcPt)) { console.warn("HOME_FEATURED markers missing in pt/index.html."); }
+    else { fs.writeFileSync(HOME_PATH_PT, srcPt.replace(marker, replacementPt)); console.log("Rebuilt pt/index.html featured module."); }
+  }
 }
 
 // cross-link rewriting
@@ -404,6 +470,7 @@ async function run() {
 
   const manifest   = loadManifest();
   const bySlug     = new Map(manifest.posts.map(p=>[p.slug,p]));
+  const seriesConfig = loadSeriesConfig();
   let   changedAny = false;
 
   for (const item of feed.items) {
@@ -423,6 +490,7 @@ async function run() {
     const dek       = (item.contentSnippet||item.summary||"").split("\n")[0].trim();
 
     const post = {
+      ...existing,
       slug, title:item.title||"Untitled", dek, section,
       pubDate:item.isoDate||item.pubDate||new Date().toISOString(),
       substackUrl:item.link, readTime:readTime(plainText),
@@ -431,7 +499,7 @@ async function run() {
     bySlug.set(slug,post);
     changedAny = true;
 
-    buildArticlePage(post, articleTemplate);
+    buildArticlePage(post, articleTemplate, bySlug, seriesConfig);
     console.log(`${existing?"Updated":"Built"} insights/${slug}.html`);
   }
 
@@ -442,16 +510,15 @@ async function run() {
   // Always rebuild series pages, hub, and Home featured module
   // (covers series.json / posts.json edits between syncs, even
   // when no new Substack content was fetched)
-  const config    = loadSeriesConfig();
   const bySlugMap = new Map(allPosts.map(p=>[p.slug,p]));
-  (config.series||[]).forEach((series,i) => {
+  (seriesConfig.series||[]).forEach((series,i) => {
     const posts = (series.posts||[]).map(s=>bySlugMap.get(s)).filter(Boolean);
     if (posts.length) buildSeriesPage(series,posts,i);
   });
 
   rewriteAllCrossLinks(new Set(allPosts.map(p=>p.slug)));
   rebuildHub(allPosts);
-  rebuildHomeFeatured(manifest, allPosts, config);
+  rebuildHomeFeatured(manifest, allPosts, seriesConfig);
 
   if (!changedAny) console.log("No content changes since last sync.");
 }

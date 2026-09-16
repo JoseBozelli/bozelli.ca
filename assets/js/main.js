@@ -14,6 +14,8 @@ function setLang(lang) {
 }
 
 function initLang() {
+  const forced = document.body.dataset.forceLang;
+  if (forced) { setLang(forced); return; }
   const saved = localStorage.getItem('lang');
   const browser = navigator.language.startsWith('pt') ? 'pt' : 'en';
   setLang(saved || browser);
