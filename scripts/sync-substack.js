@@ -513,6 +513,7 @@ function rewriteAllCrossLinks(slugSet) {
 async function run() {
   if (!fs.existsSync(ARTICLE_TPL_PATH)) throw new Error(`Missing article template at ${ARTICLE_TPL_PATH}`);
   const articleTemplate = fs.readFileSync(ARTICLE_TPL_PATH,"utf8");
+  const templateHash    = hashOf(articleTemplate);
 
   const parser = new Parser({
     customFields: { item:[
@@ -538,7 +539,11 @@ async function run() {
 
     const contentHash = hashOf(item.title+"|"+rawHtml);
     const existing    = bySlug.get(slug);
-    if (existing && existing.contentHash === contentHash) continue;
+    // Rebuild if either the article content OR the template itself
+    // changed since last sync — a template edit (e.g. a sitewide link
+    // fix) otherwise goes unnoticed forever, since content-only hashing
+    // has no way to detect it.
+    if (existing && existing.contentHash === contentHash && existing.templateHash === templateHash) continue;
 
     const $       = cheerio.load(rawHtml);
     cleanContent($);
@@ -552,7 +557,7 @@ async function run() {
       slug, title:item.title||"Untitled", dek, section,
       pubDate:item.isoDate||item.pubDate||new Date().toISOString(),
       substackUrl:item.link, readTime:readTime(plainText),
-      imageUrl:extractImageUrl(item), contentHash, bodyHtml,
+      imageUrl:extractImageUrl(item), contentHash, templateHash, bodyHtml,
     };
     bySlug.set(slug,post);
     changedAny = true;
