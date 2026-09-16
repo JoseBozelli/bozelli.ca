@@ -156,4 +156,20 @@
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
   </url>
+  <url>
+    <loc>https://bozelli.ca/explore/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bozelli.ca/explore/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bozelli.ca/pt/explore/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bozelli.ca/explore/"/>
+  </url>
+  <url>
+    <loc>https://bozelli.ca/pt/explore/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://bozelli.ca/explore/"/>
+    <xhtml:link rel="alternate" hreflang="pt-BR" href="https://bozelli.ca/pt/explore/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://bozelli.ca/explore/"/>
+  </url>
 </urlset>

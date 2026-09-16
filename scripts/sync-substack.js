@@ -66,6 +66,8 @@ const HUB_PATH         = path.join(ROOT, "insights.html");
 const HOME_PATH        = path.join(ROOT, "index.html");
 const HUB_PATH_PT      = path.join(ROOT, "pt/insights.html");
 const HOME_PATH_PT     = path.join(ROOT, "pt/index.html");
+const EXPLORE_PATH     = path.join(ROOT, "explore/index.html");
+const EXPLORE_PATH_PT  = path.join(ROOT, "pt/explore/index.html");
 
 const ROMAN = ["I","II","III","IV","V","VI","VII","VIII","IX","X"];
 
@@ -430,7 +432,63 @@ function rebuildHomeFeatured(manifest, allPosts, seriesConfig) {
   }
 }
 
-// cross-link rewriting
+// explore page "Start Here" — single-card version of the Home featured
+// module (no secondary stories), same underlying data lever:
+// posts.json's "featured" field. Swapping what's on Home also swaps
+// what's on /explore/ unless overridden separately (not currently
+// separated — deliberate, since both are meant to spotlight the same
+// current activation article).
+
+function buildExploreFeaturedBlock(manifest, bySlugMap, seriesConfig, lang) {
+  const featuredSlug = manifest.featured;
+  const featured = featuredSlug ? bySlugMap.get(featuredSlug) : null;
+  if (!featured) {
+    console.warn('posts.json has no valid "featured" slug — skipping /explore/ featured rebuild.');
+    return null;
+  }
+  const seriesLabel = findSeriesLabelForSlug(featuredSlug, seriesConfig) || featured.section || "Insights";
+  const image = resolveCardImage(featured);
+  const dek = lang === "pt" ? (featured.dekPt || featured.dek) : featured.dek;
+  const readLabel = lang === "pt" ? "Ler →" : "Read →";
+  const badge = lang === "pt"
+    ? `<span class="lang-flag" data-en="Content in English" data-pt="Conteúdo em inglês">Conteúdo em inglês</span>`
+    : "";
+
+  return `      <div class="explore-featured-label" data-en="Currently exploring" data-pt="Investigando atualmente">${lang === "pt" ? "Investigando atualmente" : "Currently exploring"}</div>
+      <a href="/insights/${featured.slug}.html" class="explore-featured-card">
+        <img src="${image}" alt="${esc(featured.title)}">
+        <div class="explore-featured-body">
+          <span class="explore-featured-series">${esc(seriesLabel)}</span>
+          <h3>${esc(featured.title)}${badge}</h3>
+          <p>${esc(dek)}</p>
+          <span class="explore-featured-cta">${readLabel}</span>
+        </div>
+      </a>`;
+}
+
+function rebuildExploreFeatured(manifest, allPosts, seriesConfig) {
+  const bySlugMap = new Map(allPosts.map(p => [p.slug, p]));
+  const marker = /<!-- EXPLORE_FEATURED:START -->[\s\S]*?<!-- EXPLORE_FEATURED:END -->/;
+
+  if (fs.existsSync(EXPLORE_PATH)) {
+    const block = buildExploreFeaturedBlock(manifest, bySlugMap, seriesConfig, "en");
+    if (block) {
+      const src = fs.readFileSync(EXPLORE_PATH, "utf8");
+      if (!marker.test(src)) console.warn("EXPLORE_FEATURED markers missing in explore/index.html.");
+      else { fs.writeFileSync(EXPLORE_PATH, src.replace(marker, `<!-- EXPLORE_FEATURED:START -->\n${block}\n      <!-- EXPLORE_FEATURED:END -->`)); console.log("Rebuilt explore/index.html featured card."); }
+    }
+  }
+  if (fs.existsSync(EXPLORE_PATH_PT)) {
+    const blockPt = buildExploreFeaturedBlock(manifest, bySlugMap, seriesConfig, "pt");
+    if (blockPt) {
+      const srcPt = fs.readFileSync(EXPLORE_PATH_PT, "utf8");
+      if (!marker.test(srcPt)) console.warn("EXPLORE_FEATURED markers missing in pt/explore/index.html.");
+      else { fs.writeFileSync(EXPLORE_PATH_PT, srcPt.replace(marker, `<!-- EXPLORE_FEATURED:START -->\n${blockPt}\n      <!-- EXPLORE_FEATURED:END -->`)); console.log("Rebuilt pt/explore/index.html featured card."); }
+    }
+  }
+}
+
+
 
 function rewriteCrossLinks(html, slugSet) {
   return html.replace(
@@ -519,6 +577,7 @@ async function run() {
   rewriteAllCrossLinks(new Set(allPosts.map(p=>p.slug)));
   rebuildHub(allPosts);
   rebuildHomeFeatured(manifest, allPosts, seriesConfig);
+  rebuildExploreFeatured(manifest, allPosts, seriesConfig);
 
   if (!changedAny) console.log("No content changes since last sync.");
 }

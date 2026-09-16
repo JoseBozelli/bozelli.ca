@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Chegou agora? Explore os textos de José Carlos Bozelli Jr., PhD sobre biomarcadores, biologia humana e a ciência de dados que está transformando como entendemos a saúde." name="description"/>
+<title>Comece Aqui: Biologia, Biomarcadores e Dados de Saúde — José Carlos Bozelli Jr., PhD</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&amp;family=DM+Mono:wght@300;400&amp;family=Outfit:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<link href="/assets/css/style.css" rel="stylesheet"/>
+<link href="https://bozelli.ca/pt/explore/" rel="canonical"/>
+<link href="https://bozelli.ca/explore/" hreflang="en" rel="alternate"/>
+<link href="https://bozelli.ca/pt/explore/" hreflang="pt-BR" rel="alternate"/>
+<link href="https://bozelli.ca/explore/" hreflang="x-default" rel="alternate"/>
+<meta content="website" property="og:type"/>
+<meta content="Comece Aqui: Biologia, Biomarcadores e Dados de Saúde — José Carlos Bozelli Jr., PhD" property="og:title"/>
+<meta content="Chegou agora? Explore os textos de José Carlos Bozelli Jr., PhD sobre biomarcadores, biologia humana e a ciência de dados que está transformando como entendemos a saúde." property="og:description"/>
+<meta content="https://bozelli.ca/pt/explore/" property="og:url"/>
+<meta content="https://bozelli.ca/assets/img/profile.jpg" property="og:image"/>
+<meta content="José Carlos Bozelli Jr., PhD" property="og:site_name"/>
+<meta content="pt_BR" property="og:locale"/>
+<meta content="en_US" property="og:locale:alternate"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="Comece Aqui: Biologia, Biomarcadores e Dados de Saúde — José Carlos Bozelli Jr., PhD" name="twitter:title"/>
+<meta content="Chegou agora? Explore os textos de José Carlos Bozelli Jr., PhD sobre biomarcadores, biologia humana e a ciência de dados que está transformando como entendemos a saúde." name="twitter:description"/>
+<meta content="https://bozelli.ca/assets/img/profile.jpg" name="twitter:image"/>
+<style>
+    /* Hero */
+    .explore-hero { background: var(--paper-warm); padding: 110px 0 60px; text-align: center; }
+    .explore-hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(30px, 5vw, 48px);
+      font-weight: 300;
+      line-height: 1.25;
+      max-width: 720px;
+      margin: 0 auto 20px;
+    }
+    .explore-hero-sub {
+      font-size: 15px;
+      color: var(--ink-soft);
+      font-weight: 300;
+      max-width: 520px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+    .explore-scroll-cue {
+      margin-top: 40px;
+      font-family: var(--mono);
+      font-size: 18px;
+      color: var(--accent);
+    }
+
+    /* Start Here / featured */
+    .explore-featured-section { padding: 70px 0; }
+    .explore-featured-section .container { max-width: 640px; }
+    .explore-featured-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--accent);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .explore-featured-card {
+      display: block;
+      border: 0.5px solid var(--rule-mid);
+      overflow: hidden;
+      transition: opacity 0.2s;
+    }
+    .explore-featured-card:hover { opacity: 0.9; }
+    .explore-featured-card img { width: 100%; aspect-ratio: 4/3; object-fit: contain; background: var(--white); }
+    .explore-featured-body { padding: 24px 28px 28px; }
+    .explore-featured-series {
+      display: block;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--ink-muted);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .explore-featured-body h3 {
+      font-family: var(--serif);
+      font-size: 24px;
+      font-weight: 400;
+      line-height: 1.25;
+      margin-bottom: 10px;
+    }
+    .explore-featured-body p { font-size: 14px; color: var(--ink-soft); font-weight: 300; line-height: 1.7; margin-bottom: 16px; }
+    .explore-featured-cta { font-size: 11px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent); }
+    .lang-flag {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 9px;
+      color: var(--ink-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: 0.5px solid var(--rule-mid);
+      padding: 2px 6px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    /* Discovery cards */
+    .discovery-section { background: var(--paper-warm); padding: 70px 0; }
+    .discovery-head { text-align: center; margin-bottom: 40px; }
+    .discovery-head h2 {
+      font-family: var(--serif);
+      font-size: clamp(24px, 3vw, 32px);
+      font-weight: 300;
+    }
+    .discovery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1px;
+      background: var(--rule-mid);
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .discovery-card { background: var(--paper-warm); padding: 32px 28px; transition: background 0.2s; }
+    .discovery-card:hover { background: var(--white); }
+    .discovery-card-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .discovery-card h3 { font-family: var(--serif); font-size: 20px; font-weight: 400; margin-bottom: 12px; line-height: 1.3; }
+    .discovery-card p { font-size: 13px; color: var(--ink-soft); font-weight: 300; line-height: 1.65; margin-bottom: 14px; }
+    .discovery-card-cta { font-size: 11px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent); }
+
+    /* Follow the ideas */
+    .follow-section { background: var(--accent); padding: 70px 0; text-align: center; }
+    .follow-section h2 { font-family: var(--serif); font-size: clamp(24px, 3vw, 34px); font-weight: 300; color: var(--white); margin-bottom: 16px; }
+    .follow-section p { font-size: 14px; color: rgba(255,255,255,0.8); font-weight: 300; max-width: 440px; margin: 0 auto 28px; line-height: 1.7; }
+
+    /* About bridge */
+    .about-bridge-section { padding: 70px 0; }
+    .about-bridge-grid { display: flex; align-items: center; justify-content: center; gap: 32px; max-width: 620px; margin: 0 auto; text-align: left; }
+    .about-bridge-photo { width: 84px; height: 84px; border-radius: 50%; overflow: hidden; border: 0.5px solid var(--rule-mid); flex-shrink: 0; }
+    .about-bridge-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 25%; }
+    .about-bridge-text p { font-size: 15px; color: var(--ink-soft); font-weight: 300; line-height: 1.75; margin-bottom: 12px; }
+    .about-bridge-text a { font-size: 11px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent); }
+    @media (max-width: 600px) { .about-bridge-grid { flex-direction: column; text-align: center; } }
+
+    /* Work together */
+    .work-section { background: var(--paper-warm); padding: 56px 0; text-align: center; }
+    .work-section p { font-size: 15px; color: var(--ink-soft); font-weight: 300; margin-bottom: 14px; }
+    .work-section a { font-size: 11px; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: var(--accent); border-bottom: 0.5px solid var(--accent); padding-bottom: 2px; }
+
+    /* Social follow */
+    .social-section { padding: 56px 0; text-align: center; }
+    .social-row { display: flex; justify-content: center; gap: 32px; flex-wrap: wrap; }
+    .social-row a { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); border-bottom: 0.5px solid var(--rule-mid); padding-bottom: 2px; transition: color 0.2s; }
+    .social-row a:hover { color: var(--accent); }
+  </style>
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-SJ8ZNZZJT9"></script>
+<script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag("js", new Date());
+      gtag("config", "G-SJ8ZNZZJT9");
+    </script>
+</head>
+<body data-force-lang="pt" data-page="explore">
+<div class="lang-bar"><a class="lang-btn" href="/explore/" onclick="gtag('event','explore_lang_switch',{event_category:'engagement',event_label:'pt_to_en'});">EN</a><a class="lang-btn active" href="/pt/explore/">PT</a></div>
+<nav class="nav">
+<div class="nav-inner">
+<a class="nav-logo" href="/">José Carlos Bozelli Jr<span>.</span></a>
+<ul class="nav-links">
+<li><a data-en="Home" data-page="home" data-pt="Início" href="/">Início</a></li>
+<li><a data-en="Insights" data-page="insights" data-pt="Reflexões" href="/insights.html">Reflexões</a></li>
+<li><a data-en="Consulting" data-page="services" data-pt="Consultoria" href="/services.html">Consultoria</a></li>
+<li><a data-en="About" data-page="about" data-pt="Sobre" href="/about.html">Sobre</a></li>
+<li><a class="nav-cta" data-en="Book a call" data-page="contact" data-pt="Agendar" href="/contact.html">Agendar</a></li>
+</ul>
+<div class="nav-mobile-toggle"><span></span><span></span><span></span></div>
+</div>
+</nav>
+<!-- HERO -->
+<section class="explore-hero page-top">
+<div class="container">
+<h1 class="reveal" data-en="We can measure more about ourselves than ever.&lt;br&gt;What does it actually mean?" data-pt="Nunca conseguimos medir tanto sobre nós mesmos.&lt;br&gt;Mas o que isso realmente significa?">Nunca conseguimos medir tanto sobre nós mesmos.<br/>Mas o que isso realmente significa?</h1>
+<p class="explore-hero-sub reveal reveal-delay-1" data-en="Biology, biomarkers, health data — and the tools increasingly used to interpret them." data-pt="Biologia, biomarcadores, dados de saúde — e as ferramentas cada vez mais usadas para interpretá-los.">Biologia, biomarcadores, dados de saúde — e as ferramentas cada vez mais usadas para interpretá-los.</p>
+<div class="explore-scroll-cue reveal reveal-delay-2">↓</div>
+</div>
+</section>
+<!-- START HERE -->
+<section class="explore-featured-section">
+<div class="container">
+<!-- EXPLORE_FEATURED:START -->
+<div class="explore-featured-label" data-en="Currently exploring" data-pt="Investigando atualmente">Investigando atualmente</div>
+<a class="explore-featured-card" href="/insights/remodeling-the-brain.html" onclick="gtag('event','explore_featured_click',{event_category:'engagement',event_label:'remodeling-the-brain'});">
+<img alt="Remodeling the Brain" src="/assets/img/remodeling-the-brain-card.png"/>
+<div class="explore-featured-body">
+<span class="explore-featured-series">Uma Molécula de Cada Vez</span>
+<h3>O que é realmente preciso para o DHA chegar ao cérebro?<span class="lang-flag">Conteúdo em inglês</span></h3>
+<p>A saúde cognitiva depende dos lipídeos que chegam ao cérebro. O índice de ômega-3 conta apenas metade da história de como isso acontece.</p>
+<span class="explore-featured-cta">Ler →</span>
+</div>
+</a>
+<!-- EXPLORE_FEATURED:END -->
+</div>
+</section>
+<!-- EXPLORE BY QUESTION -->
+<section class="discovery-section">
+<div class="container">
+<div class="discovery-head reveal">
+<div class="section-label" data-en="Explore by question" data-pt="Explore por pergunta" style="justify-content:center;">Explore por pergunta</div>
+<h2 data-en="Where do you want to start?" data-pt="Por onde você quer começar?">Por onde você quer começar?</h2>
+</div>
+<div class="discovery-grid">
+<a class="discovery-card reveal" href="/insights/series/biomarker-validity.html" onclick="gtag('event','explore_discovery_click',{event_category:'engagement',event_label:'biomarker-validity'});">
+<div class="discovery-card-label" data-en="Measure" data-pt="Medir">Medir</div>
+<h3 data-en="What are we actually measuring?" data-pt="O que estamos realmente medindo?">O que estamos realmente medindo?<span class="lang-flag">Conteúdo em inglês</span></h3>
+<p data-en="A series on what a biomarker has to earn before it means what it claims." data-pt="Uma série sobre o que um biomarcador precisa conquistar antes de significar o que afirma.">Uma série sobre o que um biomarcador precisa conquistar antes de significar o que afirma.</p>
+<span class="discovery-card-cta" data-en="Biomarker Validity →" data-pt="Validade de Biomarcadores →">Validade de Biomarcadores →</span>
+</a>
+<a class="discovery-card reveal reveal-delay-1" href="/insights/series/one-molecule-at-a-time.html" onclick="gtag('event','explore_discovery_click',{event_category:'engagement',event_label:'one-molecule-at-a-time'});">
+<div class="discovery-card-label" data-en="Understand" data-pt="Entender">Entender</div>
+<h3 data-en="What does the biology actually tell us?" data-pt="O que a biologia realmente nos diz?">O que a biologia realmente nos diz?<span class="lang-flag">Conteúdo em inglês</span></h3>
+<p data-en="Each piece follows one molecule through its biology, its measurement, and what the evidence actually supports." data-pt="Cada texto acompanha uma molécula através de sua biologia, sua medição, e o que a evidência realmente sustenta.">Cada texto acompanha uma molécula através de sua biologia, sua medição, e o que a evidência realmente sustenta.</p>
+<span class="discovery-card-cta" data-en="One Molecule at a Time →" data-pt="Uma Molécula de Cada Vez →">Uma Molécula de Cada Vez →</span>
+</a>
+</div>
+</div>
+</section>
+<!-- FOLLOW THE IDEAS -->
+<section class="follow-section">
+<div class="container">
+<h2 class="reveal" data-en="Follow the ideas" data-pt="Acompanhe as ideias">Acompanhe as ideias</h2>
+<p class="reveal reveal-delay-1" data-en="New pieces on biology, biomarkers, and what the data actually supports — landing in your inbox before anywhere else." data-pt="Novos textos sobre biologia, biomarcadores e o que os dados realmente sustentam — direto na sua caixa de entrada, antes de qualquer outro lugar.">Novos textos sobre biologia, biomarcadores e o que os dados realmente sustentam — direto na sua caixa de entrada, antes de qualquer outro lugar.</p>
+<a class="btn reveal reveal-delay-2" data-en="Subscribe on Substack →" data-pt="Assine na Substack →" href="https://bozelli.substack.com" onclick="gtag('event','explore_substack_click',{event_category:'engagement',event_label:'follow_the_ideas'});" rel="noopener" style="background:var(--white);color:var(--accent);" target="_blank">Assine na Substack →</a>
+</div>
+</section>
+<!-- ABOUT JOSÉ -->
+<section class="about-bridge-section">
+<div class="container">
+<div class="about-bridge-grid">
+<div class="about-bridge-photo reveal">
+<img alt="José Carlos Bozelli Jr., PhD" src="/assets/img/profile.jpg"/>
+</div>
+<div class="about-bridge-text reveal reveal-delay-1">
+<p data-en="Behind these questions is a scientist whose work has moved from molecules and biological mechanisms to human omics, population-scale measurement, data science, and AI." data-pt="Por trás dessas perguntas está um cientista cujo trabalho passou de moléculas e mecanismos biológicos para ômicas humanas, medição em escala populacional, ciência de dados e IA.">Por trás dessas perguntas está um cientista cujo trabalho passou de moléculas e mecanismos biológicos para ômicas humanas, medição em escala populacional, ciência de dados e IA.</p>
+<a data-en="Meet José →" data-pt="Conheça José →" href="/about.html" onclick="gtag('event','explore_about_click',{event_category:'engagement',event_label:'meet_jose'});">Conheça José →</a>
+</div>
+</div>
+</div>
+</section>
+<!-- WORK TOGETHER -->
+<section class="work-section">
+<div class="container">
+<p data-en="Working on a scientific, biomarker, or health-data problem?" data-pt="Trabalhando em um problema científico, de biomarcadores ou de dados de saúde?">Trabalhando em um problema científico, de biomarcadores ou de dados de saúde?</p>
+<a data-en="Consulting →" data-pt="Consultoria →" href="/services.html" onclick="gtag('event','explore_consulting_click',{event_category:'engagement',event_label:'work_together'});">Consultoria →</a>
+</div>
+</section>
+<!-- SOCIAL FOLLOW -->
+<section class="social-section">
+<div class="container">
+<div class="social-row">
+<a href="https://www.instagram.com/jose.bozelli/" onclick="gtag('event','explore_instagram_click',{event_category:'engagement',event_label:'social_follow'});" rel="noopener" target="_blank">Instagram</a>
+<a href="https://www.linkedin.com/in/jose-bozelli" onclick="gtag('event','explore_linkedin_click',{event_category:'engagement',event_label:'social_follow'});" rel="noopener" target="_blank">LinkedIn</a>
+<a href="https://bozelli.substack.com" onclick="gtag('event','explore_substack_click',{event_category:'engagement',event_label:'social_follow'});" rel="noopener" target="_blank">Substack</a>
+</div>
+</div>
+</section>
+<footer>
+<div class="footer-inner">
+<div class="footer-name">José Carlos Bozelli Jr., PhD · bozelli.ca</div>
+<div class="footer-links">
+<a href="https://www.linkedin.com/in/jose-bozelli" rel="noopener" target="_blank">LinkedIn</a>
+<a data-en="Consulting" data-pt="Consultoria" href="/services.html">Consultoria</a>
+<a data-en="Contact" data-pt="Contato" href="/contact.html">Contato</a>
+</div>
+</div>
+</footer>
+<script src="/assets/js/main.js"></script>
+</body>
+</html>
