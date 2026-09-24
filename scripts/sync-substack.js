@@ -2,7 +2,7 @@
 /**
  * scripts/sync-substack.js
  *
- * Pulls bozelli.substack.com/feed and:
+ * Pulls josebozelli.substack.com/feed and:
  *   1. Builds/updates individual article pages (insights/<slug>.html)
  *   2. Builds/updates series pages    (insights/series/<series-slug>.html)
  *   3. Rebuilds the hub               (insights.html)
@@ -54,7 +54,7 @@ const crypto = require("crypto");
 const Parser = require("rss-parser");
 const cheerio = require("cheerio");
 
-const FEED_URL        = "https://bozelli.substack.com/feed";
+const FEED_URL        = "https://josebozelli.substack.com/feed";
 const SITE_URL        = "https://bozelli.ca";
 const DEFAULT_SECTION = "Lipids, Data & Life";
 
@@ -539,11 +539,12 @@ async function run() {
 
     const contentHash = hashOf(item.title+"|"+rawHtml);
     const existing    = bySlug.get(slug);
-    // Rebuild if either the article content OR the template itself
-    // changed since last sync — a template edit (e.g. a sitewide link
-    // fix) otherwise goes unnoticed forever, since content-only hashing
-    // has no way to detect it.
-    if (existing && existing.contentHash === contentHash && existing.templateHash === templateHash) continue;
+    // Rebuild if the article content, the template, OR the Substack URL
+    // itself changed since last sync (e.g. a publication rename/domain
+    // change) — substackUrl comes straight from the feed and isn't
+    // reflected in contentHash, so it needs its own explicit check or a
+    // domain change silently never propagates into the baked HTML.
+    if (existing && existing.contentHash === contentHash && existing.templateHash === templateHash && existing.substackUrl === item.link) continue;
 
     const $       = cheerio.load(rawHtml);
     cleanContent($);
