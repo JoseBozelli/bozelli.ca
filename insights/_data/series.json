@@ -28,6 +28,16 @@
         "remodeling-the-brain",
         "the-inflammation-marker-that-cant"
       ]
+    },
+
+    {
+      "slug": "ai-measured",
+      "title": "AI, Measured",
+      "blurb": "Health AI produces numbers that arrive with the confidence of a measurement. This series reads them the way a scientist reads an instrument: what was measured, how well, and whether the result is good enough to act on.",
+      "hasIntro": true,
+      "posts": [
+        "ai-cant-rescue-a-bad-measurement"
+      ]
     }
   ]
 }

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Health AI can find remarkable patterns. It can also learn the hospital, the batch, or the mistake.">
+  <title>AI Can't Rescue a Bad Measurement — José Carlos Bozelli Jr., PhD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- bozelli.ca is declared the canonical home for this piece. -->
+  <link rel="canonical" href="https://bozelli.ca/insights/ai-cant-rescue-a-bad-measurement.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="AI Can't Rescue a Bad Measurement">
+  <meta property="og:description" content="Health AI can find remarkable patterns. It can also learn the hospital, the batch, or the mistake.">
+  <meta property="og:url" content="https://bozelli.ca/insights/ai-cant-rescue-a-bad-measurement.html">
+  <meta property="og:image" content="https://substackcdn.com/image/fetch/$s_!t4yE!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa101fc51-b792-400a-8fb0-ae7a4c0ab2fa_1672x941.png">
+  <meta property="og:site_name" content="José Carlos Bozelli Jr., PhD">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Can't Rescue a Bad Measurement">
+  <meta name="twitter:description" content="Health AI can find remarkable patterns. It can also learn the hospital, the batch, or the mistake.">
+  <meta name="twitter:image" content="https://substackcdn.com/image/fetch/$s_!t4yE!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa101fc51-b792-400a-8fb0-ae7a4c0ab2fa_1672x941.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "AI Can't Rescue a Bad Measurement",
+    "description": "Health AI can find remarkable patterns. It can also learn the hospital, the batch, or the mistake.",
+    "url": "https://bozelli.ca/insights/ai-cant-rescue-a-bad-measurement.html",
+    "image": "https://substackcdn.com/image/fetch/$s_!t4yE!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa101fc51-b792-400a-8fb0-ae7a4c0ab2fa_1672x941.png",
+    "datePublished": "2026-10-08T13:32:49.000Z",
+    "dateModified": "2026-10-08T13:32:49.000Z",
+    "author": {
+      "@type": "Person",
+      "name": "José Carlos Bozelli Jr.",
+      "url": "https://bozelli.ca/about.html"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "José Carlos Bozelli Jr.",
+      "url": "https://bozelli.ca/"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://bozelli.ca/insights/ai-cant-rescue-a-bad-measurement.html"
+    }
+  }
+  </script>
+
+  <!-- PREVIEW-ONLY FALLBACK TOKENS — safe to leave permanently; your real
+       style.css overrides these the moment it's present in the repo. -->
+  <style>
+    :root {
+      --paper:#F6F2EA; --paper-warm:#F0E8D8; --white:#FFFFFF;
+      --accent:#234A3A; --ink:#1B1B18; --ink-soft:#4A4742; --ink-muted:#8A8479;
+      --rule:rgba(0,0,0,.08); --rule-mid:rgba(0,0,0,.14);
+      --serif:'Cormorant Garamond',serif; --mono:'DM Mono',monospace; --sans:'Outfit',sans-serif;
+      --ease:cubic-bezier(.16,1,.3,1);
+    }
+    .reveal { opacity: 1 !important; }
+    .related-section { padding: 64px 0; border-top: 0.5px solid var(--rule); }
+    .related-label { font-family: var(--mono); font-size: 10px; color: var(--accent); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 24px; }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; }
+    .related-card h5 { font-family: var(--serif); font-size: 18px; font-weight: 400; margin-bottom: 6px; line-height: 1.3; }
+    .related-card p { font-size: 12px; color: var(--ink-muted); font-weight: 300; line-height: 1.5; }
+  </style>
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/insights-addon.css">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SJ8ZNZZJT9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-SJ8ZNZZJT9");
+  </script>
+</head>
+<body data-page="insights">
+
+  <div class="lang-bar">
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" data-lang="pt" onclick="setLang('pt')">PT</button>
+  </div>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">José Carlos Bozelli Jr<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="/" data-page="home" data-en="Home" data-pt="Início">Home</a></li>
+        <li><a href="../insights.html" data-page="insights" data-en="Insights" data-pt="Reflexões">Insights</a></li>
+        <li><a href="../services.html" data-page="services" data-en="Consulting" data-pt="Consultoria">Consulting</a></li>
+        <li><a href="../about.html" data-page="about" data-en="About" data-pt="Sobre">About</a></li>
+        <li><a href="../contact.html" data-page="contact" class="nav-cta" data-en="Book a call" data-pt="Agendar">Book a call</a></li>
+      </ul>
+      <div class="nav-mobile-toggle"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <header class="article-header">
+    <div class="container">
+      <div class="article-breadcrumb"><a href="../insights.html">← Insights</a> &nbsp;/&nbsp; Lipids, Data &amp; Life</div>
+      <div class="article-eyebrow">Lipids, Data &amp; Life · October 8, 2026</div>
+      <h1>AI Can't Rescue a Bad Measurement</h1>
+      <p class="article-dek">Health AI can find remarkable patterns. It can also learn the hospital, the batch, or the mistake.</p>
+      <div class="article-byline">
+        <span>José Carlos Bozelli Jr., PhD</span>
+        <span>·</span>
+        <span>13 min read</span>
+        <span>·</span>
+        <span>Also on <a href="https://josebozelli.substack.com/p/ai-cant-rescue-a-bad-measurement" target="_blank" rel="noopener" style="color:var(--accent);">Substack</a></span>
+      </div>
+    </div>
+  </header>
+
+  <article class="article-body">
+<p>Your watch says you slept seven hours and twenty minutes and that your recovery is “moderate.” A lab portal adds an automatically generated risk estimate beside one of your results. A headline announces that software now reads scans as well as specialists. Each of these numbers comes from a system trained on data, and each arrives with the quiet confidence of a measurement.</p><p>The question most people ask is whether to trust the number. It is the right question. It has also run through my entire career as a scientist. Before an experiment can answer anything, the measurement must earn our trust. Does it capture what we think it captures? How accurately? Where was it checked, and how often is it wrong? Only when those questions are satisfied does a result become evidence.</p><p>This piece begins “<em><strong>AI, Measured</strong>”,</em> a series that asks those questions of artificial intelligence in healthcare. It is neither a case for AI nor a case against it. Some of these tools are remarkable, and the evidence shows it. Others are better at sounding certain than at being right. The difference rarely shows on the screen. It lives upstream, in what the system was given to learn from.</p><p>So, we start where my series often starts: with the measurement. Measurement comes before understanding and before any decision. AI does not get to skip that step.</p><div class="captioned-image-container"><figure><a class="image-link image2 is-viewable-img" target="_blank" href="https://substackcdn.com/image/fetch/$s_!t4yE!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa101fc51-b792-400a-8fb0-ae7a4c0ab2fa_1672x941.png" data-component-name="Image2ToDOM"><div class="image2-inset"><picture><source type="image/webp" srcset="https://substackcdn.com/image/fetch/$s_!t4yE!,w_424,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa101fc51-b792-400a-8fb0-ae7a4c0ab2fa_1672x941.png 424w, https://substackcdn.com/image/fetch/$s_!t4yE!,w_848,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa101fc51-b792-400a-8fb0-ae7a4c0ab2fa_1672x941.png 848w, https://substackcdn.com/image/fetch/$s_!t4yE!,w_1272,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa101fc51-b792-400a-8fb0-ae7a4c0ab2fa_1672x941.png 1272w, https://substackcdn.com/image/fetch/$s_!t4yE!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa101fc51-b792-400a-8fb0-ae7a4c0ab2fa_1672x941.png 1456w" sizes="100vw"><img src="https://substackcdn.com/image/fetch/$s_!t4yE!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa101fc51-b792-400a-8fb0-ae7a4c0ab2fa_1672x941.png" width="1456" height="819" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/a101fc51-b792-400a-8fb0-ae7a4c0ab2fa_1672x941.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:819,&quot;width&quot;:1456,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:2095173,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null,&quot;belowTheFold&quot;:false,&quot;topImage&quot;:true,&quot;internalRedirect&quot;:&quot;https://josebozelli.substack.com/i/219320114?img=https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa101fc51-b792-400a-8fb0-ae7a4c0ab2fa_1672x941.png&quot;,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" class="sizing-normal" alt="" srcset="https://substackcdn.com/image/fetch/$s_!t4yE!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa101fc51-b792-400a-8fb0-ae7a4c0ab2fa_1672x941.png 424w, https://substackcdn.com/image/fetch/$s_!t4yE!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa101fc51-b792-400a-8fb0-ae7a4c0ab2fa_1672x941.png 848w, https://substackcdn.com/image/fetch/$s_!t4yE!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa101fc51-b792-400a-8fb0-ae7a4c0ab2fa_1672x941.png 1272w, https://substackcdn.com/image/fetch/$s_!t4yE!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa101fc51-b792-400a-8fb0-ae7a4c0ab2fa_1672x941.png 1456w" sizes="100vw" fetchpriority="high"></picture><div class="image-link-expand"><div class="pencraft pc-display-flex pc-gap-8 pc-reset"><button tabindex="0" type="button" class="pencraft pc-reset pencraft icon-container restack-image buttonBase-GK1x3M"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke-width="1.5" stroke="var(--color-fg-primary)" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" class="icon-noB79L"><g><path d="M2.53001 7.81595C3.49179 4.73911 6.43281 2.5 9.91173 2.5C13.1684 2.5 15.9537 4.46214 17.0852 7.23684L17.6179 8.67647M17.6179 8.67647L18.5002 4.26471M17.6179 8.67647L13.6473 6.91176M17.4995 12.1841C16.5378 15.2609 13.5967 17.5 10.1178 17.5C6.86118 17.5 4.07589 15.5379 2.94432 12.7632L2.41165 11.3235M2.41165 11.3235L1.5293 15.7353M2.41165 11.3235L6.38224 13.0882"></path></g></svg></button><button tabindex="0" type="button" class="pencraft pc-reset pencraft icon-container view-image buttonBase-GK1x3M"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-maximize2 lucide-maximize-2 icon-noB79L"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" x2="14" y1="3" y2="10"></line><line x1="3" x2="10" y1="21" y2="14"></line></svg></button></div></div></div></a></figure></div><div><hr></div><h2>A Model Learns from Worked Examples</h2><p>Strip away the vocabulary and most health AI works the same way. The model is a pattern-finder. Many examples are shown, each paired with an answer; <em>e.g.</em>, a chest X-ray and a radiologist’s verdict, or blood results and whether the patient was alive three years later. The algorithm adjusts itself until its output matches those answers, and then it is used where the answer is unknown.</p><p>The model never meets the patient. It meets numbers, images, and codes produced by devices, laboratories, and clinicians. It learns whatever pattern links those inputs to those answers. If the inputs were measured badly or the answers were wrong, it learns that too.</p><p>Think of an apprentice who learns to grade exams by copying an experienced examiner. If the examiner consistently marks one kind of answer wrong, the apprentice reproduces the error and looks excellent when checked against that examiner’s marks. Or picture a bathroom scale that always reads two kilograms heavy. You could study its numbers with great care, chart them, average them, even predict tomorrow’s reading perfectly, and you would still be two kilograms wrong. The error was never in the reading. It was in the scale.</p><p>These analogies have a limit. With enough data, models can partly cope with random noise, the kind that scatters readings around the truth. What they cannot see is systematic error, the kind that pushes readings one way or changes quietly over time. Statisticians have tested this directly. When measurement protocols differ between model development and clinical deployment, calibration degrades, and discriminatory power declines, compromising clinical utility. ¹ Even plain noise has a hidden cost: a model fed error-prone measurements can stay well calibrated, meaning its average risk estimates still match reality, while becoming much worse at telling individual patients apart. ²</p><p>Readers of the <a href="https://bozelli.ca/insights/series/biomarker-validity.html">Biomarker Validity</a> series will know this pattern from the other side. There, the usual failure was not a broken assay, but a valid measurement attached to the wrong biological question. When an AI model is trained on such a measurement, it does not correct the mismatch. It learns it, automates it, and repeats it for every patient it scores.</p><h2>Sometimes the Model Learns the Hospital, Not the Patient</h2><p>In 2018, researchers examined one year of laboratory records for 669,452 patients at two large Boston hospitals. ³ They analyzed how well 272 common laboratory tests predicted whether a patient would be alive three years later. Then they asked a strange question: what happens if you ignore the result entirely and look only at when the test was ordered?</p><p>The findings were striking. For 233 of the 272 tests, simply having the test ordered was associated with survival, regardless of the result. ³ For about two-thirds of the tests where the comparison models could be evaluated, order timing (the hour of the day, day of the week, or interval between orders) provided more predictive signal for three-year survival than the physiological test result value itself, <em>i.e.</em>, the clock carried more information than the chemistry. ³</p><p>Why? The likely reason is that a blood draw ordered at 3:00 AM reflects an urgent clinical concern, whereas a routine morning panel reflects scheduled care. The clock captured physician worry, and that worry was highly predictive of patient outcomes. But it was hospital workflow, not biology.</p><p>A similar phenomenon appears in medical imaging. ⁴ When models were trained to detect pneumonia on chest X-rays from three distinct hospital systems, researchers discovered the models could identify which hospital an image came from with over 99.9% accuracy. That mattered, because pneumonia was present in 34.2% of images at one hospital and about 1% at the others. The model learned to recognize where an image came from, and the hospital with far more pneumonia, as a shortcut. When tested on a new hospital system, its diagnostic performance dropped substantially. ⁴</p><div class="pullquote"><p><strong>In both cases, nothing glitched. The data held a real pattern. It simply lived in how healthcare was delivered, not inside the patient.</strong></p></div><h2>Three Hidden Measurements Inside Every AI Result</h2><p>An AI result rests on three separate measurements, and each can mislead on its own.</p><blockquote><p><strong>1. The Input</strong></p><p>The input consists of raw numbers, codes, or images the model reads. A model learns what values mean during training, and if that meaning changes later, it has no way of knowing. </p><p>Imagine a model that learned what a given troponin result (a blood marker of heart injury) says about a patient. If a hospital upgrades to a more sensitive troponin test, the same numerical result no longer represents the same clinical reality, yet an unadjusted model keeps reading it the old way. Researchers cataloging clinical AI failures list this assay change as one recognized source of dataset shift. ⁵</p><p>This happens in practice. In Toronto, a system monitoring an in-hospital mortality-prediction model across seven hospitals and 143,049 patients detected harmful shifts in input data, including changes for two blood markers, <em>i.e.</em>, brain natriuretic peptide (BNP) and D-dimer. ⁶ In another instance, a sepsis-alert model was deactivated at a US hospital in April 2020 after the COVID-19 pandemic changed the baseline link between fevers and bacterial infection. ⁵</p><p><strong>2. The Label</strong></p><p>The label is the target answer the model was trained to predict. Labels are measurements too, and they are usually created by humans or administrative records.</p><p>When a team reexamined how specialists graded diabetic eye disease in retinal photographs, they found that the single most common source of disagreement, accounting for 36% of discrepancies, was a missed microaneurysm, a tiny bulge in a retinal blood vessel. ⁷ Retraining the model with a small set of carefully adjudicated grades from retina specialists, together with higher-resolution images, raised the model’s area under the curve (AUC). The AUC answers a simple question: take one patient with disease and one without, and how often does the model correctly rank the sick one as more likely to be sick? A score of 0.5 is a coin toss; 1.0 is right every time. The AUC for moderate or worse disease rose from 0.934 to 0.986.⁷ Neither change made the algorithm itself smarter. One gave it better answers to learn from, the other a sharper input. Furthermore, health record data carry their own errors. Researchers who study bias in AI built from these records count measurement error and misclassification among its standard sources.</p><p><strong>3. The Benchmark Ruler</strong></p><p>The third measurement is the evaluation standard used to grade the model. Even if an AI model receives clean inputs and was trained on solid labels, we can still misjudge its performance if the metric we used to grade it is warped. To evaluate clinical AI, researchers compare its outputs against a reference answer key. But if that answer key contains errors, a perfectly accurate model will appear to fail. ⁸ </p><p>Picture 1,000 people, 100 truly sick and 900 healthy, and a perfect model that flags exactly the 100 sick people. Now grade it with a key that never misses a sick person but mislabels 1 in 10 healthy people as sick. That key lists 190 “cases”: the 100 real ones, plus 90 healthy people marked by mistake. The perfect model rightly ignores those 90, so against the key it seems to catch only 100 of 190, about 53%. ⁸ Nothing about the model changed. Only the metric did.</p><p>Laboratory scientists know this territory well. In high-throughput omics profiling, results shift with laboratory conditions, reagent lots, and personnel. ⁹ These “batch effects” become dangerous when technical quirks align with the disease under study. In my experience with large-scale population serum lipidomics across 26 analytical batches, the rule is simple. Every run must carry shared reference samples. Benchmark evaluations show that scaling raw data into ratios against concurrent reference materials is the most reliable way to eliminate batch noise, even when technical artifacts and biological signals are completely tangled together. ¹⁰ Without this calibration, an AI model won’t learn the biology—it will learn the day the machine was tuned.</p></blockquote><h2>From Hospital Algorithms to the Wrist</h2><p>This three-part structure—raw input, training target, and benchmark evaluation—doesn’t just apply to hospital systems or genomic pipelines. It plays out every minute on millions of human wrists.</p><p>Consumer wearables are a useful personal case study. A smartwatch is essentially a miniature health model: light sensors on your skin collect raw optical signals (the input), onboard algorithms process those signals (the model), and your screen displays a simplified health metric (the derived estimate). When we look at how well these devices perform, the exact same measurement rules apply.</p><p>A comprehensive living review synthesizing 24 systematic reviews across 430,000 participants highlights where this pipeline works—and where it breaks down. ¹³ Heart rate tracking holds up well, with readings averaging within ~3% of clinical reference standards. However, estimated aerobic fitness (VO<sub>2</sub>max) was overestimated by a mean of ~15% in resting tests, and consumer sleep trackers tended to overestimate total sleep time, with mean errors typically exceeding 10%.¹³ Most surprisingly, only about 11% of commercially released wearable devices were validated for even a single measurement outcome. ¹³</p><div class="callout-block" data-callout="true"><p style="text-align: center;"><em><strong>Performance as measured vs. usefulness as claimed</strong></em></p><p>Performance as measured is what a model was shown to do, on which data, and against which answer key.</p><p>Usefulness as claimed is what it is said to do for you, here and now.</p><p><strong>The first is a finding. The second is a promise — and the gap between them is often a measurement problem.</strong></p></div><h2>What Evidence Shows</h2><p>None of this means AI in healthcare is failing. The trial evidence is real and growing. A review of 86 randomized controlled trials evaluating AI in active clinical practice found that 70 of them (81%) reported positive results on their main outcome, most often in detection tasks such as finding polyps during colonoscopy. ¹¹ However, 63% of these trials were conducted in a single center, about half measured diagnostic yield or performance rather than whether patients ended up healthier, and the authors caution that publication bias likely flatters the overall picture.¹¹</p><p>AI can process clinical data at speed, but it cannot transcend the fidelity of its inputs. A more sophisticated model cannot recover information the measurement never captured. If we want AI tools that deliver genuine health intelligence, we need rigorous, transparent, and validated measurements at every step of the pipeline.</p><h2>What a good model can and cannot do</h2><p>A good model can do remarkable things with a good measurement. It can find patterns too subtle for a person to see and apply them consistently, without fatigue.</p><p>What it cannot do is create information the measurement never captured or correct a systematic error it has no way of seeing. Without dedicated monitoring, a deployed model may not recognize when its input data have shifted, allowing performance to deteriorate silently while routine-looking outputs continue to appear. ¹<sup>,</sup>² This is why monitoring matters. In the Toronto study, a system that watched incoming data flagged harmful shifts, and updating the model when they appeared helped maintain its performance. ⁶ Better answer keys matter just as much, because a model’s reliability is constrained by the examples it learns from and the yardstick used to judge it.⁷<sup>,</sup>⁸</p><p>Open questions remain. How often should a deployed model be rechecked? Who is responsible for noticing when a laboratory changes its method? How should a device tell you which of its numbers are measured and which are estimated? These are quality-control questions, the kind laboratories have long answered for their instruments.</p><p>So, when the next AI-generated number arrives, on your wrist, in your lab portal, or in a headline, start with one question before any other.</p><p><em><strong>What was it actually measuring?</strong></em></p><p>It will not be the only question worth asking. It is the one that comes first, because no model, however clever, can rescue a bad measurement. That is where measurement becomes meaning, or fails to.</p><div><hr></div><p><em>This article is for informational and educational purposes only and does not constitute medical advice. Scientific claims are grounded in the peer-reviewed literature cited; individual findings should be interpreted within the scope and limitations of those sources.</em></p><p><strong>José C Bozelli Jr., PhD</strong>, is a scientist working at the intersection of biomarkers, omics, data science, and AI. He writes about health intelligence: how biological measurements become evidence, insight, and better decisions.</p><p><a href="https://bozelli.ca">bozelli.ca</a></p><h2>References</h2><blockquote><p>1. Luijken K, et al. Impact of predictor measurement heterogeneity across settings on the performance of prediction models: a measurement error perspective. Stat Med. 2019;38(18):3444–59. DOI: <a href="https://doi.org/10.1002/sim.8183">10.1002/sim.8183</a></p><p>2. Khudyakov P, et al. The impact of covariate measurement error on risk prediction. Stat Med. 2015;34(15):2353–67. DOI: <a href="https://doi.org/10.1002/sim.6498">10.1002/sim.6498</a></p><p>3. Agniel D, et al. Biases in electronic health record data due to processes within the healthcare system: retrospective observational study. BMJ. 2018;361:k1479. DOI: <a href="https://doi.org/10.1136/bmj.k1479">10.1136/bmj.k1479</a></p><p>4. Zech JR, et al. Variable generalization performance of a deep learning model to detect pneumonia in chest radiographs: a cross-sectional study. PLoS Med. 2018;15(11):e1002683. DOI: <a href="https://doi.org/10.1371/journal.pmed.1002683">10.1371/journal.pmed.1002683</a></p><p>5. Finlayson SG, et al. The clinician and dataset shift in artificial intelligence. N Engl J Med. 2021;385(3):283–6. DOI: <a href="https://doi.org/10.1056/NEJMc2104626">10.1056/NEJMc2104626</a></p><p>6. Subasri V, et al. Detecting and remediating harmful data shifts for the responsible deployment of clinical AI models. JAMA Netw Open. 2025;8(6):e2513685. DOI: <a href="https://doi.org/10.1001/jamanetworkopen.2025.13685">10.1001/jamanetworkopen.2025.13685</a></p><p>7. Krause J, et al. Grader variability and the importance of reference standards for evaluating machine learning models for diabetic retinopathy. Ophthalmology. 2018;125(8):1264–72. DOI: <a href="https://doi.org/10.1016/j.ophtha.2018.01.034">10.1016/j.ophtha.2018.01.034</a></p><p>8. Chavoshi M, et al. Impact of label noise from large language model-generated annotations on evaluation of diagnostic model performance. Radiol Artif Intell. 2026;8(2):e250477. DOI: <a href="https://doi.org/10.1148/ryai.250477">10.1148/ryai.250477</a></p><p>9. Leek JT, et al. Tackling the widespread and critical impact of batch effects in high-throughput data. Nat Rev Genet. 2010;11(10):733–9. DOI: <a href="https://doi.org/10.1038/nrg2825">10.1038/nrg2825</a></p><p>10. Yu Y, et al. Correcting batch effects in large-scale multiomics studies using a reference-material-based ratio method. Genome Biol. 2023;24(1):201. DOI: <a href="https://doi.org/10.1186/s13059-023-03047-z">10.1186/s13059-023-03047-z</a></p><p>11. Han R, et al. Randomised controlled trials evaluating artificial intelligence in clinical practice: a scoping review. Lancet Digit Health. 2024;6(5):e367–73. DOI: <a href="https://doi.org/10.1016/S2589-7500(24)00047-5">10.1016/S2589-7500(24)00047-5</a></p><p>12. Gianfrancesco MA, et al. Potential biases in machine learning algorithms using electronic health record data. JAMA Intern Med. 2018;178(11):1544–7. DOI: <a href="https://doi.org/10.1001/jamainternmed.2018.3763">10.1001/jamainternmed.2018.3763</a></p><p>13. Doherty C, et al. Keeping pace with wearables: a living umbrella review of systematic reviews evaluating the accuracy of consumer wearable technologies in health measurement. Sports Med. 2024;54(11):2907–26. DOI: <a href="https://doi.org/10.1007/s40279-024-02077-2">10.1007/s40279-024-02077-2</a></p></blockquote><p><em><strong>Author &amp; Editorial Note:</strong> This article was conceived and editorially directed by the author, who defined its argument, audience, voice, narrative structure, and scientific framing. AI tools, including large language model assistants, supported literature discovery, synthesis, and citation checking, and generated draft prose within that direction. The author reviewed the evidence, edited the manuscript, and retains responsibility for the interpretation and final published text.</em></p>
+  </article>
+
+  <section class="related-section">
+    <div class="container">
+      <div class="related-label" data-en="Related reading" data-pt="Leitura relacionada">Related reading</div>
+      <div class="related-grid">
+        <a href="the-inflammation-marker-that-cant.html" class="related-card">
+          <h5>The Inflammation Marker That Can't See the Fire</h5>
+          <p>Standard inflammation markers tell you that something is burning. They cannot tell you what, or why, it is burning. A specific family of lipid molecules can.</p>
+        </a>
+        <a href="remodeling-the-brain.html" class="related-card">
+          <h5>Remodeling the Brain</h5>
+          <p>Cognitive health depends on fats delivered to the brain. The standard omega-3 index tells only half of the story about how they do it.</p>
+        </a>
+        <a href="what-your-gut-is-telling-your-liver.html" class="related-card">
+          <h5>What Your Gut Is Telling Your Liver</h5>
+          <p>What does a family of molecules your microbiome makes from your breakfast reveal about the conversation happening between your gut and the rest of your body?</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="series-nav">
+    <div class="series-nav-inner">
+      <div class="series-nav-label">Continue reading</div>
+      <a href="../insights.html" class="series-nav-link" style="text-decoration:none;">
+        <h5>Browse the rest of the series</h5>
+        <span>All Insights →</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--paper-warm); padding: 64px 0;">
+    <div class="container">
+      <div class="subscribe-panel">
+        <div class="subscribe-panel-label">Stay current</div>
+        <h4>Get new pieces by email</h4>
+        <p>New pieces land here first and in your inbox at the same time — biweekly, free, no spam.</p>
+        <div class="subscribe-embed">
+          <iframe src="https://josebozelli.substack.com/embed" frameborder="0" scrolling="no" title="Subscribe to Lipids, Data &amp; Life"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-name">José Carlos Bozelli Jr., PhD · bozelli.ca</div>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/jose-bozelli" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://josebozelli.substack.com" target="_blank" rel="noopener">Substack</a>
+        <a href="../services.html" data-en="Consulting" data-pt="Consultoria">Consulting</a>
+        <a href="../contact.html" data-en="Contact" data-pt="Contato">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

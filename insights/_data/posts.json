@@ -155,6 +155,18 @@
       "imageUrl": "https://substackcdn.com/image/fetch/$s_!1CH6!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3295e644-ca81-4c96-9cd6-6bbba18e380a_1672x941.png",
       "contentHash": "616c4c8912be37c2d19aac9ea9e5bf7ca73c523e4cd2bcf63c9d2686eb234a29",
       "templateHash": "dc5af5d3e4854ceca9807431e3e0a89c907c18c381148c5d5ff4f7d77d85e547"
+    },
+    {
+      "slug": "ai-cant-rescue-a-bad-measurement",
+      "title": "AI Can't Rescue a Bad Measurement",
+      "dek": "Health AI can find remarkable patterns. It can also learn the hospital, the batch, or the mistake.",
+      "section": "Lipids, Data & Life",
+      "pubDate": "2026-10-08T13:32:49.000Z",
+      "substackUrl": "https://josebozelli.substack.com/p/ai-cant-rescue-a-bad-measurement",
+      "readTime": 13,
+      "imageUrl": "https://substackcdn.com/image/fetch/$s_!t4yE!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa101fc51-b792-400a-8fb0-ae7a4c0ab2fa_1672x941.png",
+      "contentHash": "5b114723b106fd4b6e619eba3c9b8c08eb19357dcf1c77f03064ff41bb61e0ca",
+      "templateHash": "dc5af5d3e4854ceca9807431e3e0a89c907c18c381148c5d5ff4f7d77d85e547"
     }
   ]
 }
