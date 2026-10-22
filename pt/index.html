@@ -489,9 +489,8 @@
 <div class="container">
 <!-- HOME_FEATURED:START -->
       <style>
-  .home-frame{position:relative;display:block;width:100%;overflow:hidden;background:var(--paper-mid,#e4dfd4);isolation:isolate}
-  .home-frame::before{content:"";position:absolute;inset:-24px;background-image:var(--img);background-size:cover;background-position:center;filter:blur(22px) saturate(1.05);opacity:.55;transform:scale(1.1);z-index:-1}
-  .home-frame>img{display:block;width:100%;height:100%;object-fit:contain;transition:opacity .25s}
+  .home-frame{position:relative;display:block;width:100%;box-sizing:border-box;background:var(--paper-warm,#ece8df);border:0.5px solid var(--rule-mid,rgba(14,14,13,.18))}
+  .home-frame>img{position:absolute;top:6%;left:6%;width:88%;height:88%;object-fit:contain;transition:opacity .25s}
   .home-frame--lead{aspect-ratio:16/10}
   .home-frame--tile{aspect-ratio:4/3;margin-bottom:18px}
   .featured-story{align-items:center;margin-top:48px}
@@ -504,7 +503,7 @@
       <span class="insights-series-tag" data-en="AI, Measured" data-pt="AI, Measured">AI, Measured</span>
 
       <div class="featured-story reveal reveal-delay-2">
-        <span class="home-frame home-frame--lead" style="--img:url('assets/img/how-do-you-know-an-ai-learned-the-card.png')"><img src="assets/img/how-do-you-know-an-ai-learned-the-card.png" alt="How Do You Know an AI Learned the Right Thing?" loading="lazy"></span>
+        <span class="home-frame home-frame--lead"><img src="assets/img/how-do-you-know-an-ai-learned-the-card.png" alt="How Do You Know an AI Learned the Right Thing?" loading="lazy"></span>
         <div class="featured-story-body">
           <div class="featured-story-label" data-en="AI, Measured" data-pt="AI, Measured">AI, Measured</div>
           <h3>How Do You Know an AI Learned the Right Thing?</h3>
@@ -515,19 +514,19 @@
 
       <div class="secondary-stories">
         <a href="/insights/the-biomarker-gold-rush.html" class="secondary-story reveal">
-          <span class="home-frame home-frame--tile" style="--img:url('assets/img/the-biomarker-gold-rush-card.png')"><img src="assets/img/the-biomarker-gold-rush-card.png" alt="The Biomarker Gold Rush Has a Counterfeiting Problem" loading="lazy"></span>
+          <span class="home-frame home-frame--tile"><img src="assets/img/the-biomarker-gold-rush-card.png" alt="The Biomarker Gold Rush Has a Counterfeiting Problem" loading="lazy"></span>
           <div class="secondary-story-tag" data-en="Biomarker Validity" data-pt="Biomarker Validity">Biomarker Validity</div>
           <h4>The Biomarker Gold Rush Has a Counterfeiting Problem</h4>
           <p data-en="The omics pipeline rewards discovery. It rarely rewards validation. Here is why that gap is predictable, measurable, and systematically mispriced in most due diligence frameworks." data-pt="O pipeline da ômica recompensa a descoberta. Raramente recompensa a validação.">The omics pipeline rewards discovery. It rarely rewards validation. Here is why that gap is predictable, measurable, and systematically mispriced in most due diligence frameworks.</p>
         </a>
         <a href="/insights/the-inflammation-marker-that-cant.html" class="secondary-story reveal reveal-delay-1">
-          <span class="home-frame home-frame--tile" style="--img:url('https://substackcdn.com/image/fetch/$s_!1CH6!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3295e644-ca81-4c96-9cd6-6bbba18e380a_1672x941.png')"><img src="https://substackcdn.com/image/fetch/$s_!1CH6!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3295e644-ca81-4c96-9cd6-6bbba18e380a_1672x941.png" alt="The Inflammation Marker That Can't See the Fire" loading="lazy"></span>
+          <span class="home-frame home-frame--tile"><img src="https://substackcdn.com/image/fetch/$s_!1CH6!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F3295e644-ca81-4c96-9cd6-6bbba18e380a_1672x941.png" alt="The Inflammation Marker That Can't See the Fire" loading="lazy"></span>
           <div class="secondary-story-tag" data-en="One Molecule at a Time" data-pt="One Molecule at a Time">One Molecule at a Time</div>
           <h4>The Inflammation Marker That Can't See the Fire</h4>
           <p data-en="Standard inflammation markers tell you that something is burning. They cannot tell you what, or why, it is burning. A specific family of lipid molecules can." data-pt="[PT translation pending]">Standard inflammation markers tell you that something is burning. They cannot tell you what, or why, it is burning. A specific family of lipid molecules can.</p>
         </a>
         <a href="/insights/ai-cant-rescue-a-bad-measurement.html" class="secondary-story reveal reveal-delay-2">
-          <span class="home-frame home-frame--tile" style="--img:url('https://substackcdn.com/image/fetch/$s_!t4yE!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa101fc51-b792-400a-8fb0-ae7a4c0ab2fa_1672x941.png')"><img src="https://substackcdn.com/image/fetch/$s_!t4yE!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa101fc51-b792-400a-8fb0-ae7a4c0ab2fa_1672x941.png" alt="AI Can't Rescue a Bad Measurement" loading="lazy"></span>
+          <span class="home-frame home-frame--tile"><img src="https://substackcdn.com/image/fetch/$s_!t4yE!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa101fc51-b792-400a-8fb0-ae7a4c0ab2fa_1672x941.png" alt="AI Can't Rescue a Bad Measurement" loading="lazy"></span>
           <div class="secondary-story-tag" data-en="AI, Measured" data-pt="AI, Measured">AI, Measured</div>
           <h4>AI Can't Rescue a Bad Measurement</h4>
           <p data-en="Health AI can find remarkable patterns. It can also learn the hospital, the batch, or the mistake." data-pt="[PT translation pending]">Health AI can find remarkable patterns. It can also learn the hospital, the batch, or the mistake.</p>

@@ -354,15 +354,14 @@ function resolveCardImage(post) {
   return post.imageUrl || "";
 }
 
-// Image frame: every Home image sits in a fixed-aspect frame. The image is
-// shown whole (object-fit: contain, so infographic text is never cropped)
-// over a blurred, enlarged copy of itself that fills the frame. Result:
-// any image size/ratio (landscape, portrait, square) renders as a clean,
-// uniform tile with no empty bands. Pure CSS, no per-image settings.
+// Image "paper mat": every Home image sits whole (never cropped) inside a
+// fixed-shape frame on the site's warm paper tone with a hairline border,
+// like a print in a mount. Any image size or ratio (landscape, portrait,
+// square) therefore renders as a uniform, tidy tile — no per-image work.
+// Pure CSS; shapes are the two aspect-ratio values below.
 const HOME_MODULE_CSS = `<style>
-  .home-frame{position:relative;display:block;width:100%;overflow:hidden;background:var(--paper-mid,#e4dfd4);isolation:isolate}
-  .home-frame::before{content:"";position:absolute;inset:-24px;background-image:var(--img);background-size:cover;background-position:center;filter:blur(22px) saturate(1.05);opacity:.55;transform:scale(1.1);z-index:-1}
-  .home-frame>img{display:block;width:100%;height:100%;object-fit:contain;transition:opacity .25s}
+  .home-frame{position:relative;display:block;width:100%;box-sizing:border-box;background:var(--paper-warm,#ece8df);border:0.5px solid var(--rule-mid,rgba(14,14,13,.18))}
+  .home-frame>img{position:absolute;top:6%;left:6%;width:88%;height:88%;object-fit:contain;transition:opacity .25s}
   .home-frame--lead{aspect-ratio:16/10}
   .home-frame--tile{aspect-ratio:4/3;margin-bottom:18px}
   .featured-story{align-items:center;margin-top:48px}
@@ -373,8 +372,7 @@ const HOME_MODULE_CSS = `<style>
 
 function homeFrame(post, variant) {
   const src = resolveCardImage(post);
-  const safe = esc(src).replace(/'/g, "%27");
-  return `<span class="home-frame home-frame--${variant}" style="--img:url('${safe}')"><img src="${esc(src)}" alt="${esc(post.title)}" loading="lazy"></span>`;
+  return `<span class="home-frame home-frame--${variant}"><img src="${esc(src)}" alt="${esc(post.title)}" loading="lazy"></span>`;
 }
 
 function buildHomeFeaturedBlock(manifest, bySlugMap, seriesConfig) {
