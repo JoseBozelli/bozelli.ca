@@ -1,11 +1,11 @@
 {
-  "featured": "remodeling-the-brain",
-  "featuredQuestion": "What does it actually take to get DHA into the brain?",
-  "featuredQuestionPt": "O que é realmente preciso para o DHA chegar ao cérebro?",
+  "featured": "how-do-you-know-an-ai-learned-the",
+  "featuredQuestion": "How do you know an AI learned the right thing?",
+  "featuredQuestionPt": "Como saber se uma IA aprendeu a coisa certa?",
   "secondary": [
     "the-biomarker-gold-rush",
     "what-your-gut-is-telling-your-liver",
-    "when-your-metabolism-cant-switch"
+    "remodeling-the-brain"
   ],
   "posts": [
     {
@@ -166,6 +166,18 @@
       "readTime": 13,
       "imageUrl": "https://substackcdn.com/image/fetch/$s_!t4yE!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa101fc51-b792-400a-8fb0-ae7a4c0ab2fa_1672x941.png",
       "contentHash": "5b114723b106fd4b6e619eba3c9b8c08eb19357dcf1c77f03064ff41bb61e0ca",
+      "templateHash": "dc5af5d3e4854ceca9807431e3e0a89c907c18c381148c5d5ff4f7d77d85e547"
+    },
+    {
+      "slug": "how-do-you-know-an-ai-learned-the",
+      "title": "How Do You Know an AI Learned the Right Thing?",
+      "dek": "A horse, a purple pen, and how a high score can hide the wrong lesson.",
+      "section": "Lipids, Data & Life",
+      "pubDate": "2026-10-22T14:42:23.000Z",
+      "substackUrl": "https://josebozelli.substack.com/p/how-do-you-know-an-ai-learned-the",
+      "readTime": 12,
+      "imageUrl": "https://substackcdn.com/image/fetch/$s_!Vv3o!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1d3cc585-3c5e-4fd4-9b37-524ee2fa275c_1678x937.png",
+      "contentHash": "440d92819da37cdb5e771b7186a6528b7e0aaa7ee802d9d3952bd3385c412ecb",
       "templateHash": "dc5af5d3e4854ceca9807431e3e0a89c907c18c381148c5d5ff4f7d77d85e547"
     }
   ]

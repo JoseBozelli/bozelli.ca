@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A horse, a purple pen, and how a high score can hide the wrong lesson.">
+  <title>How Do You Know an AI Learned the Right Thing? — José Carlos Bozelli Jr., PhD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- bozelli.ca is declared the canonical home for this piece. -->
+  <link rel="canonical" href="https://bozelli.ca/insights/how-do-you-know-an-ai-learned-the.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="How Do You Know an AI Learned the Right Thing?">
+  <meta property="og:description" content="A horse, a purple pen, and how a high score can hide the wrong lesson.">
+  <meta property="og:url" content="https://bozelli.ca/insights/how-do-you-know-an-ai-learned-the.html">
+  <meta property="og:image" content="https://substackcdn.com/image/fetch/$s_!Vv3o!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1d3cc585-3c5e-4fd4-9b37-524ee2fa275c_1678x937.png">
+  <meta property="og:site_name" content="José Carlos Bozelli Jr., PhD">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How Do You Know an AI Learned the Right Thing?">
+  <meta name="twitter:description" content="A horse, a purple pen, and how a high score can hide the wrong lesson.">
+  <meta name="twitter:image" content="https://substackcdn.com/image/fetch/$s_!Vv3o!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1d3cc585-3c5e-4fd4-9b37-524ee2fa275c_1678x937.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "How Do You Know an AI Learned the Right Thing?",
+    "description": "A horse, a purple pen, and how a high score can hide the wrong lesson.",
+    "url": "https://bozelli.ca/insights/how-do-you-know-an-ai-learned-the.html",
+    "image": "https://substackcdn.com/image/fetch/$s_!Vv3o!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1d3cc585-3c5e-4fd4-9b37-524ee2fa275c_1678x937.png",
+    "datePublished": "2026-10-22T14:42:23.000Z",
+    "dateModified": "2026-10-22T14:42:23.000Z",
+    "author": {
+      "@type": "Person",
+      "name": "José Carlos Bozelli Jr.",
+      "url": "https://bozelli.ca/about.html"
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": "José Carlos Bozelli Jr.",
+      "url": "https://bozelli.ca/"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://bozelli.ca/insights/how-do-you-know-an-ai-learned-the.html"
+    }
+  }
+  </script>
+
+  <!-- PREVIEW-ONLY FALLBACK TOKENS — safe to leave permanently; your real
+       style.css overrides these the moment it's present in the repo. -->
+  <style>
+    :root {
+      --paper:#F6F2EA; --paper-warm:#F0E8D8; --white:#FFFFFF;
+      --accent:#234A3A; --ink:#1B1B18; --ink-soft:#4A4742; --ink-muted:#8A8479;
+      --rule:rgba(0,0,0,.08); --rule-mid:rgba(0,0,0,.14);
+      --serif:'Cormorant Garamond',serif; --mono:'DM Mono',monospace; --sans:'Outfit',sans-serif;
+      --ease:cubic-bezier(.16,1,.3,1);
+    }
+    .reveal { opacity: 1 !important; }
+    .related-section { padding: 64px 0; border-top: 0.5px solid var(--rule); }
+    .related-label { font-family: var(--mono); font-size: 10px; color: var(--accent); letter-spacing: 0.14em; text-transform: uppercase; margin-bottom: 24px; }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; }
+    .related-card h5 { font-family: var(--serif); font-size: 18px; font-weight: 400; margin-bottom: 6px; line-height: 1.3; }
+    .related-card p { font-size: 12px; color: var(--ink-muted); font-weight: 300; line-height: 1.5; }
+  </style>
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/insights-addon.css">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-SJ8ZNZZJT9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "G-SJ8ZNZZJT9");
+  </script>
+</head>
+<body data-page="insights">
+
+  <div class="lang-bar">
+    <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" data-lang="pt" onclick="setLang('pt')">PT</button>
+  </div>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="/" class="nav-logo">José Carlos Bozelli Jr<span>.</span></a>
+      <ul class="nav-links">
+        <li><a href="/" data-page="home" data-en="Home" data-pt="Início">Home</a></li>
+        <li><a href="../insights.html" data-page="insights" data-en="Insights" data-pt="Reflexões">Insights</a></li>
+        <li><a href="../services.html" data-page="services" data-en="Consulting" data-pt="Consultoria">Consulting</a></li>
+        <li><a href="../about.html" data-page="about" data-en="About" data-pt="Sobre">About</a></li>
+        <li><a href="../contact.html" data-page="contact" class="nav-cta" data-en="Book a call" data-pt="Agendar">Book a call</a></li>
+      </ul>
+      <div class="nav-mobile-toggle"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+
+  <header class="article-header">
+    <div class="container">
+      <div class="article-breadcrumb"><a href="../insights.html">← Insights</a> &nbsp;/&nbsp; Lipids, Data &amp; Life</div>
+      <div class="article-eyebrow">Lipids, Data &amp; Life · October 22, 2026</div>
+      <h1>How Do You Know an AI Learned the Right Thing?</h1>
+      <p class="article-dek">A horse, a purple pen, and how a high score can hide the wrong lesson.</p>
+      <div class="article-byline">
+        <span>José Carlos Bozelli Jr., PhD</span>
+        <span>·</span>
+        <span>12 min read</span>
+        <span>·</span>
+        <span>Also on <a href="https://josebozelli.substack.com/p/how-do-you-know-an-ai-learned-the" target="_blank" rel="noopener" style="color:var(--accent);">Substack</a></span>
+      </div>
+    </div>
+  </header>
+
+  <article class="article-body">
+<h2>The horse that could count</h2><p>In the early 1900s, a horse in Berlin named Hans drew crowds by doing arithmetic. Ask him what four plus three was, and he tapped his hoof seven times. Experts examined him and found no trick.</p><p>A careful experimenter noticed that Hans was right only when the person asking already knew the answer. The horse was not counting. He read tiny, unconscious changes in his questioner’s posture as the number of taps approached the right answer.</p><p>Machine learning researchers still use his name, Clever Hans, for a model that gets the right answer for the wrong reason.¹ Hans was often right. However, he was right for a reason that would fail the moment his questioner did not know the answer.</p><p>AI health tools face the same test. The first article in this series, AI Can’t Rescue a Bad Measurement, asked what a model is fed. This one asks the next question: when a model gets the answer right, did it get it right for the right reason?</p><p>This is where measurement turns into understanding. A score tells you how often a model was right. It does not tell you what the model learned to be right.</p><div class="captioned-image-container"><figure><a class="image-link image2 is-viewable-img" target="_blank" href="https://substackcdn.com/image/fetch/$s_!Vv3o!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1d3cc585-3c5e-4fd4-9b37-524ee2fa275c_1678x937.png" data-component-name="Image2ToDOM"><div class="image2-inset"><picture><source type="image/webp" srcset="https://substackcdn.com/image/fetch/$s_!Vv3o!,w_424,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1d3cc585-3c5e-4fd4-9b37-524ee2fa275c_1678x937.png 424w, https://substackcdn.com/image/fetch/$s_!Vv3o!,w_848,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1d3cc585-3c5e-4fd4-9b37-524ee2fa275c_1678x937.png 848w, https://substackcdn.com/image/fetch/$s_!Vv3o!,w_1272,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1d3cc585-3c5e-4fd4-9b37-524ee2fa275c_1678x937.png 1272w, https://substackcdn.com/image/fetch/$s_!Vv3o!,w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1d3cc585-3c5e-4fd4-9b37-524ee2fa275c_1678x937.png 1456w" sizes="100vw"><img src="https://substackcdn.com/image/fetch/$s_!Vv3o!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1d3cc585-3c5e-4fd4-9b37-524ee2fa275c_1678x937.png" width="1456" height="813" data-attrs="{&quot;src&quot;:&quot;https://substack-post-media.s3.amazonaws.com/public/images/1d3cc585-3c5e-4fd4-9b37-524ee2fa275c_1678x937.png&quot;,&quot;srcNoWatermark&quot;:null,&quot;fullscreen&quot;:null,&quot;imageSize&quot;:null,&quot;height&quot;:813,&quot;width&quot;:1456,&quot;resizeWidth&quot;:null,&quot;bytes&quot;:2180468,&quot;alt&quot;:null,&quot;title&quot;:null,&quot;type&quot;:&quot;image/png&quot;,&quot;href&quot;:null,&quot;belowTheFold&quot;:false,&quot;topImage&quot;:true,&quot;internalRedirect&quot;:&quot;https://josebozelli.substack.com/i/221633364?img=https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1d3cc585-3c5e-4fd4-9b37-524ee2fa275c_1678x937.png&quot;,&quot;isProcessing&quot;:false,&quot;align&quot;:null,&quot;offset&quot;:false}" class="sizing-normal" alt="" srcset="https://substackcdn.com/image/fetch/$s_!Vv3o!,w_424,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1d3cc585-3c5e-4fd4-9b37-524ee2fa275c_1678x937.png 424w, https://substackcdn.com/image/fetch/$s_!Vv3o!,w_848,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1d3cc585-3c5e-4fd4-9b37-524ee2fa275c_1678x937.png 848w, https://substackcdn.com/image/fetch/$s_!Vv3o!,w_1272,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1d3cc585-3c5e-4fd4-9b37-524ee2fa275c_1678x937.png 1272w, https://substackcdn.com/image/fetch/$s_!Vv3o!,w_1456,c_limit,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1d3cc585-3c5e-4fd4-9b37-524ee2fa275c_1678x937.png 1456w" sizes="100vw" fetchpriority="high"></picture><div class="image-link-expand"><div class="pencraft pc-display-flex pc-gap-8 pc-reset"><button tabindex="0" type="button" class="pencraft pc-reset pencraft icon-container restack-image buttonBase-GK1x3M"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 20 20" fill="none" stroke-width="1.5" stroke="var(--color-fg-primary)" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg" class="icon-noB79L"><g><path d="M2.53001 7.81595C3.49179 4.73911 6.43281 2.5 9.91173 2.5C13.1684 2.5 15.9537 4.46214 17.0852 7.23684L17.6179 8.67647M17.6179 8.67647L18.5002 4.26471M17.6179 8.67647L13.6473 6.91176M17.4995 12.1841C16.5378 15.2609 13.5967 17.5 10.1178 17.5C6.86118 17.5 4.07589 15.5379 2.94432 12.7632L2.41165 11.3235M2.41165 11.3235L1.5293 15.7353M2.41165 11.3235L6.38224 13.0882"></path></g></svg></button><button tabindex="0" type="button" class="pencraft pc-reset pencraft icon-container view-image buttonBase-GK1x3M"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-maximize2 lucide-maximize-2 icon-noB79L"><polyline points="15 3 21 3 21 9"></polyline><polyline points="9 21 3 21 3 15"></polyline><line x1="21" x2="14" y1="3" y2="10"></line><line x1="3" x2="10" y1="21" y2="14"></line></svg></button></div></div></div></a><figcaption class="image-caption">Clever Hans read his questioner. A model can read the ink. Illustration generated with AI tools; not a historical photograph or study data.</figcaption></figure></div><h2>A model learns whatever works</h2><p>During training, a model is rewarded for one thing: matching the answers in its examples. Nothing in that process tells which pattern is the right one. If two patterns separate the answers equally well, one rooted in the disease and one in an accident of how the data were collected, the model has no reason to prefer the first. It tends to take whichever is easiest to find. Researchers call this shortcut learning.¹</p><p>Chemists know a version of this problem. Suppose you calibrate a detector on standards that all happen to share the same trace contaminant. The instrument can end up responding to the contaminant rather than the compound you care about. Everything looks fine, run after run, until you measure a sample that does not contain it.</p><p>Analogy has one important limit. A chemist can usually name the contaminant and test it. A model rarely tells you what it latched onto, because its pattern is spread across an enormous number of internal settings. The shortcut must be found from the outside, by experiment.</p><h2>The purple ink test</h2><p>In 2018, dermatologists at the University of Heidelberg reported that deep learning convolutional neural networks (CNN) trained on dermoscopic images (<em>i.e.</em>, magnified photographs of skin lesions) outperformed most of 58 dermatologists at telling melanoma from harmless moles in standardized photo-only evaluations.² The network scored 0.86 on the area under the curve (AUC), against the dermatologists’ average 0.79.<sup>2</sup> The AUC measures how well a model ranks a sick case above a healthy one: 0.5 is a coin toss, 1.0 is perfect.</p><p>A year later, the same research group tested a different CNN, one approved as a medical device in Europe.³ Often, before a suspicious mole is removed, it is first circled with a purple surgical skin marker. To investigate the association between the purple marker and the diagnostic performance by the CNN, the team photographed the same 130 skin lesions (107 harmless moles and 23 melanomas) three ways: unmarked, marked with purple ink, and marked but cropped so the ink fell out of frame.³</p><p>Without ink, the CNN flagged about 17 of the 107 harmless moles as possible melanoma, a specificity of 84.1% (the share of harmless moles it correctly left alone).³ With ink on the very same moles, it flagged about 58 of them, and specificity fell to 45.8%.³ It still caught the melanomas: 22 of 23 unmarked and all 23 marked.³ The ink made it see melanoma where there was none. Cropping the ink out brought specificity up to 97.2%, or about 3 false alarms.³</p><p>Nothing about the moles had changed. Only the ink had. Heat maps, which highlight the parts of an image that drive the CNN’s answer, pointed at the purple markings as the source of the false alarms.³ The authors explain that marked lesions may have been more common among the melanomas in the CNN’s training images, so it came to treat purple ink as a sign of cancer.³</p><p>The CNN had found a real pattern. It was simply a pattern about what doctors do to moles they already suspect, not about moles themselves.</p><h2>Three ways to learn the wrong thing</h2><p>The purple ink is a shortcut: an easy cue that happens to travel with the answer in the training data. It is the most vivid way a model can learn the wrong thing, but not the only one.</p><p>The second is leakage, when the answers slip into the exam. A model is supposed to be tested on cases it never saw while it was being built. If the same patient appears in both the training and the test data, or information from the test set quietly shapes how the model is designed, the test stops being a test. It is like grading students on an exam they saw the answers the night before. A survey of research that uses machine learning found leakage in 17 fields, affecting 294 papers and in some cases producing wildly overoptimistic conclusions.⁴ When the errors were corrected in one field the authors re-examined, complex models did no better than decades-old statistical ones.⁴</p><p>Biological data makes leakage especially easy to miss. Samples are often related in ways invisible in a spreadsheet (<em>e.g.</em>, repeated tissue or imaging samples from the same person), and those hidden dependencies let information cross the training-testing boundary unnoticed.⁴<sup>,</sup>⁵ The result is a performance estimate that looks far better than anything the model will achieve in real world use.⁵</p><p>The third is overfitting: memorizing rather than learning. A model with many adjustable settings and few examples can fit the quirks of its training data so closely that it describes those patients perfectly and new patients poorly. Think of a student who memorized last year’s answer key: perfect on that test, lost on a new one. The COVID-19 pandemic ran an unplanned test of this. In an early update of a living systematic review in the BMJ, 232 prediction models for COVID-19 were evaluated, and every single one was rated at high or unclear risk of bias, a formal rating of how much a study’s design could skew its results, with overfitting among the most common flaws; subsequent updates appraised over 700 models with similarly discouraging results.⁶ A separate review of 62 models that read chest X-rays and CT scans found none of potential clinical use.⁷</p><h2>Right prediction, wrong lesson</h2><p>Even a model that learns a genuine pattern, from honest data, can teach the wrong lesson. In a classic case, researchers trained models on records from about 14,000 pneumonia patients to predict who would die.⁸ One model learned a rule: patients with asthma had a lower risk of dying from pneumonia.⁸</p><p>The data were right. Asthmatic patients with pneumonia were usually admitted straight to intensive care, and that aggressive care lowered their risk.⁸ If the rule had been used to decide who could safely be treated at home, the patients it labeled low risk would have lost the very care that made them low risk.</p><p>Statisticians draw this line sharply. A model built to predict is not a model built to explain, and doing one well does not mean doing the other.⁹ Prediction answers “what is likely to happen?” It does not answer “why?” or “what happens if we act?”</p><p>Language models, the systems behind chatbots, including health chatbots, show a related gap. They learn the patterns of text, and their fluency is real. So is a particular failure. When researchers gave twelve models medical questions where none of the offered answers was correct, the models still answered confidently rather than admitting the gap.¹⁰</p><p>Researchers call these arbitrary, plausible-sounding errors confabulations. Some of them can be caught by asking a model the same question several times, and if its answers disagree in meaning, the answer is less likely to be trustworthy.¹¹</p><h2>Passing the exam, failing the conversation</h2><p>Health chatbots make a useful test case, because on paper their medical knowledge is impressive. Researchers wrote ten everyday medical scenarios, the kind where someone at home has to work out what might be wrong and whether to rest, see a doctor, or call an ambulance. When the full scenario was typed straight into the language models, they named a relevant condition in about 95 of every 100 cases.¹²</p><p>Then the researchers gave the same models to real people. In a randomized trial, 1,298 adults in the UK worked through the scenarios. Some used a chatbot; the rest used whatever they would normally turn to at home, usually a search engine or a health website. The people with a chatbot named a relevant condition in fewer than 35 of every 100 cases, which was worse than the comparison group. They were no better at deciding what to do next.¹²</p><p>The knowledge was there, but it got lost in the conversation. In about half of the conversations the researchers examined closely, people’s first message left out details that mattered. The chatbots, in turn, usually offered two or three possibilities, and only about one in three suggestions was correct. People then had to choose among them, and often chose wrong.¹²</p><p>Think of a driving test. Acing the written exam shows you know the rules; it doesn’t show you can merge onto a busy highway. The chatbots had, in effect, passed the written exam, and the standard medical knowledge tests used to evaluate them did not predict this gap.¹² The analogy has a limit: on the road the driver acts alone, while here the failure was shared between the person and the machine.</p><p>This is the distinction this series keeps returning to: <em>performance as measured versus usefulness as claimed. </em>A model can learn the patterns of medical text without learning how to help a worried person who doesn’t know which details matter.</p><h2>What a high score can and cannot tell you</h2><p>None of this means the skin-cancer CNN was useless. On unmarked images, its accuracy was real, and so was the earlier CNN’s performance against dermatologists.²˒³ The lesson is narrower and more useful: </p><div class="pullquote"><p>A high score tells you that a model found a pattern. It does not tell you which one.</p></div><p>Looking inside a model rarely settles that question. What settles it is the oldest tool in the laboratory, the controlled experiment. Change one thing, the ink, hold everything else fixed, and watch what happens. The Heidelberg team did exactly that, and the shortcut revealed itself in a single comparison.³</p><p>A few checks travel well beyond dermatology. Was the model tested in cases it never saw while it was being built, ideally from somewhere else? Does its accuracy look too good to be true? Reported scores for COVID-19 diagnostic models reached above 0.99, the kind of number that should prompt a second look rather than a celebration.⁶ Was it tested on how people use it, or only on an exam? ¹²</p><p>Open questions remain. How do you find a shortcut you have not thought of looking for? Who runs the purple-ink test before a tool reaches the clinic, and who pays for it? These are the questions laboratories ask of any new method before trusting its results, and AI deserves the same scrutiny.</p><p>So, when a model’s score impresses you, ask one more question.</p><p>What did it actually learn?</p><div class="pullquote"><p>Clever Hans was a remarkable horse. He just was not doing arithmetic. Accuracy is a measurement; knowing what produced it is where measurement becomes meaning.</p></div><p></p><p><em>This article is for informational and educational purposes only and does not constitute medical advice. Scientific claims are grounded in the peer-reviewed literature cited; individual findings should be interpreted within the scope and limitations of those sources.</em></p><p><strong>José C Bozelli Jr., PhD</strong>, is a scientist working at the intersection of biomarkers, omics, data science, and AI. He writes about health intelligence: how biological measurements become evidence, insight, and better decisions.</p><p><a href="https://bozelli.ca">bozelli.ca</a></p><h2>References</h2><blockquote><p>1. Geirhos R, et al. Shortcut learning in deep neural networks. Nat Mach Intell. 2020;2(11):665–73. DOI: <a href="https://doi.org/10.1038/s42256-020-00257-z">10.1038/s42256-020-00257-z</a></p><p>2. Haenssle HA, et al. Man against machine: diagnostic performance of a deep learning convolutional neural network for dermoscopic melanoma recognition in comparison to 58 dermatologists. Ann Oncol. 2018;29(8):1836–42. DOI: <a href="https://doi.org/10.1093/annonc/mdy166">10.1093/annonc/mdy166</a></p><p>3. Winkler JK, et al. Association between surgical skin markings in dermoscopic images and diagnostic performance of a deep learning convolutional neural network for melanoma recognition. JAMA Dermatol. 2019;155(10):1135–41. DOI: <a href="https://doi.org/10.1001/jamadermatol.2019.1735">10.1001/jamadermatol.2019.1735</a></p><p>4. Kapoor S, Narayanan A. Leakage and the reproducibility crisis in machine-learning-based science. Patterns. 2023;4(9):100804. DOI: <a href="https://doi.org/10.1016/j.patter.2023.100804">10.1016/j.patter.2023.100804</a></p><p>5. Bernett J, et al. Guiding questions to avoid data leakage in biological machine learning applications. Nat Methods. 2024;21(8):1444–53. DOI: <a href="https://doi.org/10.1038/s41592-024-02362-y">10.1038/s41592-024-02362-y</a></p><p>6. Wynants L, et al. Prediction models for diagnosis and prognosis of covid-19: systematic review and critical appraisal. BMJ. 2020;369:m1328. DOI: <a href="https://doi.org/10.1136/bmj.m1328">10.1136/bmj.m1328</a></p><p>7. Roberts M, et al. Common pitfalls and recommendations for using machine learning to detect and prognosticate for COVID-19 using chest radiographs and CT scans. Nat Mach Intell. 2021;3(3):199–217. DOI: <a href="https://doi.org/10.1038/s42256-021-00307-0">10.1038/s42256-021-00307-0</a></p><p>8. Caruana R, et al. Intelligible models for healthcare: predicting pneumonia risk and hospital 30-day readmission. In: <em>Proceedings of the 21st ACM SIGKDD International Conference on Knowledge Discovery and Data Mining</em>; 2015:1721–30. DOI: <a href="https://doi.org/10.1145/2783258.2788613">10.1145/2783258.2788613</a></p><p>9. Shmueli G. To explain or to predict? Stat Sci. 2010;25(3):289–310. DOI: <a href="https://doi.org/10.1214/10-STS330">10.1214/10-STS330</a></p><p>10. Griot M, et al. Large language models lack essential metacognition for reliable medical reasoning. Nat Commun. 2025;16(1):642. DOI: <a href="https://doi.org/10.1038/s41467-024-55628-6">10.1038/s41467-024-55628-6</a></p><p>11. Farquhar S, et al. Detecting hallucinations in large language models using semantic entropy. Nature. 2024;630(8017):625–30. DOI: <a href="https://doi.org/10.1038/s41586-024-07421-0">10.1038/s41586-024-07421-0</a></p><p>12. Bean AM, et al. Reliability of LLMs as medical assistants for the general public: a randomized preregistered study. Nat Med. 2026;32(2):609–15. DOI: <a href="https://doi.org/10.1038/s41591-025-04074-y">10.1038/s41591-025-04074-y</a></p></blockquote><p><em>Author &amp; Editorial Note: This article was conceived and editorially directed by the author, who defined its argument, audience, voice, narrative structure, and scientific framing. AI tools, including large language model assistants, supported literature discovery and synthesis, citation checking, and generated draft prose within that direction. The author reviewed the evidence, edited the manuscript, and retains responsibility for the interpretation and final published text.</em></p>
+  </article>
+
+  <section class="related-section">
+    <div class="container">
+      <div class="related-label" data-en="Related reading" data-pt="Leitura relacionada">Related reading</div>
+      <div class="related-grid">
+        <a href="ai-cant-rescue-a-bad-measurement.html" class="related-card">
+          <h5>AI Can't Rescue a Bad Measurement</h5>
+          <p>Health AI can find remarkable patterns. It can also learn the hospital, the batch, or the mistake.</p>
+        </a>
+        <a href="the-inflammation-marker-that-cant.html" class="related-card">
+          <h5>The Inflammation Marker That Can't See the Fire</h5>
+          <p>Standard inflammation markers tell you that something is burning. They cannot tell you what, or why, it is burning. A specific family of lipid molecules can.</p>
+        </a>
+        <a href="remodeling-the-brain.html" class="related-card">
+          <h5>Remodeling the Brain</h5>
+          <p>Cognitive health depends on fats delivered to the brain. The standard omega-3 index tells only half of the story about how they do it.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="series-nav">
+    <div class="series-nav-inner">
+      <div class="series-nav-label">Continue reading</div>
+      <a href="../insights.html" class="series-nav-link" style="text-decoration:none;">
+        <h5>Browse the rest of the series</h5>
+        <span>All Insights →</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="section" style="background: var(--paper-warm); padding: 64px 0;">
+    <div class="container">
+      <div class="subscribe-panel">
+        <div class="subscribe-panel-label">Stay current</div>
+        <h4>Get new pieces by email</h4>
+        <p>New pieces land here first and in your inbox at the same time — biweekly, free, no spam.</p>
+        <div class="subscribe-embed">
+          <iframe src="https://josebozelli.substack.com/embed" frameborder="0" scrolling="no" title="Subscribe to Lipids, Data &amp; Life"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-name">José Carlos Bozelli Jr., PhD · bozelli.ca</div>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/jose-bozelli" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://josebozelli.substack.com" target="_blank" rel="noopener">Substack</a>
+        <a href="../services.html" data-en="Consulting" data-pt="Consultoria">Consulting</a>
+        <a href="../contact.html" data-en="Contact" data-pt="Contato">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>
