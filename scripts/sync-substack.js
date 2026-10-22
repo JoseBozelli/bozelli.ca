@@ -2,7 +2,7 @@
 /**
  * scripts/sync-substack.js
  *
- * Pulls josebozelli.substack.com/feed and:
+ * Pulls bozelli.substack.com/feed and:
  *   1. Builds/updates individual article pages (insights/<slug>.html)
  *   2. Builds/updates series pages    (insights/series/<series-slug>.html)
  *   3. Rebuilds the hub               (insights.html)
@@ -354,6 +354,29 @@ function resolveCardImage(post) {
   return post.imageUrl || "";
 }
 
+// Image frame: every Home image sits in a fixed-aspect frame. The image is
+// shown whole (object-fit: contain, so infographic text is never cropped)
+// over a blurred, enlarged copy of itself that fills the frame. Result:
+// any image size/ratio (landscape, portrait, square) renders as a clean,
+// uniform tile with no empty bands. Pure CSS, no per-image settings.
+const HOME_MODULE_CSS = `<style>
+  .home-frame{position:relative;display:block;width:100%;overflow:hidden;background:var(--paper-mid,#e4dfd4);isolation:isolate}
+  .home-frame::before{content:"";position:absolute;inset:-24px;background-image:var(--img);background-size:cover;background-position:center;filter:blur(22px) saturate(1.05);opacity:.55;transform:scale(1.1);z-index:-1}
+  .home-frame>img{display:block;width:100%;height:100%;object-fit:contain;transition:opacity .25s}
+  .home-frame--lead{aspect-ratio:16/10}
+  .home-frame--tile{aspect-ratio:4/3;margin-bottom:18px}
+  .featured-story{align-items:center;margin-top:48px}
+  .secondary-stories{margin-top:56px}
+  .secondary-story:hover .home-frame>img{opacity:.85}
+  .secondary-story-tag{font-family:var(--mono);font-size:10px;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+</style>`;
+
+function homeFrame(post, variant) {
+  const src = resolveCardImage(post);
+  const safe = esc(src).replace(/'/g, "%27");
+  return `<span class="home-frame home-frame--${variant}" style="--img:url('${safe}')"><img src="${esc(src)}" alt="${esc(post.title)}" loading="lazy"></span>`;
+}
+
 function buildHomeFeaturedBlock(manifest, bySlugMap, seriesConfig) {
   const featuredSlug = manifest.featured;
   const featured = featuredSlug ? bySlugMap.get(featuredSlug) : null;
@@ -378,19 +401,23 @@ function buildHomeFeaturedBlock(manifest, bySlugMap, seriesConfig) {
   const secondaryHtml = secondarySlugs.map((slug, i) => {
     const p = bySlugMap.get(slug);
     const delayClass = i === 0 ? "" : ` reveal-delay-${i}`;
+    const label = findSeriesLabelForSlug(slug, seriesConfig) || "";
+    const labelPt = (seriesConfig.series || []).find(s => (s.posts||[]).includes(slug))?.titlePt || label;
+    const tag = label ? `\n          <div class="secondary-story-tag" data-en="${esc(label)}" data-pt="${esc(labelPt)}">${esc(label)}</div>` : "";
     return `        <a href="/insights/${p.slug}.html" class="secondary-story reveal${delayClass}">
-          <img class="secondary-story-img" src="${resolveCardImage(p)}" alt="${esc(p.title)}">
+          ${homeFrame(p, "tile")}${tag}
           <h4>${esc(p.title)}</h4>
           <p data-en="${esc(p.dek)}" data-pt="${esc(p.dekPt || "[PT translation pending]")}">${esc(p.dek)}</p>
         </a>`;
   }).join("\n");
 
-  return `      <div class="insights-kicker reveal" data-en="Currently investigating" data-pt="Investigando atualmente">Currently investigating</div>
+  return `      ${HOME_MODULE_CSS}
+      <div class="insights-kicker reveal" data-en="Currently investigating" data-pt="Investigando atualmente">Currently investigating</div>
       <h2 class="insights-question reveal reveal-delay-1" data-en="${esc(question)}" data-pt="${esc(questionPt)}">${esc(question)}</h2>
       <span class="insights-series-tag" data-en="${esc(seriesLabel)}" data-pt="${esc(seriesLabelPt)}">${esc(seriesLabel)}</span>
 
       <div class="featured-story reveal reveal-delay-2">
-        <img class="featured-story-img" src="${resolveCardImage(featured)}" alt="${esc(featured.title)}">
+        ${homeFrame(featured, "lead")}
         <div class="featured-story-body">
           <div class="featured-story-label" data-en="${esc(seriesLabel)}" data-pt="${esc(seriesLabelPt)}">${esc(seriesLabel)}</div>
           <h3>${esc(featured.title)}</h3>
