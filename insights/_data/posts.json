@@ -1,11 +1,11 @@
 {
-  "featured": "how-do-you-know-an-ai-learned-the",
-  "featuredQuestion": "How do you know an AI learned the right thing?",
-  "featuredQuestionPt": "Como saber se uma IA aprendeu a coisa certa?",
+  "featured": "will-health-ai-trained-there-work-here",
+  "featuredQuestion": "Was this health AI tested on anyone like you?",
+  "featuredQuestionPt": "Essa IA de saúde foi testada em alguém como você?",
   "secondary": [
     "the-biomarker-gold-rush",
     "the-inflammation-marker-that-cant",
-    "ai-cant-rescue-a-bad-measurement"
+    "how-do-you-know-an-ai-learned-the"
   ],
   "posts": [
     {
@@ -178,6 +178,18 @@
       "readTime": 12,
       "imageUrl": "https://substackcdn.com/image/fetch/$s_!Vv3o!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1d3cc585-3c5e-4fd4-9b37-524ee2fa275c_1678x937.png",
       "contentHash": "440d92819da37cdb5e771b7186a6528b7e0aaa7ee802d9d3952bd3385c412ecb",
+      "templateHash": "dc5af5d3e4854ceca9807431e3e0a89c907c18c381148c5d5ff4f7d77d85e547"
+    },
+    {
+      "slug": "will-health-ai-trained-there-work-here",
+      "title": "Will the Health AI Trained There Work Here?",
+      "dek": "A clinical AI sepsis model, COVID-19, and why an AI model's performance depends on where you use it.",
+      "section": "Lipids, Data & Life",
+      "pubDate": "2026-11-09T19:30:55.000Z",
+      "substackUrl": "https://josebozelli.substack.com/p/will-health-ai-trained-there-work-here",
+      "readTime": 17,
+      "imageUrl": "https://substackcdn.com/image/fetch/$s_!WiMO!,f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe6c5d594-0322-43a2-bec6-3180b0ba571c_1672x941.png",
+      "contentHash": "923d71d49984a31f3b14636b2b94dba94a1e3743faaed8c3485b0b18720592fa",
       "templateHash": "dc5af5d3e4854ceca9807431e3e0a89c907c18c381148c5d5ff4f7d77d85e547"
     }
   ]
